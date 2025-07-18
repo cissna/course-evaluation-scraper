@@ -1,5 +1,6 @@
 import json
 import os
+import datetime
 import requests
 from urllib.parse import urlparse, parse_qs
 
@@ -85,6 +86,28 @@ def run_scraper_workflow(course_code: str):
     # This function also authenticates implicitly, but we need a session for the next step.
     print(f"Fetching report links for {course_code}...")
     report_links = get_evaluation_report_links(course_code=course_code)
+
+    # Handle paginated results if necessary
+    if len(report_links) >= 20:
+        print("Pagination detected. Fetching links year by year...")
+        all_links_by_year = []
+        start_year = 2010
+        end_year = datetime.date.today().year
+
+        for year in range(start_year, end_year + 1):
+            print(f"Fetching links for {course_code} for year: {year}")
+            yearly_links = get_evaluation_report_links(course_code=course_code, year=year)
+
+            if len(yearly_links) >= 20:
+                print(f"WARNING: Found 20 or more links for {year}. This indicates a potential failure to retrieve all results for this year and subsequent years. Skipping.")
+                metadata[course_code]['last_period_gathered'] = f"failed_at_year_{year}"
+                metadata[course_code]['last_period_failed'] = True
+                save_json_file(METADATA_FILE, metadata)
+                break  # Stop processing further years
+
+            all_links_by_year.extend(yearly_links)
+        
+        report_links = all_links_by_year
 
     if not report_links:
         print("No new report links found. Workflow ending.")
