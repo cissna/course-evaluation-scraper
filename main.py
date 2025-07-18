@@ -94,13 +94,13 @@ def run_scraper_workflow(course_code: str):
         start_year = 2010
         end_year = datetime.date.today().year
 
-        for year in range(start_year, end_year + 1):
+        for year in range(start_year, end_year + 2):  # year somtimes weirdly represents the year before it, so we do an extra to be safe
             print(f"Fetching links for {course_code} for year: {year}")
             yearly_links = get_evaluation_report_links(course_code=course_code, year=year)
 
             if len(yearly_links) >= 20:
                 print(f"WARNING: Found 20 or more links for {year}. This indicates a potential failure to retrieve all results for this year and subsequent years. Skipping.")
-                metadata[course_code]['last_period_gathered'] = f"failed_at_year_{year}"
+                metadata[course_code]['last_period_gathered'] = "IN" + str(year)[2:]  # intersession is the first period of the year
                 metadata[course_code]['last_period_failed'] = True
                 save_json_file(METADATA_FILE, metadata)
                 break  # Stop processing further years
