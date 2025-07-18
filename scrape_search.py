@@ -11,9 +11,10 @@ def get_evaluation_report_links(
     area_id: str = None,
     question_key: str = None,
     search: str = None
-) -> list:
+) -> dict:
     """
-    Scrapes report links for a given course using a pre-authenticated session.
+    Scrapes report links for a given course and returns them in a dictionary
+    mapping the course instance code to the report URL.
 
     Args:
         session (requests.Session): An authenticated requests session object.
@@ -26,8 +27,9 @@ def get_evaluation_report_links(
         search (str, optional): An unimportant search query. Defaults to None.
 
     Returns:
-        A list of fully constructed report URLs found on the page.
-        Returns an empty list if the page can't be accessed or no links are found.
+        A dictionary where keys are course instance codes (e.g., 'AS.030.101.01.FA15')
+        and values are the corresponding report URLs.
+        Returns an empty dictionary if the page can't be accessed or no links are found.
         Returns None on unexpected behavior.
     """
     # The base URL for the course reports page.
@@ -59,56 +61,54 @@ def get_evaluation_report_links(
     # The base URL for constructing the final, individual report links.
     individual_report_base_url = 'https://asen-jhu.evaluationkit.com/Reports/StudentReport.aspx'
 
-    report_links = []
+    report_links = {}
 
     try:
         # The session is assumed to be authenticated by the caller.
         # 1. Navigate: Go to the specific course page.
-        # print(f"Fetching course page: {course_url}")
         course_page_response = session.get(course_url, timeout=10)
         course_page_response.raise_for_status()
-        # print("Successfully accessed course page.")
 
         # 2. Parse and Find Links: Use BeautifulSoup to parse the HTML.
         soup = BeautifulSoup(course_page_response.text, 'html.parser')
 
-        # Find all <a> tags with the class 'sr-view-report'. This class seems
-        # to be the specific selector for the "View Report" buttons.
+        # Find all <a> tags with the class 'sr-view-report'.
         links_found = soup.find_all('a', class_='sr-view-report')
 
         if not links_found:
-            # print("No 'View Report' links found on the page.")
-            return []
+            return {}
 
-        # print(f"Found {len(links_found)} report link(s). Processing...")
-
-        # 3. Construct URLs: For each link, extract data attributes and build the full URL.
+        # 3. Construct URLs and find course codes
         for link in links_found:
-            # The href is '#', so the actual link is generated dynamically.
-            # We can reconstruct it from the 'data-id' attributes.
             data_id0 = link.get('data-id0')
             data_id1 = link.get('data-id1')
             data_id2 = link.get('data-id2')
             data_id3 = link.get('data-id3')
 
-            # Get the aria-label for context, which usually contains the report title.
-            label = link.get('aria-label', 'No label found').strip()
-
             if all([data_id0, data_id1, data_id2, data_id3]):
-                # The correct URL format is a single 'id' parameter with comma-separated values.
-                # The order is id0, id1, id2, id3.
-
+                # Construct the URL for the report
                 id_string = f"{data_id0},{data_id1},{data_id2},{data_id3}"
-                
-                # Manually construct the final URL to match the required format.
                 final_url = f"{individual_report_base_url}?id={id_string}"
+
+                # Find the corresponding course instance code
+                desc_div_id = f"sr-desc-{data_id0}_{data_id1}_{data_id2}_{data_id3}"
+                desc_div = soup.find('div', id=desc_div_id)
                 
-                # print(f"\n---\nFound Report: {label}")
-                # print(f"Constructed URL: {final_url}")
-                report_links.append(final_url)
+                course_instance_code = None
+                if desc_div:
+                    code_p = desc_div.find('p', class_='sr-dataitem-info-code')
+                    if code_p:
+                        course_instance_code = code_p.text.strip()
+
+                if course_instance_code:
+                    report_links[course_instance_code] = final_url
+                else:
+                    label = link.get('aria-label', 'No label found').strip()
+                    print(f"Could not find course instance code for report: {label}")
             else:
-                print(f"\n---\nSkipping a link because it was missing required data-id attributes: {label}")
-                return None  # may change this later, but for now I don't want to miss any potential data.
+                label = link.get('aria-label', 'No label found').strip()
+                print(f"Skipping a link because it was missing required data-id attributes: {label}")
+                return None
 
 
     except requests.exceptions.RequestException as e:
@@ -139,11 +139,11 @@ if __name__ == '__main__':
             
             print("\n--- Scraping Complete ---")
             if links:
-                print(f"Found and constructed {len(links)} report URL(s):")
-                for url in links:
-                    print(url)
+                print(f"Found {len(links)} report(s):")
+                for code, url in links.items():
+                    print(f"  - {code}: {url}")
             else:
-                print("No links were successfully extracted or an error occurred.")
+                print("No reports were successfully extracted or an error occurred.")
 
             print("\n" + "="*50 + "\n")
 
@@ -163,11 +163,11 @@ if __name__ == '__main__':
 
             print("\n--- Scraping Complete ---")
             if adv_links:
-                print(f"Found and constructed {len(adv_links)} report URL(s):")
-                for url in adv_links:
-                    print(url)
+                print(f"Found {len(adv_links)} report(s):")
+                for code, url in adv_links.items():
+                    print(f"  - {code}: {url}")
             else:
-                print("No links were successfully extracted or an error occurred.")
+                print("No reports were successfully extracted or an error occurred.")
 
         except requests.exceptions.RequestException as e:
             print(f"Failed to authenticate for example run: {e}")
