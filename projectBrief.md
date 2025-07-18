@@ -5,7 +5,7 @@ Create a scraper than can dynamically get all JHU course evaluation data for a g
 
 # Plans
 ## `requests`
-I already have a working file that inputs a search to scrape and outputs the links to the data associated with that search. This is the lowest level scraping mechanism, along with the scraping of the links it outputs.
+I already have a working file that inputs a search to scrape and outputs the links to the data associated with that search. This is the lowest level scraping mechanism, along with the scraping of the links it outputs. Function: `get_evaluation_report_links(*attributes)`
 
 
 ## Data storage mechanism:

@@ -1,31 +1,61 @@
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from urllib.parse import urlencode, urljoin
 
-def get_evaluation_report_links(course_code: str) -> list:
+def get_evaluation_report_links(
+    course_code: str,
+    instructor: str = None,
+    term_id: str = None,
+    year: str = None,
+    area_id: str = None,
+    question_key: str = None,
+    search: str = None
+) -> list:
     """
     Authenticates with EvaluationKit and scrapes report links for a given course.
 
     Args:
-        course_code: The path to the specific course page to look up (e.g., 'Report/Public/Results?Course=EN.601.473').
-                     It can also have the following &... attributes:
-                        - Instructor
-                        - TermId
-                        - Year
-                        - AreaId
-                        - QuestionKey
-                        - Search
+        course_code (str): The course code to look up (e.g., 'EN.601.473'). This is required.
+        instructor (str, optional): Filter by instructor name. Defaults to None.
+        term_id (str, optional): Filter by a specific term ID. Defaults to None.
+        year (str, optional): Filter by a specific year. Defaults to None.
+        area_id (str, optional): Filter by a specific area ID. Defaults to None.
+        question_key (str, optional): Filter by a specific question key. Defaults to None.
+        search (str, optional): An unimportant search query. Defaults to None.
 
     Returns:
         A list of fully constructed report URLs found on the page.
         Returns an empty list if the page can't be accessed or no links are found.
+        Returns None on unexpected behavior.
     """
     # The initial URL that establishes an authenticated session via cookies.
     auth_url = 'https://asen-jhu.evaluationkit.com/Login/ReportPublic?id=THo7RYxiDOgppCUb8vkY%2bPMVFDNyK2ADK0u537x%2fnZsNvzOBJJZTTNEcJihG8hqZ'
     
     # The base URL for the course reports page.
     base_report_url = 'https://asen-jhu.evaluationkit.com/'
-    course_url = urljoin(base_report_url, f'Report/Public/Results?Course={course_code}')
+    
+    # --- Build the dynamic course URL ---
+    # Start with the required parameter
+    query_params = {'Course': course_code}
+    
+    # Add optional parameters to the dictionary if they are provided
+    if instructor:
+        query_params['Instructor'] = instructor
+    if term_id:
+        query_params['TermId'] = term_id
+    if year:
+        query_params['Year'] = year
+    if area_id:
+        query_params['AreaId'] = area_id
+    if question_key:
+        query_params['QuestionKey'] = question_key
+    if search:
+        query_params['Search'] = search
+        
+    # URL-encode the parameters and join with the base path
+    course_path = f"Report/Public/Results?{urlencode(query_params)}"
+    course_url = urljoin(base_report_url, course_path)
+    # --- End URL construction ---
 
     # The base URL for constructing the final, individual report links.
     individual_report_base_url = 'https://asen-jhu.evaluationkit.com/Reports/StudentReport.aspx'
@@ -75,7 +105,7 @@ def get_evaluation_report_links(course_code: str) -> list:
                 if all([data_id0, data_id1, data_id2, data_id3]):
                     # The correct URL format is a single 'id' parameter with comma-separated values.
                     # The order is id0, id1, id2, id3.
-                    # The data-id values from BeautifulSoup are already URL-encoded, so we just join them.
+
                     id_string = f"{data_id0},{data_id1},{data_id2},{data_id3}"
                     
                     # Manually construct the final URL to match the required format.
@@ -101,17 +131,39 @@ def get_evaluation_report_links(course_code: str) -> list:
 
 if __name__ == '__main__':
     # --- Example Usage ---
-    # Replace with the course code you want to scrape.
-    target_course = 'AS.030.101' 
     
-    # print(f"--- Starting scraper for course: {target_course} ---")
-    links = get_evaluation_report_links(f'Report/Public/Results?Course={target_course}')
+    # 1. Simple lookup with just the required course code.
+    target_course = 'AS.030.101'
+    print(f"--- Starting scraper for course: {target_course} ---")
+    links = get_evaluation_report_links(course_code=target_course)
     
-    # print("\n--- Scraping Complete ---")
+    print("\n--- Scraping Complete ---")
     if links:
-        # print(f"Found and constructed {len(links)} report URL(s):")
+        print(f"Found and constructed {len(links)} report URL(s):")
         for url in links:
             print(url)
     else:
-        pass  # print("No links were successfully extracted.")
+        print("No links were successfully extracted or an error occurred.")
 
+    print("\n" + "="*50 + "\n")
+
+    # 2. Example of a more complex lookup with an instructor and year.
+    # (Note: These are example values and may not return results)
+    target_course_adv = 'EN.601.220'
+    target_instructor = 'Jason Eisner'
+    target_year = '2023'
+    print(f"--- Starting advanced search for course: {target_course_adv}, Instructor: {target_instructor}, Year: {target_year} ---")
+    
+    adv_links = get_evaluation_report_links(
+        course_code=target_course_adv,
+        instructor=target_instructor,
+        year=target_year
+    )
+
+    print("\n--- Scraping Complete ---")
+    if adv_links:
+        print(f"Found and constructed {len(adv_links)} report URL(s):")
+        for url in adv_links:
+            print(url)
+    else:
+        print("No links were successfully extracted or an error occurred.")
