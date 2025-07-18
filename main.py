@@ -4,7 +4,7 @@ import requests
 from urllib.parse import urlparse, parse_qs
 
 # Import the scraper functions from other files
-from scrapeSearch import get_evaluation_report_links
+from scrape_search import get_evaluation_report_links
 from scrape_link import scrape_evaluation_data
 
 METADATA_FILE = 'metadata.json'
