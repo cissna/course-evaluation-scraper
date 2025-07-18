@@ -65,113 +65,167 @@ def get_course_instance_key_from_url(url: str) -> str:
 
 def run_scraper_workflow(course_code: str):
     """
-    Orchestrates the full scraping process for a given course code.
+    Orchestrates the scraping process for a course, with frequent saving
+    and robust handling of paginated results.
     """
     print(f"--- Starting workflow for course: {course_code} ---")
-    
+
     # 1. Load existing data and metadata
     metadata = load_json_file(METADATA_FILE)
     data = load_json_file(DATA_FILE)
-    
-    # Initialize metadata for the course if it's not present
+
+    # 2. Initialize metadata for the course if it's not present
     if course_code not in metadata:
         metadata[course_code] = {
             "first_period_gathered": None,
             "last_period_gathered": None,
-            "last_period_failed": True,
+            "last_period_failed": False, # Start optimistically
             "relevant_periods": []
         }
-
-    # 2. Get evaluation report links
-    # This function also authenticates implicitly, but we need a session for the next step.
-    print(f"Fetching report links for {course_code}...")
-    report_links = get_evaluation_report_links(course_code=course_code)
-
-    # Handle paginated results if necessary
-    if len(report_links) >= 20:
-        print("Pagination detected. Fetching links year by year...")
-        all_links_by_year = []
-        start_year = 2010
-        end_year = datetime.date.today().year
-
-        for year in range(start_year, end_year + 2):  # year somtimes weirdly represents the year before it, so we do an extra to be safe
-            print(f"Fetching links for {course_code} for year: {year}")
-            yearly_links = get_evaluation_report_links(course_code=course_code, year=year)
-
-            if len(yearly_links) >= 20:
-                print(f"WARNING: Found 20 or more links for {year}. This indicates a potential failure to retrieve all results for this year and subsequent years. Skipping.")
-                metadata[course_code]['last_period_gathered'] = "IN" + str(year)[2:]  # intersession is the first period of the year
-                metadata[course_code]['last_period_failed'] = True
-                save_json_file(METADATA_FILE, metadata)
-                break  # Stop processing further years
-
-            all_links_by_year.extend(yearly_links)
-        
-        report_links = all_links_by_year
-
-    if not report_links:
-        print("No new report links found. Workflow ending.")
-        # Update metadata to show we checked
-        # A more robust solution would use actual dates/terms
-        metadata[course_code]['last_period_gathered'] = "checked_no_new_links"
+        # Save initial metadata structure
         save_json_file(METADATA_FILE, metadata)
-        return
 
-    print(f"Found {len(report_links)} report links.")
-
-    # 3. Get an authenticated session for scraping individual links
+    # 3. Get an authenticated session for all scraping
     session = get_authenticated_session()
     if not session:
         print("Could not get authenticated session. Aborting.")
+        # Mark failure in metadata
+        metadata[course_code]['last_period_failed'] = True
+        save_json_file(METADATA_FILE, metadata)
         return
 
-    # 4. Scrape each link and update data
-    new_data_found = False
-    for link in report_links:
-        instance_key = get_course_instance_key_from_url(link)
-        
-        if not instance_key:
-            print(f"Could not generate a key for URL: {link}. Skipping.")
-            continue
+    # 4. Get initial list of report links using the authenticated session
+    print(f"Fetching initial report links for {course_code}...")
+    report_links = get_evaluation_report_links(session=session, course_code=course_code)
 
-        # Check if this specific report has already been scraped
-        if instance_key in data:
-            print(f"Report {instance_key} already exists in data.json. Skipping.")
-            continue
-
-        print(f"Scraping new report: {instance_key}")
-        scraped_data = scrape_evaluation_data(link, session)
-
-        if scraped_data:
-            data[instance_key] = scraped_data
-            # Update metadata with the newly found period/instance
-            if instance_key not in metadata[course_code]['relevant_periods']:
-                 metadata[course_code]['relevant_periods'].append(instance_key)
-            new_data_found = True
-            print(f"Successfully scraped and stored data for {instance_key}.")
-        else:
-            print(f"Failed to scrape data for {instance_key}.")
-            metadata[course_code]['last_period_failed'] = True
-
-    # 5. Save updated data and metadata
-    if new_data_found:
-        print("Saving updated data.json...")
-        save_json_file(DATA_FILE, data)
-        
-        # Update metadata timestamps/periods
-        # This is simplified; a real implementation would parse terms/dates
-        last_gathered = metadata[course_code]['relevant_periods'][-1] if metadata[course_code]['relevant_periods'] else "unknown"
-        metadata[course_code]['last_period_gathered'] = last_gathered
-        if not metadata[course_code]['first_period_gathered']:
-            metadata[course_code]['first_period_gathered'] = last_gathered
-        
-        # If we successfully scraped something, we can be optimistic.
-        # A more robust check would confirm all links were scraped.
+    if not report_links:
+        print("No report links found on the main page. Workflow ending.")
+        # We can record that we checked and found nothing.
+        metadata[course_code]['last_period_gathered'] = metadata[course_code].get('last_period_gathered', 'checked_no_new_links')
         metadata[course_code]['last_period_failed'] = False
+        save_json_file(METADATA_FILE, metadata)
+        return
 
-    print("Saving updated metadata.json...")
-    save_json_file(METADATA_FILE, metadata)
-    
+    # 5. Decide workflow based on number of links (pagination indicator)
+    # If there are 20 or more links, the results are paginated by year.
+    # We must scrape year by year to ensure we get all results and can save progress.
+    if len(report_links) >= 20:
+        print("Pagination detected (20+ links). Switching to year-by-year scraping.")
+        start_year = 2010  # Define a reasonable start year for the data
+        end_year = datetime.date.today().year
+
+        # Loop through each year to get a complete set of links
+        for year in range(start_year, end_year + 2): # +2 to be safe for how years are categorized
+            print(f"\n--- Processing year: {year} ---")
+            # Pass the session to the yearly link fetch as well
+            yearly_links = get_evaluation_report_links(session=session, course_code=course_code, year=year)
+
+            # If a single year returns 20+ links, it's an unhandled edge case.
+            # Per the protocol, we must stop and record the failure point to avoid incomplete data.
+            if len(yearly_links) >= 20:
+                print(f"CRITICAL: Found 20 or more links for year {year}. This implies results for this year are incomplete.")
+                print("Halting process to prevent saving partial data for the year.")
+                # We record the failure point as the start of the problematic year (Intersession).
+                # This allows the scraper to know where to resume or what period is problematic.
+                metadata[course_code]['last_period_gathered'] = f"IN{str(year)[2:]}"
+                metadata[course_code]['last_period_failed'] = True
+                save_json_file(METADATA_FILE, metadata)
+                break  # Exit the year loop
+
+            if not yearly_links:
+                print(f"No links found for {year}.")
+                continue
+
+            print(f"Found {len(yearly_links)} links for {year}. Scraping and saving individually...")
+            
+            # Scrape all links for the current year, saving after each one
+            year_batch_failed = False
+            for link in yearly_links:
+                instance_key = get_course_instance_key_from_url(link)
+                if not instance_key:
+                    print(f"Could not generate key for URL: {link}. Skipping.")
+                    continue
+                
+                if instance_key in data:
+                    # print(f"Report {instance_key} already exists. Skipping.")
+                    continue
+
+                print(f"Scraping new report: {instance_key}")
+                scraped_data = scrape_evaluation_data(link, session)
+
+                if scraped_data:
+                    # Save data for this one report
+                    data[instance_key] = scraped_data
+                    save_json_file(DATA_FILE, data)
+                    
+                    # Update metadata and save it immediately to record progress
+                    if instance_key not in metadata[course_code]['relevant_periods']:
+                        metadata[course_code]['relevant_periods'].append(instance_key)
+                    
+                    metadata[course_code]['last_period_gathered'] = instance_key
+                    if not metadata[course_code].get('first_period_gathered'):
+                        metadata[course_code]['first_period_gathered'] = instance_key
+                    
+                    # Mark as not failed for now, will be updated if any in this batch fail
+                    metadata[course_code]['last_period_failed'] = False
+                    save_json_file(METADATA_FILE, metadata)
+                    print(f"Successfully scraped and stored {instance_key}.")
+                else:
+                    print(f"Failed to scrape {instance_key}. Marking this batch as failed.")
+                    year_batch_failed = True
+                    # Record the failure immediately in the metadata
+                    metadata[course_code]['last_period_failed'] = True
+                    save_json_file(METADATA_FILE, metadata)
+
+            if not year_batch_failed:
+                print(f"Successfully completed all new reports for {year}.")
+            else:
+                print(f"Finished processing {year}, but some reports failed to scrape.")
+
+    else: # Simple case: < 20 links, no pagination
+        print(f"Found {len(report_links)} links. No pagination detected. Scraping all.")
+        
+        batch_failed = False
+        for link in report_links:
+            instance_key = get_course_instance_key_from_url(link)
+            if not instance_key:
+                print(f"Could not generate key for URL: {link}. Skipping.")
+                continue
+            
+            if instance_key in data:
+                # print(f"Report {instance_key} already exists. Skipping.")
+                continue
+
+            print(f"Scraping new report: {instance_key}")
+            scraped_data = scrape_evaluation_data(link, session)
+
+            if scraped_data:
+                # Save data for this one report
+                data[instance_key] = scraped_data
+                save_json_file(DATA_FILE, data)
+                
+                # Update metadata and save it immediately
+                if instance_key not in metadata[course_code]['relevant_periods']:
+                    metadata[course_code]['relevant_periods'].append(instance_key)
+                
+                metadata[course_code]['last_period_gathered'] = instance_key
+                if not metadata[course_code].get('first_period_gathered'):
+                    metadata[course_code]['first_period_gathered'] = instance_key
+                
+                metadata[course_code]['last_period_failed'] = False
+                save_json_file(METADATA_FILE, metadata)
+                print(f"Successfully scraped and stored {instance_key}.")
+            else:
+                print(f"Failed to scrape {instance_key}. Marking this batch as failed.")
+                batch_failed = True
+                metadata[course_code]['last_period_failed'] = True
+                save_json_file(METADATA_FILE, metadata)
+
+        if not batch_failed:
+            print("Successfully completed all new reports for this batch.")
+        else:
+            print("Finished processing batch, but some reports failed to scrape.")
+
     print(f"--- Workflow for {course_code} complete. ---")
 
 
