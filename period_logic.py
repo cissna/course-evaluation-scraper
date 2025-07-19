@@ -40,6 +40,16 @@ def get_period_from_instance_key(instance_key: str) -> str:
         return match.group(1)
     return None
 
+def get_year_from_period_string(period_string: str) -> int:
+    """
+    Extracts the four-digit year from a period string (e.g., 'FA23' -> 2023).
+    """
+    if not period_string or len(period_string) < 4:
+        return None
+    
+    year_short = int(period_string[-2:])
+    return 2000 + year_short
+
 
 def get_current_period() -> str:
     """

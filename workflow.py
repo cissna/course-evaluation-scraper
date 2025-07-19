@@ -5,6 +5,7 @@ from scraping_logic import get_authenticated_session
 from scrape_search import get_evaluation_report_links
 from scrape_link import scrape_evaluation_data
 from period_logic import find_oldest_year_from_keys, is_course_up_to_date, get_period_from_instance_key
+from period_logic import get_year_from_period_string
 from period_logic import get_current_period, is_grace_period_over
 
 def run_scraper_workflow(course_code: str):
@@ -18,8 +19,13 @@ def run_scraper_workflow(course_code: str):
     metadata = load_json_file(METADATA_FILE)
     data = load_json_file(DATA_FILE)
 
-    # 2. Initialize metadata for the course if it's not present
-    if course_code not in metadata:
+    # 2. Check if course is up-to-date, then initialize if new.
+    if course_code in metadata:
+        course_metadata = metadata[course_code]
+        if is_course_up_to_date(course_metadata.get('last_period_gathered'), course_metadata):
+            print(f"Course {course_code} is already up-to-date. Skipping workflow.")
+            return
+    else:
         metadata[course_code] = {
             "first_period_gathered": None,
             "last_period_gathered": None,
@@ -29,11 +35,7 @@ def run_scraper_workflow(course_code: str):
         # Save initial metadata structure
         save_json_file(METADATA_FILE, metadata)
 
-    # Check if the course is already up-to-date before proceeding
     course_metadata = metadata[course_code]
-    if is_course_up_to_date(course_metadata.get('last_period_gathered'), course_metadata):
-        print(f"Course {course_code} is already up-to-date. Skipping workflow.")
-        return
 
     # 3. Get an authenticated session for all scraping
     session = get_authenticated_session()
@@ -57,10 +59,16 @@ def run_scraper_workflow(course_code: str):
     if len(report_links_dict) >= 20:
         print("Pagination detected (20+ links). Switching to year-by-year scraping.")
         
-        # Dynamically determine the start year from the oldest course instance code
-        start_year = find_oldest_year_from_keys(report_links_dict.keys())
+        # Determine start year: from metadata if available, otherwise from oldest key
+        last_period = course_metadata.get('last_period_gathered')
+        if last_period:
+            start_year = get_year_from_period_string(last_period)
+            print(f"Resuming from last gathered period's year: {start_year}")
+        else:
+            start_year = find_oldest_year_from_keys(report_links_dict.keys())
+            print(f"First-time scrape. Dynamically determined start year: {start_year}")
+        
         end_year = date.today().year
-        print(f"Dynamically determined start year: {start_year}")
 
         # Loop through each year to get a complete set of links
         for year in range(start_year, end_year + 2): # +2 to be safe
