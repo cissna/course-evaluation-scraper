@@ -114,15 +114,20 @@ def run_scraper_workflow(course_code: str):
                     save_json_file(METADATA_FILE, metadata)
                     print(f"Successfully scraped and stored {instance_key}.")
                 else:
-                    print(f"Failed to scrape {instance_key}. Marking this batch as failed.")
-                    year_batch_failed = True
+                    print(f"Failed to scrape {instance_key}. Halting processing for this course.")
                     metadata[course_code]['last_period_failed'] = True
                     save_json_file(METADATA_FILE, metadata)
+                    year_batch_failed = True # Mark as failed to prevent success message
+                    break # Exit the loop for this year
 
             if not year_batch_failed:
                 print(f"Successfully completed all new reports for {year}.")
             else:
-                print(f"Finished processing {year}, but some reports failed to scrape.")
+                print(f"Finished processing {year}, but some reports failed to scrape. Further processing for this course halted.")
+            
+            # If a batch within a year fails, we should stop processing subsequent years for this course.
+            if year_batch_failed:
+                break
 
     else: # Simple case: < 20 links, no pagination
         print(f"Found {len(report_links_dict)} links. No pagination detected. Scraping all.")
@@ -153,10 +158,11 @@ def run_scraper_workflow(course_code: str):
                 save_json_file(METADATA_FILE, metadata)
                 print(f"Successfully scraped and stored {instance_key}.")
             else:
-                print(f"Failed to scrape {instance_key}. Marking this batch as failed.")
-                batch_failed = True
+                print(f"Failed to scrape {instance_key}. Halting processing for this course.")
                 metadata[course_code]['last_period_failed'] = True
                 save_json_file(METADATA_FILE, metadata)
+                batch_failed = True # Mark as failed to prevent success message
+                break # Exit the loop for this batch
 
         if not batch_failed:
             print("Successfully completed all new reports for this batch.")

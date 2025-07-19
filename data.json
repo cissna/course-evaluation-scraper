@@ -907,5 +907,2904 @@
         "ta_names": [
             "N/A"
         ]
+    },
+    "EN.601.104.02.FA17": {
+        "course_name": "EN.601.104.02.FA17 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 7,
+            "Good": 4,
+            "Excellent": 1,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 4,
+            "Good": 4,
+            "Excellent": 2,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 5,
+            "Satisfactory": 3,
+            "Good": 1,
+            "Excellent": 1,
+            "N/A": 2
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 14
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 2,
+            "Agree strongly": 2,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 5,
+            "Somewhat lighter": 5,
+            "Typical": 0,
+            "Somewhat heavier": 4,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.01.FA17": {
+        "course_name": "EN.601.104.01.FA17 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 2,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 7,
+            "Good": 2,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 8,
+            "Good": 0,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 2,
+            "N/A": 14
+        },
+        "ta_names": [
+            "No TA that i know of."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 1,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 4,
+            "Typical": 5,
+            "Somewhat heavier": 3,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.02.SP18": {
+        "course_name": "EN.601.104.02.SP18 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 6,
+            "Good": 5,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 7,
+            "Good": 5,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 6,
+            "Satisfactory": 6,
+            "Good": 3,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 0,
+            "N/A": 16
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 6,
+            "Agree strongly": 1,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 6,
+            "Somewhat lighter": 6,
+            "Typical": 4,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.01.SP18": {
+        "course_name": "EN.601.104.01.SP18 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 3,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 5,
+            "Good": 4,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 2,
+            "N/A": 12
+        },
+        "ta_names": [
+            "There was no TA",
+            "None",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 5,
+            "Agree strongly": 3,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 6,
+            "Typical": 2,
+            "Somewhat heavier": 2,
+            "Much heavier": 2,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.02.FA18": {
+        "course_name": "EN.601.104.02.FA18 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.104.01.FA18": {
+        "course_name": "EN.601.104.01.FA18 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 8,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 0,
+            "N/A": 12
+        },
+        "ta_names": [
+            "na",
+            "n/a",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 4,
+            "Agree strongly": 3,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 5,
+            "Somewhat lighter": 5,
+            "Typical": 3,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.02.SP19": {
+        "course_name": "EN.601.104.02.SP19 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 4,
+            "Good": 6,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 9,
+            "Good": 1,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 1,
+            "Excellent": 1,
+            "N/A": 17
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 0,
+            "Agree strongly": 1,
+            "N/A": 7
+        },
+        "workload_frequency": {
+            "Much lighter": 9,
+            "Somewhat lighter": 5,
+            "Typical": 5,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.01.SP19": {
+        "course_name": "EN.601.104.01.SP19 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 6,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 5,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 3,
+            "Satisfactory": 9,
+            "Good": 6,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 1,
+            "N/A": 23
+        },
+        "ta_names": [
+            "NA"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 2,
+            "Agree strongly": 1,
+            "N/A": 7
+        },
+        "workload_frequency": {
+            "Much lighter": 10,
+            "Somewhat lighter": 4,
+            "Typical": 5,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 1
+        }
+    },
+    "EN.601.104.04.SP19": {
+        "course_name": "EN.601.104.04.SP19 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 10,
+            "Good": 3,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 8,
+            "Good": 5,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 6,
+            "Satisfactory": 5,
+            "Good": 5,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 0,
+            "Excellent": 1,
+            "N/A": 21
+        },
+        "ta_names": [
+            "NA",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 2,
+            "Agree strongly": 5,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 10,
+            "Somewhat lighter": 4,
+            "Typical": 7,
+            "Somewhat heavier": 1,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.03.SP19": {
+        "course_name": "EN.601.104.03.SP19 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 5,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 5,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 8,
+            "Good": 3,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 18
+        },
+        "ta_names": [
+            "No TA",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 2,
+            "Agree strongly": 3,
+            "N/A": 8
+        },
+        "workload_frequency": {
+            "Much lighter": 8,
+            "Somewhat lighter": 5,
+            "Typical": 4,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "EN.601.104.01.FA19": {
+        "course_name": "EN.601.104.01.FA19 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 11,
+            "Good": 1,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 6,
+            "Satisfactory": 9,
+            "Good": 0,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 3,
+            "Satisfactory": 8,
+            "Good": 2,
+            "Excellent": 0,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 0,
+            "Excellent": 1,
+            "N/A": 14
+        },
+        "ta_names": [
+            "Don't know"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 1,
+            "Agree strongly": 0,
+            "N/A": 5
+        },
+        "workload_frequency": {
+            "Much lighter": 5,
+            "Somewhat lighter": 7,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "EN.601.104.02.FA19": {
+        "course_name": "EN.601.104.02.FA19 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 11,
+            "Good": 2,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 7,
+            "Good": 4,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 10,
+            "Good": 3,
+            "Excellent": 0,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 0,
+            "N/A": 13
+        },
+        "ta_names": [
+            "I forget his name",
+            "NA",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 2,
+            "Agree strongly": 0,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 6,
+            "Somewhat lighter": 5,
+            "Typical": 4,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "EN.601.104.03.SP20": {
+        "course_name": "EN.601.104.03.SP20 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.104.01.SP20": {
+        "course_name": "EN.601.104.01.SP20 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 1,
+            "Satisfactory": 7,
+            "Good": 5,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 8,
+            "Good": 3,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 4,
+            "Satisfactory": 8,
+            "Good": 3,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 1,
+            "Excellent": 1,
+            "N/A": 16
+        },
+        "ta_names": [
+            "Evonne Zhu",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 10,
+            "Agree somewhat": 2,
+            "Agree strongly": 0,
+            "N/A": 5
+        },
+        "workload_frequency": {
+            "Much lighter": 8,
+            "Somewhat lighter": 6,
+            "Typical": 5,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.02.SP20": {
+        "course_name": "EN.601.104.02.SP20 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 10,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 10,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 4,
+            "Satisfactory": 6,
+            "Good": 6,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 1,
+            "N/A": 14
+        },
+        "ta_names": [
+            "No idea",
+            "Evonne Aileen Zhu",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 3,
+            "Agree strongly": 1,
+            "N/A": 6
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 9,
+            "Typical": 5,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.04.SP20": {
+        "course_name": "EN.601.104.04.SP20 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 7,
+            "Good": 4,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 9,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 13,
+            "Good": 0,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 0,
+            "Excellent": 3,
+            "N/A": 9
+        },
+        "ta_names": [
+            "Evonne Zhu",
+            "unknown",
+            "n/a"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 0,
+            "Agree strongly": 2,
+            "N/A": 4
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 8,
+            "Typical": 5,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.104.03.FA20": {
+        "course_name": "EN.601.104.03.FA20 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.104.02.FA20": {
+        "course_name": "EN.601.104.02.FA20 : Computer Ethics",
+        "instructor_name": "Timothy Leschke",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 10,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 9,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 2,
+            "N/A": 11
+        },
+        "ta_names": [
+            "--",
+            "Keturah Jones",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 5,
+            "Agree strongly": 2,
+            "N/A": 6
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 5,
+            "Typical": 6,
+            "Somewhat heavier": 0,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.105.01.SP18": {
+        "course_name": "EN.601.105.01.SP18 : M & Ms: Freshman Experience",
+        "instructor_name": "Joanne Selinski",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 9,
+            "Good": 12,
+            "Excellent": 3,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 10,
+            "Excellent": 7,
+            "N/A": 5
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 12,
+            "Good": 7,
+            "Excellent": 1,
+            "N/A": 3
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 0,
+            "N/A": 25
+        },
+        "ta_names": [
+            "There are no TAs",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 3,
+            "Agree strongly": 1,
+            "N/A": 13
+        },
+        "workload_frequency": {
+            "Much lighter": 14,
+            "Somewhat lighter": 8,
+            "Typical": 3,
+            "Somewhat heavier": 0,
+            "Much heavier": 1,
+            "N/A": 1
+        }
+    },
+    "EN.601.105.05.FA21": {
+        "course_name": "EN.601.105.05.FA21 : CS First-year Experience",
+        "instructor_name": "Yinzhi Cao",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 3,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 5,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Jennifer He and Charissa Zou",
+            "Jennifer He, Charissa",
+            "N/A",
+            "Jennifer",
+            "Jennifer He",
+            "Jennifer He, Charissa Zou"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 1,
+            "Agree strongly": 3,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 8,
+            "Somewhat lighter": 2,
+            "Typical": 0,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.105.07.FA21": {
+        "course_name": "EN.601.105.07.FA21 : CS First-year Experience",
+        "instructor_name": "Jason Eisner",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.105.01.FA21": {
+        "course_name": "EN.601.105.01.FA21 : CS First-year Experience",
+        "instructor_name": "Randal Burns",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 1,
+            "N/A": 7
+        },
+        "ta_names": [
+            "Julia (Junior Course Mentor)",
+            "Julia Ross"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 0,
+            "Agree strongly": 2,
+            "N/A": 6
+        },
+        "workload_frequency": {
+            "Much lighter": 6,
+            "Somewhat lighter": 0,
+            "Typical": 1,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 3
+        }
+    },
+    "EN.601.105.03.FA21": {
+        "course_name": "EN.601.105.03.FA21 : CS First-year Experience",
+        "instructor_name": "Scott Smith",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 0,
+            "Excellent": 2,
+            "N/A": 2
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 7
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 2,
+            "Agree strongly": 1,
+            "N/A": 4
+        },
+        "workload_frequency": {
+            "Much lighter": 4,
+            "Somewhat lighter": 1,
+            "Typical": 0,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 2
+        }
+    },
+    "EN.601.105.06.FA21": {
+        "course_name": "EN.601.105.06.FA21 : CS First-year Experience",
+        "instructor_name": "Thomas Lippincott",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 0,
+            "N/A": 2
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 1,
+            "N/A": 7
+        },
+        "ta_names": [
+            "We don't have one",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 1,
+            "Agree strongly": 1,
+            "N/A": 5
+        },
+        "workload_frequency": {
+            "Much lighter": 7,
+            "Somewhat lighter": 0,
+            "Typical": 0,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "EN.601.105.02.FA21": {
+        "course_name": "EN.601.105.02.FA21 : CS First-year Experience",
+        "instructor_name": "Chien-ming Huang",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 2,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 2,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Matthew Liu"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 0,
+            "Agree strongly": 4,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 4,
+            "Somewhat lighter": 2,
+            "Typical": 0,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.105.04.FA21": {
+        "course_name": "EN.601.105.04.FA21 : CS First-year Experience",
+        "instructor_name": "Michael Dinitz",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 2,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 2,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 1,
+            "Excellent": 1,
+            "N/A": 2
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 1,
+            "N/A": 4
+        },
+        "ta_names": [
+            "No TA"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 2,
+            "Agree strongly": 0,
+            "N/A": 4
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 0,
+            "Typical": 0,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 4
+        }
+    },
+    "EN.601.107.21.SU17": {
+        "course_name": "EN.601.107.21.SU17 : Introductory Programming in Java",
+        "instructor_name": "Joanne Selinski",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 9,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Brian",
+            "Danielle, Bryan",
+            "Bryan",
+            "Danielle",
+            "Bryan Ki and Danielle",
+            "Bryan and Daniell",
+            "brian",
+            "Nosup Ki",
+            "Bryan Ki",
+            "Bryan and Danielle",
+            "Danielle Kramer &amp; Bryan Ki"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 4,
+            "Agree strongly": 10,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 1,
+            "Typical": 6,
+            "Somewhat heavier": 5,
+            "Much heavier": 1,
+            "N/A": 3
+        }
+    },
+    "EN.601.107.03.FA17": {
+        "course_name": "EN.601.107.03.FA17 : Introductory Programming in Java",
+        "instructor_name": "Joanne Selinski",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.107.01.FA17": {
+        "course_name": "EN.601.107.01.FA17 : Introductory Programming in Java",
+        "instructor_name": "Joanne Selinski",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 28,
+            "Good": 41,
+            "Excellent": 26,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 5,
+            "Weak": 10,
+            "Satisfactory": 26,
+            "Good": 43,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 19,
+            "Good": 50,
+            "Excellent": 27,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 9,
+            "Good": 17,
+            "Excellent": 26,
+            "N/A": 46
+        },
+        "ta_names": [
+            "Bilal Sadik",
+            "?",
+            "Yoyo, Cindy, Geet",
+            "none",
+            "Eric Cochran",
+            "Mariya",
+            "Multiple CAs",
+            "N/A",
+            "Varun",
+            "Just in general",
+            "Bryan Ki",
+            "Bilal, Lucy",
+            "Max",
+            "Maria",
+            "n/a",
+            "Mariya Kazachkova",
+            "Multiple",
+            "Not available",
+            "NA",
+            "No TA",
+            "There were a lot of TA's",
+            "Max Jarcho, Bilal Sadik",
+            "Bilal Sadek",
+            "many TA's",
+            "No one in particular, there are a lot of TAs that were all very helpful.",
+            "N/a",
+            "Bilal",
+            "Max Jarcho",
+            "bilal",
+            "Many!",
+            "Cindy"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 11,
+            "Neither agree nor disagree": 13,
+            "Agree somewhat": 43,
+            "Agree strongly": 29,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 14,
+            "Typical": 46,
+            "Somewhat heavier": 28,
+            "Much heavier": 10,
+            "N/A": 0
+        }
+    },
+    "EN.601.107.02.FA17": {
+        "course_name": "EN.601.107.02.FA17 : Introductory Programming in Java",
+        "instructor_name": "Joanne Selinski",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 5,
+            "Satisfactory": 17,
+            "Good": 35,
+            "Excellent": 24,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 5,
+            "Weak": 9,
+            "Satisfactory": 15,
+            "Good": 31,
+            "Excellent": 21,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 19,
+            "Good": 27,
+            "Excellent": 32,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 16,
+            "Excellent": 15,
+            "N/A": 45
+        },
+        "ta_names": [
+            "All of them",
+            "All TA staff!",
+            "It's just because there are lots of TAs!",
+            "Mariya",
+            "N/A",
+            "all the TAs for this course",
+            "Bilal, Bryan",
+            "Brandon Lim",
+            "There were several TA's",
+            "I have never found TA for help.",
+            "There were many TAs. I mostly interacted with Bilal and Mariya and they were both great.",
+            "All of them collectively",
+            "Maria",
+            "Every TA I have Encountered",
+            "n/a",
+            "Many Tas",
+            "Lucy, Cindy, and Brian",
+            "There are a lot",
+            "I don't even know who the TAs are",
+            "Mason Wolff",
+            "Bilal",
+            "Max Jarcho"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 8,
+            "Neither agree nor disagree": 17,
+            "Agree somewhat": 37,
+            "Agree strongly": 18,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 12,
+            "Typical": 41,
+            "Somewhat heavier": 17,
+            "Much heavier": 10,
+            "N/A": 0
+        }
+    },
+    "EN.601.107.01.SP18": {
+        "course_name": "EN.601.107.01.SP18 : Introductory Programming in Java",
+        "instructor_name": "Sara More",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 6,
+            "Satisfactory": 24,
+            "Good": 77,
+            "Excellent": 40,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 5,
+            "Weak": 7,
+            "Satisfactory": 25,
+            "Good": 52,
+            "Excellent": 62,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 4,
+            "Satisfactory": 22,
+            "Good": 65,
+            "Excellent": 56,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 30,
+            "Excellent": 46,
+            "N/A": 63
+        },
+        "ta_names": [
+            "All of them",
+            "Mariah",
+            "Mariyana",
+            "none specific",
+            "Haroon Ghori",
+            "Mariya",
+            "Sofya Freyman, James Lubowsky",
+            "N/A",
+            "Emily, Ally",
+            "There were lots of them but everyone was very helpful during office hours!",
+            "James",
+            "Aly Kruglak",
+            "Brandon Lim",
+            "There are multiple, I met with James Lubowsky and Brandon Lax",
+            "Sarah",
+            "There are multiple TAs",
+            "No specific one they\u2019re all okay",
+            "Did not interact with TA",
+            "Emily Cheng",
+            "There are a lot of TAs",
+            "IDK",
+            "There is an enormous amount of TAs, but I'll name Cindy Ge and Brandon Lim.",
+            "Multiple TAs",
+            "All TAs",
+            "Lots",
+            "Brandon",
+            "Maria",
+            "n/a",
+            "Mariya Kazachkova",
+            "I didnt know we had TA's",
+            "Cindy Ge",
+            "Emily",
+            "Haroon",
+            "Amy He",
+            "NA",
+            "Max Jarcho, Mariya Kazachkova, Emily Cheng",
+            "Lucy Zhang, Alyssa Kruglak, Emily Cheng, Brandon Lax, Brandon Thomas Lim,  Camille Bowman, Andrew Jin, Xinnan Chen, Channing Kimble-Brown, Max Jarcho,  Mariya Kazachkova, Haroon Ghori,  Cindy Ge,  YuanYuan Ding,  Sofya Freyman,  James Lubowsky, Geet Sawhney",
+            "Brandon Lax, and all of the Java TAs",
+            "ALL OF THE TA'S! YOU GUYS ARE THE REAL MVP! But seriously, thank you so much for always being helpful - whether it was on Piazza or in office hours. Could not have done this without you all!",
+            "Uju Duru",
+            "all the TA's, but especially Emily Cheng and Mariya Kazachkova",
+            "Many",
+            "A lot of them",
+            "There are a ton but generally good",
+            "dont know",
+            "a",
+            "Sofya Freeman and James Lubowsky",
+            "I found Emily Cheng to be the most helpful (personally)",
+            "Cindy"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 7,
+            "Neither agree nor disagree": 20,
+            "Agree somewhat": 74,
+            "Agree strongly": 42,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 9,
+            "Typical": 76,
+            "Somewhat heavier": 51,
+            "Much heavier": 14,
+            "N/A": 0
+        }
+    },
+    "EN.601.107.21.SU18": {
+        "course_name": "EN.601.107.21.SU18 : Introduction to Programming in Java",
+        "instructor_name": "Maria Ayad",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 6,
+            "Good": 7,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 5,
+            "Good": 6,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 4,
+            "Good": 6,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 17,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Max Jarcho; Eric",
+            "eric and max",
+            "Max and Eric",
+            "Eric",
+            "Max Jarcho",
+            "Eric, Max",
+            "Max",
+            "Eric , Max",
+            "Sam",
+            "Eric Feldman &amp; Max Jarcho",
+            "Eric and Max"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 8,
+            "Agree strongly": 4,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 3,
+            "Typical": 12,
+            "Somewhat heavier": 3,
+            "Much heavier": 3,
+            "N/A": 2
+        }
+    },
+    "EN.601.107.01.FA18": {
+        "course_name": "EN.601.107.01.FA18 : Introductory Programming in Java",
+        "instructor_name": "Sara More",
+        "overall_quality_frequency": {
+            "Poor": 4,
+            "Weak": 2,
+            "Satisfactory": 4,
+            "Good": 28,
+            "Excellent": 23,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 4,
+            "Weak": 3,
+            "Satisfactory": 5,
+            "Good": 21,
+            "Excellent": 28,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 2,
+            "Satisfactory": 7,
+            "Good": 26,
+            "Excellent": 22,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 26,
+            "N/A": 24
+        },
+        "ta_names": [
+            "N/A",
+            "Simon Zeng",
+            "All were fine",
+            "Aly Kruglak",
+            "Emily Cheng",
+            "Max",
+            "All",
+            "The course assistants in general",
+            "-",
+            "Emily",
+            "A lot. Max, Emily, etc.",
+            "Carolyn Ma",
+            "Tanner",
+            "Max Jercho",
+            "I do not know",
+            "Ash",
+            "Simon Zeng, Max Jarcho",
+            "Max Jarcho, Emily Cheng",
+            "Max Jarcho",
+            "Emily Cheng and Max Jarcho"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 3,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 29,
+            "Agree strongly": 16,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 2,
+            "Typical": 33,
+            "Somewhat heavier": 17,
+            "Much heavier": 6,
+            "N/A": 1
+        }
+    },
+    "EN.601.108.03.FA17": {
+        "course_name": "EN.601.108.03.FA17 : Introduction to Programming Lab",
+        "instructor_name": "Joanne Selinski",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 8,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 7,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 8,
+            "Excellent": 7,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Mariya and Brandon",
+            "Mariya Kazachkova",
+            "Joseph Naness",
+            "multiple TAs",
+            "Mariya",
+            "All of the lab assistants",
+            "A lot of them",
+            "N/A",
+            "Marisa",
+            "There are many!",
+            "Bryan, Brandon",
+            "Kevin Duh, Brandon Lim, Maria"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 11,
+            "Agree strongly": 2,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 10,
+            "Somewhat lighter": 3,
+            "Typical": 4,
+            "Somewhat heavier": 1,
+            "Much heavier": 1,
+            "N/A": 1
+        }
+    },
+    "EN.601.108.02.FA17": {
+        "course_name": "EN.601.108.02.FA17 : Introduction to Programming Lab",
+        "instructor_name": "Joanne Selinski",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 12,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 13,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 15,
+            "N/A": 1
+        },
+        "ta_names": [
+            "There were lots but they were all good (Bilal and Mariya were the ones I mostly interacted with).",
+            "Bilal Sadik",
+            "Mariya Kazachkova",
+            "Lucy Zhang",
+            "Mariya, Andrew, Bilal, and Lucy",
+            "Mariya",
+            "Bilal",
+            "N/A",
+            "All of the TA's attend and do their best to help",
+            "Mariya, Andrew, Bilal, Lucy, Anna, Channing, Cindy"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 5,
+            "Agree strongly": 8,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 8,
+            "Somewhat lighter": 3,
+            "Typical": 6,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.108.01.FA17": {
+        "course_name": "EN.601.108.01.FA17 : Introduction to Programming Lab",
+        "instructor_name": "Joanne Selinski",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.108.03.SP18": {
+        "course_name": "EN.601.108.03.SP18 : Introduction to Programming Lab",
+        "instructor_name": "Sara More",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 2,
+            "N/A": 4
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 6,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Brandon Lim",
+            "Mariya Kazachkova",
+            "Brandon Lim, Mariya Kazachkova, Cindy Ge",
+            "Amy He",
+            "James Lubowsky",
+            "Cindy"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 5,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 5,
+            "Somewhat lighter": 2,
+            "Typical": 3,
+            "Somewhat heavier": 1,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.108.02.SP18": {
+        "course_name": "EN.601.108.02.SP18 : Introduction to Programming Lab",
+        "instructor_name": "Sara More",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 5,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 7,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Dont know TA name, No single TA was in mind",
+            "Mariya Kazachkova",
+            "Mariya",
+            "Multiple TAs",
+            "Andrew",
+            "N/A - Multiple TA's"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 7,
+            "Agree strongly": 4,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 1,
+            "Typical": 7,
+            "Somewhat heavier": 1,
+            "Much heavier": 1,
+            "N/A": 1
+        }
+    },
+    "EN.601.108.01.SP18": {
+        "course_name": "EN.601.108.01.SP18 : Introduction to Programming Lab",
+        "instructor_name": "Sara More",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 0,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Bunch of different TAs",
+            "Mariah",
+            "Mariyana",
+            "Mariya",
+            "Emily Cheng"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 1,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 0,
+            "Typical": 2,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.108.02.FA18": {
+        "course_name": "EN.601.108.02.FA18 : Introduction to Programming Lab",
+        "instructor_name": "Sara More",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 0,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 0,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Ally, Max, Simon, all Thursday lab TAs!",
+            "N/A",
+            "max",
+            "Max Jercho",
+            "Max Jarcho, Simon Zeng",
+            "All of the TAs who helped in lab"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 2,
+            "Agree strongly": 2,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 2,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 1,
+            "N/A": 1
+        }
+    },
+    "EN.601.108.01.FA18": {
+        "course_name": "EN.601.108.01.FA18 : Introduction to Programming Lab",
+        "instructor_name": "Sara More",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Max,",
+            "Max Jarcho",
+            "Camille &amp; Tanner"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 1,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 1,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.02.FA22": {
+        "course_name": "EN.601.124.02.FA22 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.124.01.FA22": {
+        "course_name": "EN.601.124.01.FA22 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 9,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 0,
+            "Excellent": 2,
+            "N/A": 13
+        },
+        "ta_names": [
+            "Elizabeth Im",
+            "Not sure"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 3,
+            "Agree strongly": 7,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 7,
+            "Typical": 7,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.01.SP23": {
+        "course_name": "EN.601.124.01.SP23 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 7,
+            "N/A": 7
+        },
+        "ta_names": [
+            "Sarah Harmon",
+            "Sara Harmon",
+            "Sez Harmon"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 9,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 13,
+            "Somewhat heavier": 0,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.02.SP23": {
+        "course_name": "EN.601.124.02.SP23 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 8,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 1,
+            "Excellent": 0,
+            "N/A": 13
+        },
+        "ta_names": [
+            "Sarah Harmon",
+            "Sarah",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 7,
+            "Agree strongly": 6,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 2,
+            "Typical": 8,
+            "Somewhat heavier": 5,
+            "Much heavier": 2,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.02.FA23": {
+        "course_name": "EN.601.124.02.FA23 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 4,
+            "N/A": 5
+        },
+        "ta_names": [
+            "Jam Navarro",
+            "jam"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 4,
+            "Agree strongly": 6,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 5,
+            "Typical": 7,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.01.FA23": {
+        "course_name": "EN.601.124.01.FA23 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 3,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 6,
+            "N/A": 5
+        },
+        "ta_names": [
+            "Jam Navaro",
+            "Jam Navarro",
+            "Jam",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 5,
+            "Agree strongly": 11,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 5,
+            "Typical": 8,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.02.SP24": {
+        "course_name": "EN.601.124.02.SP24 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 4,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 4,
+            "Good": 3,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 2,
+            "Good": 0,
+            "Excellent": 3,
+            "N/A": 7
+        },
+        "ta_names": [
+            "Josh Curtis",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 4,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 3,
+            "Typical": 9,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.01.SP24": {
+        "course_name": "EN.601.124.01.SP24 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 6,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 1,
+            "N/A": 8
+        },
+        "ta_names": [
+            "Josh Curtis"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 7,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 10,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.02.FA24": {
+        "course_name": "EN.601.124.02.FA24 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.124.01.FA24": {
+        "course_name": "EN.601.124.01.FA24 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 3,
+            "N/A": 6
+        },
+        "ta_names": [
+            "Arpitha Peteru",
+            "n/a",
+            "Arpitha",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 5,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 2,
+            "Typical": 9,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.601.124.01.SP25": {
+        "course_name": "EN.601.124.01.SP25 : The Ethics of Artificial Intelligence and Automation",
+        "instructor_name": "Monica Lopez",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 8,
+            "Good": 6,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 11,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 5,
+            "Good": 14,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 8,
+            "Good": 6,
+            "Excellent": 3,
+            "N/A": 11
+        },
+        "ta_names": [
+            "cant remember",
+            "n/a",
+            "Noe Herne",
+            "N/A",
+            "Amanda",
+            "Amelia Frank",
+            "Amelia and Maria",
+            "Dont know"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 7,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 11,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 5,
+            "Typical": 18,
+            "Somewhat heavier": 5,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.147.13.IN19": {
+        "course_name": "EN.601.147.13.IN19 : What's in a Mutt: An Intro to Dog DNA Analysis",
+        "instructor_name": "Rachel Sherman",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.177.13.IN20": {
+        "course_name": "EN.601.177.13.IN20 : Should Susan Smoke: An Introduction to Causal Inference",
+        "instructor_name": "Razieh Nabi Abdolyousefi",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.201.13.IN18": {
+        "course_name": "EN.601.201.13.IN18 : An Introduction to Connectomics",
+        "instructor_name": "William Gray Roncal",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 18,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 19,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Hannah Crowley, Mitch Fredrick",
+            "Hannah, Mich",
+            "Hannah and Mich",
+            "Hannah and Mitch",
+            "Hannah, Mitch",
+            "Hannah Paris",
+            "Hannah Paris, Mich Fredricks",
+            "Hannah",
+            "Mich",
+            "Hannah Cowley and Mich Fredricks",
+            "Mich Fredricks, Hannah Paris",
+            "Mitch and Hannah",
+            "Mich Fredricks, Hannah Cowley",
+            "Mich Fredericks",
+            "Hannah &amp; Mitch",
+            "Mich Fredericks, Hannah Cowley",
+            "Hannah Crowley and Mich Fredericks"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 7,
+            "Agree strongly": 9,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 5,
+            "Somewhat heavier": 12,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "EN.601.201.13.IN19": {
+        "course_name": "EN.601.201.13.IN19 : An Introduction to Connectomics",
+        "instructor_name": "William Gray Roncal",
+        "ta_names": [
+            "N/A"
+        ]
+    },
+    "EN.601.201.13.IN20": {
+        "course_name": "EN.601.201.13.IN20 : An Introduction to Connectomics",
+        "instructor_name": "Erik Johnson",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 14
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 6,
+            "Agree strongly": 4,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 4,
+            "Somewhat heavier": 8,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.601.201.12.IN21": {
+        "course_name": "EN.601.201.12.IN21 : An Introduction to Connectomics",
+        "instructor_name": "Erik Johnson",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 9,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 24
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 8,
+            "Agree strongly": 8,
+            "N/A": 3
+        }
+    },
+    "EN.601.201.12.IN22": {
+        "course_name": "EN.601.201.12.IN22 : An Introduction to Connectomics",
+        "instructor_name": "William Gray Roncal",
+        "ta_names": [
+            "N/A"
+        ]
     }
 }

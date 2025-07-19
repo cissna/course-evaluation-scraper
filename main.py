@@ -5,8 +5,6 @@ if __name__ == "__main__":
     # Loop through a reasonable range of course numbers for the department.
     # Using a range from 100 to 899 covers typical undergraduate and graduate courses.
     for course_number in range(0, 1000):
-        if course_number != 475:
-            continue
         # Format the course number to be three digits (e.g., 101, 220, 601)
         formatted_course_number = f"{course_number:03d}"
         target_course = f"{department_code}.{formatted_course_number}"
@@ -21,6 +19,5 @@ if __name__ == "__main__":
             print(f"--- CRITICAL ERROR in workflow for {target_course}: {e} ---")
             print("--- Moving to next course. ---\n")
             continue
-        break
 
     print("--- All department courses have been processed. ---")
