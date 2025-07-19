@@ -2,19 +2,18 @@ from workflow import run_scraper_workflow
 from scraping_logic import get_authenticated_session
 from exceptions import SessionExpiredException
 import requests
+from config import TARGET_DEPARTMENT, COURSE_NUMBER_START, COURSE_NUMBER_END
 
 if __name__ == "__main__":
-    department_code = 'EN.601'
-    
     try:
         session = get_authenticated_session()
     except requests.exceptions.RequestException as e:
         print(f"Could not get initial authenticated session: {e}. Aborting.")
         exit()
 
-    for course_number in range(0, 1000):
+    for course_number in range(COURSE_NUMBER_START, COURSE_NUMBER_END + 1):
         formatted_course_number = f"{course_number:03d}"
-        target_course = f"{department_code}.{formatted_course_number}"
+        target_course = f"{TARGET_DEPARTMENT}.{formatted_course_number}"
         
         print(f"--- Processing course: {target_course} ---")
         
