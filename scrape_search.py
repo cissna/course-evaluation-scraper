@@ -90,15 +90,14 @@ def get_evaluation_report_links(
                 id_string = f"{data_id0},{data_id1},{data_id2},{data_id3}"
                 final_url = f"{individual_report_base_url}?id={id_string}"
 
-                # Find the corresponding course instance code
-                desc_div_id = f"sr-desc-{data_id0}_{data_id1}_{data_id2}_{data_id3}"
-                desc_div = soup.find('div', id=desc_div_id)
+                # Find the parent row for the link, which contains all the info for one report
+                parent_row = link.find_parent('div', class_='row')
                 
                 course_instance_code = None
-                if desc_div:
-                    code_p = desc_div.find('p', class_='sr-dataitem-info-code')
-                    if code_p:
-                        course_instance_code = code_p.text.strip()
+                if parent_row:
+                    course_code_p = parent_row.find('p', class_='sr-dataitem-info-code')
+                    if course_code_p and course_code_p.text:
+                        course_instance_code = course_code_p.text.strip()
 
                 if course_instance_code:
                     report_links[course_instance_code] = final_url

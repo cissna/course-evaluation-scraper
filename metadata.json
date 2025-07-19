@@ -1,8 +1,25 @@
 {
-    "EN.601.000": {
-        "first_period_gathered": null,
-        "last_period_gathered": "SP25",
+    "EN.601.475": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP24",
         "last_period_failed": false,
-        "relevant_periods": []
+        "relevant_periods": [
+            "EN.601.475.01.FA17",
+            "EN.601.475.01.SP18",
+            "EN.601.475.01.SP19",
+            "EN.601.475.01.FA19",
+            "EN.601.475.01.SP20",
+            "EN.601.475.02.FA20",
+            "EN.601.475.01.FA20",
+            "EN.601.475.01.SP21",
+            "EN.601.475.01.FA21",
+            "EN.601.475.02.SP22",
+            "EN.601.475.01.SP22",
+            "EN.601.475.01.FA22",
+            "EN.601.475.02.FA22",
+            "EN.601.475.04.FA22",
+            "EN.601.475.03.FA22",
+            "EN.601.475.01.SP24"
+        ]
     }
 }

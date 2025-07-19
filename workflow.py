@@ -4,7 +4,7 @@ from data_manager import load_json_file, save_json_file
 from scraping_logic import get_authenticated_session
 from scrape_search import get_evaluation_report_links
 from scrape_link import scrape_evaluation_data
-from period_logic import find_oldest_year_from_keys, is_course_up_to_date
+from period_logic import find_oldest_year_from_keys, is_course_up_to_date, get_period_from_instance_key
 from period_logic import get_current_period, is_grace_period_over
 
 def run_scraper_workflow(course_code: str):
@@ -96,9 +96,11 @@ def run_scraper_workflow(course_code: str):
                     if instance_key not in metadata[course_code]['relevant_periods']:
                         metadata[course_code]['relevant_periods'].append(instance_key)
                     
-                    metadata[course_code]['last_period_gathered'] = instance_key
-                    if not metadata[course_code].get('first_period_gathered'):
-                        metadata[course_code]['first_period_gathered'] = instance_key
+                    period = get_period_from_instance_key(instance_key)
+                    if period:
+                        metadata[course_code]['last_period_gathered'] = period
+                        if not metadata[course_code].get('first_period_gathered'):
+                            metadata[course_code]['first_period_gathered'] = period
                     
                     metadata[course_code]['last_period_failed'] = False
                     save_json_file(METADATA_FILE, metadata)
@@ -133,9 +135,11 @@ def run_scraper_workflow(course_code: str):
                 if instance_key not in metadata[course_code]['relevant_periods']:
                     metadata[course_code]['relevant_periods'].append(instance_key)
                 
-                metadata[course_code]['last_period_gathered'] = instance_key
-                if not metadata[course_code].get('first_period_gathered'):
-                    metadata[course_code]['first_period_gathered'] = instance_key
+                period = get_period_from_instance_key(instance_key)
+                if period:
+                    metadata[course_code]['last_period_gathered'] = period
+                    if not metadata[course_code].get('first_period_gathered'):
+                        metadata[course_code]['first_period_gathered'] = period
                 
                 metadata[course_code]['last_period_failed'] = False
                 save_json_file(METADATA_FILE, metadata)

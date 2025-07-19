@@ -27,6 +27,19 @@ def find_oldest_year_from_keys(keys: list) -> int:
     # If no valid year was found in any key, return a default start year
     return oldest_year if found_year else 2010
 
+def get_period_from_instance_key(instance_key: str) -> str:
+    """
+    Extracts the period string (e.g., 'FA15') from a full course instance key.
+    Example: "EN.601.475.01.FA17" -> "FA17"
+    """
+    # This regex looks for a period separator, followed by a term code (FA, SP, etc.)
+    # and a two-digit year at the end of the string.
+    match = re.search(r'\.((?:FA|SP|SU|IN)\d{2})$', instance_key)
+    if match:
+        # group(1) will capture the content inside the outer parentheses, e.g., "FA17"
+        return match.group(1)
+    return None
+
 
 def get_current_period() -> str:
     """
