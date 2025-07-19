@@ -1,0 +1,22 @@
+.advanced-options {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.advanced-options h3 {
+    margin-top: 0;
+}
+
+.advanced-options .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.advanced-options .option-group {
+    display: flex;
+    flex-direction: column;
+}

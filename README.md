@@ -1,76 +1,53 @@
-# Goal of this repo:
-Create a scraper than can dynamically get all JHU course evaluation data for a given course in such a way that it can:
-- scrape only partial data to start, and scrape new data on demand
-- Run when new data comes out and not have to rescrape everything each time
+# JHU Course Evaluation Analyzer
 
-## Data storage mechanism:
-When a course is queried, if there is data and no discrepancy between the last period gathered and the current date, we just return the cached data. Otherwise we use requests to get the most up-to-date data, then return that along with any previous data.
+This project is a web application for analyzing course evaluation data from Johns Hopkins University. It consists of a Python/Flask backend that scrapes and caches data, and a React frontend for user interaction.
 
-`metadata.json` will have the following metadata for a given course code:
-- first_period_gathered (null if no data)
-- last_period_gathered (always is the last period we checked for data, even if there is no data)
-- last_period_failed (defaults to true, only turned false once all data up to the present date is succesfully collected to avoid missed data. If it actually remains false, we will not parse any more periods so last_period_gathered may not be the present)
-- relevant_periods (exact course codes with corresponding data in data.json)
+## Running the Application Locally
 
-`data.json` will have the actual data for each specific course code (XX.###.###.##.XX##)
-Here is an example entry:
-```
-{
-    "AS.200.312.01.FA21": {
-        "course_name": "Substance Use and Mental Health",
-        "instructor_name": "Chelsea Howe",
-        "overall_quality_frequency": {
-            "Poor": 0,
-            "Weak": 0,
-            "Satisfactory": 3,
-            "Good": 6,
-            "Excellent": 20
-        },
-        "instructor_effectiveness_frequency": {
-            "Poor": 0,
-            "Weak": 0,
-            "Satisfactory": 0,
-            "Good": 6,
-            "Excellent": 22
-        },
-        "intellectual_challenge_frequency": {
-            "Poor": 0,
-            "Weak": 0,
-            "Satisfactory": 1,
-            "Good": 6,
-            "Excellent": 21
-        },
-        "ta_frequency": {
-            "Poor": 0,
-            "Weak": 0,
-            "Satisfactory": 0,
-            "Good": 0,
-            "Excellent": 0
-        },
-        "ta_names": [
-            "NA",
-            "N/A"
-        ],
-        "feedback_frequency": {
-            "Disagree strongly": 0,
-            "Disagree somewhat": 3,
-            "Neither agree nor disagree": 2,
-            "Agree somewhat": 6,
-            "Agree strongly": 15
-        },
-        "workload_frequency": {
-            "Much lighter": 2,
-            "Somewhat lighter": 5,
-            "Typical": 17,
-            "Somewhat heavier": 3,
-            "Much heavier": 0
-        }
-    },
-}
-```
+To run the application, you will need to start both the backend and frontend servers.
 
+### Backend (Flask API)
 
-## Notes:
-[I previously did this same project](https://github.com/cissna/jhu-course-evaluations-analysis) but gave up at a state very near completion (some minor bugs and some unimportant edge cases to deal with). I got bored because I found out someone else had already done it, however, they ended up not publishing their data. My flame of interest was reignited when I found out JHU made their evaluation search page **much** easier to navigate by actually putting the data on the web instead of making you download a PDF, meaning the project could be done with requests instead of Selenium, also meaning that it could be run as a website without a VM and just with a simple backend.
+1.  **Navigate to the `backend` directory:**
+    ```bash
+    cd backend
+    ```
 
-Since I already made this project, I have a very clear sense of how everything needs to be so I'm going to vibe code it completely using Roo Code (Gemini 2.5 Pro) with a memory bank extension called Context Portal that I'll be trying out for the first time right now.
+2.  **Install the required Python packages:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Run the Flask server:**
+    ```bash
+    python3 app.py
+    ```
+
+    The backend server will start on `http://127.0.0.1:5000`.
+
+### Frontend (React UI)
+
+1.  **Navigate to the `frontend` directory:**
+    ```bash
+    cd frontend
+    ```
+
+2.  **Install the required Node.js packages:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the React development server:**
+    ```bash
+    npm start
+    ```
+
+    The frontend application will open in your browser at `http://localhost:3000`.
+
+## How to Use
+
+1.  Open your browser to `http://localhost:3000`.
+2.  Enter a course code (e.g., `AS.180.101`) or a course name (e.g., `Introduction to Psychology`) into the search bar.
+3.  Click the "Search" button to fetch and display the data.
+4.  Use the toggle buttons and advanced options to filter and separate the data as needed.
+5.  Click the "Download as CSV" button to save the current view of the data.
