@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
     """
@@ -24,61 +25,54 @@ def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # 2. Scrape Course Name and Instructor Name
-        # This is a placeholder - the actual selectors will need to be found by
-        # inspecting the page's HTML.
-        # For example, it might be in a header tag.
-        course_title_element = soup.find('h1', class_='course-title') # Placeholder
-        instructor_name_element = soup.find('span', class_='instructor-name') # Placeholder
+        course_element = soup.find(lambda tag: tag.name == 'h3' and 'Course:' in tag.text)
+        if course_element:
+            course_name_element = course_element.find_next_sibling('span')
+            if course_name_element:
+                scraped_data['course_name'] = course_name_element.text.strip()
         
-        if course_title_element:
-            scraped_data['course_name'] = course_title_element.text.strip()
-        else:
-            scraped_data['course_name'] = "Not found"
+        instructor_element = soup.find(lambda tag: tag.name == 'h3' and 'Instructor:' in tag.text)
+        if instructor_element:
+            instructor_name_element = instructor_element.find_next_sibling('span')
+            if instructor_name_element:
+                scraped_data['instructor_name'] = instructor_name_element.text.strip()
 
-        if instructor_name_element:
-            scraped_data['instructor_name'] = instructor_name_element.text.strip()
-        else:
-            scraped_data['instructor_name'] = "Not found"
+        # 3. Scrape the frequency data from the hidden JSON data
+        report_data_element = soup.find('input', id='hdnReportData')
+        if report_data_element:
+            report_data = json.loads(report_data_element['value'])
+            
+            question_mapping = {
+                "The overall quality of this course is:": "overall_quality_frequency",
+                "The instructor's teaching effectiveness is:": "instructor_effectiveness_frequency",
+                "The intellectual challenge of this course is:": "intellectual_challenge_frequency",
+                "The teaching assistant for this course is:": "ta_frequency",
+                "Feedback on my work for this course is useful:": "feedback_frequency",
+                "Compared to other Hopkins courses at this level, the workload for this course is:": "workload_frequency",
+                "Please enter the name of the TA you evaluated in question 4:": "ta_names"
+            }
 
-        # 3. Scrape the frequency tables for each question.
-        # The structure of these tables needs to be determined.
-        # We will assume each question has a table with response labels (e.g., "Excellent", "Good")
-        # and frequency counts.
-
-        # Placeholder function to parse a generic frequency table
-        def parse_frequency_table(table_id: str) -> dict:
-            """Finds a table by ID and extracts frequency data."""
-            frequency_dict = {}
-            table = soup.find('table', id=table_id) # Placeholder selector
-            if table:
-                rows = table.find_all('tr')
-                for row in rows:
-                    cols = row.find_all('td')
-                    if len(cols) == 2: # Assuming Label and Frequency columns
-                        label = cols[0].text.strip()
-                        # Clean up and convert frequency to integer
-                        freq_text = cols[1].text.strip()
-                        frequency = int(freq_text) if freq_text.isdigit() else 0
-                        frequency_dict[label] = frequency
-            return frequency_dict
-
-        # Scrape each required table using the placeholder function
-        scraped_data['overall_quality_frequency'] = parse_frequency_table('overallQualityTable') # Placeholder ID
-        scraped_data['instructor_effectiveness_frequency'] = parse_frequency_table('instructorEffectivenessTable') # Placeholder ID
-        scraped_data['intellectual_challenge_frequency'] = parse_frequency_table('intellectualChallengeTable') # Placeholder ID
-        scraped_data['ta_frequency'] = parse_frequency_table('taEffectivenessTable') # Placeholder ID
-        scraped_data['feedback_frequency'] = parse_frequency_table('feedbackTable') # Placeholder ID
-        scraped_data['workload_frequency'] = parse_frequency_table('workloadTable') # Placeholder ID
-
-        # 4. Scrape TA Names
-        # This might be in a list or a specific div.
-        ta_names = []
-        ta_list_element = soup.find('div', id='ta-names-list') # Placeholder
-        if ta_list_element:
-            # Example: assuming names are in <li> elements
-            for item in ta_list_element.find_all('li'):
-                ta_names.append(item.text.strip())
-        scraped_data['ta_names'] = ta_names if ta_names else ["N/A"]
+            for question in report_data:
+                question_text = question.get("QuestionText", "").strip()
+                if question_text in question_mapping:
+                    key = question_mapping[question_text]
+                    if key == "ta_names":
+                        ta_names_raw = question.get("AnswerText", "")
+                        if ta_names_raw:
+                            # Split by '||' and clean up names
+                            ta_names = [name.strip() for name in ta_names_raw.split('||')]
+                            # Get unique names
+                            scraped_data['ta_names'] = list(set(ta_names))
+                        else:
+                            scraped_data['ta_names'] = ["N/A"]
+                    else:
+                        frequency_dict = {}
+                        for option in question.get("Options", []):
+                            frequency_dict[option["OptionText"]] = option["Frequency"]
+                        scraped_data[key] = frequency_dict
+        
+        if 'ta_names' not in scraped_data:
+            scraped_data['ta_names'] = ["N/A"]
 
 
         return scraped_data

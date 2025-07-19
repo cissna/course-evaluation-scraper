@@ -1,208 +1,909 @@
 {
     "EN.601.475.01.FA17": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.FA17 : Machine Learning",
+        "instructor_name": "Mark Dredze",
         "ta_names": [
             "N/A"
         ]
     },
     "EN.601.475.01.SP18": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.SP18 : Machine Learning",
+        "instructor_name": "Jared Markowitz",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 6,
+            "Satisfactory": 12,
+            "Good": 9,
+            "Excellent": 5,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 4,
+            "Weak": 3,
+            "Satisfactory": 15,
+            "Good": 7,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 13,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 5,
+            "Weak": 3,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 5,
+            "N/A": 9
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "N/A",
+            "Sarkar",
+            "asdf",
+            "Rohan Tilva",
+            "Alex",
+            "All the TA's were quite bad",
+            "Alex Fain",
+            "Alex Gain",
+            "Xuan Zhang",
+            "Practically all of them",
+            "n/a"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 15,
+            "Agree strongly": 4,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 11,
+            "Somewhat heavier": 15,
+            "Much heavier": 7,
+            "N/A": 0
+        }
     },
     "EN.601.475.01.SP19": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.SP19 : Machine Learning",
+        "instructor_name": "Raman Arora",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 8,
+            "Good": 20,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 5,
+            "Good": 22,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 11,
+            "Excellent": 30,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 5,
+            "Satisfactory": 7,
+            "Good": 8,
+            "Excellent": 13,
+            "N/A": 8
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Cannot Remember",
+            "All",
+            "Nils Holzenberger",
+            "Nihls",
+            "Nils",
+            "Nils Holzberg",
+            "Nils Holzberger, Enayat",
+            "Nilz Holzenberger",
+            "nils",
+            "All of them",
+            "Enayat Ullah, Nils Holzenberger, Akshay Rangamani",
+            "Nils holzenberger"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 10,
+            "Agree somewhat": 20,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 7,
+            "Somewhat heavier": 17,
+            "Much heavier": 18,
+            "N/A": 0
+        }
     },
     "EN.601.475.01.FA19": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.FA19 : Machine Learning",
+        "instructor_name": "Mark Dredze",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 8,
+            "Satisfactory": 17,
+            "Good": 51,
+            "Excellent": 36,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 8,
+            "Satisfactory": 19,
+            "Good": 45,
+            "Excellent": 39,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 10,
+            "Good": 31,
+            "Excellent": 68,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 7,
+            "Satisfactory": 16,
+            "Good": 30,
+            "Excellent": 37,
+            "N/A": 22
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "all of them",
+            "Tim",
+            "NA",
+            "Debanik",
+            "Tim Vieira, David Mueller",
+            "I forget. but good",
+            "Tim Viera",
+            "The TA who holds recitations on Friday",
+            "David Mueller, Darius Irani, Benjamin Strober, Tim Vieira",
+            "Joanna Guo",
+            "David Muller, Tim Viera",
+            "Not known",
+            "Tim Vieira, David Mueller, Joanna Guo, Debanik Purkayastha, Darius Irani, Benjamin Strober, Laurent Park, Darren Edmonds",
+            "Strober",
+            "Laurent Park",
+            "Matt Figdore",
+            "Benjamin Strober",
+            "Tim Vierra",
+            "Tim Viera, David Mueller",
+            "All TA's listed for cs475/675 were helpful both in office hours and on Piazza. Great Models of what a TA should be like.",
+            "Ben Strober",
+            "David Mueller",
+            "N/A",
+            "Tim Vieira",
+            "All",
+            "Tim Viera + others",
+            "David",
+            "Don't remember their names"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 5,
+            "Neither agree nor disagree": 23,
+            "Agree somewhat": 53,
+            "Agree strongly": 25,
+            "N/A": 5
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 32,
+            "Somewhat heavier": 44,
+            "Much heavier": 31,
+            "N/A": 3
+        }
     },
     "EN.601.475.01.SP20": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.SP20 : Machine Learning",
+        "instructor_name": "Philip Graff",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 14,
+            "Good": 24,
+            "Excellent": 39,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 5,
+            "Satisfactory": 14,
+            "Good": 30,
+            "Excellent": 30,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 18,
+            "Excellent": 52,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 13,
+            "Excellent": 56,
+            "N/A": 4
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Darren Edmonds",
+            "Molly O'Brien, Darius Irani",
+            "Darius",
+            "Darius, Molly",
+            "Molly O\u2019Brien",
+            "Molly O'Brien",
+            "Molly O Brien",
+            "Molly Obrie",
+            "Darius, Molly, and others",
+            "Molly Brie, Matthew Figdore, Darius Irani, Morgan T Hobson, Jason Wong, Darren Edmonds, Jiatong, Siqi Tang, Spencer Loggia, Fei Wu",
+            "Molly O'Brien, Darren Edmonds",
+            "Darius Irani, Molly O'Brien",
+            "Molly, Darius",
+            "Darius and Molly",
+            "Molly and Darius",
+            "molly",
+            "Darius Irani",
+            "Molly"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 36,
+            "Agree strongly": 25,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 21,
+            "Somewhat heavier": 41,
+            "Much heavier": 18,
+            "N/A": 1
+        }
     },
     "EN.601.475.02.FA20": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.02.FA20 : Machine Learning",
+        "instructor_name": "ZACHARY WOOD-DOUGHTY",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 6,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 13,
+            "N/A": 4
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Prashanthi Ravichandran",
+            "Prashanthi Ravichandran, Darius Irani, Numair Sani, Carlos Aguirre",
+            "Zach Wood-Daughty",
+            "Carlos Aguirre",
+            "Carlos",
+            "Prashanthi",
+            "Prashanthi Ravichandran, Darius Irani",
+            "Prashanthi and Darius",
+            "Darius Irani"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 5,
+            "Agree strongly": 12,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 1,
+            "Somewhat heavier": 3,
+            "Much heavier": 17,
+            "N/A": 0
+        }
     },
     "EN.601.475.01.FA20": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.FA20 : Machine Learning",
+        "instructor_name": "Mark Dredze",
+        "overall_quality_frequency": {
+            "Poor": 4,
+            "Weak": 1,
+            "Satisfactory": 12,
+            "Good": 34,
+            "Excellent": 24,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 4,
+            "Satisfactory": 15,
+            "Good": 28,
+            "Excellent": 26,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 19,
+            "Excellent": 51,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 11,
+            "Good": 19,
+            "Excellent": 35,
+            "N/A": 5
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Zach wood",
+            "Numair",
+            "Carlos Aguirre",
+            "Carlos",
+            "All TAs",
+            "Prashanthi, Darius, Sally",
+            "Many",
+            "Prashanthi Ravichandran, Carlos Aguirre, Darius Irani",
+            "Overall",
+            "Prashanthi",
+            "All except Darius. Darius was an amazing TA that really made the effort to help everyone out in the class.",
+            "Prashanthi Ravichandran, Numair Sani, Darius Irani and Carlos Aguirre",
+            "Prat",
+            "Darius Irani, Prashanti Ravichandran, Carlos Aguirre, Numair Sani",
+            "Darius Irani",
+            "Darius",
+            "Prashanthi Ravichandran",
+            "Zach Wood-Doughty",
+            "Prashanti Ravichandran",
+            "all",
+            "Numair Sani, Zach Wood-Doughty, Carlos Aguirre, Prashanthi Ravichandran, Darius Irani, Yue Fan",
+            "Darius, Prashanti",
+            "All",
+            "Numair Sani",
+            "Darius Irani, Prashanthi Ramichandran",
+            "Numair Varjavand"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 3,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 9,
+            "Agree somewhat": 35,
+            "Agree strongly": 21,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 5,
+            "Somewhat heavier": 18,
+            "Much heavier": 52,
+            "N/A": 0
+        }
     },
     "EN.601.475.01.SP21": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.SP21 : Machine Learning",
+        "instructor_name": "Raman Arora",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 7,
+            "Satisfactory": 14,
+            "Good": 23,
+            "Excellent": 17,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 7,
+            "Satisfactory": 12,
+            "Good": 21,
+            "Excellent": 21,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 9,
+            "Excellent": 45,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 5,
+            "Weak": 4,
+            "Satisfactory": 8,
+            "Good": 14,
+            "Excellent": 15,
+            "N/A": 18
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Poorya",
+            "Yunjun Wang",
+            "Teodor Marinov",
+            "Poorya Mianjy",
+            "All",
+            "Suzanna",
+            "Chester Huynh",
+            "Yunjuan",
+            "Teodor",
+            "Susanna Sia",
+            "Don't know her name",
+            "Unknown",
+            "suzanna sia",
+            "All of them, really",
+            "Yunjuan Wang",
+            "All of them"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 6,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 14,
+            "Agree somewhat": 22,
+            "Agree strongly": 12,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 13,
+            "Somewhat heavier": 20,
+            "Much heavier": 26,
+            "N/A": 3
+        }
     },
     "EN.601.475.01.FA21": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.FA21 : Machine Learning",
+        "instructor_name": "Ilya Shpitser",
+        "overall_quality_frequency": {
+            "Poor": 5,
+            "Weak": 8,
+            "Satisfactory": 17,
+            "Good": 23,
+            "Excellent": 22,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 11,
+            "Weak": 10,
+            "Satisfactory": 15,
+            "Good": 19,
+            "Excellent": 20,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 23,
+            "Excellent": 40,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 7,
+            "Good": 20,
+            "Excellent": 32,
+            "N/A": 11
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "N/A",
+            "n/a",
+            "Yuta Kobayashi",
+            "TAs",
+            "I didn't attend section, so I didn't engage with the TA",
+            "Arjun Somayazulu",
+            "Sally, Gina",
+            "Gina Wadas",
+            "Xi He",
+            "DONT KNOW",
+            "Gina Wang",
+            "Gina Wong",
+            "Gina"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 5,
+            "Disagree somewhat": 8,
+            "Neither agree nor disagree": 11,
+            "Agree somewhat": 32,
+            "Agree strongly": 19,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 8,
+            "Somewhat heavier": 35,
+            "Much heavier": 32,
+            "N/A": 0
+        }
     },
     "EN.601.475.02.SP22": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.02.SP22 : Machine Learning",
+        "instructor_name": "Mark Dredze",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 14,
+            "Excellent": 20,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 10,
+            "Excellent": 21,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 5,
+            "Excellent": 28,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 11,
+            "Excellent": 19,
+            "N/A": 3
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "popp",
+            "All TA's, there were many",
+            "Josh",
+            "Josh Popp",
+            "All",
+            "All of the TAs are great!",
+            "Gordon",
+            "Sun Shuo",
+            "Shuo Sun, Guanghui Qin, Josh Popp, Gordan Sun",
+            "Sophia",
+            "Shuo",
+            "Josh Popps",
+            "josh",
+            "Gordon Sun",
+            "Gordon, Josh",
+            "Guanghui Qin"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 16,
+            "Agree strongly": 14,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 3,
+            "Somewhat heavier": 20,
+            "Much heavier": 13,
+            "N/A": 1
+        }
     },
     "EN.601.475.01.SP22": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.SP22 : Machine Learning",
+        "instructor_name": "Mark Dredze",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 24,
+            "Excellent": 24,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 6,
+            "Good": 18,
+            "Excellent": 29,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 10,
+            "Excellent": 44,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 3,
+            "Good": 14,
+            "Excellent": 22,
+            "N/A": 10
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Multiple teaching assistants, all excellent",
+            "The TAs often contradicted themselves and each other. Office hours were always a mess",
+            "ALL",
+            "Josh Popp",
+            "Josh Popp was amazing...I did not find most of the other TAs very helpful.",
+            "All",
+            "Joshua Popp, Shuo Sun, Gordon Sun",
+            "Josh Popp,Shuo",
+            "Shuo Sun, Josh Popp",
+            "Sophia Sklaviadis",
+            "Sophia",
+            "Gordon Sum",
+            "Ming Zhang",
+            "Gordon Sun",
+            "Joshua Popp",
+            "Guanghui Qin"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 28,
+            "Agree strongly": 18,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 0,
+            "Typical": 6,
+            "Somewhat heavier": 22,
+            "Much heavier": 24,
+            "N/A": 0
+        }
     },
     "EN.601.475.01.FA22": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.FA22 : Machine Learning",
+        "instructor_name": "Mark Dredze",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 7,
+            "Good": 19,
+            "Excellent": 23,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 5,
+            "Good": 21,
+            "Excellent": 23,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 14,
+            "Excellent": 34,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 7,
+            "Good": 9,
+            "Excellent": 27,
+            "N/A": 7
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "N/A",
+            "Xuan",
+            "Not sure",
+            "wang",
+            "all the TAs",
+            "Yuan",
+            "Aditya",
+            "NA",
+            "Xuan Zhang",
+            "Yuli Wang, Sophia Sklaviadis"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 9,
+            "Agree somewhat": 19,
+            "Agree strongly": 19,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 13,
+            "Somewhat heavier": 23,
+            "Much heavier": 17,
+            "N/A": 2
+        }
     },
     "EN.601.475.02.FA22": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.02.FA22 : Machine Learning",
+        "instructor_name": "Mark Dredze",
         "ta_names": [
             "N/A"
         ]
     },
     "EN.601.475.04.FA22": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.04.FA22 : Machine Learning",
+        "instructor_name": "Anqi Liu",
+        "overall_quality_frequency": {
+            "Poor": 4,
+            "Weak": 4,
+            "Satisfactory": 11,
+            "Good": 5,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 4,
+            "Weak": 8,
+            "Satisfactory": 6,
+            "Good": 6,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 18,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 9,
+            "Good": 8,
+            "Excellent": 11,
+            "N/A": 2
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Multiple",
+            "Xuan",
+            "All",
+            "XuanZhang",
+            "Sophia Sklaviadis",
+            "Jiahao Liang",
+            "xuan zhang",
+            "Xuan Zhang",
+            "Many"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 10,
+            "Agree strongly": 11,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 5,
+            "Somewhat heavier": 8,
+            "Much heavier": 18,
+            "N/A": 1
+        }
     },
     "EN.601.475.03.FA22": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.03.FA22 : Machine Learning",
+        "instructor_name": "Mark Dredze",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 4,
+            "N/A": 0
+        },
         "ta_names": [
-            "N/A"
-        ]
+            "Xuan Zhang and Yuli Wang",
+            "Xuan Zhang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 1,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 1,
+            "Somewhat heavier": 2,
+            "Much heavier": 3,
+            "N/A": 0
+        }
     },
     "EN.601.475.01.SP24": {
-        "course_name": "Not found",
-        "instructor_name": "Not found",
-        "overall_quality_frequency": {},
-        "instructor_effectiveness_frequency": {},
-        "intellectual_challenge_frequency": {},
-        "ta_frequency": {},
-        "feedback_frequency": {},
-        "workload_frequency": {},
+        "course_name": "EN.601.475.01.SP24 : Machine Learning",
+        "instructor_name": "Anqi Liu",
         "ta_names": [
             "N/A"
         ]
