@@ -1,7 +1,7 @@
 {
     "EN.601.475": {
         "first_period_gathered": "FA17",
-        "last_period_gathered": "SP24",
+        "last_period_gathered": "SP25",
         "last_period_failed": false,
         "relevant_periods": [
             "EN.601.475.01.FA17",
@@ -1309,7 +1309,5799 @@
     },
     "EN.601.203": {
         "first_period_gathered": null,
-        "last_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.204": {
+        "first_period_gathered": "IN18",
+        "last_period_gathered": "IN18",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.204.13.IN18"
+        ]
+    },
+    "EN.601.205": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.206": {
+        "first_period_gathered": "IN23",
+        "last_period_gathered": "IN23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.206.13.IN23"
+        ]
+    },
+    "EN.601.207": {
+        "first_period_gathered": "IN25",
+        "last_period_gathered": "IN25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.207.12.IN25"
+        ]
+    },
+    "EN.601.208": {
+        "first_period_gathered": "IN25",
+        "last_period_gathered": "IN25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.208.12.IN25"
+        ]
+    },
+    "EN.601.209": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.210": {
+        "first_period_gathered": "IN21",
+        "last_period_gathered": "IN21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.210.12.IN21"
+        ]
+    },
+    "EN.601.211": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.212": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.213": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.214": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.215": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.216": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.217": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.218": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.219": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.220": {
+        "first_period_gathered": "SU17",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.220.11.SU17",
+            "EN.601.220.01.FA17",
+            "EN.601.220.04.FA17",
+            "EN.601.220.03.FA17",
+            "EN.601.220.02.FA17",
+            "EN.601.220.03.SP18",
+            "EN.601.220.01.SP18",
+            "EN.601.220.02.SP18",
+            "EN.601.220.04.SP18",
+            "EN.601.220.11.SU18",
+            "EN.601.220.04.FA18",
+            "EN.601.220.02.FA18",
+            "EN.601.220.03.FA18",
+            "EN.601.220.01.FA18",
+            "EN.601.220.01.SP19"
+        ]
+    },
+    "EN.601.221": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.222": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.223": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.224": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.225": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.226": {
+        "first_period_gathered": "SU17",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.226.21.SU17",
+            "EN.601.226.01.FA17",
+            "EN.601.226.01.SP18",
+            "EN.601.226.21.SU18",
+            "EN.601.226.01.FA18",
+            "EN.601.226.01.SP19",
+            "EN.601.226.21.SU19",
+            "EN.601.226.01.FA19",
+            "EN.601.226.02.FA19",
+            "EN.601.226.01.SP20",
+            "EN.601.226.02.SP20",
+            "EN.601.226.02.FA20",
+            "EN.601.226.01.FA20",
+            "EN.601.226.02.SP21",
+            "EN.601.226.01.SP21",
+            "EN.601.226.02.FA21",
+            "EN.601.226.01.FA21",
+            "EN.601.226.02.SP22"
+        ]
+    },
+    "EN.601.227": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.228": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.229": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.229.01.FA17",
+            "EN.601.229.01.SP18",
+            "EN.601.229.01.FA18",
+            "EN.601.229.01.SP19",
+            "EN.601.229.01.FA19",
+            "EN.601.229.02.FA19",
+            "EN.601.229.02.SP20",
+            "EN.601.229.01.SP20",
+            "EN.601.229.02.FA20",
+            "EN.601.229.01.FA20",
+            "EN.601.229.02.SP21",
+            "EN.601.229.01.SP21",
+            "EN.601.229.02.FA21",
+            "EN.601.229.01.FA21",
+            "EN.601.229.01.SP22",
+            "EN.601.229.02.SP22",
+            "EN.601.229.02.FA22",
+            "EN.601.229.01.FA22",
+            "EN.601.229.01.SP23"
+        ]
+    },
+    "EN.601.230": {
+        "first_period_gathered": "SP22",
+        "last_period_gathered": "SP23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.230.06.SP22",
+            "EN.601.230.05.SP22",
+            "EN.601.230.04.SP22",
+            "EN.601.230.03.SP22",
+            "EN.601.230.01.SP22",
+            "EN.601.230.02.SP22",
+            "EN.601.230.88.SU22",
+            "EN.601.230.04.FA22",
+            "EN.601.230.08.FA22",
+            "EN.601.230.06.FA22",
+            "EN.601.230.02.FA22",
+            "EN.601.230.07.FA22",
+            "EN.601.230.05.FA22",
+            "EN.601.230.03.FA22",
+            "EN.601.230.01.FA22",
+            "EN.601.230.07.SP23",
+            "EN.601.230.08.SP23",
+            "EN.601.230.05.SP23",
+            "EN.601.230.06.SP23"
+        ]
+    },
+    "EN.601.231": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.231.01.FA17",
+            "EN.601.231.01.SP18",
+            "EN.601.231.01.FA18",
+            "EN.601.231.01.SP19",
+            "EN.601.231.01.FA19",
+            "EN.601.231.02.FA19",
+            "EN.601.231.01.SP20",
+            "EN.601.231.01.FA20",
+            "EN.601.231.01.SP21",
+            "EN.601.231.06.FA21",
+            "EN.601.231.04.FA21",
+            "EN.601.231.02.FA21",
+            "EN.601.231.03.FA21",
+            "EN.601.231.05.FA21",
+            "EN.601.231.01.FA21",
+            "EN.601.231.01.SP22",
+            "EN.601.231.01.FA22"
+        ]
+    },
+    "EN.601.232": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.233": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.234": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.235": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.236": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.237": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.238": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.239": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.240": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.241": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.242": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.243": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.244": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.245": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.246": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.247": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.248": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.249": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.250": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.251": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.252": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.253": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.254": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.255": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.255.02.FA17",
+            "EN.601.255.01.FA17"
+        ]
+    },
+    "EN.601.256": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.256.04.FA17",
+            "EN.601.256.02.FA17",
+            "EN.601.256.01.FA17"
+        ]
+    },
+    "EN.601.257": {
+        "first_period_gathered": "FA24",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.257.01.FA24",
+            "EN.601.257.01.SP25"
+        ]
+    },
+    "EN.601.258": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.259": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.260": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.261": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.262": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.263": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.264": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.264.01.SP25"
+        ]
+    },
+    "EN.601.265": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.266": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.267": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.268": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.269": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.270": {
+        "first_period_gathered": "FA21",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.270.01.FA21",
+            "EN.601.270.01.FA22"
+        ]
+    },
+    "EN.601.271": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.272": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.273": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.274": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.275": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.276": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.277": {
+        "first_period_gathered": "SP21",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.277.01.SP21",
+            "EN.601.277.01.SP24"
+        ]
+    },
+    "EN.601.278": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.279": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.280": {
+        "first_period_gathered": "FA20",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.280.02.FA20",
+            "EN.601.280.01.FA20",
+            "EN.601.280.01.FA21",
+            "EN.601.280.01.SP22",
+            "EN.601.280.01.FA22",
+            "EN.601.280.01.FA23",
+            "EN.601.280.02.FA23",
+            "EN.601.280.88.SU24",
+            "EN.601.280.02.FA24",
+            "EN.601.280.01.FA24"
+        ]
+    },
+    "EN.601.281": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.282": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.283": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.284": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.285": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.286": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.287": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.288": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.289": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.290": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.290.01.SP18",
+            "EN.601.290.01.SP19",
+            "EN.601.290.01.FA19",
+            "EN.601.290.01.SP20",
+            "EN.601.290.01.SP21",
+            "EN.601.290.01.SP22",
+            "EN.601.290.02.SP23",
+            "EN.601.290.01.SP23",
+            "EN.601.290.02.SP24",
+            "EN.601.290.01.SP24",
+            "EN.601.290.01.SP25",
+            "EN.601.290.02.SP25"
+        ]
+    },
+    "EN.601.291": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.292": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.293": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.294": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.295": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.295.01.SP18",
+            "EN.601.295.01.SP19"
+        ]
+    },
+    "EN.601.296": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.297": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.298": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.299": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.300": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.301": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.302": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.303": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.304": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.305": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.306": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.307": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.308": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.309": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.310": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.310.01.SP18",
+            "EN.601.310.01.SP21"
+        ]
+    },
+    "EN.601.311": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.312": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.313": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.314": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.315": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.315.01.FA17",
+            "EN.601.315.01.FA19",
+            "EN.601.315.01.SP20",
+            "EN.601.315.01.FA20",
+            "EN.601.315.02.SP21",
+            "EN.601.315.01.SP21",
+            "EN.601.315.01.FA21",
+            "EN.601.315.01.SP22",
+            "EN.601.315.01.FA22",
+            "EN.601.315.01.FA23",
+            "EN.601.315.01.FA24"
+        ]
+    },
+    "EN.601.316": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.317": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.318": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.318.01.FA17",
+            "EN.601.318.01.FA19",
+            "EN.601.318.01.FA20",
+            "EN.601.318.01.FA21",
+            "EN.601.318.01.FA22"
+        ]
+    },
+    "EN.601.319": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.320": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.320.01.SP18",
+            "EN.601.320.01.SP19",
+            "EN.601.320.01.SP20",
+            "EN.601.320.01.FA20",
+            "EN.601.320.01.FA21"
+        ]
+    },
+    "EN.601.321": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.322": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.323": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.324": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.325": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.326": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.327": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.328": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP18",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.328.01.SP18"
+        ]
+    },
+    "EN.601.329": {
+        "first_period_gathered": "FA20",
+        "last_period_gathered": "FA20",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.329.01.FA20"
+        ]
+    },
+    "EN.601.330": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.331": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.332": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.333": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.334": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.335": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.336": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.337": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.338": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.339": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.340": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.340.01.FA19",
+            "EN.601.340.01.FA20",
+            "EN.601.340.01.FA21",
+            "EN.601.340.01.FA22",
+            "EN.601.340.01.FA23"
+        ]
+    },
+    "EN.601.341": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.342": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.343": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.344": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.345": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.346": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.347": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.348": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.349": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.350": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.350.01.SP18",
+            "EN.601.350.01.SP20",
+            "EN.601.350.01.SP21",
+            "EN.601.350.01.SP22",
+            "EN.601.350.01.SP23",
+            "EN.601.350.01.SP24"
+        ]
+    },
+    "EN.601.351": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.352": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.353": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.354": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.355": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP18",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.355.01.SP18"
+        ]
+    },
+    "EN.601.356": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.357": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.358": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.359": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.360": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.361": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.362": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.363": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.364": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.365": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.365.01.FA17"
+        ]
+    },
+    "EN.601.366": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.367": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.368": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.369": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.370": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.371": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.372": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.373": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.374": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.375": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.376": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.377": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.378": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.379": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.380": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.381": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.382": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.382.01.SP18",
+            "EN.601.382.01.FA18",
+            "EN.601.382.01.SP19",
+            "EN.601.382.01.FA19"
+        ]
+    },
+    "EN.601.383": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.384": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.385": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.386": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.387": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.388": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.389": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.390": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.391": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.392": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.393": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.394": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.395": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.396": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.397": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.398": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.399": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.400": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.401": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.402": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.402.01.SP18",
+            "EN.601.402.01.SP19",
+            "EN.601.402.01.SP20",
+            "EN.601.402.01.SP21",
+            "EN.601.402.01.SP22"
+        ]
+    },
+    "EN.601.403": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.404": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.404.01.SP25"
+        ]
+    },
+    "EN.601.405": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.406": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.407": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.408": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.409": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.410": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.411": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.411.01.SP18",
+            "EN.601.411.01.SP19",
+            "EN.601.411.01.SP20",
+            "EN.601.411.01.SP21",
+            "EN.601.411.01.SP22",
+            "EN.601.411.01.SP23",
+            "EN.601.411.01.SP24",
+            "EN.601.411.01.SP25"
+        ]
+    },
+    "EN.601.412": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.413": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.414": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.414.01.SP18",
+            "EN.601.414.01.SP19",
+            "EN.601.414.02.SP20",
+            "EN.601.414.01.SP20",
+            "EN.601.414.01.FA20",
+            "EN.601.414.01.SP21",
+            "EN.601.414.02.SP22",
+            "EN.601.414.01.SP22",
+            "EN.601.414.01.FA22"
+        ]
+    },
+    "EN.601.415": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.415.01.FA17",
+            "EN.601.415.01.FA19",
+            "EN.601.415.01.FA20",
+            "EN.601.415.01.FA21",
+            "EN.601.415.01.FA22"
+        ]
+    },
+    "EN.601.416": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.417": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.417.01.FA19",
+            "EN.601.417.01.FA21"
+        ]
+    },
+    "EN.601.418": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.418.01.FA17",
+            "EN.601.418.01.FA19",
+            "EN.601.418.01.FA20",
+            "EN.601.418.01.FA21",
+            "EN.601.418.01.FA22"
+        ]
+    },
+    "EN.601.419": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.419.01.SP19",
+            "EN.601.419.01.SP20",
+            "EN.601.419.01.FA20",
+            "EN.601.419.01.SP22"
+        ]
+    },
+    "EN.601.420": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.420.01.SP18",
+            "EN.601.420.01.SP19",
+            "EN.601.420.01.SP20",
+            "EN.601.420.01.FA20",
+            "EN.601.420.01.FA21",
+            "EN.601.420.01.FA22"
+        ]
+    },
+    "EN.601.421": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.421.01.FA17",
+            "EN.601.421.01.FA19",
+            "EN.601.421.02.SP20",
+            "EN.601.421.01.SP20",
+            "EN.601.421.04.SP20",
+            "EN.601.421.03.SP20",
+            "EN.601.421.04.FA20",
+            "EN.601.421.03.FA20",
+            "EN.601.421.01.FA20",
+            "EN.601.421.02.FA20",
+            "EN.601.421.01.SP21",
+            "EN.601.421.04.FA21",
+            "EN.601.421.03.FA21",
+            "EN.601.421.02.FA21",
+            "EN.601.421.01.FA21",
+            "EN.601.421.02.SP22",
+            "EN.601.421.01.SP22",
+            "EN.601.421.01.FA22"
+        ]
+    },
+    "EN.601.422": {
+        "first_period_gathered": "SP21",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.422.01.SP21",
+            "EN.601.422.01.SP22"
+        ]
+    },
+    "EN.601.423": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.424": {
+        "first_period_gathered": "SP21",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.424.01.SP21"
+        ]
+    },
+    "EN.601.425": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.425.02.FA23"
+        ]
+    },
+    "EN.601.426": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.426.01.SP18",
+            "EN.601.426.01.SP19",
+            "EN.601.426.01.SP20",
+            "EN.601.426.01.SP21",
+            "EN.601.426.01.SP22"
+        ]
+    },
+    "EN.601.427": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.428": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.428.01.SP18",
+            "EN.601.428.01.FA20",
+            "EN.601.428.01.FA21",
+            "EN.601.428.01.FA22"
+        ]
+    },
+    "EN.601.429": {
+        "first_period_gathered": "FA21",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.429.01.FA21",
+            "EN.601.429.01.FA22"
+        ]
+    },
+    "EN.601.430": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.431": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.432": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.433": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.433.01.FA17",
+            "EN.601.433.01.SP18",
+            "EN.601.433.01.SP19",
+            "EN.601.433.01.FA19",
+            "EN.601.433.01.SP20",
+            "EN.601.433.01.FA20",
+            "EN.601.433.01.SP21",
+            "EN.601.433.01.FA21",
+            "EN.601.433.01.SP22",
+            "EN.601.433.01.FA22",
+            "EN.601.433.01.FA23"
+        ]
+    },
+    "EN.601.434": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA20",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.434.01.FA17",
+            "EN.601.434.01.FA20"
+        ]
+    },
+    "EN.601.435": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.435.01.SP19",
+            "EN.601.435.01.SP21"
+        ]
+    },
+    "EN.601.436": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.436.01.SP18",
+            "EN.601.436.01.SP20",
+            "EN.601.436.01.SP22"
+        ]
+    },
+    "EN.601.437": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.438": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.439": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.440": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.440.01.FA19",
+            "EN.601.440.01.FA20",
+            "EN.601.440.01.FA21",
+            "EN.601.440.01.FA22"
+        ]
+    },
+    "EN.601.441": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.441.01.SP18",
+            "EN.601.441.01.SP19",
+            "EN.601.441.01.FA20",
+            "EN.601.441.01.SP21"
+        ]
+    },
+    "EN.601.442": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.442.01.FA17",
+            "EN.601.442.01.FA19",
+            "EN.601.442.01.FA20",
+            "EN.601.442.01.FA22"
+        ]
+    },
+    "EN.601.443": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.443.01.FA17",
+            "EN.601.443.01.FA20",
+            "EN.601.443.01.FA21",
+            "EN.601.443.01.FA22"
+        ]
+    },
+    "EN.601.444": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.444.01.FA17",
+            "EN.601.444.01.FA19"
+        ]
+    },
+    "EN.601.445": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.445.01.FA17",
+            "EN.601.445.01.SP20",
+            "EN.601.445.01.FA21"
+        ]
+    },
+    "EN.601.446": {
+        "first_period_gathered": "SP20",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.446.01.SP20",
+            "EN.601.446.01.SP21",
+            "EN.601.446.01.SP22"
+        ]
+    },
+    "EN.601.447": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.447.01.FA17",
+            "EN.601.447.02.FA19",
+            "EN.601.447.01.FA19",
+            "EN.601.447.01.FA20",
+            "EN.601.447.01.FA21",
+            "EN.601.447.01.FA22",
+            "EN.601.447.02.FA24",
+            "EN.601.447.01.FA24"
+        ]
+    },
+    "EN.601.448": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.448.01.SP19"
+        ]
+    },
+    "EN.601.449": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.449.02.FA22",
+            "EN.601.449.01.FA22"
+        ]
+    },
+    "EN.601.450": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.451": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.451.01.FA22"
+        ]
+    },
+    "EN.601.452": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.452.01.FA17",
+            "EN.601.452.01.FA19"
+        ]
+    },
+    "EN.601.453": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.454": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.454.01.SP18",
+            "EN.601.454.01.SP19",
+            "EN.601.454.01.SP20",
+            "EN.601.454.01.SP21",
+            "EN.601.454.01.SP22",
+            "EN.601.454.01.FA22"
+        ]
+    },
+    "EN.601.455": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.455.01.FA17",
+            "EN.601.455.01.FA19",
+            "EN.601.455.01.FA20",
+            "EN.601.455.01.FA21",
+            "EN.601.455.01.FA22",
+            "EN.601.455.01.FA23"
+        ]
+    },
+    "EN.601.456": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.456.01.SP18",
+            "EN.601.456.01.SP19",
+            "EN.601.456.01.SP20",
+            "EN.601.456.01.SP21",
+            "EN.601.456.01.SP22"
+        ]
+    },
+    "EN.601.457": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.457.01.FA17",
+            "EN.601.457.01.FA19",
+            "EN.601.457.01.FA20",
+            "EN.601.457.01.FA21",
+            "EN.601.457.01.FA22",
+            "EN.601.457.02.FA23"
+        ]
+    },
+    "EN.601.458": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.459": {
+        "first_period_gathered": "SP20",
+        "last_period_gathered": "SP20",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.459.01.SP20"
+        ]
+    },
+    "EN.601.460": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.461": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.461.01.FA17",
+            "EN.601.461.01.FA19",
+            "EN.601.461.01.SP20",
+            "EN.601.461.01.FA20",
+            "EN.601.461.01.FA21",
+            "EN.601.461.01.FA22"
+        ]
+    },
+    "EN.601.462": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.463": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.463.01.FA17",
+            "EN.601.463.01.SP18",
+            "EN.601.463.01.SP19",
+            "EN.601.463.01.FA19",
+            "EN.601.463.01.SP20",
+            "EN.601.463.01.FA20",
+            "EN.601.463.01.SP21",
+            "EN.601.463.01.FA21",
+            "EN.601.463.01.SP22",
+            "EN.601.463.02.FA22",
+            "EN.601.463.01.FA22"
+        ]
+    },
+    "EN.601.464": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.464.01.SP18",
+            "EN.601.464.01.SP19",
+            "EN.601.464.01.FA19",
+            "EN.601.464.01.SP20",
+            "EN.601.464.02.SP20",
+            "EN.601.464.02.FA20",
+            "EN.601.464.01.SP21",
+            "EN.601.464.01.FA21",
+            "EN.601.464.01.SP22",
+            "EN.601.464.02.FA22",
+            "EN.601.464.01.FA22",
+            "EN.601.464.01.SP24",
+            "EN.601.464.02.SP24",
+            "EN.601.464.01.FA24",
+            "EN.601.464.01.SP25"
+        ]
+    },
+    "EN.601.465": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.465.01.FA17",
+            "EN.601.465.01.FA19",
+            "EN.601.465.01.FA20",
+            "EN.601.465.01.FA21",
+            "EN.601.465.01.FA22",
+            "EN.601.465.01.FA24"
+        ]
+    },
+    "EN.601.466": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.466.01.SP18",
+            "EN.601.466.01.SP19",
+            "EN.601.466.01.SP20",
+            "EN.601.466.01.SP21",
+            "EN.601.466.01.SP22"
+        ]
+    },
+    "EN.601.467": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.467.01.FA19",
+            "EN.601.467.01.FA20",
+            "EN.601.467.01.FA21",
+            "EN.601.467.01.FA22"
+        ]
+    },
+    "EN.601.468": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.468.01.FA17",
+            "EN.601.468.01.FA20",
+            "EN.601.468.01.FA21",
+            "EN.601.468.01.FA22"
+        ]
+    },
+    "EN.601.469": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.470": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.470.01.FA22"
+        ]
+    },
+    "EN.601.471": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.472": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.473": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.474": {
+        "first_period_gathered": "FA21",
+        "last_period_gathered": "FA21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.474.01.FA21"
+        ]
+    },
+    "EN.601.476": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.476.01.SP19",
+            "EN.601.476.01.SP21"
+        ]
+    },
+    "EN.601.477": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.477.01.FA17",
+            "EN.601.477.01.FA20",
+            "EN.601.477.01.FA22"
+        ]
+    },
+    "EN.601.478": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.479": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.480": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.481": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.482": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.482.01.SP18",
+            "EN.601.482.01.SP19",
+            "EN.601.482.01.FA19",
+            "EN.601.482.01.SP20",
+            "EN.601.482.01.FA20",
+            "EN.601.482.01.SP21",
+            "EN.601.482.01.SP22",
+            "EN.601.482.02.SP22"
+        ]
+    },
+    "EN.601.483": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.484": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.484.01.FA22"
+        ]
+    },
+    "EN.601.485": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.485.01.FA17"
+        ]
+    },
+    "EN.601.486": {
+        "first_period_gathered": "SP20",
+        "last_period_gathered": "SP20",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.486.01.SP20"
+        ]
+    },
+    "EN.601.487": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.488": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP18",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.488.01.SP18"
+        ]
+    },
+    "EN.601.489": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.490": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.490.01.FA19",
+            "EN.601.490.02.FA19",
+            "EN.601.490.02.FA20",
+            "EN.601.490.01.FA20",
+            "EN.601.490.02.FA21",
+            "EN.601.490.01.FA21",
+            "EN.601.490.03.FA22",
+            "EN.601.490.02.FA22",
+            "EN.601.490.01.FA22"
+        ]
+    },
+    "EN.601.491": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.491.01.SP19",
+            "EN.601.491.01.SP20",
+            "EN.601.491.01.SP21",
+            "EN.601.491.01.SP22"
+        ]
+    },
+    "EN.601.492": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.493": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.494": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.495": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.496": {
+        "first_period_gathered": "SP20",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.496.01.SP20",
+            "EN.601.496.01.SP21",
+            "EN.601.496.01.SP22",
+            "EN.601.496.01.SP23",
+            "EN.601.496.01.SP24",
+            "EN.601.496.01.SP25"
+        ]
+    },
+    "EN.601.497": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.498": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.499": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.500": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.501": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.501.13.FA19",
+            "EN.601.501.49.IN21",
+            "EN.601.501.49.IN22",
+            "EN.601.501.08.SP24"
+        ]
+    },
+    "EN.601.502": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.503": {
+        "first_period_gathered": "SU20",
+        "last_period_gathered": "SU23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.503.49.SU20",
+            "EN.601.503.49.SU21",
+            "EN.601.503.49.SP22",
+            "EN.601.503.08.SP22",
+            "EN.601.503.08.SU23"
+        ]
+    },
+    "EN.601.504": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.505": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.506": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.507": {
+        "first_period_gathered": "IN21",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.507.37.IN21",
+            "EN.601.507.49.SP21",
+            "EN.601.507.49.SP22"
+        ]
+    },
+    "EN.601.508": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.509": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.510": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.511": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.512": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.513": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.513.49.FA23",
+            "EN.601.513.49.SP24"
+        ]
+    },
+    "EN.601.514": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.515": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.516": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.517": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.517.58.FA19",
+            "EN.601.517.49.FA19",
+            "EN.601.517.58.SP20",
+            "EN.601.517.49.SP20",
+            "EN.601.517.58.SP21",
+            "EN.601.517.49.SP21",
+            "EN.601.517.49.SP22",
+            "EN.601.517.58.SP22"
+        ]
+    },
+    "EN.601.518": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.519": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.520": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.521": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.522": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.523": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.524": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.525": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.526": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.527": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.528": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.529": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.530": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.531": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.532": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.533": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.534": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.535": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.536": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.537": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.538": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.539": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.540": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.541": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.542": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.543": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.544": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.545": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.546": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.547": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.548": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.549": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.550": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.551": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.552": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.553": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.554": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.555": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.556": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.557": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.558": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.559": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.560": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.561": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.562": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.563": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.564": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.565": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.566": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.567": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.568": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.569": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.570": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.571": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.572": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.573": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.574": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.575": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.576": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.577": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.578": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.579": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.580": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.581": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.582": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.583": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.584": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.585": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.586": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.587": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.588": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.589": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.590": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.591": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.592": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.593": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.594": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.595": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.596": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.597": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.598": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.599": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.600": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.601": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.602": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.603": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.604": {
+        "first_period_gathered": "SP23",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.604.01.SP23",
+            "EN.601.604.01.SP24"
+        ]
+    },
+    "EN.601.605": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.606": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.607": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.608": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.609": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.610": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.611": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.612": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.613": {
+        "first_period_gathered": "SP23",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.613.01.SP23",
+            "EN.601.613.01.SP24",
+            "EN.601.613.01.SP25"
+        ]
+    },
+    "EN.601.614": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.614.01.SP18",
+            "EN.601.614.01.SP19",
+            "EN.601.614.01.FA23",
+            "EN.601.614.01.SP24",
+            "EN.601.614.01.FA24",
+            "EN.601.614.01.SP25"
+        ]
+    },
+    "EN.601.615": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.615.01.FA17",
+            "EN.601.615.01.FA18",
+            "EN.601.615.01.FA19",
+            "EN.601.615.02.FA22",
+            "EN.601.615.02.FA23",
+            "EN.601.615.01.FA23",
+            "EN.601.615.01.FA24",
+            "EN.601.615.02.FA24"
+        ]
+    },
+    "EN.601.616": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.617": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.617.01.FA19"
+        ]
+    },
+    "EN.601.618": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.618.01.FA17",
+            "EN.601.618.01.FA18",
+            "EN.601.618.01.FA19",
+            "EN.601.618.01.SP24",
+            "EN.601.618.01.SP25"
+        ]
+    },
+    "EN.601.619": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.620": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.620.01.SP18",
+            "EN.601.620.02.FA22",
+            "EN.601.620.02.FA23",
+            "EN.601.620.01.FA23",
+            "EN.601.620.01.FA24"
+        ]
+    },
+    "EN.601.621": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.621.01.FA17",
+            "EN.601.621.01.FA18",
+            "EN.601.621.01.FA19",
+            "EN.601.621.01.SP20",
+            "EN.601.621.02.SP20",
+            "EN.601.621.01.SP21",
+            "EN.601.621.02.SP21",
+            "EN.601.621.01.FA21",
+            "EN.601.621.01.SP23",
+            "EN.601.621.01.FA23",
+            "EN.601.621.01.SP24",
+            "EN.601.621.01.FA24",
+            "EN.601.621.01.SP25"
+        ]
+    },
+    "EN.601.622": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.622.01.FA19",
+            "EN.601.622.01.SP23",
+            "EN.601.622.01.SP24",
+            "EN.601.622.01.SP25"
+        ]
+    },
+    "EN.601.623": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.624": {
+        "first_period_gathered": "SP22",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.624.01.SP22"
+        ]
+    },
+    "EN.601.625": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.625.01.FA23",
+            "EN.601.625.01.SP24",
+            "EN.601.625.01.SP25"
+        ]
+    },
+    "EN.601.626": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.626.01.SP18",
+            "EN.601.626.01.SP23",
+            "EN.601.626.01.SP24",
+            "EN.601.626.01.SP25"
+        ]
+    },
+    "EN.601.627": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.627.01.FA19"
+        ]
+    },
+    "EN.601.628": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.628.01.FA23",
+            "EN.601.628.01.FA24"
+        ]
+    },
+    "EN.601.629": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.629.01.FA23",
+            "EN.601.629.01.FA24"
+        ]
+    },
+    "EN.601.630": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.630.01.FA19",
+            "EN.601.630.01.FA21",
+            "EN.601.630.01.SP24",
+            "EN.601.630.01.SP25"
+        ]
+    },
+    "EN.601.631": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.631.01.SP19",
+            "EN.601.631.01.FA20",
+            "EN.601.631.01.FA23",
+            "EN.601.631.01.FA24"
+        ]
+    },
+    "EN.601.632": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.633": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.633.01.FA17",
+            "EN.601.633.01.SP18",
+            "EN.601.633.01.FA18",
+            "EN.601.633.02.SP19",
+            "EN.601.633.01.FA19",
+            "EN.601.633.02.SP22",
+            "EN.601.633.02.FA22",
+            "EN.601.633.01.FA22",
+            "EN.601.633.02.SP23",
+            "EN.601.633.01.SP23",
+            "EN.601.633.02.FA23",
+            "EN.601.633.01.FA23",
+            "EN.601.633.02.SP24",
+            "EN.601.633.01.SP24",
+            "EN.601.633.01.FA24",
+            "EN.601.633.02.SP25",
+            "EN.601.633.01.SP25"
+        ]
+    },
+    "EN.601.634": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.634.01.FA17",
+            "EN.601.634.01.FA19",
+            "EN.601.634.01.SP25"
+        ]
+    },
+    "EN.601.635": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.635.01.SP19",
+            "EN.601.635.01.SP24"
+        ]
+    },
+    "EN.601.636": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP18",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.636.01.SP18"
+        ]
+    },
+    "EN.601.637": {
+        "first_period_gathered": "FA21",
+        "last_period_gathered": "FA21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.637.01.FA21"
+        ]
+    },
+    "EN.601.638": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.638.01.SP25"
+        ]
+    },
+    "EN.601.639": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.640": {
+        "first_period_gathered": "FA18",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.640.01.FA18",
+            "EN.601.640.01.FA19",
+            "EN.601.640.01.FA23"
+        ]
+    },
+    "EN.601.641": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.641.01.SP18",
+            "EN.601.641.01.SP19",
+            "EN.601.641.01.SP23",
+            "EN.601.641.01.FA24"
+        ]
+    },
+    "EN.601.642": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.642.01.FA17",
+            "EN.601.642.01.FA18",
+            "EN.601.642.01.FA19"
+        ]
+    },
+    "EN.601.643": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.643.01.FA17",
+            "EN.601.643.01.FA18",
+            "EN.601.643.01.FA19",
+            "EN.601.643.02.FA21",
+            "EN.601.643.01.FA21",
+            "EN.601.643.02.FA22",
+            "EN.601.643.01.FA23",
+            "EN.601.643.01.FA24"
+        ]
+    },
+    "EN.601.644": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.644.01.FA17",
+            "EN.601.644.01.FA18",
+            "EN.601.644.01.SP19",
+            "EN.601.644.01.FA19",
+            "EN.601.644.01.SP25"
+        ]
+    },
+    "EN.601.645": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.645.01.FA17",
+            "EN.601.645.01.FA18",
+            "EN.601.645.01.FA21",
+            "EN.601.645.01.SP24",
+            "EN.601.645.01.SP25"
+        ]
+    },
+    "EN.601.646": {
+        "first_period_gathered": "SP23",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.646.01.SP23",
+            "EN.601.646.01.SP24",
+            "EN.601.646.01.SP25"
+        ]
+    },
+    "EN.601.647": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.647.01.FA17",
+            "EN.601.647.02.FA19",
+            "EN.601.647.01.FA19",
+            "EN.601.647.01.FA22",
+            "EN.601.647.02.FA23",
+            "EN.601.647.01.FA23",
+            "EN.601.647.01.FA24",
+            "EN.601.647.03.FA24",
+            "EN.601.647.02.FA24"
+        ]
+    },
+    "EN.601.648": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.648.01.SP19"
+        ]
+    },
+    "EN.601.649": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.649.01.FA23",
+            "EN.601.649.01.FA24"
+        ]
+    },
+    "EN.601.650": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.651": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.651.02.FA22"
+        ]
+    },
+    "EN.601.652": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.653": {
+        "first_period_gathered": "SP23",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.653.01.SP23",
+            "EN.601.653.01.SP24"
+        ]
+    },
+    "EN.601.654": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.654.01.SP18",
+            "EN.601.654.01.SP19",
+            "EN.601.654.01.SP23",
+            "EN.601.654.02.FA23",
+            "EN.601.654.01.FA23"
+        ]
+    },
+    "EN.601.655": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.655.01.FA17",
+            "EN.601.655.01.FA18",
+            "EN.601.655.01.FA19",
+            "EN.601.655.01.FA21",
+            "EN.601.655.02.FA21",
+            "EN.601.655.03.FA22",
+            "EN.601.655.03.FA23",
+            "EN.601.655.02.FA23",
+            "EN.601.655.01.FA24"
+        ]
+    },
+    "EN.601.656": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.656.01.SP18",
+            "EN.601.656.02.SP22",
+            "EN.601.656.03.SP22",
+            "EN.601.656.01.SP23",
+            "EN.601.656.01.SP24",
+            "EN.601.656.01.SP25"
+        ]
+    },
+    "EN.601.657": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.657.01.FA17",
+            "EN.601.657.01.FA18",
+            "EN.601.657.01.FA19",
+            "EN.601.657.01.FA20",
+            "EN.601.657.01.FA21",
+            "EN.601.657.01.FA22",
+            "EN.601.657.01.FA23",
+            "EN.601.657.01.SP25"
+        ]
+    },
+    "EN.601.658": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.659": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.660": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.661": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.661.01.FA17",
+            "EN.601.661.01.FA18",
+            "EN.601.661.01.FA19",
+            "EN.601.661.01.FA21",
+            "EN.601.661.01.SP23",
+            "EN.601.661.02.FA23",
+            "EN.601.661.01.FA23",
+            "EN.601.661.02.SP24",
+            "EN.601.661.01.SP24",
+            "EN.601.661.03.FA24",
+            "EN.601.661.01.FA24",
+            "EN.601.661.02.FA24",
+            "EN.601.661.02.SP25",
+            "EN.601.661.01.SP25"
+        ]
+    },
+    "EN.601.662": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.663": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.663.01.FA17",
+            "EN.601.663.01.SP18",
+            "EN.601.663.01.FA18",
+            "EN.601.663.01.FA19",
+            "EN.601.663.01.SP23",
+            "EN.601.663.02.FA23",
+            "EN.601.663.01.FA23",
+            "EN.601.663.02.SP24",
+            "EN.601.663.01.SP24",
+            "EN.601.663.01.FA24",
+            "EN.601.663.02.FA24",
+            "EN.601.663.02.SP25",
+            "EN.601.663.01.SP25"
+        ]
+    },
+    "EN.601.664": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.664.01.SP18",
+            "EN.601.664.01.FA18",
+            "EN.601.664.02.SP19",
+            "EN.601.664.01.FA19",
+            "EN.601.664.02.FA21",
+            "EN.601.664.01.SP23",
+            "EN.601.664.03.FA23",
+            "EN.601.664.02.FA23",
+            "EN.601.664.01.FA23",
+            "EN.601.664.01.SP24",
+            "EN.601.664.02.SP24",
+            "EN.601.664.03.FA24",
+            "EN.601.664.02.FA24",
+            "EN.601.664.02.SP25",
+            "EN.601.664.01.SP25"
+        ]
+    },
+    "EN.601.665": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.665.01.FA17",
+            "EN.601.665.01.FA18",
+            "EN.601.665.01.FA19",
+            "EN.601.665.01.FA20",
+            "EN.601.665.02.FA22",
+            "EN.601.665.01.FA23",
+            "EN.601.665.02.FA24",
+            "EN.601.665.03.FA24",
+            "EN.601.665.01.FA24"
+        ]
+    },
+    "EN.601.666": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.666.01.SP18",
+            "EN.601.666.01.SP23",
+            "EN.601.666.01.SP24",
+            "EN.601.666.02.SP24",
+            "EN.601.666.02.SP25",
+            "EN.601.666.01.SP25"
+        ]
+    },
+    "EN.601.667": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.667.01.FA19",
+            "EN.601.667.02.FA21",
+            "EN.601.667.02.FA22",
+            "EN.601.667.01.FA23",
+            "EN.601.667.01.FA24"
+        ]
+    },
+    "EN.601.668": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.668.01.FA17",
+            "EN.601.668.01.FA18",
+            "EN.601.668.02.FA22",
+            "EN.601.668.01.FA23",
+            "EN.601.668.02.FA23",
+            "EN.601.668.01.FA24",
+            "EN.601.668.02.FA24"
+        ]
+    },
+    "EN.601.669": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.670": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.670.02.FA22",
+            "EN.601.670.02.FA24",
+            "EN.601.670.01.FA24"
+        ]
+    },
+    "EN.601.671": {
+        "first_period_gathered": "SP23",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.671.01.SP23",
+            "EN.601.671.01.SP24",
+            "EN.601.671.01.SP25"
+        ]
+    },
+    "EN.601.672": {
+        "first_period_gathered": "SP24",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.672.01.SP24",
+            "EN.601.672.01.SP25"
+        ]
+    },
+    "EN.601.673": {
+        "first_period_gathered": "SP24",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.673.01.SP24",
+            "EN.601.673.01.FA24"
+        ]
+    },
+    "EN.601.674": {
+        "first_period_gathered": "FA24",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.674.01.FA24"
+        ]
+    },
+    "EN.601.675": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.675.01.FA17",
+            "EN.601.675.01.SP18",
+            "EN.601.675.01.FA18",
+            "EN.601.675.02.SP19",
+            "EN.601.675.01.FA19",
+            "EN.601.675.03.SP22",
+            "EN.601.675.04.SP22",
+            "EN.601.675.01.SP23",
+            "EN.601.675.02.FA23",
+            "EN.601.675.01.FA23",
+            "EN.601.675.02.FA24",
+            "EN.601.675.01.FA24",
+            "EN.601.675.01.SP25",
+            "EN.601.675.02.SP25"
+        ]
+    },
+    "EN.601.676": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.677": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.677.01.FA17",
+            "EN.601.677.01.FA18",
+            "EN.601.677.01.FA19",
+            "EN.601.677.01.FA21",
+            "EN.601.677.02.FA22",
+            "EN.601.677.01.FA23"
+        ]
+    },
+    "EN.601.678": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.679": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.680": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.681": {
+        "first_period_gathered": "FA18",
+        "last_period_gathered": "FA18",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.681.01.FA18"
+        ]
+    },
+    "EN.601.682": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.682.01.SP18",
+            "EN.601.682.01.FA18",
+            "EN.601.682.01.FA19",
+            "EN.601.682.03.SP22",
+            "EN.601.682.01.SP23",
+            "EN.601.682.01.FA23",
+            "EN.601.682.02.FA23",
+            "EN.601.682.02.FA24",
+            "EN.601.682.01.FA24",
+            "EN.601.682.02.SP25",
+            "EN.601.682.01.SP25"
+        ]
+    },
+    "EN.601.683": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.684": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.684.02.FA22",
+            "EN.601.684.02.SP24",
+            "EN.601.684.01.SP24",
+            "EN.601.684.01.SP25"
+        ]
+    },
+    "EN.601.685": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.685.01.FA17",
+            "EN.601.685.01.FA23",
+            "EN.601.685.01.FA24"
+        ]
+    },
+    "EN.601.686": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.686.01.FA23",
+            "EN.601.686.01.FA24"
+        ]
+    },
+    "EN.601.687": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.687.01.SP25"
+        ]
+    },
+    "EN.601.688": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.689": {
+        "first_period_gathered": "FA24",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.689.01.FA24"
+        ]
+    },
+    "EN.601.690": {
+        "first_period_gathered": "FA18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.690.01.FA18",
+            "EN.601.690.01.FA19",
+            "EN.601.690.03.FA23",
+            "EN.601.690.02.FA23",
+            "EN.601.690.01.FA23",
+            "EN.601.690.01.SP24",
+            "EN.601.690.02.FA24",
+            "EN.601.690.01.FA24",
+            "EN.601.690.03.FA24",
+            "EN.601.690.04.SP25",
+            "EN.601.690.03.SP25",
+            "EN.601.690.02.SP25",
+            "EN.601.690.01.SP25"
+        ]
+    },
+    "EN.601.691": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.691.01.SP18",
+            "EN.601.691.01.SP23",
+            "EN.601.691.02.SP25",
+            "EN.601.691.01.SP25"
+        ]
+    },
+    "EN.601.692": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.693": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.694": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.695": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.696": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.697": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.698": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.699": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.700": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.701": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.702": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.703": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.704": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.705": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.706": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.707": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.708": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.709": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.710": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.711": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.712": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.713": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.713.01.FA22",
+            "EN.601.713.01.FA23",
+            "EN.601.713.01.FA24"
+        ]
+    },
+    "EN.601.714": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.714.01.FA17",
+            "EN.601.714.01.FA18",
+            "EN.601.714.01.FA19",
+            "EN.601.714.01.FA21",
+            "EN.601.714.01.SP25"
+        ]
+    },
+    "EN.601.715": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.715.01.SP25"
+        ]
+    },
+    "EN.601.716": {
+        "first_period_gathered": "SP24",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.716.01.SP24"
+        ]
+    },
+    "EN.601.717": {
+        "first_period_gathered": "SP20",
+        "last_period_gathered": "SP22",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.717.01.SP20",
+            "EN.601.717.01.SP22"
+        ]
+    },
+    "EN.601.718": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP20",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.718.01.SP18",
+            "EN.601.718.01.SP20"
+        ]
+    },
+    "EN.601.719": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.720": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.721": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.722": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.723": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA18",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.723.01.FA17",
+            "EN.601.723.01.FA18"
+        ]
+    },
+    "EN.601.724": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.725": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.726": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.727": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.728": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.729": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.730": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.730.01.FA17"
+        ]
+    },
+    "EN.601.731": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.732": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.733": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.734": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.735": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.736": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.737": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.738": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.739": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.740": {
+        "first_period_gathered": "SP21",
+        "last_period_gathered": "SP23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.740.01.SP21",
+            "EN.601.740.01.SP23"
+        ]
+    },
+    "EN.601.741": {
+        "first_period_gathered": "SP21",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.741.01.SP21"
+        ]
+    },
+    "EN.601.742": {
+        "first_period_gathered": "SP20",
+        "last_period_gathered": "SP23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.742.01.SP20",
+            "EN.601.742.01.SP23"
+        ]
+    },
+    "EN.601.743": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.743.01.SP19",
+            "EN.601.743.01.SP21",
+            "EN.601.743.01.SP23"
+        ]
+    },
+    "EN.601.744": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.745": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "FA19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.745.01.SP18",
+            "EN.601.745.01.FA19"
+        ]
+    },
+    "EN.601.746": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.747": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.748": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.749": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.749.01.SP18",
+            "EN.601.749.01.SP19",
+            "EN.601.749.01.SP20",
+            "EN.601.749.01.SP21"
+        ]
+    },
+    "EN.601.750": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.751": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.751.01.FA17"
+        ]
+    },
+    "EN.601.752": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.753": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.754": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.755": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.756": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.757": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.758": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.759": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.760": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.760.01.SP19",
+            "EN.601.760.01.SP23"
+        ]
+    },
+    "EN.601.761": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.762": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.763": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.764": {
+        "first_period_gathered": "SP23",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.764.01.SP23",
+            "EN.601.764.01.SP24"
+        ]
+    },
+    "EN.601.765": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.765.01.SP18",
+            "EN.601.765.01.SP19"
+        ]
+    },
+    "EN.601.766": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.767": {
+        "first_period_gathered": "SP20",
+        "last_period_gathered": "SP20",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.767.01.SP20"
+        ]
+    },
+    "EN.601.768": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.769": {
+        "first_period_gathered": "SP21",
+        "last_period_gathered": "SP21",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.769.01.SP21"
+        ]
+    },
+    "EN.601.770": {
+        "first_period_gathered": "FA23",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.770.01.FA23",
+            "EN.601.770.01.FA24"
+        ]
+    },
+    "EN.601.771": {
+        "first_period_gathered": "FA22",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.771.01.FA22",
+            "EN.601.771.01.FA24"
+        ]
+    },
+    "EN.601.772": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.773": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.773.01.SP25"
+        ]
+    },
+    "EN.601.774": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.774.01.SP25"
+        ]
+    },
+    "EN.601.775": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.775.01.FA17"
+        ]
+    },
+    "EN.601.776": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.777": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.778": {
+        "first_period_gathered": "FA19",
+        "last_period_gathered": "SP23",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.778.01.FA19",
+            "EN.601.778.01.SP23"
+        ]
+    },
+    "EN.601.779": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.779.01.SP18",
+            "EN.601.779.01.SP22",
+            "EN.601.779.01.SP24"
+        ]
+    },
+    "EN.601.780": {
+        "first_period_gathered": "FA20",
+        "last_period_gathered": "FA20",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.780.01.FA20"
+        ]
+    },
+    "EN.601.781": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.782": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.783": {
+        "first_period_gathered": "SP18",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.783.01.SP18",
+            "EN.601.783.01.SP19",
+            "EN.601.783.01.SP20",
+            "EN.601.783.01.SP21",
+            "EN.601.783.02.SP22",
+            "EN.601.783.01.SP22",
+            "EN.601.783.01.SP23",
+            "EN.601.783.02.SP23",
+            "EN.601.783.02.SP24",
+            "EN.601.783.01.SP24",
+            "EN.601.783.02.SP25",
+            "EN.601.783.01.SP25"
+        ]
+    },
+    "EN.601.784": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.785": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.786": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.787": {
+        "first_period_gathered": "SP22",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.787.01.SP22",
+            "EN.601.787.01.SP23",
+            "EN.601.787.01.FA24"
+        ]
+    },
+    "EN.601.788": {
+        "first_period_gathered": "FA24",
+        "last_period_gathered": "FA24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.788.02.FA24",
+            "EN.601.788.01.FA24"
+        ]
+    },
+    "EN.601.789": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.790": {
+        "first_period_gathered": "SP25",
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.790.01.SP25"
+        ]
+    },
+    "EN.601.791": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.792": {
+        "first_period_gathered": "SP24",
+        "last_period_gathered": "SP24",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.792.01.SP24"
+        ]
+    },
+    "EN.601.793": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.794": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.795": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.796": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.797": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.798": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.799": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.800": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.801": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.802": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.803": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.804": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.805": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.806": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.807": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.808": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.809": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.810": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.811": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.812": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.813": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.814": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.815": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.816": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.817": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.818": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.819": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.820": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.821": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.822": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.823": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.824": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.825": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.826": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.826.01.FA17"
+        ]
+    },
+    "EN.601.827": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.828": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.829": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.830": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.831": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.832": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.833": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.834": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.835": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.836": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.837": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.838": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.839": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.840": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.841": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.842": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.843": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.844": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.845": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.846": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.847": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.848": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.849": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.850": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.851": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.852": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.853": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.854": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.855": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.856": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.857": {
+        "first_period_gathered": "SP19",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.857.01.SP19"
+        ]
+    },
+    "EN.601.858": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.859": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.860": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.861": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.862": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.863": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.864": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.865": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.865.01.FA17",
+            "EN.601.865.01.SP19"
+        ]
+    },
+    "EN.601.866": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.866.01.FA17",
+            "EN.601.866.01.SP18",
+            "EN.601.866.01.SP19"
+        ]
+    },
+    "EN.601.867": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.868": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "SP19",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.868.01.FA17",
+            "EN.601.868.01.SP18",
+            "EN.601.868.01.SP19"
+        ]
+    },
+    "EN.601.869": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.870": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.871": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.872": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.873": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.874": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.875": {
+        "first_period_gathered": "FA17",
+        "last_period_gathered": "FA17",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.875.01.FA17"
+        ]
+    },
+    "EN.601.876": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.877": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.878": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.879": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.880": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.881": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.882": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.883": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.884": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.885": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.886": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.887": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.888": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.889": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.890": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.891": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.892": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.893": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.894": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.895": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.896": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.897": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.898": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.899": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.900": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.901": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.902": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.903": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.904": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.905": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.906": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.907": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.908": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.909": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.910": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.911": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.912": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.913": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.914": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.915": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.916": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.917": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.918": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.919": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.920": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.921": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.922": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.923": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.924": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.925": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.926": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.927": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.928": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.929": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.930": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.931": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.932": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.933": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.934": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.935": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.936": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.937": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.938": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.939": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.940": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.941": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.942": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.943": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.944": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.945": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.946": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.947": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.948": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.949": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.950": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.951": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.952": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.953": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.954": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.955": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.956": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.957": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.958": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.959": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.960": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.961": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.962": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.963": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.964": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.965": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.966": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.967": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.968": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.969": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.970": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.971": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.972": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.973": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.974": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.975": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.976": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.977": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.978": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.979": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.980": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.981": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.982": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.983": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.984": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.985": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.986": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.987": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.988": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.989": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.990": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.991": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.992": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.993": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.994": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.995": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.996": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.997": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.998": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
+        "last_period_failed": false,
+        "relevant_periods": []
+    },
+    "EN.601.999": {
+        "first_period_gathered": null,
+        "last_period_gathered": "SP25",
         "last_period_failed": false,
         "relevant_periods": []
     }
