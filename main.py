@@ -1,23 +1,40 @@
 from workflow import run_scraper_workflow
+from scraping_logic import get_authenticated_session
+from exceptions import SessionExpiredException
+import requests
 
 if __name__ == "__main__":
     department_code = 'EN.601'
-    # Loop through a reasonable range of course numbers for the department.
-    # Using a range from 100 to 899 covers typical undergraduate and graduate courses.
+    
+    try:
+        session = get_authenticated_session()
+    except requests.exceptions.RequestException as e:
+        print(f"Could not get initial authenticated session: {e}. Aborting.")
+        exit()
+
     for course_number in range(0, 1000):
-        # Format the course number to be three digits (e.g., 101, 220, 601)
         formatted_course_number = f"{course_number:03d}"
         target_course = f"{department_code}.{formatted_course_number}"
         
         print(f"--- Processing course: {target_course} ---")
-        try:
-            run_scraper_workflow(target_course)
-            print(f"--- Finished processing: {target_course} ---\n")
-        except Exception as e:
-            # If an unexpected error occurs in the workflow for one course,
-            # log it and continue to the next to ensure the script doesn't halt.
-            print(f"--- CRITICAL ERROR in workflow for {target_course}: {e} ---")
-            print("--- Moving to next course. ---\n")
-            continue
+        
+        retries = 1 # Allow one retry
+        while retries >= 0:
+            try:
+                run_scraper_workflow(target_course, session)
+                print(f"--- Finished processing: {target_course} ---\n")
+                break # Success, exit retry loop
+            except SessionExpiredException:
+                print(f"Session expired while processing {target_course}. Retrying...")
+                try:
+                    session = get_authenticated_session()
+                except requests.exceptions.RequestException as e:
+                    print(f"Could not get new authenticated session: {e}. Aborting retries for this course.")
+                    break
+                retries -= 1
+            except Exception as e:
+                print(f"--- CRITICAL ERROR in workflow for {target_course}: {e} ---")
+                print("--- Moving to next course. ---\n")
+                break # Exit retry loop on other errors
 
     print("--- All department courses have been processed. ---")

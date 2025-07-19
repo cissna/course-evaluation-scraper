@@ -1,18 +1,15 @@
 import requests
 from config import AUTH_URL
 
-def get_authenticated_session():
+def get_authenticated_session() -> requests.Session:
     """
     Creates and returns an authenticated requests.Session object.
-    This is a simplified version based on the logic in scrapeSearch.py.
-    A robust implementation might share the session more directly.
+
+    This function will raise a requests.exceptions.RequestException
+    if it fails to get a session.
     """
     session = requests.Session()
-    try:
-        auth_response = session.get(AUTH_URL, timeout=10)
-        auth_response.raise_for_status()
-        print("Authentication session created successfully.")
-        return session
-    except requests.exceptions.RequestException as e:
-        print(f"Failed to create authenticated session: {e}")
-        return None
+    auth_response = session.get(AUTH_URL, timeout=10)
+    auth_response.raise_for_status()
+    print("Authentication session created successfully.")
+    return session

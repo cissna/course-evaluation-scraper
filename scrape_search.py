@@ -29,8 +29,10 @@ def get_evaluation_report_links(
     Returns:
         A dictionary where keys are course instance codes (e.g., 'AS.030.101.01.FA15')
         and values are the corresponding report URLs.
-        Returns an empty dictionary if the page can't be accessed or no links are found.
-        Returns None on unexpected behavior.
+        Returns an empty dictionary if no links are found.
+
+    Raises:
+        requests.exceptions.RequestException: If the network request fails.
     """
     # The base URL for the course reports page.
     base_report_url = 'https://asen-jhu.evaluationkit.com/'
@@ -63,60 +65,49 @@ def get_evaluation_report_links(
 
     report_links = {}
 
-    try:
-        # The session is assumed to be authenticated by the caller.
-        # 1. Navigate: Go to the specific course page.
-        course_page_response = session.get(course_url, timeout=10)
-        course_page_response.raise_for_status()
+    # The session is assumed to be authenticated by the caller.
+    # 1. Navigate: Go to the specific course page.
+    course_page_response = session.get(course_url, timeout=10)
+    course_page_response.raise_for_status()
 
-        # 2. Parse and Find Links: Use BeautifulSoup to parse the HTML.
-        soup = BeautifulSoup(course_page_response.text, 'html.parser')
+    # 2. Parse and Find Links: Use BeautifulSoup to parse the HTML.
+    soup = BeautifulSoup(course_page_response.text, 'html.parser')
 
-        # Find all <a> tags with the class 'sr-view-report'.
-        links_found = soup.find_all('a', class_='sr-view-report')
+    # Find all <a> tags with the class 'sr-view-report'.
+    links_found = soup.find_all('a', class_='sr-view-report')
 
-        if not links_found:
-            return {}
+    if not links_found:
+        return {}
 
-        # 3. Construct URLs and find course codes
-        for link in links_found:
-            data_id0 = link.get('data-id0')
-            data_id1 = link.get('data-id1')
-            data_id2 = link.get('data-id2')
-            data_id3 = link.get('data-id3')
+    # 3. Construct URLs and find course codes
+    for link in links_found:
+        data_id0 = link.get('data-id0')
+        data_id1 = link.get('data-id1')
+        data_id2 = link.get('data-id2')
+        data_id3 = link.get('data-id3')
 
-            if all([data_id0, data_id1, data_id2, data_id3]):
-                # Construct the URL for the report
-                id_string = f"{data_id0},{data_id1},{data_id2},{data_id3}"
-                final_url = f"{individual_report_base_url}?id={id_string}"
+        if all([data_id0, data_id1, data_id2, data_id3]):
+            # Construct the URL for the report
+            id_string = f"{data_id0},{data_id1},{data_id2},{data_id3}"
+            final_url = f"{individual_report_base_url}?id={id_string}"
 
-                # Find the parent row for the link, which contains all the info for one report
-                parent_row = link.find_parent('div', class_='row')
-                
-                course_instance_code = None
-                if parent_row:
-                    course_code_p = parent_row.find('p', class_='sr-dataitem-info-code')
-                    if course_code_p and course_code_p.text:
-                        course_instance_code = course_code_p.text.strip()
+            # Find the parent row for the link, which contains all the info for one report
+            parent_row = link.find_parent('div', class_='row')
+            
+            course_instance_code = None
+            if parent_row:
+                course_code_p = parent_row.find('p', class_='sr-dataitem-info-code')
+                if course_code_p and course_code_p.text:
+                    course_instance_code = course_code_p.text.strip()
 
-                if course_instance_code:
-                    report_links[course_instance_code] = final_url
-                else:
-                    label = link.get('aria-label', 'No label found').strip()
-                    print(f"Could not find course instance code for report: {label}")
+            if course_instance_code:
+                report_links[course_instance_code] = final_url
             else:
                 label = link.get('aria-label', 'No label found').strip()
-                print(f"Skipping a link because it was missing required data-id attributes: {label}")
-                return None
-
-
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred during the request: {e}")
-        return None
-    
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-        return None
+                print(f"Could not find course instance code for report: {label}")
+        else:
+            label = link.get('aria-label', 'No label found').strip()
+            print(f"Skipping a link because it was missing required data-id attributes: {label}")
 
     return report_links
 
