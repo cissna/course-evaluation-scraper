@@ -218,50 +218,91 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
         save_json_file(METADATA_FILE, metadata)
         return {"error": "Failed to authenticate with scraping service."}
 
-    # Simplified scraping logic for the service
-    last_period = course_metadata.get('last_period_gathered')
-    start_year = get_year_from_period_string(last_period) if last_period else 2010 # Default to 2010 if no data
-    end_year = date.today().year
+    new_data_found = False
+    
+    # 4. Get initial dictionary of report links to check for pagination
+    print(f"Fetching initial report links for {course_code}...")
+    initial_links = get_evaluation_report_links(session=session, course_code=course_code)
 
-    for year in range(start_year, end_year + 2):
-        print(f"Processing year: {year}")
-        try:
-            yearly_links_dict = get_evaluation_report_links(session=session, course_code=course_code, year=year)
-            if not yearly_links_dict:
-                continue
+    # 5. Decide workflow based on number of links
+    if len(initial_links) >= 20:
+        print("Pagination detected. Switching to year-by-year scraping.")
+        last_period = course_metadata.get('last_period_gathered')
+        start_year = get_year_from_period_string(last_period) if last_period else find_oldest_year_from_keys(initial_links.keys())
+        end_year = date.today().year
 
-            for instance_key, link_url in yearly_links_dict.items():
-                if instance_key in data:
-                    continue
+        for year in range(start_year, end_year + 2):
+            print(f"Processing year: {year}")
+            try:
+                yearly_links_dict = get_evaluation_report_links(session=session, course_code=course_code, year=str(year))
                 
-                scraped_data = scrape_evaluation_data(link_url, session)
-                if scraped_data:
-                    data[instance_key] = scraped_data
-                    if instance_key not in course_metadata['relevant_periods']:
-                        course_metadata['relevant_periods'].append(instance_key)
-                    
-                    period = get_period_from_instance_key(instance_key)
-                    if period:
-                        course_metadata['last_period_gathered'] = period
-                    
-                    course_metadata['last_period_failed'] = False
-                else:
+                if len(yearly_links_dict) >= 20:
+                    print(f"CRITICAL: Found 20+ links for year {year}. Halting.")
                     course_metadata['last_period_failed'] = True
+                    save_json_file(METADATA_FILE, metadata)
+                    return {"error": f"Too many results for year {year}, please contact admin."}
+
+                if not yearly_links_dict:
+                    continue
+
+                for instance_key, link_url in yearly_links_dict.items():
+                    if instance_key in data:
+                        continue
+                    
+                    scraped_data = scrape_evaluation_data(link_url, session)
+                    if scraped_data:
+                        data[instance_key] = scraped_data
+                        new_data_found = True
+                        if instance_key not in course_metadata['relevant_periods']:
+                            course_metadata['relevant_periods'].append(instance_key)
+                        
+                        period = get_period_from_instance_key(instance_key)
+                        if period:
+                            course_metadata['last_period_gathered'] = period
+                        
+                        course_metadata['last_period_failed'] = False
+                    else:
+                        course_metadata['last_period_failed'] = True
+                        break  # Stop processing this year if a single scrape fails
+                
+                save_json_file(DATA_FILE, data)
+                save_json_file(METADATA_FILE, metadata)
+
+            except requests.exceptions.RequestException as e:
+                print(f"Failed to scrape year {year}: {e}")
+                course_metadata['last_period_failed'] = True
+                save_json_file(METADATA_FILE, metadata)
+                break
+    else:
+        print(f"No pagination detected ({len(initial_links)} links). Scraping all.")
+        for instance_key, link_url in initial_links.items():
+            if instance_key in data:
+                continue
             
-            # Save after each year
-            save_json_file(DATA_FILE, data)
-            save_json_file(METADATA_FILE, metadata)
+            scraped_data = scrape_evaluation_data(link_url, session)
+            if scraped_data:
+                data[instance_key] = scraped_data
+                new_data_found = True
+                if instance_key not in course_metadata['relevant_periods']:
+                    course_metadata['relevant_periods'].append(instance_key)
+                
+                period = get_period_from_instance_key(instance_key)
+                if period:
+                    course_metadata['last_period_gathered'] = period
+                
+                course_metadata['last_period_failed'] = False
+                save_json_file(DATA_FILE, data)
+                save_json_file(METADATA_FILE, metadata)
+            else:
+                course_metadata['last_period_failed'] = True
+                save_json_file(METADATA_FILE, metadata)
+                break # Stop if one fails
 
-        except requests.exceptions.RequestException as e:
-            print(f"Failed to scrape year {year}: {e}")
-            course_metadata['last_period_failed'] = True
-            save_json_file(METADATA_FILE, metadata)
-            break # Stop if a year fails
-
-    # Final update for the current period if nothing new was found
-    if not course_metadata['last_period_failed']:
+    # Final grace period check
+    if not new_data_found and not course_metadata['last_period_failed']:
         current_period = get_current_period()
         if is_grace_period_over(current_period):
+            print(f"Grace period for {current_period} is over. Marking as up-to-date.")
             course_metadata['last_period_gathered'] = current_period
             save_json_file(METADATA_FILE, metadata)
 
