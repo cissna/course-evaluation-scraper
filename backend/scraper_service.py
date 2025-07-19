@@ -267,6 +267,8 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
                 
                 save_json_file(DATA_FILE, data)
                 save_json_file(METADATA_FILE, metadata)
+                if course_metadata['last_period_failed']:
+                    break # Stop processing subsequent years if this year failed
 
             except requests.exceptions.RequestException as e:
                 print(f"Failed to scrape year {year}: {e}")
