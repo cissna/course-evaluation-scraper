@@ -69,10 +69,6 @@ Here is an example entry:
 }
 ```
 
-## To be added:
-- Resolving time conflicts
-- dealing with 20+ search results
-
 
 ## Notes:
 [I previously did this same project](https://github.com/cissna/jhu-course-evaluations-analysis) but gave up at a state very near completion (some minor bugs and some unimportant edge cases to deal with). I got bored because I found out someone else had already done it, however, they ended up not publishing their data. My flame of interest was reignited when I found out JHU made their evaluation search page **much** easier to navigate by actually putting the data on the web instead of making you download a PDF, meaning the project could be done with requests instead of Selenium, also meaning that it could be run as a website without a VM and just with a simple backend.
