@@ -1,5 +1,5 @@
 .DS_Store
 __pycache__/
 
-context_portal/
+node_modules/  # shouldn't matter but roo codebase indexing seems to be taking a while so i thought I would do this to be safe
 .venv/
