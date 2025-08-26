@@ -235,7 +235,10 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
         print("Pagination detected. Switching to year-by-year scraping.")
         last_period = course_metadata.get('last_period_gathered')
         start_year = get_year_from_period_string(last_period) if last_period else find_oldest_year_from_keys(initial_links.keys())
-        end_year = date.today().year
+        # Get current academic year from get_current_period() instead of date.today()
+        current_period = get_current_period()
+        current_academic_year = get_year_from_period_string(current_period)
+        end_year = current_academic_year
 
         for year in range(start_year, end_year + 2):
             print(f"Processing year: {year}")

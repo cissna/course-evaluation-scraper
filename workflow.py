@@ -1,4 +1,3 @@
-from datetime import date
 from config import METADATA_FILE, DATA_FILE
 from data_manager import load_json_file, save_json_file
 from scraping_logic import get_authenticated_session
@@ -67,7 +66,10 @@ def run_scraper_workflow(course_code: str):
             start_year = find_oldest_year_from_keys(report_links_dict.keys())
             print(f"First-time scrape. Dynamically determined start year: {start_year}")
         
-        end_year = date.today().year
+        # Get current academic year from get_current_period() instead of date.today()
+        current_period = get_current_period()
+        current_academic_year = get_year_from_period_string(current_period)
+        end_year = current_academic_year
 
         # Loop through each year to get a complete set of links
         for year in range(start_year, end_year + 2): # +2 to be safe
