@@ -1,7 +1,10 @@
 import React from 'react';
 import './DataDisplay.css';
 
-const DataDisplay = ({ data }) => {
+const DataDisplay = ({ data, errorMessage }) => {
+    if (errorMessage) {
+        return <div className="data-display-placeholder">{errorMessage}</div>;
+    }
     if (!data) {
         return <div className="data-display-placeholder">Enter a course to see the results.</div>;
     }

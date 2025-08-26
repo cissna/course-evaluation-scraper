@@ -9,6 +9,7 @@ function App() {
   const [courseCode, setCourseCode] = useState(null);
   const [timeFilter, setTimeFilter] = useState('all'); // 'all' or 'last3years'
   const [separateByTeacher, setSeparateByTeacher] = useState(false);
+  const [analysisError, setAnalysisError] = useState(null);
 
   const fetchAnalysisData = (code, filter, separate) => {
     if (!code) return;
@@ -24,14 +25,44 @@ function App() {
       separation_key: separate ? 'instructor' : null,
     };
 
+    // reset state before fetch
+    setAnalysisError(null);
+    setAnalysisResult(null);
+
     fetch(`http://127.0.0.1:5000/api/analyze/${code}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(params),
     })
-    .then(response => response.json())
-    .then(data => setAnalysisResult(data))
-    .catch(error => console.error("Analysis API call failed:", error));
+    .then(async response => {
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        // Specific 404/no data handling
+        if (response.status === 404 || data?.error === 'No data found for this course.') {
+          setAnalysisError(`No course evaluations found for ${code}`);
+          setAnalysisResult(null);
+          return;
+        }
+        // Generic error handling with details
+        const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
+        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${detail}`);
+        setAnalysisResult(null);
+        return;
+      }
+      // Handle success, but guard against unexpected error payloads
+      if (data && !data.error) {
+        setAnalysisResult(data);
+        setAnalysisError(null);
+      } else {
+        const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
+        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${detail}`);
+        setAnalysisResult(null);
+      }
+    })
+    .catch(error => {
+      setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${String(error)}`);
+      setAnalysisResult(null);
+    });
   };
 
   const handleDataReceived = (newCourseCode) => {
@@ -73,7 +104,7 @@ function App() {
           </button>
         </div>
         <AdvancedOptions onApply={handleApplyAdvancedOptions} />
-        <DataDisplay data={analysisResult} />
+        <DataDisplay data={analysisResult} errorMessage={analysisError} />
       </main>
     </div>
   );
