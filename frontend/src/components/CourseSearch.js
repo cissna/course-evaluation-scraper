@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './CourseSearch.css';
 
-const CourseSearch = ({ onDataReceived }) => {
+const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
     const [query, setQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const handleSearch = async () => {
         setIsLoading(true);
+        if (onLoadingChange) onLoadingChange(true);
         setError(null);
 
         // Basic check if it's a course code (e.g., AS.123.456)
@@ -34,6 +35,7 @@ const CourseSearch = ({ onDataReceived }) => {
             onDataReceived(null); // Clear previous data on error
         } finally {
             setIsLoading(false);
+            if (onLoadingChange) onLoadingChange(false);
         }
     };
 

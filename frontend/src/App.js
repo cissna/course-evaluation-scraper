@@ -3,6 +3,7 @@ import './App.css';
 import CourseSearch from './components/CourseSearch';
 import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
+import LoadingOverlay from './components/LoadingOverlay';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -10,6 +11,7 @@ function App() {
   const [timeFilter, setTimeFilter] = useState('all'); // 'all' or 'last3years'
   const [separateByTeacher, setSeparateByTeacher] = useState(false);
   const [analysisError, setAnalysisError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchAnalysisData = (code, filter, separate) => {
     if (!code) return;
@@ -28,6 +30,7 @@ function App() {
     // reset state before fetch
     setAnalysisError(null);
     setAnalysisResult(null);
+    setIsLoading(true);
 
     fetch(`http://127.0.0.1:5000/api/analyze/${code}`, {
       method: 'POST',
@@ -62,6 +65,9 @@ function App() {
     .catch(error => {
       setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${String(error)}`);
       setAnalysisResult(null);
+    })
+    .finally(() => {
+      setIsLoading(false);
     });
   };
 
@@ -94,7 +100,7 @@ function App() {
         <h1>JHU Course Evaluation Analyzer</h1>
       </header>
       <main>
-        <CourseSearch onDataReceived={handleDataReceived} />
+        <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={setIsLoading} />
         <div className="controls">
           <button onClick={handleTimeFilterToggle}>
             {timeFilter === 'all' ? 'Show Last 3 Years' : 'Show All Time'}
@@ -106,6 +112,7 @@ function App() {
         <AdvancedOptions onApply={handleApplyAdvancedOptions} />
         <DataDisplay data={analysisResult} errorMessage={analysisError} />
       </main>
+      {isLoading && <LoadingOverlay message="Analyzing course evaluations…" />}
     </div>
   );
 }
