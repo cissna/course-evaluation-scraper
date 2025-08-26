@@ -21,7 +21,7 @@ INDIVIDUAL_REPORT_BASE_URL = 'https://asen-jhu.evaluationkit.com/Reports/Student
 
 # Period Logic Constants
 PERIOD_RELEASE_DATES = {
-    'IN': (1, 15), 'SP': (5, 15), 'SU': (8, 15), 'FA': (12, 15)
+    'IN': (1, 16), 'SP': (5, 15), 'SU': (8, 15), 'FA': (12, 15)
 }
 PERIOD_GRACE_MONTHS = {
     'IN': 1, 'SP': 1, 'SU': 2, 'FA': 1
