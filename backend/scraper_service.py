@@ -2,7 +2,7 @@ import json
 import os
 import re
 import requests
-from datetime import date, datetime
+from datetime import date
 from bs4 import BeautifulSoup
 from urllib.parse import urlencode, urljoin
 from dateutil.relativedelta import relativedelta
