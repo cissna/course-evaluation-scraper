@@ -90,7 +90,12 @@ def is_course_up_to_date(last_period_gathered: str, course_metadata: dict) -> bo
         bool: True if the course data is current, False otherwise.
     """
     current_period = get_current_period()
-    return last_period_gathered == current_period
+    
+    # Course is up-to-date if:
+    # 1. Last period gathered matches current period AND
+    # 2. There's no pending grace period re-check
+    return (last_period_gathered == current_period and 
+            course_metadata.get('last_scrape_during_grace_period') is None)
 
 def is_grace_period_over(period: str) -> bool:
     """

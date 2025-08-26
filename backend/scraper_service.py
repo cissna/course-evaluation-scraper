@@ -216,7 +216,7 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
         print(f"Could not get authenticated session: {e}. Aborting.")
         # Update metadata to mark failure
         if course_code not in metadata:
-            metadata[course_code] = {"last_period_gathered": None, "last_period_failed": False, "relevant_periods": []}
+            metadata[course_code] = {"last_period_gathered": None, "last_period_failed": False, "relevant_periods": [], "last_scrape_during_grace_period": None}
         metadata[course_code]['last_period_failed'] = True
         save_json_file(METADATA_FILE, metadata)
         return {"error": "Failed to authenticate with scraping service."}

@@ -1,11 +1,12 @@
 from data_manager import load_json_file, save_json_file
-from period_logic import is_course_up_to_date, get_period_from_instance_key, find_oldest_year_from_keys
+from period_logic import is_course_up_to_date, find_oldest_year_from_keys
 from period_logic import get_year_from_period_string, get_current_period, is_grace_period_over
 from config import METADATA_FILE, DATA_FILE
 from scraping_logic import get_authenticated_session
 from scrape_search import get_evaluation_report_links
 from scrape_link import scrape_evaluation_data
 import requests
+from datetime import date
 
 def initialize_course_metadata(course_code):
     """Initializes metadata for a new course if it doesn't exist."""
@@ -14,9 +15,16 @@ def initialize_course_metadata(course_code):
         metadata[course_code] = {
             "last_period_gathered": None,
             "last_period_failed": False,
-            "relevant_periods": []
+            "relevant_periods": [],
+            "last_scrape_during_grace_period": None
         }
         save_json_file(METADATA_FILE, metadata)
+    
+    # Ensure the new field exists for existing metadata
+    if "last_scrape_during_grace_period" not in metadata[course_code]:
+        metadata[course_code]["last_scrape_during_grace_period"] = None
+        save_json_file(METADATA_FILE, metadata)
+    
     return metadata[course_code]
 
 def check_course_status(course_code):
@@ -57,8 +65,14 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None) 
         metadata[course_code] = {
             "last_period_gathered": None,
             "last_period_failed": False,
-            "relevant_periods": []
+            "relevant_periods": [],
+            "last_scrape_during_grace_period": None
         }
+        save_json_file(METADATA_FILE, metadata)
+    
+    # Ensure the new field exists for existing metadata
+    if "last_scrape_during_grace_period" not in metadata[course_code]:
+        metadata[course_code]["last_scrape_during_grace_period"] = None
         save_json_file(METADATA_FILE, metadata)
     
     course_metadata = metadata[course_code]
@@ -167,10 +181,6 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None) 
                     if instance_key not in metadata[course_code]['relevant_periods']:
                         metadata[course_code]['relevant_periods'].append(instance_key)
                     
-                    period = get_period_from_instance_key(instance_key)
-                    if period:
-                        metadata[course_code]['last_period_gathered'] = period
-                    
                     metadata[course_code]['last_period_failed'] = False
                     save_json_file(METADATA_FILE, metadata)
                     print(f"Successfully scraped and stored {instance_key}.")
@@ -210,10 +220,6 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None) 
                 if instance_key not in metadata[course_code]['relevant_periods']:
                     metadata[course_code]['relevant_periods'].append(instance_key)
                 
-                period = get_period_from_instance_key(instance_key)
-                if period:
-                    metadata[course_code]['last_period_gathered'] = period
-                
                 metadata[course_code]['last_period_failed'] = False
                 save_json_file(METADATA_FILE, metadata)
                 print(f"Successfully scraped and stored {instance_key}.")
@@ -229,17 +235,27 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None) 
         else:
             print("Finished processing batch, but some reports failed to scrape.")
     
-    # Final check for courses where no new data was found
-    if not new_data_found and not metadata[course_code]['last_period_failed']:
-        print(f"No new evaluation data was found for {course_code}.")
-        current_period = get_current_period()
-        if is_grace_period_over(current_period):
-            print(f"Grace period for {current_period} is over. Updating last_period_gathered to mark as up-to-date.")
-            metadata[course_code]['last_period_gathered'] = current_period
-            metadata[course_code]['last_period_failed'] = False
-            save_json_file(METADATA_FILE, metadata)
+    # Final period tracking logic
+    current_period = get_current_period()
+    
+    if not metadata[course_code]['last_period_failed']:
+        # Set last_period_gathered to current period after successful scraping
+        metadata[course_code]['last_period_gathered'] = current_period
+        
+        if new_data_found:
+            # Found data for current period, clear grace period flag
+            print(f"Found data for {course_code}. Clearing grace period flag.")
+            metadata[course_code]['last_scrape_during_grace_period'] = None
         else:
-            print(f"Grace period for {current_period} is not over. Not updating metadata.")
+            # No new data found, check if we're in grace period
+            if is_grace_period_over(current_period):
+                print(f"No new data found for {course_code}, but grace period is over. Marking as up-to-date.")
+                metadata[course_code]['last_scrape_during_grace_period'] = None
+            else:
+                print(f"No new data found for {course_code} and still in grace period. Marking for re-check.")
+                metadata[course_code]['last_scrape_during_grace_period'] = date.today().isoformat()
+        
+        save_json_file(METADATA_FILE, metadata)
     
     # Return relevant data
     relevant_keys = metadata[course_code].get('relevant_periods', [])
