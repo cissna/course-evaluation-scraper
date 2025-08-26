@@ -257,7 +257,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
                 # Only set grace period flag if we're NOT skipping grace period logic
                 if skip_grace_period_logic:
                     print(f"No new data found for {course_code} and still in grace period, but skipping grace period logic.")
-                    metadata[course_code]['last_scrape_during_grace_period'] = None
+                    # Don't clear the flag - keep it so user can be warned again later
                 else:
                     print(f"No new data found for {course_code} and still in grace period. Marking for re-check.")
                     metadata[course_code]['last_scrape_during_grace_period'] = date.today().isoformat()

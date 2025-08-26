@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './GracePeriodWarning.css';
 
-const GracePeriodWarning = ({ courseCode, gracePeriodInfo, onRecheck }) => {
+const GracePeriodWarning = ({ courseCode, gracePeriodInfo, isDismissed, onRecheck }) => {
     const [isRechecking, setIsRechecking] = useState(false);
 
-    if (!gracePeriodInfo || !gracePeriodInfo.needs_warning) {
+    if (!gracePeriodInfo || !gracePeriodInfo.needs_warning || isDismissed) {
         return null;
     }
 

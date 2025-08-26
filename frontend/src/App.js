@@ -14,6 +14,7 @@ function App() {
   const [analysisError, setAnalysisError] = useState(null);
   const [loadingCount, setLoadingCount] = useState(0);
   const [gracePeriodInfo, setGracePeriodInfo] = useState(null);
+  const [dismissedGraceWarnings, setDismissedGraceWarnings] = useState(new Set());
   const isLoading = loadingCount > 0;
   const startLoading = () => setLoadingCount(c => c + 1);
   const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
@@ -41,8 +42,8 @@ function App() {
       });
       
       if (response.ok) {
-        // Clear grace period warning and refresh analysis
-        setGracePeriodInfo(null);
+        // Dismiss the warning temporarily and refresh analysis
+        setDismissedGraceWarnings(prev => new Set(prev).add(courseCode));
         fetchAnalysisData(courseCode, timeFilter, separateByTeacher);
       } else {
         const errorData = await response.json().catch(() => ({}));
@@ -114,6 +115,7 @@ function App() {
 
   const handleDataReceived = (newCourseCode) => {
     setCourseCode(newCourseCode);
+    setDismissedGraceWarnings(new Set()); // Clear dismissed warnings for new course
     fetchAnalysisData(newCourseCode, timeFilter, separateByTeacher);
     checkGracePeriodStatus(newCourseCode);
   };
@@ -146,6 +148,7 @@ function App() {
         <GracePeriodWarning 
           courseCode={courseCode}
           gracePeriodInfo={gracePeriodInfo}
+          isDismissed={dismissedGraceWarnings.has(courseCode)}
           onRecheck={handleRecheck}
         />
         <div className="controls">
