@@ -48,7 +48,6 @@ This file tracks the state of the scraping process for each high-level course co
 
 *   `last_period_gathered`: The most recent academic period (e.g., "FA23") for which data has been successfully scraped. This is the key to the "up-to-date" check.
 *   `last_period_failed`: A boolean flag indicating if the last attempt to scrape a new period failed. This helps in retrying failed attempts.
-*   `first_period_gathered`: The earliest academic period for which data has been collected for the course.
 *   `relevant_periods`: A list of all specific course instance keys (from `data.json`) that correspond to this course code.
 
 ## 4. Workflow and Data Flow

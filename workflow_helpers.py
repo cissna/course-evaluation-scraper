@@ -7,7 +7,6 @@ def initialize_course_metadata(course_code):
     metadata = load_json_file(METADATA_FILE)
     if course_code not in metadata:
         metadata[course_code] = {
-            "first_period_gathered": None,
             "last_period_gathered": None,
             "last_period_failed": False,
             "relevant_periods": []

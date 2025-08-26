@@ -115131,5 +115131,68 @@
             "Much heavier": 1,
             "N/A": 0
         }
+    },
+    "EN.601.474.01.FA21": {
+        "course_name": "EN.601.474.01.FA21 : ML: Learning Theory",
+        "instructor_name": "Raman Arora",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 6,
+            "Good": 15,
+            "Excellent": 9,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 17,
+            "Excellent": 9,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 27,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 13,
+            "Excellent": 10,
+            "N/A": 6
+        },
+        "ta_names": [
+            "Enayat Ullah",
+            "Enayut",
+            "Pooriya",
+            "Poorya",
+            "TAs are marking homeworks very casual and not serious",
+            "Poorya and Enayat",
+            "Poorya, Enayat",
+            "Poorya Mianjy",
+            "Poorya Mianjy, Enayat Ullah"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 13,
+            "Agree strongly": 9,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 6,
+            "Somewhat heavier": 4,
+            "Much heavier": 20,
+            "N/A": 4
+        }
     }
 }

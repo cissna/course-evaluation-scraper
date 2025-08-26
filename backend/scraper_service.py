@@ -204,7 +204,7 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
     
     if course_code not in metadata:
         metadata[course_code] = {
-            "first_period_gathered": None, "last_period_gathered": None,
+            "last_period_gathered": None,
             "last_period_failed": False, "relevant_periods": []
         }
         save_json_file(METADATA_FILE, metadata)

@@ -27,7 +27,6 @@ def run_scraper_workflow(course_code: str):
             return
     else:
         metadata[course_code] = {
-            "first_period_gathered": None,
             "last_period_gathered": None,
             "last_period_failed": False, # Start optimistically
             "relevant_periods": []
@@ -107,8 +106,6 @@ def run_scraper_workflow(course_code: str):
                     period = get_period_from_instance_key(instance_key)
                     if period:
                         metadata[course_code]['last_period_gathered'] = period
-                        if not metadata[course_code].get('first_period_gathered'):
-                            metadata[course_code]['first_period_gathered'] = period
                     
                     metadata[course_code]['last_period_failed'] = False
                     save_json_file(METADATA_FILE, metadata)
@@ -151,8 +148,6 @@ def run_scraper_workflow(course_code: str):
                 period = get_period_from_instance_key(instance_key)
                 if period:
                     metadata[course_code]['last_period_gathered'] = period
-                    if not metadata[course_code].get('first_period_gathered'):
-                        metadata[course_code]['first_period_gathered'] = period
                 
                 metadata[course_code]['last_period_failed'] = False
                 save_json_file(METADATA_FILE, metadata)

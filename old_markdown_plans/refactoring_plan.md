@@ -59,7 +59,6 @@ def initialize_course_metadata(course_code):
     metadata = load_json_file(METADATA_FILE)
     if course_code not in metadata:
         metadata[course_code] = {
-            "first_period_gathered": None,
             "last_period_gathered": None,
             "last_period_failed": False,
             "relevant_periods": []
@@ -155,8 +154,6 @@ def _scrape_and_save_report(instance_key, link_url, session, data, course_metada
         period = get_period_from_instance_key(instance_key)
         if period:
             course_metadata['last_period_gathered'] = period
-            if not course_metadata.get('first_period_gathered'):
-                course_metadata['first_period_gathered'] = period
         
         course_metadata['last_period_failed'] = False
         save_json_file(METADATA_FILE, {"course_code": course_metadata}) # Simplified for example
