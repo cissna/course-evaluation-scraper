@@ -221,8 +221,8 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
         save_json_file(METADATA_FILE, metadata)
         return {"error": "Failed to authenticate with scraping service."}
 
-    # Use the shared core scraping function
-    result = scrape_course_data_core(course_code, session)
+    # Use the shared core scraping function (skip grace period logic for web interface)
+    result = scrape_course_data_core(course_code, session, skip_grace_period_logic=False)
     
     if not result['success']:
         print(f"--- Scraping failed for {course_code}: {result['error']} ---")
@@ -230,6 +230,54 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
     
     print(f"--- Workflow for {course_code} complete. ---")
     return result['data']
+
+def force_recheck_course(course_code: str) -> dict:
+    """
+    Force recheck a course by ignoring grace period logic.
+    This is used when the user explicitly requests an update.
+    """
+    print(f"--- Force rechecking course: {course_code} ---")
+    
+    try:
+        session = get_authenticated_session()
+    except requests.exceptions.RequestException as e:
+        print(f"Could not get authenticated session: {e}. Aborting.")
+        return {"error": "Failed to authenticate with scraping service."}
+
+    # Use the shared core scraping function with grace period logic enabled
+    result = scrape_course_data_core(course_code, session, skip_grace_period_logic=True)
+    
+    if not result['success']:
+        print(f"--- Force recheck failed for {course_code}: {result['error']} ---")
+        return {"error": result['error']}
+    
+    print(f"--- Force recheck for {course_code} complete. ---")
+    return result['data']
+
+def get_course_grace_status(course_code: str) -> dict:
+    """
+    Check if a course needs a grace period warning.
+    Returns info about grace period status for frontend.
+    """
+    metadata = load_json_file(METADATA_FILE)
+    
+    if course_code not in metadata:
+        return {"needs_warning": False}
+    
+    course_metadata = metadata[course_code]
+    last_scrape_during_grace = course_metadata.get('last_scrape_during_grace_period')
+    
+    if last_scrape_during_grace is None:
+        return {"needs_warning": False}
+    
+    # Course has grace period flag, get current period info
+    current_period = get_current_period()
+    
+    return {
+        "needs_warning": True,
+        "current_period": current_period,
+        "last_scrape_date": last_scrape_during_grace
+    }
 
 def find_courses_by_name(search_query: str) -> list:
     """

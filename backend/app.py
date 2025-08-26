@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask import request
-from scraper_service import get_course_data_and_update_cache, find_courses_by_name
+from scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
 from similarity import find_instructor_variants
 from analysis import process_analysis_request
 
@@ -59,6 +59,36 @@ def search_by_instructor_name(instructor_name):
     except Exception as e:
         print(f"An error occurred during instructor search: {e}")
         return jsonify({"error": "An internal server error occurred during instructor search."}), 500
+
+@app.route('/api/grace-status/<string:course_code>')
+def get_grace_status(course_code):
+    """
+    API endpoint to check if a course needs grace period warning.
+    """
+    try:
+        status = get_course_grace_status(course_code)
+        return jsonify(status)
+    except Exception as e:
+        print(f"An error occurred checking grace status: {e}")
+        return jsonify({"error": "An internal server error occurred."}), 500
+
+@app.route('/api/recheck/<string:course_code>', methods=['POST'])
+def recheck_course_data(course_code):
+    """
+    API endpoint to force recheck course data during grace periods.
+    """
+    print(f"Received force recheck request for course: {course_code}")
+    try:
+        data = force_recheck_course(course_code)
+        if not data:
+            return jsonify({"error": "No data found for this course."}), 404
+        # Check if the response contains an error
+        if isinstance(data, dict) and "error" in data:
+            return jsonify(data), 500
+        return jsonify(data)
+    except Exception as e:
+        print(f"An error occurred during recheck: {e}")
+        return jsonify({"error": "An internal server error occurred during recheck."}), 500
 
 @app.route('/api/analyze/<string:course_code>', methods=['POST'])
 def analyze_course_data(course_code):

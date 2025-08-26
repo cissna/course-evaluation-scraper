@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import CourseSearch from './components/CourseSearch';
 import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
+import GracePeriodWarning from './components/GracePeriodWarning';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -12,9 +13,47 @@ function App() {
   const [separateByTeacher, setSeparateByTeacher] = useState(false);
   const [analysisError, setAnalysisError] = useState(null);
   const [loadingCount, setLoadingCount] = useState(0);
+  const [gracePeriodInfo, setGracePeriodInfo] = useState(null);
   const isLoading = loadingCount > 0;
   const startLoading = () => setLoadingCount(c => c + 1);
   const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
+
+  const checkGracePeriodStatus = async (code) => {
+    if (!code) return;
+    
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/api/grace-status/${code}`);
+      const graceStatus = await response.json();
+      setGracePeriodInfo(graceStatus);
+    } catch (error) {
+      console.error('Failed to check grace period status:', error);
+      setGracePeriodInfo(null);
+    }
+  };
+
+  const handleRecheck = async () => {
+    if (!courseCode) return;
+    
+    startLoading();
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/api/recheck/${courseCode}`, {
+        method: 'POST',
+      });
+      
+      if (response.ok) {
+        // Clear grace period warning and refresh analysis
+        setGracePeriodInfo(null);
+        fetchAnalysisData(courseCode, timeFilter, separateByTeacher);
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        setAnalysisError(`Recheck failed: ${errorData.error || 'Unknown error'}`);
+      }
+    } catch (error) {
+      setAnalysisError(`Recheck failed: ${String(error)}`);
+    } finally {
+      stopLoading();
+    }
+  };
 
   const fetchAnalysisData = (code, filter, separate) => {
     if (!code) return;
@@ -76,6 +115,7 @@ function App() {
   const handleDataReceived = (newCourseCode) => {
     setCourseCode(newCourseCode);
     fetchAnalysisData(newCourseCode, timeFilter, separateByTeacher);
+    checkGracePeriodStatus(newCourseCode);
   };
 
   const handleTimeFilterToggle = () => {
@@ -103,6 +143,11 @@ function App() {
       </header>
       <main>
         <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={(is) => is ? startLoading() : stopLoading()} />
+        <GracePeriodWarning 
+          courseCode={courseCode}
+          gracePeriodInfo={gracePeriodInfo}
+          onRecheck={handleRecheck}
+        />
         <div className="controls">
           <button onClick={handleTimeFilterToggle}>
             {timeFilter === 'all' ? 'Show Last 3 Years' : 'Show All Time'}

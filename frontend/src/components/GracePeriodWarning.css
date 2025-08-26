@@ -1,0 +1,55 @@
+.grace-period-warning {
+    background-color: #fef3cd;
+    border: 2px solid #fdc935;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    color: #856404;
+}
+
+.warning-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.warning-text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.recheck-button {
+    background-color: #fdc935;
+    border: 1px solid #d39e00;
+    color: #856404;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.recheck-button:hover:not(:disabled) {
+    background-color: #e6b800;
+}
+
+.recheck-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .warning-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .recheck-button {
+        align-self: flex-end;
+    }
+}
