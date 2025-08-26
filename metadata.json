@@ -14150,11 +14150,12 @@
         ]
     },
     "AS.050.347": {
-        "last_period_gathered": "FA24",
+        "last_period_gathered": "SU25",
         "last_period_failed": false,
         "relevant_periods": [
             "AS.050.347.01.FA24"
-        ]
+        ],
+        "last_scrape_during_grace_period": "2025-08-26"
     },
     "AS.050.348": {
         "last_period_gathered": "FA24",

@@ -1,0 +1,2 @@
+metadata.json  # currently under 1mb, so it will be indexed unless we rooignore it
+data.json  # over 1mb so it won't be indexed so we can leave it out
