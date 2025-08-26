@@ -193,6 +193,11 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
     metadata = load_json_file(METADATA_FILE)
     data = load_json_file(DATA_FILE)
 
+    # Check if the last scraping attempt failed for this course
+    if course_code in metadata and metadata[course_code].get('last_period_failed', False):
+        print(f"Course {course_code} has last_period_failed set to true. Returning error.")
+        return {"error": f"The last attempt to gather data for course {course_code} failed. Please try again later or contact support if this persists."}
+
     # Check if course is up-to-date
     if course_code in metadata and is_course_up_to_date(metadata[course_code].get('last_period_gathered')):
         print(f"Course {course_code} is up-to-date. Returning cached data.")

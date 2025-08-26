@@ -51,7 +51,7 @@ function App() {
         }
         // Generic error handling with details
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
-        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${detail}`);
+        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:\n${detail}`);
         setAnalysisResult(null);
         return;
       }
@@ -61,12 +61,12 @@ function App() {
         setAnalysisError(null);
       } else {
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
-        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${detail}`);
+        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:\n${detail}`);
         setAnalysisResult(null);
       }
     })
     .catch(error => {
-      setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${String(error)}`);
+      setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:\n${String(error)}`);
       setAnalysisResult(null);
     })
     .finally(() => { stopLoading(); });

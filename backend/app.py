@@ -24,6 +24,9 @@ def get_course_data(course_code):
         data = get_course_data_and_update_cache(course_code)
         if not data:
             return jsonify({"error": "No data found for this course."}), 404
+        # Check if the response contains an error
+        if isinstance(data, dict) and "error" in data:
+            return jsonify(data), 500
         return jsonify(data)
     except Exception as e:
         # Log the exception for debugging
@@ -73,6 +76,9 @@ def analyze_course_data(course_code):
         all_course_data = get_course_data_and_update_cache(course_code)
         if not all_course_data:
             return jsonify({"error": "No data found for this course."}), 404
+        # Check if the response contains an error
+        if isinstance(all_course_data, dict) and "error" in all_course_data:
+            return jsonify(all_course_data), 500
 
         # Process the data using the analysis module
         results = process_analysis_request(all_course_data, analysis_params)
