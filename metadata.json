@@ -3389,14 +3389,6 @@
         "last_period_failed": false,
         "relevant_periods": []
     },
-    "EN.601.474": {
-        "first_period_gathered": "FA21",
-        "last_period_gathered": "FA21",
-        "last_period_failed": false,
-        "relevant_periods": [
-            "EN.601.474.01.FA21"
-        ]
-    },
     "EN.601.476": {
         "first_period_gathered": "SP19",
         "last_period_gathered": "SP21",
