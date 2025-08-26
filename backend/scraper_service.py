@@ -9,9 +9,10 @@ from dateutil.relativedelta import relativedelta
 
 # --- Constants (Adapted from config.py) ---
 
-# File Paths (relative to the project root)
-METADATA_FILE = 'metadata.json'
-DATA_FILE = 'data.json'
+# File Paths (anchored to the project root)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+METADATA_FILE = os.path.join(PROJECT_ROOT, 'metadata.json')
+DATA_FILE = os.path.join(PROJECT_ROOT, 'data.json')
 
 # Scraping URLs
 AUTH_URL = 'https://asen-jhu.evaluationkit.com/Login/ReportPublic?id=THo7RYxiDOgppCUb8vkY%2bPMVFDNyK2ADK0u537x%2fnZsNvzOBJJZTTNEcJihG8hqZ'
