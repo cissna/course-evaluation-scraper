@@ -11,7 +11,10 @@ function App() {
   const [timeFilter, setTimeFilter] = useState('all'); // 'all' or 'last3years'
   const [separateByTeacher, setSeparateByTeacher] = useState(false);
   const [analysisError, setAnalysisError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loadingCount, setLoadingCount] = useState(0);
+  const isLoading = loadingCount > 0;
+  const startLoading = () => setLoadingCount(c => c + 1);
+  const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
 
   const fetchAnalysisData = (code, filter, separate) => {
     if (!code) return;
@@ -30,7 +33,7 @@ function App() {
     // reset state before fetch
     setAnalysisError(null);
     setAnalysisResult(null);
-    setIsLoading(true);
+    startLoading();
 
     fetch(`http://127.0.0.1:5000/api/analyze/${code}`, {
       method: 'POST',
@@ -66,9 +69,7 @@ function App() {
       setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again: ${String(error)}`);
       setAnalysisResult(null);
     })
-    .finally(() => {
-      setIsLoading(false);
-    });
+    .finally(() => { stopLoading(); });
   };
 
   const handleDataReceived = (newCourseCode) => {
@@ -100,7 +101,7 @@ function App() {
         <h1>JHU Course Evaluation Analyzer</h1>
       </header>
       <main>
-        <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={setIsLoading} />
+        <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={(is) => is ? startLoading() : stopLoading()} />
         <div className="controls">
           <button onClick={handleTimeFilterToggle}>
             {timeFilter === 'all' ? 'Show Last 3 Years' : 'Show All Time'}

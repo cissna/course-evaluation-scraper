@@ -8,7 +8,6 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
 
     const handleSearch = async () => {
         setIsLoading(true);
-        if (onLoadingChange) onLoadingChange(true);
         setError(null);
 
         // Basic check if it's a course code (e.g., AS.123.456)
@@ -20,6 +19,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
                 courseCode = query.trim();
             } else {
                 // It's a course name search
+                if (onLoadingChange) onLoadingChange(true);
                 const searchResponse = await fetch(`http://127.0.0.1:5000/api/search/course_name/${query.trim()}`);
                 if (!searchResponse.ok) throw new Error('Error searching for course name.');
                 
@@ -35,7 +35,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
             onDataReceived(null); // Clear previous data on error
         } finally {
             setIsLoading(false);
-            if (onLoadingChange) onLoadingChange(false);
+            if (!isCourseCode && onLoadingChange) onLoadingChange(false);
         }
     };
 
