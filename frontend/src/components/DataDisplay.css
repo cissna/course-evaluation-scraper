@@ -10,6 +10,17 @@
     color: #888;
 }
 
+.data-display-error {
+    margin: 20px;
+    padding: 15px;
+    background-color: #fdeaea;
+    border: 2px solid #dc3545;
+    border-radius: 5px;
+    color: #721c24;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
 .data-display table {
     width: 80%;
     border-collapse: collapse;

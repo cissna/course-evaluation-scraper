@@ -3,7 +3,7 @@ import './DataDisplay.css';
 
 const DataDisplay = ({ data, errorMessage }) => {
     if (errorMessage) {
-        return <div className="data-display-placeholder">{errorMessage}</div>;
+        return <div className="data-display-error" dangerouslySetInnerHTML={{ __html: errorMessage }}></div>;
     }
     if (!data) {
         return <div className="data-display-placeholder">Enter a course to see the results.</div>;

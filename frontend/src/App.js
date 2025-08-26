@@ -45,13 +45,14 @@ function App() {
       if (!response.ok) {
         // Specific 404/no data handling
         if (response.status === 404 || data?.error === 'No data found for this course.') {
-          setAnalysisError(`No course evaluations found for ${code}`);
+          const searchUrl = `https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(code)}`;
+          setAnalysisError(`No course evaluations found for ${code}.<br/><br/>No evaluations found at this search: <a href="${searchUrl}" target="_blank" rel="noopener noreferrer">${searchUrl}</a>`);
           setAnalysisResult(null);
           return;
         }
         // Generic error handling with details
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
-        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:\n${detail}`);
+        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
         setAnalysisResult(null);
         return;
       }
@@ -61,12 +62,12 @@ function App() {
         setAnalysisError(null);
       } else {
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
-        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:\n${detail}`);
+        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
         setAnalysisResult(null);
       }
     })
     .catch(error => {
-      setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:\n${String(error)}`);
+      setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${String(error)}`);
       setAnalysisResult(null);
     })
     .finally(() => { stopLoading(); });
