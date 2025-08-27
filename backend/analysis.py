@@ -20,6 +20,18 @@ STAT_MAPPINGS = {
     "workload_frequency": (
         "Workload",
         {"Much lighter": 1, "Somewhat lighter": 2, "Typical": 3, "Somewhat heavier": 4, "Much heavier": 5}
+    ),
+    "feedback_frequency": (
+        "Helpful Feedback",
+        {"Poor": 1, "Weak": 2, "Satisfactory": 3, "Good": 4, "Excellent": 5}
+    ),
+    "ta_frequency": (
+        "TA Quality",
+        {"Poor": 1, "Weak": 2, "Satisfactory": 3, "Good": 4, "Excellent": 5}
+    ),
+    "periods_run": (
+        "Periods Run",
+        {}  # Special case - computed field, no frequency mapping needed
     )
 }
 
@@ -122,8 +134,14 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list)
     results = {}
     for key in stats_to_calculate:
         ui_name, value_mapping = STAT_MAPPINGS[key]
-        avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
-        results[ui_name.replace(" ", "_").lower()] = avg # e.g., "overall_quality"
+        if key == "periods_run":
+            # Compute periods_run using metadata if present
+            relevant_periods = metadata.get("relevant_periods") if metadata else None
+            value = compute_periods_run(relevant_periods)
+            results[ui_name.replace(" ", "_").lower()] = value
+        else:
+            avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
+            results[ui_name.replace(" ", "_").lower()] = avg # e.g., "overall_quality"
         
     return results
 
@@ -138,6 +156,14 @@ def get_instance_year(instance_key: str) -> int:
     return 0
 
 def get_instance_season(instance_key: str) -> str:
+    
+def compute_periods_run(metadata_relevant_periods):
+    """Compute periods run from metadata relevant_periods."""
+    if not metadata_relevant_periods:
+        return "N/A"
+    # Extract last 4 chars of each period
+    periods = [str(period)[-4:] for period in metadata_relevant_periods]
+    return ', '.join(periods)
     """Extracts the season (e.g., 'Fall') from a course instance key."""
     match = re.search(r'\.((?:FA|SP|SU|IN))\d{2}$', instance_key)
     seasons = {"FA": "Fall", "SP": "Spring", "SU": "Summer", "IN": "Intersession"}
@@ -203,6 +229,12 @@ def separate_instances(instances: dict, separation_keys=None) -> dict:
                 value = str(get_instance_year(key))
             elif sep_key == "season":
                 value = get_instance_season(key)
+            elif sep_key == "course_name":
+                value = instance.get("course_name", "Unknown")
+            elif sep_key == "exact_period":
+                # Extract period from instance key (e.g., "AS.100.101.01.FA24" -> "FA24")
+                match = re.search(r'\.([A-Z]{2}\d{2})$', key)
+                value = match.group(1) if match else "Unknown"
             else:
                 value = str(instance.get(sep_key, "Unknown"))
             group_parts.append(value)
