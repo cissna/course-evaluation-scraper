@@ -7,6 +7,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
     const [error, setError] = useState(null);
 
     const handleSearch = async () => {
+        if (!query.trim()) return;
         setIsLoading(true);
         setError(null);
 
