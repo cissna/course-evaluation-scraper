@@ -5,12 +5,16 @@ import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
 import GracePeriodWarning from './components/GracePeriodWarning';
+import { STAT_MAPPINGS } from './utils/statsMapping';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [courseCode, setCourseCode] = useState(null);
-  const [timeFilter, setTimeFilter] = useState('all'); // 'all' or 'last3years'
-  const [separateByTeacher, setSeparateByTeacher] = useState(false);
+  const [advancedOptions, setAdvancedOptions] = useState({
+    stats: Object.keys(STAT_MAPPINGS).reduce((acc, key) => ({ ...acc, [key]: true }), {}),
+    filters: { min_year: '', max_year: '', seasons: [] },
+    separationKeys: []
+  });
   const [analysisError, setAnalysisError] = useState(null);
   const [loadingCount, setLoadingCount] = useState(0);
   const [gracePeriodInfo, setGracePeriodInfo] = useState(null);
@@ -44,7 +48,7 @@ function App() {
       if (response.ok) {
         // Dismiss the warning temporarily and refresh analysis
         setDismissedGraceWarnings(prev => new Set(prev).add(courseCode));
-        fetchAnalysisData(courseCode, timeFilter, separateByTeacher);
+        fetchAnalysisData(courseCode, advancedOptions);
       } else {
         const errorData = await response.json().catch(() => ({}));
         setAnalysisError(`Recheck failed: ${errorData.error || 'Unknown error'}`);
@@ -56,24 +60,19 @@ function App() {
     }
   };
 
-  const fetchAnalysisData = (code, filter, separate) => {
+  const fetchAnalysisData = (code, options) => {
     if (!code) return;
 
-    let filters = {};
-    if (filter === 'last3years') {
-      const currentYear = new Date().getFullYear();
-      filters.min_year = currentYear - 3;
-    }
-
-    const params = {
-      filters: filters,
-      separation_key: separate ? 'instructor' : null,
-    };
-
-    // reset state before fetch
     setAnalysisError(null);
     setAnalysisResult(null);
     startLoading();
+
+    // Shape the request body from advanced options
+    const params = {
+      stats: options.stats,
+      filters: options.filters,
+      separation_keys: options.separationKeys
+    };
 
     fetch(`http://127.0.0.1:5000/api/analyze/${code}`, {
       method: 'POST',
@@ -96,7 +95,7 @@ function App() {
         setAnalysisResult(null);
         return;
       }
-      // Handle success, but guard against unexpected error payloads
+      // Success
       if (data && !data.error) {
         setAnalysisResult(data);
         setAnalysisError(null);
@@ -116,26 +115,50 @@ function App() {
   const handleDataReceived = (newCourseCode) => {
     setCourseCode(newCourseCode);
     setDismissedGraceWarnings(new Set()); // Clear dismissed warnings for new course
-    fetchAnalysisData(newCourseCode, timeFilter, separateByTeacher);
+    fetchAnalysisData(newCourseCode, advancedOptions);
     checkGracePeriodStatus(newCourseCode);
   };
 
   const handleTimeFilterToggle = () => {
-    const newFilter = timeFilter === 'all' ? 'last3years' : 'all';
-    setTimeFilter(newFilter);
-    fetchAnalysisData(courseCode, newFilter, separateByTeacher);
+    const currentYear = new Date().getFullYear();
+    setAdvancedOptions(prev => {
+      const newMinYear = prev.filters.min_year ? '' : currentYear - 3;
+      const newMaxYear = prev.filters.min_year ? '' : currentYear;
+      const updated = {
+        ...prev,
+        filters: {
+          ...prev.filters,
+          min_year: newMinYear,
+          max_year: newMaxYear
+        }
+      };
+      // Trigger backend call
+      if (courseCode) {
+        handleApplyAdvancedOptions(updated);
+      }
+      return updated;
+    });
   };
 
   const handleSeparateByTeacherToggle = () => {
-    const newSeparate = !separateByTeacher;
-    setSeparateByTeacher(newSeparate);
-    fetchAnalysisData(courseCode, timeFilter, newSeparate);
+    setAdvancedOptions(prev => {
+      const hasInstr = prev.separationKeys.includes('instructor');
+      const newKeys = hasInstr
+        ? prev.separationKeys.filter(key => key !== 'instructor')
+        : [...prev.separationKeys, 'instructor'];
+      const updated = { ...prev, separationKeys: newKeys };
+      // Trigger backend call
+      if (courseCode) {
+        handleApplyAdvancedOptions(updated);
+      }
+      return updated;
+    });
   };
 
   const handleApplyAdvancedOptions = (options) => {
-    // This function will eventually replace the simpler toggles
-    console.log("Advanced options applied:", options);
-    // For now, just log the options. Later, this will trigger a new API call.
+    // Replace console.log with a real API call
+    if (!courseCode) return;
+    fetchAnalysisData(courseCode, options);
   };
 
   return (
@@ -182,18 +205,22 @@ function App() {
         />
         <div className="controls">
           <button onClick={handleTimeFilterToggle}>
-            {timeFilter === 'all' ? 'Show Last 3 Years' : 'Show All Time'}
+            {advancedOptions.filters.min_year === '' ? 'Show Last 3 Years' : 'Show All Time'}
           </button>
           <button onClick={handleSeparateByTeacherToggle}>
-            {separateByTeacher ? 'Combine Teachers' : 'Separate by Teacher'}
+            {advancedOptions.separationKeys.includes('instructor') ? 'Combine Teachers' : 'Separate by Teacher'}
           </button>
         </div>
-        <AdvancedOptions onApply={handleApplyAdvancedOptions} />
+        <AdvancedOptions
+          options={advancedOptions}
+          onApply={handleApplyAdvancedOptions}
+        />
         <DataDisplay
           data={analysisResult ? (() => {
             const { current_name, former_names, ...dataWithoutMetadata } = analysisResult;
             return dataWithoutMetadata;
           })() : null}
+          selectedStats={Object.keys(advancedOptions.stats).filter(k => advancedOptions.stats[k])}
           errorMessage={analysisError}
         />
       </main>
