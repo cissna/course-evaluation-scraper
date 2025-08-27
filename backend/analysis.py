@@ -168,25 +168,49 @@ def filter_instances(all_instances: dict, filters: dict) -> dict:
         
     return filtered
 
-def separate_instances(instances: dict, separation_key: str) -> dict:
-    """Separates instances into groups based on a given key."""
-    if not separation_key:
+def separate_instances(instances: dict, separation_keys=None) -> dict:
+    """
+    Separates instances into groups based on one or more separation keys.
+
+    Args:
+        instances (dict): Data instances to group.
+        separation_keys (Union[str, list, None]): Key(s) to group by.
+            Can be a single key (str), multiple keys (list of str), or None.
+
+    Returns:
+        dict: Groups of instances, keyed by composite group name.
+    """
+    if not separation_keys:
+        return {"All Data": list(instances.values())}
+
+    # Backward compatibility: single string handled as single-key list
+    if isinstance(separation_keys, str):
+        separation_keys = [separation_keys]
+    elif not isinstance(separation_keys, list):
+        separation_keys = []
+
+    if not separation_keys:
         return {"All Data": list(instances.values())}
 
     groups = {}
     for key, instance in instances.items():
-        group_name = "Unknown"
-        if separation_key == 'instructor':
-            group_name = instance.get('instructor_name', 'Unknown')
-        elif separation_key == 'year':
-            group_name = str(get_instance_year(key))
-        elif separation_key == 'season':
-            group_name = get_instance_season(key)
-        
+        group_parts = []
+        for sep_key in separation_keys:
+            value = "Unknown"
+            if sep_key == "instructor":
+                value = instance.get("instructor_name", "Unknown")
+            elif sep_key == "year":
+                value = str(get_instance_year(key))
+            elif sep_key == "season":
+                value = get_instance_season(key)
+            else:
+                value = str(instance.get(sep_key, "Unknown"))
+            group_parts.append(value)
+        group_name = ", ".join(group_parts)
         if group_name not in groups:
             groups[group_name] = []
         groups[group_name].append(instance)
-        
+
     return groups
 
 def process_analysis_request(all_course_data: dict, params: dict) -> dict:
@@ -197,7 +221,17 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
         all_course_data (dict): The complete, raw data for a course from data.json.
         params (dict): A dictionary of analysis parameters from the API request.
                        - 'filters': {'min_year', 'max_year', 'seasons', 'instructors'}
-                       - 'separation_key': 'instructor', 'year', or 'season'
+                       - 'separation_keys': list of keys, e.g. ['instructor', 'year']
+                         (backward compatible with 'separation_key': str)
+    """
+    filters = params.get('filters', {})
+    separation_keys = params.get('separation_keys')
+    # Backward compatibility: accept 'separation_key' as string
+    if separation_keys is None:
+        separation_keys = params.get('separation_key')
+    filtered_instances = filter_instances(all_course_data, filters)
+    groups = separate_instances(filtered_instances, separation_keys)
+    # ...rest of processing logic continues below...
                        - 'stats_to_calculate': list of frequency keys
 
     Returns:
