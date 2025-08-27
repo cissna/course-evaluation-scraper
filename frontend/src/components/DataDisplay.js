@@ -1,7 +1,8 @@
 import React from 'react';
 import './DataDisplay.css';
+import { STAT_MAPPINGS } from '../utils/statsMapping';
 
-const DataDisplay = ({ data, errorMessage }) => {
+const DataDisplay = ({ data, errorMessage, selectedStats = [] }) => {
     if (errorMessage) {
         return <div className="data-display-error" dangerouslySetInnerHTML={{ __html: errorMessage }}></div>;
     }
@@ -10,18 +11,30 @@ const DataDisplay = ({ data, errorMessage }) => {
     }
 
     const groups = Object.keys(data);
-    const headers = ["Group", "Overall Quality", "Instructor Effectiveness", "Intellectual Challenge", "Workload"];
+    // Dynamic header generation based on selectedStats
+    const generateHeaders = () => {
+        const headers = ["Group"];
+        if (selectedStats && selectedStats.length > 0) {
+            selectedStats.forEach(statKey => {
+                if (STAT_MAPPINGS[statKey]) {
+                    headers.push(STAT_MAPPINGS[statKey]);
+                }
+            });
+        }
+        return headers;
+    };
+
+    const headers = generateHeaders();
 
     const convertToCSV = () => {
         const rows = [headers.join(',')];
         groups.forEach(groupName => {
-            const row = [
-                `"${groupName}"`,
-                data[groupName].overall_quality?.toFixed(2) ?? '',
-                data[groupName].instructor_effectiveness?.toFixed(2) ?? '',
-                data[groupName].intellectual_challenge?.toFixed(2) ?? '',
-                data[groupName].workload?.toFixed(2) ?? ''
-            ];
+            const row = [`"${groupName}"`];
+            if (selectedStats && selectedStats.length > 0) {
+                selectedStats.forEach(statKey => {
+                    row.push(data[groupName][statKey]?.toFixed(2) ?? '');
+                });
+            }
             rows.push(row.join(','));
         });
         return rows.join('\n');
@@ -40,6 +53,17 @@ const DataDisplay = ({ data, errorMessage }) => {
         document.body.removeChild(link);
     };
 
+    // Edge case: if selectedStats is undefined/null or empty, show fallback
+    if (!selectedStats || selectedStats.length === 0) {
+        return (
+            <div className="data-display">
+                <div className="data-display-placeholder">
+                    Select at least one statistic to display results.
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="data-display">
             <button onClick={handleDownload} className="download-btn">Download as CSV</button>
@@ -53,10 +77,11 @@ const DataDisplay = ({ data, errorMessage }) => {
                     {groups.map(groupName => (
                         <tr key={groupName}>
                             <td>{groupName}</td>
-                            <td>{data[groupName].overall_quality?.toFixed(2) ?? 'N/A'}</td>
-                            <td>{data[groupName].instructor_effectiveness?.toFixed(2) ?? 'N/A'}</td>
-                            <td>{data[groupName].intellectual_challenge?.toFixed(2) ?? 'N/A'}</td>
-                            <td>{data[groupName].workload?.toFixed(2) ?? 'N/A'}</td>
+                            {selectedStats.map(statKey => (
+                                <td key={statKey}>
+                                    {data[groupName][statKey]?.toFixed(2) ?? 'N/A'}
+                                </td>
+                            ))}
                         </tr>
                     ))}
                 </tbody>
