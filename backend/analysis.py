@@ -107,13 +107,14 @@ def extract_course_metadata(course_names: dict) -> dict:
     }
 
 
-def calculate_group_statistics(course_instances: list, stats_to_calculate: list) -> dict:
+def calculate_group_statistics(course_instances: list, stats_to_calculate: list, metadata: dict = None) -> dict:
     """
     Calculates aggregated statistics for a group of course instances.
-    
+
     Args:
         course_instances (list): A list of course data dictionaries.
         stats_to_calculate (list): A list of frequency keys to be calculated (e.g., ["overall_quality_frequency"]).
+        metadata (dict, optional): Optional metadata for special-case stats like 'periods_run'.
 
     Returns:
         dict: A dictionary containing the calculated average for each requested statistic.
@@ -136,13 +137,12 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list)
         ui_name, value_mapping = STAT_MAPPINGS[key]
         if key == "periods_run":
             # Compute periods_run using metadata if present
-            relevant_periods = metadata.get("relevant_periods") if metadata else None
+            relevant_periods = metadata.get("relevant_periods") if metadata and "relevant_periods" in metadata else None
             value = compute_periods_run(relevant_periods)
             results[ui_name.replace(" ", "_").lower()] = value
         else:
             avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
             results[ui_name.replace(" ", "_").lower()] = avg # e.g., "overall_quality"
-        
     return results
 
 # --- Filtering and Separation Logic ---
@@ -156,6 +156,10 @@ def get_instance_year(instance_key: str) -> int:
     return 0
 
 def get_instance_season(instance_key: str) -> str:
+    """Extracts the season (e.g., 'Fall') from a course instance key."""
+    match = re.search(r'\.((?:FA|SP|SU|IN))\d{2}$', instance_key)
+    seasons = {"FA": "Fall", "SP": "Spring", "SU": "Summer", "IN": "Intersession"}
+    return seasons.get(match.group(1)) if match else "Unknown"
     
 def compute_periods_run(metadata_relevant_periods):
     """Compute periods run from metadata relevant_periods."""
@@ -164,10 +168,6 @@ def compute_periods_run(metadata_relevant_periods):
     # Extract last 4 chars of each period
     periods = [str(period)[-4:] for period in metadata_relevant_periods]
     return ', '.join(periods)
-    """Extracts the season (e.g., 'Fall') from a course instance key."""
-    match = re.search(r'\.((?:FA|SP|SU|IN))\d{2}$', instance_key)
-    seasons = {"FA": "Fall", "SP": "Spring", "SU": "Summer", "IN": "Intersession"}
-    return seasons.get(match.group(1)) if match else "Unknown"
 
 def filter_instances(all_instances: dict, filters: dict) -> dict:
     """Filters course instances based on a set of criteria."""
@@ -255,15 +255,6 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
                        - 'filters': {'min_year', 'max_year', 'seasons', 'instructors'}
                        - 'separation_keys': list of keys, e.g. ['instructor', 'year']
                          (backward compatible with 'separation_key': str)
-    """
-    filters = params.get('filters', {})
-    separation_keys = params.get('separation_keys')
-    # Backward compatibility: accept 'separation_key' as string
-    if separation_keys is None:
-        separation_keys = params.get('separation_key')
-    filtered_instances = filter_instances(all_course_data, filters)
-    groups = separate_instances(filtered_instances, separation_keys)
-    # ...rest of processing logic continues below...
                        - 'stats_to_calculate': list of frequency keys
 
     Returns:
@@ -271,7 +262,10 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
         plus course metadata including current and former course names.
     """
     filters = params.get('filters', {})
-    separation_key = params.get('separation_key')
+    separation_keys = params.get('separation_keys')
+    # Backward compatibility: accept 'separation_key' as string
+    if separation_keys is None:
+        separation_keys = params.get('separation_key')
     stats_to_calculate = params.get('stats_to_calculate', list(STAT_MAPPINGS.keys()))
 
     # 1. Filter the data
@@ -287,12 +281,12 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     course_metadata = extract_course_metadata(course_names)
 
     # 3. Separate the filtered data into groups
-    separated_groups = separate_instances(filtered_data, separation_key)
+    separated_groups = separate_instances(filtered_data, separation_keys)
 
     # 4. Calculate statistics for each group
     analysis_results = {}
     for group_name, instances in separated_groups.items():
-        analysis_results[group_name] = calculate_group_statistics(instances, stats_to_calculate)
+        analysis_results[group_name] = calculate_group_statistics(instances, stats_to_calculate, course_metadata)
 
     # 5. Add course metadata to results
     analysis_results.update(course_metadata)
