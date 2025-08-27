@@ -5,13 +5,16 @@ import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
 import GracePeriodWarning from './components/GracePeriodWarning';
-import { STAT_MAPPINGS } from './utils/statsMapping';
+import { STAT_MAPPINGS, DEFAULT_STATS, OPTIONAL_STATS } from './utils/statsMapping';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [courseCode, setCourseCode] = useState(null);
   const [advancedOptions, setAdvancedOptions] = useState({
-    stats: Object.keys(STAT_MAPPINGS).reduce((acc, key) => ({ ...acc, [key]: true }), {}),
+    stats: {
+      ...DEFAULT_STATS.reduce((acc, key) => ({ ...acc, [key]: true }), {}),
+      ...OPTIONAL_STATS.reduce((acc, key) => ({ ...acc, [key]: false }), {})
+    },
     filters: { min_year: '', max_year: '', seasons: [] },
     separationKeys: []
   });
@@ -214,6 +217,10 @@ function App() {
         <AdvancedOptions
           options={advancedOptions}
           onApply={handleApplyAdvancedOptions}
+          courseMetadata={analysisResult ? {
+            current_name: analysisResult.current_name,
+            former_names: analysisResult.former_names
+          } : null}
         />
         <DataDisplay
           data={analysisResult ? (() => {
