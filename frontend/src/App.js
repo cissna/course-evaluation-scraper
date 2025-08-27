@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import CourseSearch from './components/CourseSearch';
 import DataDisplay from './components/DataDisplay';
@@ -145,7 +145,36 @@ function App() {
       </header>
       <main>
         <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={(is) => is ? startLoading() : stopLoading()} />
-        <GracePeriodWarning 
+        {analysisResult && courseCode && (
+          <div
+            style={{
+              marginTop: '20px',
+              marginBottom: '10px',
+              textAlign: 'center',
+              fontWeight: 'bold',
+              fontSize: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}
+          >
+            {/* If backend returns current_name and former_names fields, use them.
+                Fallback to courseCode if not present. */}
+            {analysisResult.current_name ? (
+              <>
+                <span>{analysisResult.current_name}</span>
+                {Array.isArray(analysisResult.former_names) && analysisResult.former_names.length > 0 && (
+                  <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
+                    (formerly known as {analysisResult.former_names.join(', ')})
+                  </span>
+                )}
+              </>
+            ) : (
+              <span>{courseCode}</span>
+            )}
+          </div>
+        )}
+        <GracePeriodWarning
           courseCode={courseCode}
           gracePeriodInfo={gracePeriodInfo}
           isDismissed={dismissedGraceWarnings.has(courseCode)}
