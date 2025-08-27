@@ -63,8 +63,23 @@ def extract_course_metadata(course_names: dict) -> dict:
     if not course_names:
         return {'current_name': None, 'former_names': []}
 
-    # Sort by instance key to get chronological order (assuming keys contain semester/year)
-    sorted_instances = sorted(course_names.keys())
+    def parse_semester_year(instance_key):
+        """Parse semester and year from instance key for chronological sorting."""
+        # Extract semester/year pattern (e.g., 'FA24', 'SP23', 'SU22')
+        match = re.search(r'([A-Z]{2})(\d{2})', instance_key)
+        if match:
+            semester, year = match.groups()
+            year_num = int('20' + year)  # Convert '24' to 2024
+
+            # Convert semesters to numbers for sorting (SP=1, SU=2, FA=3)
+            semester_order = {'SP': 1, 'SU': 2, 'FA': 3}
+            semester_num = semester_order.get(semester, 0)
+
+            return (year_num, semester_num)
+        return (0, 0)  # Default for unparseable keys
+
+    # Sort by chronological order (year, then semester within year)
+    sorted_instances = sorted(course_names.keys(), key=parse_semester_year)
 
     # Get the most recent name
     most_recent_key = sorted_instances[-1]
