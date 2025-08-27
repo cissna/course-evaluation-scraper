@@ -30,7 +30,7 @@ STAT_MAPPINGS = {
         {"Poor": 1, "Weak": 2, "Satisfactory": 3, "Good": 4, "Excellent": 5}
     ),
     "periods_run": (
-        "Periods Run",
+        "Periods Course Has Been Run",
         {}  # Special case - computed field, no frequency mapping needed
     )
 }
@@ -162,7 +162,7 @@ def get_instance_season(instance_key: str) -> str:
     return seasons.get(match.group(1)) if match else "Unknown"
     
 def compute_periods_run(metadata_relevant_periods):
-    """Compute periods run from metadata relevant_periods."""
+    """Compute Periods Course Has Been Run from metadata relevant_periods."""
     if not metadata_relevant_periods:
         return "N/A"
     # Extract last 4 chars of each period

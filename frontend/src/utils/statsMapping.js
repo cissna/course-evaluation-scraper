@@ -7,7 +7,7 @@ export const STAT_MAPPINGS = {
   // Optional statistics (off by default)
   'feedback_frequency': 'Helpful Feedback',
   'ta_frequency': 'TA Quality',
-  'periods_run': 'Periods Run'
+  'periods_run': 'Periods Course Has Been Run'
 };
 
 export const DEFAULT_STATS = [
