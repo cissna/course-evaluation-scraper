@@ -49,6 +49,37 @@ def calculate_weighted_average(frequency_dict: dict, value_mapping: dict) -> flo
         
     return round(weighted_sum / total_responses, 2)
 
+
+def extract_course_metadata(course_names: dict) -> dict:
+    """
+    Extract course name metadata from course instances.
+
+    Args:
+        course_names (dict): Dictionary mapping instance keys to course names
+
+    Returns:
+        dict: Contains 'current_name' and 'former_names' keys
+    """
+    if not course_names:
+        return {'current_name': None, 'former_names': []}
+
+    # Sort by instance key to get chronological order (assuming keys contain semester/year)
+    sorted_instances = sorted(course_names.keys())
+
+    # Get the most recent name
+    most_recent_key = sorted_instances[-1]
+    current_name = course_names[most_recent_key]
+
+    # Collect all unique names that are different from the current name
+    all_names = set(course_names.values())
+    former_names = list(all_names - {current_name})
+
+    return {
+        'current_name': current_name,
+        'former_names': former_names
+    }
+
+
 def calculate_group_statistics(course_instances: list, stats_to_calculate: list) -> dict:
     """
     Calculates aggregated statistics for a group of course instances.
@@ -146,16 +177,17 @@ def separate_instances(instances: dict, separation_key: str) -> dict:
 def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     """
     Main function to process an analysis request.
-    
+
     Args:
         all_course_data (dict): The complete, raw data for a course from data.json.
         params (dict): A dictionary of analysis parameters from the API request.
                        - 'filters': {'min_year', 'max_year', 'seasons', 'instructors'}
                        - 'separation_key': 'instructor', 'year', or 'season'
                        - 'stats_to_calculate': list of frequency keys
-    
+
     Returns:
-        A dictionary containing the results of the analysis, structured by group.
+        A dictionary containing the results of the analysis, structured by group,
+        plus course metadata including current and former course names.
     """
     filters = params.get('filters', {})
     separation_key = params.get('separation_key')
@@ -163,15 +195,27 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
 
     # 1. Filter the data
     filtered_data = filter_instances(all_course_data, filters)
-    
-    # 2. Separate the filtered data into groups
+
+    # 2. Extract course name information
+    course_names = {}
+    for instance_key, instance_data in all_course_data.items():
+        if 'course_name' in instance_data:
+            course_names[instance_key] = instance_data['course_name']
+
+    # Find the most recent course name and collect former names
+    course_metadata = extract_course_metadata(course_names)
+
+    # 3. Separate the filtered data into groups
     separated_groups = separate_instances(filtered_data, separation_key)
-    
-    # 3. Calculate statistics for each group
+
+    # 4. Calculate statistics for each group
     analysis_results = {}
     for group_name, instances in separated_groups.items():
         analysis_results[group_name] = calculate_group_statistics(instances, stats_to_calculate)
-        
+
+    # 5. Add course metadata to results
+    analysis_results.update(course_metadata)
+
     return analysis_results
 
 

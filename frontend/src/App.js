@@ -189,7 +189,13 @@ function App() {
           </button>
         </div>
         <AdvancedOptions onApply={handleApplyAdvancedOptions} />
-        <DataDisplay data={analysisResult} errorMessage={analysisError} />
+        <DataDisplay
+          data={analysisResult ? (() => {
+            const { current_name, former_names, ...dataWithoutMetadata } = analysisResult;
+            return dataWithoutMetadata;
+          })() : null}
+          errorMessage={analysisError}
+        />
       </main>
       {isLoading && <LoadingOverlay message="Analyzing course evaluations…" />}
     </div>
