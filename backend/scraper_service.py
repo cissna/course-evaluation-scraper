@@ -154,7 +154,12 @@ def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
 
     course_element = soup.find(lambda tag: tag.name == 'h3' and 'Course:' in tag.text)
     if course_element and course_element.find_next_sibling('span'):
-        scraped_data['course_name'] = course_element.find_next_sibling('span').text.strip()
+        full_course_name = course_element.find_next_sibling('span').text.strip()
+        # Extract only the part after " : " if present
+        if ' : ' in full_course_name:
+            scraped_data['course_name'] = full_course_name.split(' : ', 1)[1]
+        else:
+            scraped_data['course_name'] = full_course_name
 
     instructor_element = soup.find(lambda tag: tag.name == 'h3' and 'Instructor:' in tag.text)
     if instructor_element and instructor_element.find_next_sibling('span'):
