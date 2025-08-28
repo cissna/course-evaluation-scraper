@@ -6,6 +6,7 @@ import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
 import GracePeriodWarning from './components/GracePeriodWarning';
 import { STAT_MAPPINGS, DEFAULT_STATS, OPTIONAL_STATS } from './utils/statsMapping';
+import { calculateLast3YearsRange } from './utils/yearUtils';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -169,10 +170,20 @@ function App() {
   };
 
   const handleTimeFilterToggle = () => {
-    const currentYear = new Date().getFullYear();
     setAdvancedOptions(prev => {
-      const newMinYear = prev.filters.min_year ? '' : currentYear - 3;
-      const newMaxYear = prev.filters.min_year ? '' : currentYear;
+      let newMinYear, newMaxYear;
+      
+      if (prev.filters.min_year) {
+        // Toggle off - clear the values
+        newMinYear = '';
+        newMaxYear = '';
+      } else {
+        // Toggle on - use sophisticated period-based calculation
+        const yearRange = calculateLast3YearsRange();
+        newMinYear = yearRange.min_year;
+        newMaxYear = yearRange.max_year;
+      }
+      
       const updated = {
         ...prev,
         filters: {
