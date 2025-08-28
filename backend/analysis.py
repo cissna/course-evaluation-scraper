@@ -126,14 +126,15 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
     return result_metadata
 
 
-def calculate_group_statistics(course_instances: list, stats_to_calculate: list, metadata: dict = None) -> dict:
+def calculate_group_statistics(course_instances: list, stats_to_calculate: list, metadata: dict = None, instance_keys: list = None) -> dict:
     """
     Calculates aggregated statistics for a group of course instances.
 
     Args:
         course_instances (list): A list of course data dictionaries.
         stats_to_calculate (list): A list of frequency keys to be calculated (e.g., ["overall_quality_frequency"]).
-        metadata (dict, offByDefault): Metadata for special-case stats like 'periods_course_has_been_run'.
+        metadata (dict, optional): Metadata for special-case stats like 'periods_course_has_been_run'.
+        instance_keys (list, optional): List of instance keys corresponding to course_instances for period calculation.
 
     Returns:
         dict: A dictionary containing the calculated average for each requested statistic.
@@ -155,9 +156,8 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
     for key in stats_to_calculate:
         ui_name, value_mapping = STAT_MAPPINGS[key]
         if key == "periods_course_has_been_run":
-            # Compute periods_course_has_been_run using metadata if present
-            relevant_periods = metadata.get("relevant_periods") if metadata and "relevant_periods" in metadata else None
-            value = compute_periods_course_has_been_run(relevant_periods)
+            # Compute periods_course_has_been_run using actual instance keys from the filtered group
+            value = compute_periods_from_instance_keys(instance_keys)
             # Use the original key, not the converted UI name
             results[key] = value
         else:
@@ -182,13 +182,43 @@ def get_instance_season(instance_key: str) -> str:
     seasons = {"FA": "Fall", "SP": "Spring", "SU": "Summer", "IN": "Intersession"}
     return seasons.get(match.group(1)) if match else "Unknown"
     
-def compute_periods_course_has_been_run(metadata_relevant_periods):
-    """Compute Periods Course Has Been Run from metadata relevant_periods."""
-    if not metadata_relevant_periods:
+def compute_periods_course_has_been_run(course_instances):
+    """Compute Periods Course Has Been Run from actual course instances in the group."""
+    if not course_instances:
         return "N/A"
-    # Extract last 4 chars of each period
-    periods = [str(period)[-4:] for period in metadata_relevant_periods]
-    return ', '.join(periods)
+    
+    # Extract periods from the instance keys themselves
+    periods = set()
+    for instance in course_instances:
+        # Instance is a dict, we need to get the key from somewhere
+        # We'll need to modify the calling code to pass the keys
+        pass
+    
+    if not periods:
+        return "N/A"
+    
+    # Sort periods chronologically and return as comma-separated string
+    sorted_periods = sorted(periods)
+    return ', '.join(sorted_periods)
+
+def compute_periods_from_instance_keys(instance_keys):
+    """Extract periods from instance keys and return as sorted, comma-separated string."""
+    if not instance_keys:
+        return "N/A"
+    
+    periods = set()
+    for key in instance_keys:
+        # Extract period from instance key (e.g., "AS.100.101.01.FA24" -> "FA24")
+        match = re.search(r'\.([A-Z]{2}\d{2})$', key)
+        if match:
+            periods.add(match.group(1))
+    
+    if not periods:
+        return "N/A"
+    
+    # Sort periods chronologically
+    sorted_periods = sorted(periods)
+    return ', '.join(sorted_periods)
 
 def filter_instances(all_instances: dict, filters: dict) -> dict:
     """Filters course instances based on a set of criteria."""
@@ -374,7 +404,13 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
             backend_keys_fixed.append(backend_key)
             statkey_reverse_map_fixed[backend_key] = frontend_key
 
-        backend_result = calculate_group_statistics(instances, backend_keys_fixed, course_metadata)
+        # Extract instance keys from the filtered data for this group
+        group_instance_keys = []
+        for instance_key, instance_data in filtered_data.items():
+            if instance_data in instances:
+                group_instance_keys.append(instance_key)
+
+        backend_result = calculate_group_statistics(instances, backend_keys_fixed, course_metadata, group_instance_keys)
         # Convert backend keys back to frontend keys
         analysis_results[group_name] = {statkey_reverse_map_fixed[k]: v for k, v in backend_result.items() if k in statkey_reverse_map_fixed}
 
