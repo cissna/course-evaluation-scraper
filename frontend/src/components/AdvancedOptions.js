@@ -14,6 +14,12 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
   // UI state: control Advanced Options visibility only.
   const [showOptions, setShowOptions] = useState(false);
 
+  // Combined statistics array with metadata
+  const ALL_STATS = [
+    ...DEFAULT_STATS.map(key => ({ key, isDefault: true })),
+    ...OPTIONAL_STATS.map(key => ({ key, isDefault: false }))
+  ];
+
   // --- Handlers ---
 
   // Statistics toggling: stats is an object { statKey: boolean }
@@ -123,28 +129,16 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
       <div className="options-grid">
         {/* Statistics */}
         <div className="option-group">
-          <h4>Default Statistics</h4>
-          {DEFAULT_STATS.map(key => (
-            <label key={key}>
+          <h4>Statistics</h4>
+          {ALL_STATS.map(({ key, isDefault }) => (
+            <label key={key} className={isDefault ? 'default-stat' : 'optional-stat'}>
               <input
                 type="checkbox"
                 checked={options.stats[key]}
                 onChange={() => handleStatChange(key)}
               />
               {STAT_MAPPINGS[key]}
-            </label>
-          ))}
-        </div>
-        <div className="option-group">
-          <h4>Optional Statistics</h4>
-          {OPTIONAL_STATS.map(key => (
-            <label key={key}>
-              <input
-                type="checkbox"
-                checked={!!options.stats[key]}
-                onChange={() => handleStatChange(key)}
-              />
-              {STAT_MAPPINGS[key]}
+              {!isDefault && <span className="optional-indicator"> (optional)</span>}
             </label>
           ))}
         </div>
