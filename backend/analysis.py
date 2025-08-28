@@ -294,14 +294,25 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     # Handle both old format (stats_to_calculate) and new format (stats object)
     stats_to_calculate = params.get('stats_to_calculate')
     if stats_to_calculate is None:
-        # New format: extract enabled stats from stats object
+        # New format: Always calculate ALL statistics regardless of selection
+        # The frontend will handle which ones to display
         stats_dict = params.get('stats', {})
         if stats_dict:
-            # LOGGING: What keys are being sent and received
-            stats_to_calculate = [key for key, enabled in stats_dict.items() if enabled]
+            # Create mapping from frontend keys to backend keys
+            frontend_to_backend = {
+                'overall_quality': 'overall_quality_frequency',
+                'instructor_effectiveness': 'instructor_effectiveness_frequency',
+                'intellectual_challenge': 'intellectual_challenge_frequency',
+                'workload': 'workload_frequency',
+                'feedback_frequency': 'feedback_frequency',
+                'ta_frequency': 'ta_frequency',
+                'periods_course_has_been_run': 'periods_course_has_been_run'
+            }
+            # Always calculate all available stats using frontend keys
+            stats_to_calculate = list(frontend_to_backend.keys())
         else:
-            # Fallback: use all available stats
-            stats_to_calculate = list(STAT_MAPPINGS.keys())
+            # Fallback: use all available frontend keys
+            stats_to_calculate = ['overall_quality', 'instructor_effectiveness', 'intellectual_challenge', 'workload', 'feedback_frequency', 'ta_frequency', 'periods_course_has_been_run']
 
     # 1. Filter the data
     filtered_data = filter_instances(all_course_data, filters)
