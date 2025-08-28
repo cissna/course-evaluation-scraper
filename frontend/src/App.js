@@ -311,7 +311,15 @@ function App() {
         />
         <DataDisplay
           data={analysisResult ? (() => {
-            const { current_name, former_names, ...dataWithoutMetadata } = analysisResult;
+            const {
+              current_name,
+              former_names,
+              last_period_gathered,
+              last_period_failed,
+              relevant_periods,
+              last_scrape_during_grace_period,
+              ...dataWithoutMetadata
+            } = analysisResult;
             return dataWithoutMetadata;
           })() : null}
           selectedStats={Object.keys(advancedOptions.stats).filter(k => advancedOptions.stats[k])}

@@ -1,5 +1,6 @@
 import re
 from datetime import date
+import json
 
 # --- Mappings for Statistical Calculations ---
 
@@ -29,7 +30,7 @@ STAT_MAPPINGS = {
         "TA Quality",
         {"Poor": 1, "Weak": 2, "Satisfactory": 3, "Good": 4, "Excellent": 5}
     ),
-    "periods_run": (
+    "periods_course_has_been_run": (
         "Periods Course Has Been Run",
         {}  # Special case - computed field, no frequency mapping needed
     )
@@ -62,18 +63,26 @@ def calculate_weighted_average(frequency_dict: dict, value_mapping: dict) -> flo
     return round(weighted_sum / total_responses, 2)
 
 
-def extract_course_metadata(course_names: dict) -> dict:
+def extract_course_metadata(course_names: dict, course_code: str, metadata_from_file: dict) -> dict:
     """
-    Extract course name metadata from course instances.
+    Extract course name metadata from course instances and merge with existing metadata.
 
     Args:
-        course_names (dict): Dictionary mapping instance keys to course names
+        course_names (dict): Dictionary mapping instance keys to course names.
+        course_code (str): The course code (e.g., "AS.171.105").
+        metadata_from_file (dict): The metadata loaded from metadata.json.
 
     Returns:
-        dict: Contains 'current_name' and 'former_names' keys
+        dict: Contains 'current_name', 'former_names', and merged fields from metadata_from_file.
     """
+    # Initialize with current_name and former_names
+    result_metadata = {'current_name': None, 'former_names': []}
+
     if not course_names:
-        return {'current_name': None, 'former_names': []}
+        # If no course names, but metadata from file exists, use it
+        if course_code in metadata_from_file:
+            result_metadata.update(metadata_from_file[course_code])
+        return result_metadata
 
     def parse_semester_year(instance_key):
         """Parse semester and year from instance key for chronological sorting."""
@@ -101,10 +110,21 @@ def extract_course_metadata(course_names: dict) -> dict:
     all_names = set(course_names.values())
     former_names = list(all_names - {current_name})
 
-    return {
-        'current_name': current_name,
-        'former_names': former_names
-    }
+    result_metadata['current_name'] = current_name
+    result_metadata['former_names'] = former_names
+
+    # Merge with metadata from file, if available
+    if course_code in metadata_from_file:
+        # Overwrite current_name and former_names if they exist in metadata_from_file
+        # but the prompt says "Don't change the json structure besides adding new fields"
+        # so we should keep the current_name and former_names from the course_names
+        # and add the other fields from metadata_from_file
+        file_metadata = metadata_from_file[course_code].copy()
+        file_metadata.pop('current_name', None) # Remove if exists to avoid overwriting
+        file_metadata.pop('former_names', None) # Remove if exists to avoid overwriting
+        result_metadata.update(file_metadata)
+
+    return result_metadata
 
 
 def calculate_group_statistics(course_instances: list, stats_to_calculate: list, metadata: dict = None) -> dict:
@@ -114,7 +134,7 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
     Args:
         course_instances (list): A list of course data dictionaries.
         stats_to_calculate (list): A list of frequency keys to be calculated (e.g., ["overall_quality_frequency"]).
-        metadata (dict, offByDefault): Metadata for special-case stats like 'periods_run'.
+        metadata (dict, offByDefault): Metadata for special-case stats like 'periods_course_has_been_run'.
 
     Returns:
         dict: A dictionary containing the calculated average for each requested statistic.
@@ -135,10 +155,11 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
     results = {}
     for key in stats_to_calculate:
         ui_name, value_mapping = STAT_MAPPINGS[key]
-        if key == "periods_run":
-            # Compute periods_run using metadata if present
+        if key == "periods_course_has_been_run":
+            # Compute periods_course_has_been_run using metadata if present
             relevant_periods = metadata.get("relevant_periods") if metadata and "relevant_periods" in metadata else None
-            value = compute_periods_run(relevant_periods)
+            value = compute_periods_course_has_been_run(relevant_periods)
+            print(ui_name.replace(" ", "_").lower())
             results[ui_name.replace(" ", "_").lower()] = value
         else:
             avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
@@ -161,7 +182,7 @@ def get_instance_season(instance_key: str) -> str:
     seasons = {"FA": "Fall", "SP": "Spring", "SU": "Summer", "IN": "Intersession"}
     return seasons.get(match.group(1)) if match else "Unknown"
     
-def compute_periods_run(metadata_relevant_periods):
+def compute_periods_course_has_been_run(metadata_relevant_periods):
     """Compute Periods Course Has Been Run from metadata relevant_periods."""
     if not metadata_relevant_periods:
         return "N/A"
@@ -274,14 +295,30 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     # 1. Filter the data
     filtered_data = filter_instances(all_course_data, filters)
 
-    # 2. Extract course name information
+    # 2. Extract course name information and merge with metadata.json
     course_names = {}
+    course_code = None # Assuming all instances in all_course_data belong to the same course code
     for instance_key, instance_data in all_course_data.items():
         if 'course_name' in instance_data:
             course_names[instance_key] = instance_data['course_name']
+        # Extract course code from the first instance key
+        if course_code is None:
+            match = re.match(r'([A-Z]+\.\d+\.\d+)', instance_key)
+            if match:
+                course_code = match.group(1)
 
-    # Find the most recent course name and collect former names
-    course_metadata = extract_course_metadata(course_names)
+    # Load metadata from metadata.json
+    metadata_from_file = {}
+    try:
+        with open('metadata.json', 'r') as f:
+            metadata_from_file = json.load(f)
+    except FileNotFoundError:
+        print("metadata.json not found. Proceeding without it.")
+    except json.JSONDecodeError:
+        print("Error decoding metadata.json. Proceeding without it.")
+
+    # Find the most recent course name and collect former names, merging with metadata from file
+    course_metadata = extract_course_metadata(course_names, course_code, metadata_from_file)
 
     # 3. Separate the filtered data into groups
     separated_groups = separate_instances(filtered_data, separation_keys)

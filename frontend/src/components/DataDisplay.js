@@ -32,7 +32,8 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [] }) => {
             const row = [`"${groupName}"`];
             if (selectedStats && selectedStats.length > 0) {
                 selectedStats.forEach(statKey => {
-                    row.push(data[groupName][statKey]?.toFixed(2) ?? '');
+                    const value = data[groupName][statKey];
+                    row.push(typeof value === 'number' ? value.toFixed(2) : value ?? '');
                 });
             }
             rows.push(row.join(','));
@@ -79,7 +80,9 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [] }) => {
                             <td>{groupName}</td>
                             {selectedStats.map(statKey => (
                                 <td key={statKey}>
-                                    {data[groupName][statKey]?.toFixed(2) ?? 'N/A'}
+                                    {typeof data[groupName][statKey] === 'number'
+                                        ? data[groupName][statKey].toFixed(2)
+                                        : data[groupName][statKey] ?? 'N/A'}
                                 </td>
                             ))}
                         </tr>
