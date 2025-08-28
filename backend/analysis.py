@@ -1,5 +1,4 @@
 import re
-from datetime import date
 import json
 
 # --- Mappings for Statistical Calculations ---
@@ -297,11 +296,9 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     if stats_to_calculate is None:
         # New format: extract enabled stats from stats object
         stats_dict = params.get('stats', {})
-        print("[DEBUG] Received stats_dict:", json.dumps(stats_dict, indent=2))
         if stats_dict:
             # LOGGING: What keys are being sent and received
             stats_to_calculate = [key for key, enabled in stats_dict.items() if enabled]
-            print("[DEBUG] Using stats_to_calculate:", json.dumps(stats_to_calculate, indent=2))
         else:
             # Fallback: use all available stats
             stats_to_calculate = list(STAT_MAPPINGS.keys())
@@ -350,14 +347,9 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
             stats_backend_keys.append(backend_key)
             statkey_reverse_map[backend_key] = s
 
-    print("[DEBUG] Using these backend data keys:", json.dumps(stats_backend_keys, indent=2))
-    print("[DEBUG] statkey_reverse_map:", json.dumps(statkey_reverse_map, indent=2))
 
     analysis_results = {}
     for group_name, instances in separated_groups.items():
-        if instances:
-            exemplar = instances[0]
-            print("[DEBUG] Sample instance keys:", list(exemplar.keys()))
         # Patch: Special stats (feedback_frequency, ta_frequency) use the raw key from the UI/config, not "_frequency"
         backend_keys_fixed = []
         statkey_reverse_map_fixed = {}
@@ -371,8 +363,6 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
             backend_keys_fixed.append(backend_key)
             statkey_reverse_map_fixed[backend_key] = frontend_key
 
-        print("[DEBUG] FINAL backend keys for aggregation:", backend_keys_fixed)
-        print("[DEBUG] FINAL reverse map:", statkey_reverse_map_fixed)
         backend_result = calculate_group_statistics(instances, backend_keys_fixed, course_metadata)
         # Convert backend keys back to frontend keys
         analysis_results[group_name] = {statkey_reverse_map_fixed[k]: v for k, v in backend_result.items() if k in statkey_reverse_map_fixed}
@@ -380,7 +370,6 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     # 5. Add course metadata to results
     analysis_results.update(course_metadata)
 
-    print("[DEBUG] Returning analysis_results:", json.dumps(analysis_results, indent=2))
     return analysis_results
 
 
@@ -423,3 +412,4 @@ if __name__ == '__main__':
     results2 = process_analysis_request(dummy_instances, params2)
     print(results2)
     # Expected: {'All Data': {'overall_quality': 4.38, 'workload': 2.5}}
+    
