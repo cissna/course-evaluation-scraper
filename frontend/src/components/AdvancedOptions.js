@@ -71,6 +71,31 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
     });
   };
 
+  // Year input handlers
+  const handleMinYearChange = (event) => {
+    const value = event.target.value;
+    const nextOptions = {
+      ...options,
+      filters: {
+        ...options.filters,
+        min_year: value,
+      },
+    };
+    onApply(nextOptions);
+  };
+
+  const handleMaxYearChange = (event) => {
+    const value = event.target.value;
+    const nextOptions = {
+      ...options,
+      filters: {
+        ...options.filters,
+        max_year: value,
+      },
+    };
+    onApply(nextOptions);
+  };
+
   // --- Render ---
 
   // Check for conditional course name separation
@@ -122,6 +147,31 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
               {STAT_MAPPINGS[key]}
             </label>
           ))}
+        </div>
+
+        {/* Year Range */}
+        <div className="option-group">
+          <h4>Year Range</h4>
+          <label>
+            Min Year:
+            <input
+              type="number"
+              value={options.filters.min_year || ''}
+              onChange={handleMinYearChange}
+              disabled={!!options.filters.min_year}
+              placeholder="e.g., 2020"
+            />
+          </label>
+          <label>
+            Max Year:
+            <input
+              type="number"
+              value={options.filters.max_year || ''}
+              onChange={handleMaxYearChange}
+              disabled={!!options.filters.min_year}
+              placeholder="e.g., 2024"
+            />
+          </label>
         </div>
 
         {/* Separation Options */}
