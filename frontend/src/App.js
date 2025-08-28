@@ -19,6 +19,7 @@ function App() {
     filters: { min_year: '', max_year: '', seasons: [] },
     separationKeys: []
   });
+  const [showLast3YearsActive, setShowLast3YearsActive] = useState(false);
   const [analysisError, setAnalysisError] = useState(null);
   const [loadingCount, setLoadingCount] = useState(0);
   const [gracePeriodInfo, setGracePeriodInfo] = useState(null);
@@ -172,16 +173,19 @@ function App() {
   const handleTimeFilterToggle = () => {
     setAdvancedOptions(prev => {
       let newMinYear, newMaxYear;
-      
-      if (prev.filters.min_year) {
+      let newShowLast3YearsActive;
+
+      if (showLast3YearsActive) {
         // Toggle off - clear the values
         newMinYear = '';
         newMaxYear = '';
+        newShowLast3YearsActive = false;
       } else {
         // Toggle on - use sophisticated period-based calculation
         const yearRange = calculateLast3YearsRange();
         newMinYear = yearRange.min_year;
         newMaxYear = yearRange.max_year;
+        newShowLast3YearsActive = true;
       }
       
       const updated = {
@@ -196,6 +200,7 @@ function App() {
       if (courseCode) {
         handleApplyAdvancedOptions(updated);
       }
+      setShowLast3YearsActive(newShowLast3YearsActive);
       return updated;
     });
   };
@@ -219,6 +224,20 @@ function App() {
     // Always update advanceOptions for column/rerender
     setAdvancedOptions(options);
     if (!courseCode) return;
+
+    const validateYear = (year) => {
+      if (year === '') return true; // Allow empty string to clear filter
+      const parsedYear = parseInt(year, 10);
+      return !isNaN(parsedYear) && parsedYear >= 2000;
+    };
+
+    const minYearValid = validateYear(options.filters.min_year);
+    const maxYearValid = validateYear(options.filters.max_year);
+
+    if (!minYearValid || !maxYearValid) {
+      return;
+    }
+
     // Only refetch for separation/filter changes, not stats-only
     const filtersChanged =
       JSON.stringify(options.filters) !== JSON.stringify(advancedOptions.filters);
@@ -274,7 +293,7 @@ function App() {
         />
         <div className="controls">
           <button onClick={handleTimeFilterToggle}>
-            {advancedOptions.filters.min_year === '' ? 'Show Last 3 Years' : 'Show All Time'}
+            {showLast3YearsActive ? 'Show All Time' : 'Show Last 3 Years'}
           </button>
           <button onClick={handleSeparateByTeacherToggle}>
             {advancedOptions.separationKeys.includes('instructor') ? 'Combine Teachers' : 'Separate by Teacher'}
@@ -287,6 +306,8 @@ function App() {
             current_name: analysisResult.current_name,
             former_names: analysisResult.former_names
           } : null}
+          showLast3YearsActive={showLast3YearsActive}
+          onDeactivateLast3Years={() => setShowLast3YearsActive(false)}
         />
         <DataDisplay
           data={analysisResult ? (() => {

@@ -173,8 +173,11 @@ def filter_instances(all_instances: dict, filters: dict) -> dict:
     """Filters course instances based on a set of criteria."""
     filtered = {}
     
-    min_year = filters.get('min_year')
-    max_year = filters.get('max_year')
+    min_year_str = filters.get('min_year')
+    max_year_str = filters.get('max_year')
+
+    min_year = int(min_year_str) if min_year_str else None
+    max_year = int(max_year_str) if max_year_str else None
     seasons = filters.get('seasons') # Expects a list of seasons, e.g., ["Fall", "Spring"]
     instructors = filters.get('instructors') # Expects a list of instructor names
 

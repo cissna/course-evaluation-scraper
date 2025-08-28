@@ -10,7 +10,7 @@ const SEPARATION_OPTIONS = [
   { key: 'exact_period', label: 'Exact Period' },
 ];
 
-const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
+const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActive, onDeactivateLast3Years }) => {
   // UI state: control Advanced Options visibility only.
   const [showOptions, setShowOptions] = useState(false);
 
@@ -80,6 +80,9 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
   // Year input handlers
   const handleMinYearChange = (event) => {
     const value = event.target.value;
+    if (showLast3YearsActive) {
+      onDeactivateLast3Years();
+    }
     const nextOptions = {
       ...options,
       filters: {
@@ -92,6 +95,9 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
 
   const handleMaxYearChange = (event) => {
     const value = event.target.value;
+    if (showLast3YearsActive) {
+      onDeactivateLast3Years();
+    }
     const nextOptions = {
       ...options,
       filters: {
@@ -152,7 +158,7 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
               type="number"
               value={options.filters.min_year || ''}
               onChange={handleMinYearChange}
-              disabled={!!options.filters.min_year}
+              disabled={showLast3YearsActive}
               placeholder="e.g., 2020"
             />
           </label>
@@ -162,7 +168,7 @@ const AdvancedOptions = ({ options, onApply, courseMetadata }) => {
               type="number"
               value={options.filters.max_year || ''}
               onChange={handleMaxYearChange}
-              disabled={!!options.filters.min_year}
+              disabled={showLast3YearsActive}
               placeholder="e.g., 2024"
             />
           </label>
