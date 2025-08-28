@@ -317,6 +317,7 @@ function App() {
               last_period_failed,
               relevant_periods,
               last_scrape_during_grace_period,
+              grouping_metadata,
               ...dataWithoutMetadata
             } = analysisResult;
             return dataWithoutMetadata;
