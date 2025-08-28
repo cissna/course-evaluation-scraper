@@ -24,7 +24,7 @@ STAT_MAPPINGS = {
     ),
     "feedback_frequency": (
         "Helpful Feedback",
-        {"Poor": 1, "Weak": 2, "Satisfactory": 3, "Good": 4, "Excellent": 5}
+        {"Disagree strongly": 1, "Disagree somewhat": 2, "Neither agree nor disagree": 3, "Agree somewhat": 4, "Agree strongly": 5}
     ),
     "ta_frequency": (
         "TA Quality",
@@ -159,11 +159,12 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
             # Compute periods_course_has_been_run using metadata if present
             relevant_periods = metadata.get("relevant_periods") if metadata and "relevant_periods" in metadata else None
             value = compute_periods_course_has_been_run(relevant_periods)
-            print(ui_name.replace(" ", "_").lower())
-            results[ui_name.replace(" ", "_").lower()] = value
+            # Use the original key, not the converted UI name
+            results[key] = value
         else:
             avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
-            results[ui_name.replace(" ", "_").lower()] = avg # e.g., "overall_quality"
+            # Use the original key (e.g., "feedback_frequency"), not the converted UI name
+            results[key] = avg
     return results
 
 # --- Filtering and Separation Logic ---
@@ -290,7 +291,20 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     # Backward compatibility: accept 'separation_key' as string
     if separation_keys is None:
         separation_keys = params.get('separation_key')
-    stats_to_calculate = params.get('stats_to_calculate', list(STAT_MAPPINGS.keys()))
+    
+    # Handle both old format (stats_to_calculate) and new format (stats object)
+    stats_to_calculate = params.get('stats_to_calculate')
+    if stats_to_calculate is None:
+        # New format: extract enabled stats from stats object
+        stats_dict = params.get('stats', {})
+        print("[DEBUG] Received stats_dict:", json.dumps(stats_dict, indent=2))
+        if stats_dict:
+            # LOGGING: What keys are being sent and received
+            stats_to_calculate = [key for key, enabled in stats_dict.items() if enabled]
+            print("[DEBUG] Using stats_to_calculate:", json.dumps(stats_to_calculate, indent=2))
+        else:
+            # Fallback: use all available stats
+            stats_to_calculate = list(STAT_MAPPINGS.keys())
 
     # 1. Filter the data
     filtered_data = filter_instances(all_course_data, filters)
@@ -324,13 +338,49 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     separated_groups = separate_instances(filtered_data, separation_keys)
 
     # 4. Calculate statistics for each group
+    # Map stats_to_calculate to data keys (statKey → statKey + "_frequency", except special keys)
+    stats_backend_keys = []
+    statkey_reverse_map = {}  # For mapping backend key to frontend/UI key
+    for s in stats_to_calculate:
+        if s == "periods_course_has_been_run":
+            stats_backend_keys.append(s)
+            statkey_reverse_map[s] = s
+        else:
+            backend_key = s + "_frequency"
+            stats_backend_keys.append(backend_key)
+            statkey_reverse_map[backend_key] = s
+
+    print("[DEBUG] Using these backend data keys:", json.dumps(stats_backend_keys, indent=2))
+    print("[DEBUG] statkey_reverse_map:", json.dumps(statkey_reverse_map, indent=2))
+
     analysis_results = {}
     for group_name, instances in separated_groups.items():
-        analysis_results[group_name] = calculate_group_statistics(instances, stats_to_calculate, course_metadata)
+        if instances:
+            exemplar = instances[0]
+            print("[DEBUG] Sample instance keys:", list(exemplar.keys()))
+        # Patch: Special stats (feedback_frequency, ta_frequency) use the raw key from the UI/config, not "_frequency"
+        backend_keys_fixed = []
+        statkey_reverse_map_fixed = {}
+        for frontend_key in stats_to_calculate:
+            if frontend_key in ["feedback_frequency", "ta_frequency", "periods_course_has_been_run"]:
+                backend_key = frontend_key
+            elif frontend_key.endswith("_frequency"):
+                backend_key = frontend_key
+            else:
+                backend_key = frontend_key + "_frequency"
+            backend_keys_fixed.append(backend_key)
+            statkey_reverse_map_fixed[backend_key] = frontend_key
+
+        print("[DEBUG] FINAL backend keys for aggregation:", backend_keys_fixed)
+        print("[DEBUG] FINAL reverse map:", statkey_reverse_map_fixed)
+        backend_result = calculate_group_statistics(instances, backend_keys_fixed, course_metadata)
+        # Convert backend keys back to frontend keys
+        analysis_results[group_name] = {statkey_reverse_map_fixed[k]: v for k, v in backend_result.items() if k in statkey_reverse_map_fixed}
 
     # 5. Add course metadata to results
     analysis_results.update(course_metadata)
 
+    print("[DEBUG] Returning analysis_results:", json.dumps(analysis_results, indent=2))
     return analysis_results
 
 

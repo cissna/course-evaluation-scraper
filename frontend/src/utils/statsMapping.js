@@ -1,40 +1,59 @@
-export const STAT_MAPPINGS = {
-  // Default statistics (on by default)
-  'overall_quality': 'Overall Quality',
-  'instructor_effectiveness': 'Instructor Effectiveness',
-  'intellectual_challenge': 'Intellectual Challenge',
-  'workload': 'Workload',
-  // Statistics that are off by default
-  'feedback_frequency': 'Helpful Feedback',
-  'ta_frequency': 'TA Quality',
-  'periods_course_has_been_run': 'Periods Course Has Been Run'
+// Unified statistics configuration - single source of truth
+// Each statistic has its key, display name, and default enabled state
+export const STATISTICS_CONFIG = {
+  'overall_quality': {
+    displayName: 'Overall Quality',
+    defaultEnabled: true
+  },
+  'instructor_effectiveness': {
+    displayName: 'Instructor Effectiveness',
+    defaultEnabled: true
+  },
+  'intellectual_challenge': {
+    displayName: 'Intellectual Challenge',
+    defaultEnabled: true
+  },
+  'workload': {
+    displayName: 'Workload',
+    defaultEnabled: true
+  },
+  'feedback_frequency': {
+    displayName: 'Helpful Feedback',
+    defaultEnabled: false
+  },
+  'ta_frequency': {
+    displayName: 'TA Quality',
+    defaultEnabled: false
+  },
+  'periods_course_has_been_run': {
+    displayName: 'Periods Course Has Been Run',
+    defaultEnabled: false
+  }
 };
 
-export const DEFAULT_STATS = [
-  'overall_quality',
-  'instructor_effectiveness',
-  'intellectual_challenge',
-  'workload'
-];
+// Derived utilities - no more separate arrays needed
+export const ALL_STAT_KEYS = Object.keys(STATISTICS_CONFIG);
 
-export const OFF_BY_DEFAULT_STATS = [
-  'feedback_frequency',
-  'ta_frequency',
-  'periods_course_has_been_run'
-];
+// Legacy mapping object for backward compatibility
+export const STAT_MAPPINGS = Object.fromEntries(
+  ALL_STAT_KEYS.map(key => [key, STATISTICS_CONFIG[key].displayName])
+);
 
-export const getBackendKey = (displayName) => {
-  return Object.keys(STAT_MAPPINGS).find(key => STAT_MAPPINGS[key] === displayName);
-};
-
+// Simplified utility functions
 export const getDisplayName = (backendKey) => {
-  return STAT_MAPPINGS[backendKey] || backendKey;
+  return STATISTICS_CONFIG[backendKey]?.displayName || backendKey;
 };
 
-export const isDefaultStat = (statKey) => {
-  return DEFAULT_STATS.includes(statKey);
+export const getAllStatistics = () => {
+  return ALL_STAT_KEYS.map(key => ({
+    key,
+    displayName: STATISTICS_CONFIG[key].displayName,
+    defaultEnabled: STATISTICS_CONFIG[key].defaultEnabled
+  }));
 };
 
-export const isOffByDefaultStat = (statKey) => {
-  return OFF_BY_DEFAULT_STATS.includes(statKey);
+export const getInitialStatsState = () => {
+  return Object.fromEntries(
+    ALL_STAT_KEYS.map(key => [key, STATISTICS_CONFIG[key].defaultEnabled])
+  );
 };

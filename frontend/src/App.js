@@ -5,17 +5,16 @@ import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
 import GracePeriodWarning from './components/GracePeriodWarning';
-import { STAT_MAPPINGS, DEFAULT_STATS, OFF_BY_DEFAULT_STATS } from './utils/statsMapping';
+import { STAT_MAPPINGS, STATISTICS_CONFIG, ALL_STAT_KEYS } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [courseCode, setCourseCode] = useState(null);
   const [advancedOptions, setAdvancedOptions] = useState({
-    stats: {
-      ...DEFAULT_STATS.reduce((acc, key) => ({ ...acc, [key]: true }), {}),
-      ...OFF_BY_DEFAULT_STATS.reduce((acc, key) => ({ ...acc, [key]: false }), {})
-    },
+    stats: Object.fromEntries(
+      ALL_STAT_KEYS.map(key => [key, STATISTICS_CONFIG[key].defaultEnabled])
+    ),
     filters: { min_year: '', max_year: '', seasons: [] },
     separationKeys: []
   });

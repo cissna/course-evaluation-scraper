@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AdvancedOptions.css';
-import { STAT_MAPPINGS, DEFAULT_STATS, OFF_BY_DEFAULT_STATS } from '../utils/statsMapping';
+import { STATISTICS_CONFIG, ALL_STAT_KEYS } from '../utils/statsMapping';
 
 // Optionally add custom separation options for exact period and course_name.
 const SEPARATION_OPTIONS = [
@@ -14,11 +14,7 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
   // UI state: control Advanced Options visibility only.
   const [showOptions, setShowOptions] = useState(false);
 
-  // Combined statistics array with metadata
-  const ALL_STATS = [
-    ...DEFAULT_STATS.map(key => ({ key, isDefault: true })),
-    ...OFF_BY_DEFAULT_STATS.map(key => ({ key, isDefault: false }))
-  ];
+  // Direct access to statistics configuration - no unnecessary mapping
 
   // --- Handlers ---
 
@@ -136,16 +132,19 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
         {/* Statistics */}
         <div className="option-group">
           <h4>Statistics</h4>
-          {ALL_STATS.map(({ key, isDefault }) => (
-            <label key={key} className={isDefault ? 'default-stat' : 'off-by-default-stat'}>
-              <input
-                type="checkbox"
-                checked={options.stats[key]}
-                onChange={() => handleStatChange(key)}
-              />
-              {STAT_MAPPINGS[key]}
-            </label>
-          ))}
+          {ALL_STAT_KEYS.map(key => {
+            const config = STATISTICS_CONFIG[key];
+            return (
+              <label key={key} className={config.defaultEnabled ? 'default-stat' : 'off-by-default-stat'}>
+                <input
+                  type="checkbox"
+                  checked={options.stats[key]}
+                  onChange={() => handleStatChange(key)}
+                />
+                {config.displayName}
+              </label>
+            );
+          })}
         </div>
 
         {/* Year Range */}
