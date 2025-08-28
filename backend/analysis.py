@@ -312,7 +312,6 @@ def separate_instances(instances: dict, separation_keys=None) -> dict:
 
     return groups
 
-def process_analysis_request(all_course_data: dict, params: dict) -> dict:
 def process_analysis_request(all_course_data: dict, params: dict, primary_course_code: str = None) -> dict:
     """
     Main function to process an analysis request.

@@ -4,7 +4,7 @@ import re
 import requests
 from datetime import date
 from bs4 import BeautifulSoup
-from backend.course_grouping_service import CourseGroupingService
+from course_grouping_service import CourseGroupingService
 from urllib.parse import urlencode, urljoin
 from dateutil.relativedelta import relativedelta
 import sys
