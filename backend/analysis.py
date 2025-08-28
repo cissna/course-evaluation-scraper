@@ -1,5 +1,6 @@
 import re
 import json
+from backend.course_grouping_service import CourseGroupingService
 
 # --- Mappings for Statistical Calculations ---
 
@@ -37,6 +38,8 @@ STAT_MAPPINGS = {
 
 # --- Core Calculation Functions ---
 
+grouping_service = CourseGroupingService()
+
 def calculate_weighted_average(frequency_dict: dict, value_mapping: dict) -> float:
     """
     Calculates the weighted average for a set of frequency data.
@@ -62,7 +65,7 @@ def calculate_weighted_average(frequency_dict: dict, value_mapping: dict) -> flo
     return round(weighted_sum / total_responses, 2)
 
 
-def extract_course_metadata(course_names: dict, course_code: str, metadata_from_file: dict) -> dict:
+def extract_course_metadata(course_names: dict, course_code: str, metadata_from_file: dict, primary_course_code: str = None) -> dict:
     """
     Extract course name metadata from course instances and merge with existing metadata.
 
@@ -70,6 +73,7 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
         course_names (dict): Dictionary mapping instance keys to course names.
         course_code (str): The course code (e.g., "AS.171.105").
         metadata_from_file (dict): The metadata loaded from metadata.json.
+        primary_course_code (str, optional): The primary course code to filter for grouping.
 
     Returns:
         dict: Contains 'current_name', 'former_names', and merged fields from metadata_from_file.
@@ -77,7 +81,16 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
     # Initialize with current_name and former_names
     result_metadata = {'current_name': None, 'former_names': []}
 
-    if not course_names:
+    filtered_course_names = course_names
+    if primary_course_code:
+        # Only include instances matching the base code, e.g., "AS.050.375" from "AS.050.375.01.FA23"
+        def matches_primary(instance_key):
+            match = re.match(r'([A-Z]+\.\d+\.\d+)', instance_key)
+            return match and match.group(1) == primary_course_code
+
+        filtered_course_names = {k: v for k, v in course_names.items() if matches_primary(k)}
+
+    if not filtered_course_names:
         # If no course names, but metadata from file exists, use it
         if course_code in metadata_from_file:
             result_metadata.update(metadata_from_file[course_code])
@@ -99,14 +112,14 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
         return (0, 0)  # Default for unparseable keys
 
     # Sort by chronological order (year, then semester within year)
-    sorted_instances = sorted(course_names.keys(), key=parse_semester_year)
+    sorted_instances = sorted(filtered_course_names.keys(), key=parse_semester_year)
 
     # Get the most recent name
     most_recent_key = sorted_instances[-1]
-    current_name = course_names[most_recent_key]
+    current_name = filtered_course_names[most_recent_key]
 
     # Collect all unique names that are different from the current name
-    all_names = set(course_names.values())
+    all_names = set(filtered_course_names.values())
     former_names = list(all_names - {current_name})
 
     result_metadata['current_name'] = current_name
@@ -300,6 +313,7 @@ def separate_instances(instances: dict, separation_keys=None) -> dict:
     return groups
 
 def process_analysis_request(all_course_data: dict, params: dict) -> dict:
+def process_analysis_request(all_course_data: dict, params: dict, primary_course_code: str = None) -> dict:
     """
     Main function to process an analysis request.
 
@@ -310,10 +324,12 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
                        - 'separation_keys': list of keys, e.g. ['instructor', 'year']
                          (backward compatible with 'separation_key': str)
                        - 'stats_to_calculate': list of frequency keys
+        primary_course_code (str, optional): The base code for grouping analysis.
 
     Returns:
         A dictionary containing the results of the analysis, structured by group,
-        plus course metadata including current and former course names.
+        plus course metadata including current and former course names,
+        and course grouping metadata.
     """
     filters = params.get('filters', {})
     separation_keys = params.get('separation_keys')
@@ -342,7 +358,11 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
             stats_to_calculate = list(frontend_to_backend.keys())
         else:
             # Fallback: use all available frontend keys
-            stats_to_calculate = ['overall_quality', 'instructor_effectiveness', 'intellectual_challenge', 'workload', 'feedback_frequency', 'ta_frequency', 'periods_course_has_been_run']
+            stats_to_calculate = [
+                'overall_quality', 'instructor_effectiveness', 'intellectual_challenge',
+                'workload', 'feedback_frequency', 'ta_frequency',
+                'periods_course_has_been_run'
+            ]
 
     # 1. Filter the data
     filtered_data = filter_instances(all_course_data, filters)
@@ -369,8 +389,25 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
     except json.JSONDecodeError:
         print("Error decoding metadata.json. Proceeding without it.")
 
+    # 2.5. Get grouping info if grouping
+    grouping_metadata = {
+        "grouped_courses": [],
+        "group_description": "",
+        "is_grouped": False
+    }
+    if primary_course_code:
+        group_info = grouping_service.get_group_info(primary_course_code)
+        if group_info:
+            grouping_metadata = {
+                "grouped_courses": group_info.get("courses", []),
+                "group_description": group_info.get("description", ""),
+                "is_grouped": True
+            }
+
     # Find the most recent course name and collect former names, merging with metadata from file
-    course_metadata = extract_course_metadata(course_names, course_code, metadata_from_file)
+    course_metadata = extract_course_metadata(
+        course_names, course_code, metadata_from_file, primary_course_code=primary_course_code
+    )
 
     # 3. Separate the filtered data into groups
     separated_groups = separate_instances(filtered_data, separation_keys)
@@ -387,7 +424,6 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
             backend_key = s + "_frequency"
             stats_backend_keys.append(backend_key)
             statkey_reverse_map[backend_key] = s
-
 
     analysis_results = {}
     for group_name, instances in separated_groups.items():
@@ -410,12 +446,21 @@ def process_analysis_request(all_course_data: dict, params: dict) -> dict:
             if instance_data in instances:
                 group_instance_keys.append(instance_key)
 
-        backend_result = calculate_group_statistics(instances, backend_keys_fixed, course_metadata, group_instance_keys)
+        backend_result = calculate_group_statistics(
+            instances, backend_keys_fixed, course_metadata, group_instance_keys
+        )
         # Convert backend keys back to frontend keys
-        analysis_results[group_name] = {statkey_reverse_map_fixed[k]: v for k, v in backend_result.items() if k in statkey_reverse_map_fixed}
+        analysis_results[group_name] = {
+            statkey_reverse_map_fixed[k]: v
+            for k, v in backend_result.items()
+            if k in statkey_reverse_map_fixed
+        }
 
     # 5. Add course metadata to results
     analysis_results.update(course_metadata)
+
+    # 6. Add grouping metadata to results
+    analysis_results["grouping_metadata"] = grouping_metadata
 
     return analysis_results
 
