@@ -5,7 +5,7 @@ import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
 import GracePeriodWarning from './components/GracePeriodWarning';
-import { STAT_MAPPINGS, DEFAULT_STATS, OPTIONAL_STATS } from './utils/statsMapping';
+import { STAT_MAPPINGS, DEFAULT_STATS, OFF_BY_DEFAULT_STATS } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   const [advancedOptions, setAdvancedOptions] = useState({
     stats: {
       ...DEFAULT_STATS.reduce((acc, key) => ({ ...acc, [key]: true }), {}),
-      ...OPTIONAL_STATS.reduce((acc, key) => ({ ...acc, [key]: false }), {})
+      ...OFF_BY_DEFAULT_STATS.reduce((acc, key) => ({ ...acc, [key]: false }), {})
     },
     filters: { min_year: '', max_year: '', seasons: [] },
     separationKeys: []

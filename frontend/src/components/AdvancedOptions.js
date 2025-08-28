@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AdvancedOptions.css';
-import { STAT_MAPPINGS, DEFAULT_STATS, OPTIONAL_STATS } from '../utils/statsMapping';
+import { STAT_MAPPINGS, DEFAULT_STATS, OFF_BY_DEFAULT_STATS } from '../utils/statsMapping';
 
 // Optionally add custom separation options for exact period and course_name.
 const SEPARATION_OPTIONS = [
@@ -17,7 +17,7 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
   // Combined statistics array with metadata
   const ALL_STATS = [
     ...DEFAULT_STATS.map(key => ({ key, isDefault: true })),
-    ...OPTIONAL_STATS.map(key => ({ key, isDefault: false }))
+    ...OFF_BY_DEFAULT_STATS.map(key => ({ key, isDefault: false }))
   ];
 
   // --- Handlers ---
@@ -137,14 +137,13 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
         <div className="option-group">
           <h4>Statistics</h4>
           {ALL_STATS.map(({ key, isDefault }) => (
-            <label key={key} className={isDefault ? 'default-stat' : 'optional-stat'}>
+            <label key={key} className={isDefault ? 'default-stat' : 'off-by-default-stat'}>
               <input
                 type="checkbox"
                 checked={options.stats[key]}
                 onChange={() => handleStatChange(key)}
               />
               {STAT_MAPPINGS[key]}
-              {!isDefault && <span className="optional-indicator"> (optional)</span>}
             </label>
           ))}
         </div>

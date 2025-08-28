@@ -114,7 +114,7 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
     Args:
         course_instances (list): A list of course data dictionaries.
         stats_to_calculate (list): A list of frequency keys to be calculated (e.g., ["overall_quality_frequency"]).
-        metadata (dict, optional): Optional metadata for special-case stats like 'periods_run'.
+        metadata (dict, offByDefault): Metadata for special-case stats like 'periods_run'.
 
     Returns:
         dict: A dictionary containing the calculated average for each requested statistic.

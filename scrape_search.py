@@ -19,12 +19,12 @@ def get_evaluation_report_links(
     Args:
         session (requests.Session): An authenticated requests session object.
         course_code (str): The course code to look up (e.g., 'EN.601.473'). This is required.
-        instructor (str, optional): Filter by instructor name. Defaults to None.
-        term_id (str, optional): Filter by a specific term ID. Defaults to None.
-        year (str, optional): Filter by a specific year. Defaults to None.
-        area_id (str, optional): Filter by a specific area ID. Defaults to None.
-        question_key (str, optional): Filter by a specific question key. Defaults to None.
-        search (str, optional): An unimportant search query. Defaults to None.
+        instructor (str, offByDefault): Filter by instructor name. Defaults to None.
+        term_id (str, offByDefault): Filter by a specific term ID. Defaults to None.
+        year (str, offByDefault): Filter by a specific year. Defaults to None.
+        area_id (str, offByDefault): Filter by a specific area ID. Defaults to None.
+        question_key (str, offByDefault): Filter by a specific question key. Defaults to None.
+        search (str, offByDefault): An unimportant search query. Defaults to None.
 
     Returns:
         A dictionary where keys are course instance codes (e.g., 'AS.030.101.01.FA15')
@@ -41,7 +41,7 @@ def get_evaluation_report_links(
     # Start with the required parameter
     query_params = {'Course': course_code}
     
-    # Add optional parameters to the dictionary if they are provided
+    # Add offByDefault parameters to the dictionary if they are provided
     if instructor:
         query_params['Instructor'] = instructor
     if term_id:

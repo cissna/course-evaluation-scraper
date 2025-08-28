@@ -7,8 +7,8 @@
 
 ## Target State
 - **Single Column**: All statistics in one `option-group` with "Statistics" header
-- **Visual Distinction**: Default stats appear first, optional stats appear after with visual separator or styling
-- **Behavior**: Default stats checked by default, optional stats unchecked by default
+- **Visual Distinction**: Default stats appear first, off-by-default stats appear after with visual separator or styling
+- **Behavior**: Default stats checked by default, off-by-default stats unchecked by default
 
 ## Implementation Strategy
 
@@ -27,14 +27,13 @@ const ALL_STATS = [
 <div className="option-group">
   <h4>Statistics</h4>
   {ALL_STATS.map(({ key, isDefault }) => (
-    <label key={key} className={isDefault ? 'default-stat' : 'optional-stat'}>
+    <label key={key} className={isDefault ? 'default-stat' : 'off-by-default-stat'}>
       <input
         type="checkbox"
         checked={options.stats[key]}
         onChange={() => handleStatChange(key)}
       />
       {STAT_MAPPINGS[key]}
-      {!isDefault && <span className="optional-indicator"> (optional)</span>}
     </label>
   ))}
 </div>
@@ -47,16 +46,10 @@ const ALL_STATS = [
   font-weight: 500;
 }
 
-.optional-stat {
-  /* Styling for optional stats - maybe lighter or indented */
+.off-by-default-stat {
+  /* Styling for off-by-default stats - maybe lighter or indented */
   opacity: 0.8;
   margin-left: 10px;
-}
-
-.optional-indicator {
-  font-size: 0.8em;
-  color: #666;
-  font-style: italic;
 }
 ```
 
@@ -73,8 +66,8 @@ The current CSS grid will need adjustment to handle the new layout:
 **Solution**: Keep existing initialization in App.js, just change the rendering
 
 ### Challenge 2: Visual Hierarchy
-**Problem**: Need to distinguish default vs optional without separate sections
-**Solution**: Use subtle styling differences and optional indicators
+**Problem**: Need to distinguish default vs off-by-default without separate sections
+**Solution**: Use subtle styling differences and off-by-default indicators
 
 ### Challenge 3: Grid Layout Balance
 **Problem**: Single statistics column might look unbalanced

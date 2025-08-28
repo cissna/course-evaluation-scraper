@@ -26,15 +26,9 @@
     font-weight: 500;
 }
 
-.optional-stat {
+.off-by-default-stat {
     opacity: 0.8;
     margin-left: 10px;
-}
-
-.optional-indicator {
-    font-size: 0.8em;
-    color: #666;
-    font-style: italic;
 }
 
 /* Year input fields styling */

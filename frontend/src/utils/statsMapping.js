@@ -4,7 +4,7 @@ export const STAT_MAPPINGS = {
   'instructor_effectiveness': 'Instructor Effectiveness',
   'intellectual_challenge': 'Intellectual Challenge',
   'workload': 'Workload',
-  // Optional statistics (off by default)
+  // Statistics that are off by default
   'feedback_frequency': 'Helpful Feedback',
   'ta_frequency': 'TA Quality',
   'periods_run': 'Periods Course Has Been Run'
@@ -17,7 +17,7 @@ export const DEFAULT_STATS = [
   'workload'
 ];
 
-export const OPTIONAL_STATS = [
+export const OFF_BY_DEFAULT_STATS = [
   'feedback_frequency',
   'ta_frequency',
   'periods_run'
@@ -35,6 +35,6 @@ export const isDefaultStat = (statKey) => {
   return DEFAULT_STATS.includes(statKey);
 };
 
-export const isOptionalStat = (statKey) => {
-  return OPTIONAL_STATS.includes(statKey);
+export const isOffByDefaultStat = (statKey) => {
+  return OFF_BY_DEFAULT_STATS.includes(statKey);
 };
