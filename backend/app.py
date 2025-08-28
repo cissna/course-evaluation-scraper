@@ -111,7 +111,7 @@ def analyze_course_data(course_code):
             return jsonify(all_course_data), 500
 
         # Process the data using the analysis module
-        results = process_analysis_request(all_course_data, analysis_params)
+        results = process_analysis_request(all_course_data, analysis_params, primary_course_code=course_code)
         return jsonify(results)
 
     except Exception as e:
