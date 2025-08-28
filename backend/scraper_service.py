@@ -4,6 +4,7 @@ import re
 import requests
 from datetime import date
 from bs4 import BeautifulSoup
+from backend.course_grouping_service import CourseGroupingService
 from urllib.parse import urlencode, urljoin
 from dateutil.relativedelta import relativedelta
 import sys
@@ -23,6 +24,9 @@ BASE_REPORT_URL = 'https://asen-jhu.evaluationkit.com/'
 INDIVIDUAL_REPORT_BASE_URL = 'https://asen-jhu.evaluationkit.com/Reports/StudentReport.aspx'
 
 # Period Logic Constants
+
+# --- Course Grouping Service Instance ---
+grouping_service = CourseGroupingService()
 PERIOD_RELEASE_DATES = {
     'IN': (1, 16), 'SP': (5, 15), 'SU': (8, 15), 'FA': (12, 15)
 }
