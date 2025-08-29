@@ -18,6 +18,8 @@ def get_course_data(course_code):
     API endpoint to get course evaluation data.
     It triggers the scraper if the data is not up-to-date in the cache.
     """
+    # Normalize course code to uppercase to match stored format
+    course_code = course_code.upper()
     print(f"Received request for course code: {course_code}")
     try:
         # Call the centralized scraping and caching logic
@@ -65,6 +67,8 @@ def get_grace_status(course_code):
     """
     API endpoint to check if a course needs grace period warning.
     """
+    # Normalize course code to uppercase to match stored format
+    course_code = course_code.upper()
     try:
         status = get_course_grace_status(course_code)
         return jsonify(status)
@@ -77,6 +81,8 @@ def recheck_course_data(course_code):
     """
     API endpoint to force recheck course data during grace periods.
     """
+    # Normalize course code to uppercase to match stored format
+    course_code = course_code.upper()
     print(f"Received force recheck request for course: {course_code}")
     try:
         data = force_recheck_course(course_code)
@@ -95,6 +101,8 @@ def analyze_course_data(course_code):
     """
     API endpoint to perform filtering and separation analysis on course data.
     """
+    # Normalize course code to uppercase to match stored format
+    course_code = course_code.upper()
     print(f"Received analysis request for course: {course_code}")
     try:
         # Get the analysis parameters from the request body

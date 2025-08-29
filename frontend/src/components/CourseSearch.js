@@ -11,13 +11,15 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
         setIsLoading(true);
         setError(null);
 
-        // Basic check if it's a course code (e.g., AS.123.456)
-        const isCourseCode = /^[A-Z]{2}\.\d{3}\.\d{3}$/.test(query.trim());
+        // Case-insensitive check if it's a course code (e.g., AS.123.456 or as.123.456)
+        const courseCodePattern = /^[A-Za-z]{2}\.\d{3}\.\d{3}$/;
+        const isCourseCode = courseCodePattern.test(query.trim());
 
         try {
             let courseCode;
             if (isCourseCode) {
-                courseCode = query.trim();
+                // Auto-uppercase the course code to match the stored format
+                courseCode = query.trim().toUpperCase();
             } else {
                 // It's a course name search
                 if (onLoadingChange) onLoadingChange(true);
