@@ -1,6 +1,6 @@
 from data_manager import load_json_file, save_json_file
 from period_logic import is_course_up_to_date, find_oldest_year_from_keys
-from period_logic import get_year_from_period_string, get_current_period, is_grace_period_over
+from period_logic import get_year_from_period_string, get_current_period, is_grace_period_over, get_period_from_instance_key
 from config import METADATA_FILE, DATA_FILE
 from scraping_logic import get_authenticated_session
 from scrape_search import get_evaluation_report_links
@@ -244,23 +244,28 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         # Set last_period_gathered to current period after successful scraping
         metadata[course_code]['last_period_gathered'] = current_period
         
+        # Check if we found data specifically for the current period
+        current_period_data_found = False
         if new_data_found:
+            # Check if any of the newly scraped data is from the current period
+            for instance_key in metadata[course_code]['relevant_periods']:
+                if instance_key in data and get_period_from_instance_key(instance_key) == current_period:
+                    current_period_data_found = True
+                    break
+        
+        if current_period_data_found:
             # Found data for current period, clear grace period flag
-            print(f"Found data for {course_code}. Clearing grace period flag.")
+            print(f"Found data for {course_code} from current period {current_period}. Clearing grace period flag.")
             metadata[course_code]['last_scrape_during_grace_period'] = None
         else:
-            # No new data found, check if we're in grace period
+            # No current period data found, check if we're in grace period
             if is_grace_period_over(current_period):
-                print(f"No new data found for {course_code}, but grace period is over. Marking as up-to-date.")
+                print(f"No current period data found for {course_code}, but grace period is over. Marking as up-to-date.")
                 metadata[course_code]['last_scrape_during_grace_period'] = None
             else:
-                # Only set grace period flag if we're NOT skipping grace period logic
-                if skip_grace_period_logic:
-                    print(f"No new data found for {course_code} and still in grace period, but skipping grace period logic.")
-                    # Don't clear the flag - keep it so user can be warned again later
-                else:
-                    print(f"No new data found for {course_code} and still in grace period. Marking for re-check.")
-                    metadata[course_code]['last_scrape_during_grace_period'] = date.today().isoformat()
+                # We're in grace period and no current period data found
+                print(f"No current period data found for {course_code} and still in grace period. Marking for re-check.")
+                metadata[course_code]['last_scrape_during_grace_period'] = date.today().isoformat()
         
         save_json_file(METADATA_FILE, metadata)
     
