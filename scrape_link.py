@@ -3,12 +3,12 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
-from config import SCRAPING_DELAY_SECONDS, MAX_RETRIES, INITIAL_RETRY_DELAY
+from config import MAX_RETRIES, INITIAL_RETRY_DELAY
 
 def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
     """
     Scrapes the detailed evaluation data from a single report URL.
-    Enhanced to retry if 'course_name' not present, with exponential backoff delay.
+    Enhanced to retry if 'overall_quality_frequency' not present, with exponential backoff delay.
 
     Args:
         report_url (str): The full URL to a specific evaluation report page.
@@ -93,18 +93,18 @@ def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
             if 'ta_names' not in scraped_data:
                 scraped_data['ta_names'] = ["N/A"]
 
-            # Success criteria: course_name present and non-empty
-            if 'course_name' in scraped_data and scraped_data['course_name']:
+            # Success criteria: overall_quality_frequency present
+            if 'overall_quality_frequency' in scraped_data:
                 return scraped_data
             else:
-                print(f"'course_name' missing in scrape attempt {attempt+1} for {report_url}.")
+                print(f"'overall_quality_frequency' missing in scrape attempt {attempt+1} for {report_url}.")
         except Exception as e:
             print(f"Exception during scrape attempt {attempt+1} for {report_url}: {e}")
             last_exception = e
 
         attempt += 1
 
-    # If here, all attempts failed to get course_name; mark as failed in the metadata handler
+    # If here, all attempts failed to get overall_quality_frequency; mark as failed for metadata handler
     if last_exception:
         print(f"Max retries reached for {report_url}: scrape failed due to network error.")
         return {
@@ -113,10 +113,10 @@ def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
             "exception": str(last_exception)
         }
     else:
-        print(f"Max retries reached for {report_url}: scrape failed due to missing 'course_name' after successful requests.")
+        print(f"Max retries reached for {report_url}: scrape failed due to missing 'overall_quality_frequency' after successful requests.")
         return {
             "scrape_failed": True,
-            "reason": "course_name missing after successful requests"
+            "reason": "overall_quality_frequency missing after successful requests"
         }
 
 if __name__ == '__main__':
