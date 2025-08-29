@@ -37,3 +37,8 @@ PERIOD_GRACE_MONTHS = {
 TARGET_DEPARTMENT = 'AS.180'
 COURSE_NUMBER_START = 0
 COURSE_NUMBER_END = 999
+
+# Scraping Reliability
+SCRAPING_DELAY_SECONDS = 0    # No delay between scrapes
+MAX_RETRIES = 5               # Maximum number of retries for a failed scrape
+INITIAL_RETRY_DELAY = 0.5     # Initial delay in seconds for content loading (will be exponential)
