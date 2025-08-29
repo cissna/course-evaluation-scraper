@@ -8,6 +8,7 @@ const SEPARATION_OPTIONS = [
   { key: 'year', label: 'Year' },
   { key: 'season', label: 'Season' },
   { key: 'exact_period', label: 'Exact Period' },
+  { key: 'course_code', label: 'Course Code' },
 ];
 
 const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActive, onDeactivateLast3Years }) => {
@@ -225,6 +226,15 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
               Course Name
             </label>
           )}
+          {/* Course Code */}
+          <label>
+            <input
+              type="checkbox"
+              checked={options.separationKeys.includes('course_code')}
+              onChange={() => handleSeparationChange('course_code')}
+            />
+            Course Code
+          </label>
         </div>
       </div>
       <button onClick={() => onApply(options)}>Apply</button>

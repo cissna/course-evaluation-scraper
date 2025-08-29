@@ -25,7 +25,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
                 if (!searchResponse.ok) throw new Error('Error searching for course name.');
                 
                 const courseCodes = await searchResponse.json();
-                if (courseCodes.length === 0) throw new Error('No matching courses found.');
+                if (courseCodes.length === 0) throw new Error('No matching courses already downloaded, try using a course code.');
 
                 // For now, just take the first result. UI for multiple matches will be added later.
                 courseCode = courseCodes[0];

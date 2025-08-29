@@ -102,6 +102,8 @@ def analyze_course_data(course_code):
         if not analysis_params:
             return jsonify({"error": "Missing analysis parameters in request body."}), 400
 
+
+
         # First, get all the data for the course (from cache or by scraping)
         all_course_data = get_course_data_and_update_cache(course_code)
         if not all_course_data:
@@ -111,7 +113,7 @@ def analyze_course_data(course_code):
             return jsonify(all_course_data), 500
 
         # Process the data using the analysis module
-        results = process_analysis_request(all_course_data, analysis_params)
+        results = process_analysis_request(all_course_data, analysis_params, primary_course_code=course_code)
         return jsonify(results)
 
     except Exception as e:
