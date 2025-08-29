@@ -302,6 +302,13 @@ def separate_instances(instances: dict, separation_keys=None) -> dict:
                 # Extract period from instance key (e.g., "AS.100.101.01.FA24" -> "FA24")
                 match = re.search(r'\.([A-Z]{2}\d{2})$', key)
                 value = match.group(1) if match else "Unknown"
+            elif sep_key == "course_code":
+                # Use the course_code field if available, otherwise extract from instance key
+                value = instance.get("course_code", "Unknown")
+                if value == "Unknown":
+                    # Extract course code from instance key (e.g., "AS.100.101.01.FA24" -> "AS.100.101")
+                    match = re.match(r'([A-Z]+\.\d+\.\d+)', key)
+                    value = match.group(1) if match else "Unknown"
             else:
                 value = str(instance.get(sep_key, "Unknown"))
             group_parts.append(value)
@@ -312,7 +319,12 @@ def separate_instances(instances: dict, separation_keys=None) -> dict:
 
     return groups
 
-def process_analysis_request(all_course_data: dict, params: dict, primary_course_code: str = None) -> dict:
+def process_analysis_request(
+    all_course_data: dict,
+    params: dict,
+    primary_course_code: str = None,
+    skip_grouping: bool = False
+) -> dict:
     """
     Main function to process an analysis request.
 
@@ -363,37 +375,21 @@ def process_analysis_request(all_course_data: dict, params: dict, primary_course
                 'periods_course_has_been_run'
             ]
 
-    # 1. Filter the data
-    filtered_data = filter_instances(all_course_data, filters)
-
-    # 2. Extract course name information and merge with metadata.json
-    course_names = {}
-    course_code = None # Assuming all instances in all_course_data belong to the same course code
-    for instance_key, instance_data in all_course_data.items():
-        if 'course_name' in instance_data:
-            course_names[instance_key] = instance_data['course_name']
-        # Extract course code from the first instance key
-        if course_code is None:
-            match = re.match(r'([A-Z]+\.\d+\.\d+)', instance_key)
-            if match:
-                course_code = match.group(1)
-
-    # Load metadata from metadata.json
+    # 1. Get course metadata and grouping info
     metadata_from_file = {}
     try:
         with open('metadata.json', 'r') as f:
             metadata_from_file = json.load(f)
-    except FileNotFoundError:
-        print("metadata.json not found. Proceeding without it.")
-    except json.JSONDecodeError:
-        print("Error decoding metadata.json. Proceeding without it.")
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
 
-    # 2.5. Get grouping info if grouping
+    # Get grouping info for the primary course
     grouping_metadata = {
         "grouped_courses": [],
         "group_description": "",
         "is_grouped": False
     }
+    
     if primary_course_code:
         group_info = grouping_service.get_group_info(primary_course_code)
         if group_info:
@@ -403,12 +399,49 @@ def process_analysis_request(all_course_data: dict, params: dict, primary_course
                 "is_grouped": True
             }
 
+    # 2. Collect all data including grouped courses if not skipping grouping
+    all_instances = {}
+    all_instances.update(all_course_data)
+    
+    # Add grouped course data to the main dataset if grouping is enabled
+    if not skip_grouping and grouping_metadata["is_grouped"] and grouping_metadata["grouped_courses"]:
+        for course_code in grouping_metadata["grouped_courses"]:
+            if course_code != primary_course_code:  # Don't duplicate primary course
+                try:
+                    from scraper_service import get_course_data_and_update_cache
+                    grouped_data = get_course_data_and_update_cache(course_code)
+                    if grouped_data and isinstance(grouped_data, dict):
+                        # Add course code prefix to instance keys to avoid conflicts
+                        for instance_key, instance_data in grouped_data.items():
+                            if isinstance(instance_data, dict):
+                                # Add course_code field to each instance for separation
+                                instance_data_with_code = instance_data.copy()
+                                instance_data_with_code['course_code'] = course_code
+                                all_instances[f"{course_code}_{instance_key}"] = instance_data_with_code
+                except Exception as e:
+                    print(f"Warning: Could not load grouped course {course_code}: {e}")
+
+    # 3. Apply filters to the combined dataset
+    filtered_data = filter_instances(all_instances, filters)
+
+    # 4. Extract course name information and merge with metadata from file
+    course_names = {}
+    course_code = None
+    for instance_key, instance_data in all_instances.items():
+        if 'course_name' in instance_data:
+            course_names[instance_key] = instance_data['course_name']
+        # Extract course code from the first instance key
+        if course_code is None:
+            match = re.match(r'([A-Z]+\.\d+\.\d+)', instance_key)
+            if match:
+                course_code = match.group(1)
+
     # Find the most recent course name and collect former names, merging with metadata from file
     course_metadata = extract_course_metadata(
         course_names, course_code, metadata_from_file, primary_course_code=primary_course_code
     )
 
-    # 3. Separate the filtered data into groups
+    # 5. Separate the filtered data into groups
     separated_groups = separate_instances(filtered_data, separation_keys)
 
     # 4. Calculate statistics for each group
@@ -455,13 +488,15 @@ def process_analysis_request(all_course_data: dict, params: dict, primary_course
             if k in statkey_reverse_map_fixed
         }
 
-    # 5. Add course metadata to results
+    # 7. Add course metadata to results
     analysis_results.update(course_metadata)
 
-    # 6. Add grouping metadata to results
+    # 8. Add grouping metadata to results
     analysis_results["grouping_metadata"] = grouping_metadata
 
     return analysis_results
+
+
 
 
 if __name__ == '__main__':

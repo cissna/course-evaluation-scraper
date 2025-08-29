@@ -23,6 +23,7 @@ function App() {
   const [loadingCount, setLoadingCount] = useState(0);
   const [gracePeriodInfo, setGracePeriodInfo] = useState(null);
   const [dismissedGraceWarnings, setDismissedGraceWarnings] = useState(new Set());
+  // (No longer tracking a separate autoGroupingBanner state: always show based on analysisResult.grouping_metadata.is_grouped)
   const isLoading = loadingCount > 0;
   const startLoading = () => setLoadingCount(c => c + 1);
   const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
@@ -146,6 +147,7 @@ function App() {
         return;
       }
       // Success
+      console.log(data)
       if (data && !data.error) {
         setAnalysisResult(data);
         setAnalysisError(null);
@@ -219,6 +221,23 @@ function App() {
     });
   };
 
+  const handleSeparateByCourseCode = () => {
+    setAdvancedOptions(prev => {
+      const hasCourseCode = prev.separationKeys.includes('course_code');
+      const newKeys = hasCourseCode
+        ? prev.separationKeys.filter(key => key !== 'course_code')
+        : [...prev.separationKeys, 'course_code'];
+      const updated = { ...prev, separationKeys: newKeys };
+      // Trigger backend call
+      if (courseCode) {
+        handleApplyAdvancedOptions(updated);
+      }
+      return updated;
+    });
+  };
+
+
+
   const handleApplyAdvancedOptions = (options) => {
     // Always update advanceOptions for column/rerender
     setAdvancedOptions(options);
@@ -255,6 +274,48 @@ function App() {
       </header>
       <main>
         <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={(is) => is ? startLoading() : stopLoading()} />
+        {/* Grouped courses codes banner - always show if grouped */}
+        {analysisResult && analysisResult.grouping_metadata && analysisResult.grouping_metadata.is_grouped && (
+          <div
+            style={{
+              background: "#ffe066",
+              borderRadius: "6px",
+              color: "#442",
+              padding: "8px 16px",
+              margin: "16px auto 0 auto",
+              fontSize: "1.1rem",
+              textAlign: "center",
+              maxWidth: 650,
+              border: "1px solid #ffcb66",
+            }}
+          >
+            This course was automatically grouped with:&nbsp;
+            {Array.isArray(analysisResult?.grouping_metadata?.grouped_courses)
+              ? analysisResult.grouping_metadata.grouped_courses
+                  .filter(code => code !== courseCode)
+                  .map((code, idx, arr) =>
+                    <span key={code}>
+                      <b>{code}</b>{idx < arr.length - 1 ? ', ' : ''}
+                    </span>
+                  )
+              : ''}
+            <div style={{ marginTop: '12px' }}>
+              <button 
+                onClick={() => handleSeparateByCourseCode()}
+                style={{
+                  background: '#4CAF50',
+                  color: 'white',
+                  border: 'none',
+                  padding: '8px 16px',
+                  borderRadius: '4px',
+                  cursor: 'pointer'
+                }}
+              >
+                Separate by Course Code
+              </button>
+            </div>
+          </div>
+        )}
         {analysisResult && courseCode && (
           <div
             style={{
