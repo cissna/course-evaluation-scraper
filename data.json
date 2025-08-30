@@ -40215,5 +40215,3915 @@
             "Much heavier": 4,
             "N/A": 2
         }
+    },
+    "EN.553.361.06.FA17": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 11,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 14,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 4,
+            "Good": 9,
+            "Excellent": 5,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Gabriel",
+            "Greg",
+            "Elle, Thomas",
+            "Gabby",
+            "Gabe Sinclair",
+            "Gabrielle",
+            "Gabriel Sinclair"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 13,
+            "Agree strongly": 1,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 12,
+            "Somewhat heavier": 4,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA17": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 9,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 10,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 11,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Neil G.",
+            "Neil G",
+            "Neil Gahart",
+            "elle kim",
+            "Neil",
+            "Neal Gahart",
+            "Neil Gahart, Michael Koo, Elle Kim, Thomas Lin",
+            "Elle kim"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 8,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 14,
+            "Somewhat heavier": 4,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.05.FA17": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 8,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 14,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Michael",
+            "Michael Koo",
+            "Neil Gahart"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 13,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 9,
+            "Somewhat heavier": 5,
+            "Much heavier": 2,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA17": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 3,
+            "Good": 9,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 11,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 3,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 4,
+            "Excellent": 8,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Atvik",
+            "Avik",
+            "Aavik Pakrasi",
+            "Aavik"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 6,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 6,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 16,
+            "Somewhat heavier": 3,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.04.FA17": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 9,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 7,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 12,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Michael Koo",
+            "Michael",
+            "Neil Gahart",
+            "elle kim",
+            "Elle",
+            "Elle Kim",
+            "Aavik",
+            "Thursdays at 4:30"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 10,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 13,
+            "Somewhat heavier": 6,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA17": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 8,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 11,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 8,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Michael Koo",
+            "N/a",
+            "Aavik Pakrasi",
+            "Jeff",
+            "Elle Kim, Michael Koo",
+            "Neil",
+            "Micheal koo",
+            "Jefferey",
+            "Niel",
+            "Jeffrey Braun",
+            "Jeff Braun"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 9,
+            "Agree strongly": 0,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 13,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.07.FA17": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 6,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Thomas",
+            "Thomas lib",
+            "Gabriekl",
+            "Thomas Lin",
+            "Section 7"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 8,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 9,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.SP18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Teresa Lebair",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 7,
+            "Good": 6,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 8,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 9,
+            "Good": 7,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 5,
+            "Excellent": 8,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Lyle and Rebecca",
+            "Lyle, Rebecca",
+            "Lyle, Becca",
+            "Aekyong Shin",
+            "Becca Rubenstein; Lyle Pascowitz",
+            "Lyle &amp; Rebecca",
+            "Lyle",
+            "Lyle Paskowitz and Rebecca Reubenstein",
+            "Lyle Paskowitz",
+            "Lyle Paskovitz",
+            "Lyle Paskowitz, Rebecca Reubenstein",
+            "Lyle and Becca",
+            "Rebecca Rubenstein"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 7,
+            "Agree strongly": 5,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 3,
+            "Typical": 15,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.SP18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Teresa Lebair",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 8,
+            "Good": 8,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 7,
+            "Good": 7,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 8,
+            "Good": 10,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 9,
+            "Excellent": 9,
+            "N/A": 5
+        },
+        "ta_names": [
+            "Aekyung Sin",
+            "Aekyung",
+            "Kay",
+            "Kay Sim",
+            "NA",
+            "Rebecca Reubenstein"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 14,
+            "Agree strongly": 1,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 1,
+            "Typical": 18,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "EN.553.361.04.FA18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 3,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 11,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 12,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Eli Katz",
+            "Leirong Feng",
+            "Leia Feng",
+            "Eli"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 12,
+            "Agree strongly": 2,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 0,
+            "Typical": 18,
+            "Somewhat heavier": 1,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Eli Katz",
+            "Gabrielle Moss",
+            "Gabriel Moss",
+            "Gabby Moss",
+            "Gabrielle"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 6,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 12,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.06.FA18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 9,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 19,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 11,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 12,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Eli Katz",
+            "Zhou",
+            "Zhou Li",
+            "Zhou Yi",
+            "Leia Feng"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 19,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 5,
+            "Typical": 15,
+            "Somewhat heavier": 4,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 8,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 9,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 21,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Leirong (Leia) Feng",
+            "Zhou Li",
+            "Leah Feng",
+            "Leia Feng",
+            "Leirong Fei",
+            "Leirong Feng",
+            "leia"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 12,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 13,
+            "Somewhat heavier": 8,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.05.FA18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 11,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Sarah Banker",
+            "Sarah",
+            "Steven Witkin"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 4,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 11,
+            "Somewhat heavier": 4,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA18": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 12,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Alexander Bai",
+            "Bai",
+            "Alex Bai",
+            "Alex Bai (and Leia Feng in the beginning)",
+            "Leirong Feng"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 9,
+            "Agree strongly": 6,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 3,
+            "Typical": 10,
+            "Somewhat heavier": 8,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.08.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 9,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 12,
+            "N/A": 3
+        },
+        "ta_names": [
+            "N/A",
+            "Alex Bai",
+            "Steven Witkins",
+            "All",
+            "Colin Bowen",
+            "Alex, Sachin, Steve"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 7,
+            "Agree strongly": 9,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 14,
+            "Somewhat heavier": 6,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.04.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 15,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Alexander Bai",
+            "Annie Liang",
+            "Hamilton",
+            "Hamilton Samzcuk",
+            "Alex Bai",
+            "Hamilton S.",
+            "Hamilton Sawczuk",
+            "Annie",
+            "Hamilton Sawzuk",
+            "Hamiton Sawczuk"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 10,
+            "Agree strongly": 5,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 15,
+            "Somewhat heavier": 5,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.07.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 0,
+            "Good": 13,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 3,
+            "Weak": 3,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 9,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Alexander Bai",
+            "Alex",
+            "Eli Katz",
+            "Alex Bai",
+            "Head TA",
+            "Eric Rothman",
+            "Ethan Rothman",
+            "The TA's that graded the HW, some of them really don't look at homework carefully."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 10,
+            "Agree strongly": 4,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 2,
+            "Typical": 15,
+            "Somewhat heavier": 7,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 17,
+            "N/A": 1
+        },
+        "ta_names": [
+            "alex bai",
+            "Alex Bai"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 8,
+            "Agree strongly": 9,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 16,
+            "Somewhat heavier": 3,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.06.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 11,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 10,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 14,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Alexander Bai",
+            "Annie Liang",
+            "Eli Katz",
+            "Alex Bai",
+            "Eli",
+            "Did not go to TA sessions"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 3,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 10,
+            "Agree strongly": 7,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 15,
+            "Somewhat heavier": 7,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 9,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 14,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Annie Liang",
+            "Eli Katz",
+            "Hamilton",
+            "Eli Katz, Steven Witkin",
+            "Alex Bai",
+            "Steven",
+            "Steven Witkin",
+            "Multiple TAs: Eli Katz, Sachin Aggarwal, Alex Bai, Steven Witkin",
+            "steven witkin",
+            "Alexander Bai, Steven Witkin",
+            "?",
+            "Steve Witkin"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 12,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 3,
+            "Typical": 12,
+            "Somewhat heavier": 7,
+            "Much heavier": 2,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 15,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 11,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 13,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 10,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Alex",
+            "Sacchin Andarwal",
+            "Alex Bai, Sachin Aggarwal",
+            "Alex Bai",
+            "Saachin Aggarwal",
+            "Colin",
+            "Annie",
+            "sachin A.",
+            "Sachin",
+            "Sachin Aggarwal"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 12,
+            "Agree strongly": 2,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 9,
+            "Somewhat heavier": 11,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "EN.553.361.05.FA19": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 11,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 7,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 9,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 14,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Annie Liang",
+            "Frank",
+            "Alex Bai",
+            "annie liang",
+            "/",
+            "Colin Bowen"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 10,
+            "Agree strongly": 5,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 2,
+            "Typical": 13,
+            "Somewhat heavier": 6,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.SP20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 4,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 5,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Annie Liang",
+            "Amber",
+            "Amber Zhao",
+            "Amber Zhou"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 5,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 9,
+            "Somewhat heavier": 5,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.SP20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 8,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Annie",
+            "Annie Liang",
+            "Marissa LaCurto"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 12,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 13,
+            "Somewhat heavier": 8,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.SP20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 3,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Marissa Locurto",
+            "All of them",
+            "Marissa LoCurto",
+            "Annie",
+            "Marissa",
+            "marissa locurto"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 8,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 8,
+            "Somewhat heavier": 5,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.11.SU20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 2,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 0,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Bill Zhang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 4,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 2,
+            "Somewhat heavier": 5,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.07.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 3,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Emily (Ruixuan) Zhai",
+            "Ruixuan Zhai",
+            "emily",
+            "Emily Zhai"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 9,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 10,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.09.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_names": [
+            "chloe warren",
+            "Chloe Warren",
+            "Chloe"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 5,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 5,
+            "Somewhat heavier": 1,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.08.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Annie Liang",
+            "William Xu",
+            "William",
+            "LIANG, ANNIE",
+            "Adith Arun"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 5,
+            "Agree strongly": 6,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 7,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.04.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 8,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 11,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Dan Shenker",
+            "Daniel Shenker",
+            "Danial",
+            "Eashan Gupta, Daniel Shenker, Chloe Warren, William Xu",
+            "Emily Zhai",
+            "Daniel Shanker",
+            "Daniel"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 14,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 14,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.06.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 9,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 12,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 2,
+            "Excellent": 13,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Annie Liang",
+            "Eli Katz",
+            "Eli",
+            "all of them"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 10,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 13,
+            "Somewhat heavier": 5,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 11,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 9,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Logan Donaldson",
+            "Logan",
+            "Chloe Warren"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 8,
+            "Agree strongly": 5,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 1,
+            "Typical": 10,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 11,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Eshan Gupta",
+            "Eashan",
+            "Annie Liang :)",
+            "Eashan Gupta"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 7,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 14,
+            "Somewhat heavier": 5,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.05.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 8,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 3,
+            "N/A": 1
+        },
+        "ta_names": [
+            "N/A",
+            "William Xu",
+            "Adith Arun",
+            "Adith",
+            "Eashan Gupta",
+            "Daniel"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 8,
+            "Agree strongly": 2,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 11,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA20": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 8,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Marissa",
+            "Marissa Locurto",
+            "Marissa LoCurto"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 8,
+            "Agree strongly": 6,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 12,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.SP21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 5,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 3,
+            "Weak": 5,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 9,
+            "Excellent": 5,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 7,
+            "Excellent": 7,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Logan Donaldson",
+            "Logan",
+            "All the TAs were very helpful",
+            "David Sheng"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 4,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 10,
+            "Somewhat heavier": 8,
+            "Much heavier": 2,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.SP21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 7,
+            "Good": 9,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 9,
+            "Good": 6,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 6,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 13,
+            "N/A": 2
+        },
+        "ta_names": [
+            "David Sheng, Logan Donaldson",
+            "david",
+            "Isha Rai",
+            "Isha",
+            "David",
+            "David Sheng"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 13,
+            "Agree strongly": 3,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 11,
+            "Somewhat heavier": 7,
+            "Much heavier": 5,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.11.SU21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Logan Donaldson",
+            "Logan"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 1,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 2,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.04.FA21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 10,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 11,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 10,
+            "Excellent": 4,
+            "N/A": 1
+        },
+        "ta_names": [
+            "William Xu",
+            "Kong",
+            "Steven Kong",
+            "Kenny Testa",
+            "William"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 9,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 10,
+            "Somewhat heavier": 5,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 10,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Brian Cole",
+            "William Xu",
+            "Kenneth Testa",
+            "Kenny Testa",
+            "Yun Hwang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 13,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 3,
+            "Typical": 11,
+            "Somewhat heavier": 6,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.06.FA21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 6,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 7,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 9,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Yuxin Wu",
+            "Yun",
+            "Yun Hwang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 6,
+            "Agree strongly": 5,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 9,
+            "Somewhat heavier": 7,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 8,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 6,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 9,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 5,
+            "Good": 3,
+            "Excellent": 5,
+            "N/A": 4
+        },
+        "ta_names": [
+            "William Xu",
+            "Isha Patel",
+            "Marissa LoCurto",
+            "Kenny Testa",
+            "Isha Rai",
+            "isha",
+            "Isha"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 13,
+            "Agree strongly": 1,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 12,
+            "Somewhat heavier": 6,
+            "Much heavier": 2,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA21": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Irfan Jamil",
+            "Irfan",
+            "Ifran"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 6,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 8,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.SP22": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 6,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 9,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 11,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 9,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Kyle Snchider",
+            "Kyle S",
+            "Kyle Schneider",
+            "Mihir Chakravarthi",
+            "Kyle",
+            "I don't know, I stopped attending the sections 2 weeks in.",
+            "Irfan"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 15,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 11,
+            "Somewhat heavier": 9,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.SP22": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Zachary Lubberts",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 5,
+            "N/A": 4
+        },
+        "ta_names": [
+            "Irfan Jamil",
+            "Kyle Schneider",
+            "Irjan Jamil",
+            "Ifran Jamil",
+            "NA",
+            "Irfan"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 6,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 8,
+            "Somewhat heavier": 5,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA22": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 9,
+            "Excellent": 12,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Kenneth Testa",
+            "Kenny Testa",
+            "Kenny",
+            "Kenneth"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 15,
+            "Agree strongly": 6,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 4,
+            "Typical": 15,
+            "Somewhat heavier": 3,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA22": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 8,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 10,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Kenny",
+            "Meredith Gao",
+            "Meredith",
+            "All"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 10,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 5,
+            "Typical": 9,
+            "Somewhat heavier": 2,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA22": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 9,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 6,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 8,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 7,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_names": [
+            "N/A",
+            "Logan",
+            "Meredith Gao",
+            "Kyle",
+            "Kenneth Testa",
+            "Logan Donaldson"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 10,
+            "Agree strongly": 7,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 12,
+            "Somewhat heavier": 6,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.04.FA22": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 13,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Kyle",
+            "Kyle Schneider",
+            "Kaye",
+            "Meredith Gao"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 7,
+            "Agree strongly": 10,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 13,
+            "Somewhat heavier": 7,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.SP23": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Konstantinos Pantazis",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 7,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 3,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Emily",
+            "Emily Deng",
+            "Section 1 TA",
+            "Xinyan (Emily) Deng"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 10,
+            "Agree strongly": 1,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 5,
+            "Somewhat heavier": 8,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.SP23": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Konstantinos Pantazis",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 4,
+            "Good": 6,
+            "Excellent": 0,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 5,
+            "Satisfactory": 3,
+            "Good": 3,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Kenneth Testa",
+            "Kenny Testa",
+            "Kenny"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 5,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 10,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA23": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 8,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 9,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 6,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Emily",
+            "Emily Deng",
+            "Emily Dong",
+            "Lily",
+            "idk",
+            "Linda Huang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 15,
+            "Agree strongly": 6,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 13,
+            "Somewhat heavier": 5,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.04.FA23": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 20,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 3,
+            "Excellent": 14,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Huixin Huang, Kesavan Venkatesh",
+            "Huixin",
+            "Linda",
+            "Lily",
+            "Huixin Huang",
+            "n/a"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 9,
+            "Agree strongly": 9,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 2,
+            "Typical": 11,
+            "Somewhat heavier": 7,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA23": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 8,
+            "N/A": 4
+        },
+        "ta_names": [
+            "Lily",
+            "Lily, Huixin",
+            "lily",
+            "Lily Batchelor"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 9,
+            "Agree strongly": 10,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 2,
+            "Typical": 13,
+            "Somewhat heavier": 3,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA23": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 11,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Kesavan",
+            "-",
+            "Bill",
+            "Huixin Huang",
+            "Kesavan Venkatesh",
+            "Kesevan",
+            "."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 12,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 11,
+            "Somewhat heavier": 5,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.SP24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Siqi Zhang",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 7,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 3,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Yamato Okura",
+            "Neal",
+            "Neal Lim"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 8,
+            "Agree strongly": 0,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 8,
+            "Somewhat heavier": 4,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.SP24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Siqi Zhang",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 5,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 9,
+            "Excellent": 5,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Neal Lim and Yamato Okura",
+            "Neal Lim",
+            "Neal",
+            "Neel",
+            "Yamato Okura",
+            "Yamato"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 6,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 10,
+            "Somewhat heavier": 5,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.06.FA24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 3,
+            "Good": 2,
+            "Excellent": 3,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Raymond Gong",
+            "Raymond",
+            "Alvin"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 4,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 1,
+            "Typical": 10,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.FA24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 11,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 9,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 12,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 5,
+            "Good": 5,
+            "Excellent": 8,
+            "N/A": 1
+        },
+        "ta_names": [
+            "yelinda",
+            "Yamato Okura",
+            "Yeninda",
+            "yeninda",
+            "Yeninda Tjoa"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 8,
+            "Agree strongly": 4,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 3,
+            "Typical": 16,
+            "Somewhat heavier": 2,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.04.FA24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 10,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 18,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 7,
+            "N/A": 5
+        },
+        "ta_names": [
+            "Allen Hao",
+            "Allen",
+            "Yeninda",
+            "Alvin",
+            "Alvin Zhang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 8,
+            "Agree strongly": 10,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 12,
+            "Somewhat heavier": 8,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.05.FA24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 4,
+            "N/A": 4
+        },
+        "ta_names": [
+            "All of them",
+            "Alex",
+            "Raymond",
+            "Yeninda",
+            ".",
+            "Alvin Zhang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 4,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 10,
+            "Somewhat heavier": 4,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.FA24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 11,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 9,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 6,
+            "Good": 4,
+            "Excellent": 7,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Dimiri Sarris",
+            "I forgot, but I have him every Thursday at 9 AM in Shaffer 304.",
+            "Thursday 9am",
+            "Yamato Okura",
+            "Yeninda",
+            "Dilum",
+            "Beruwalathotage Amila Canicius Dilum Fernando",
+            "Dilum Fernando"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 6,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 14,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.03.FA24": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Donniell Fishkind",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 11,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 11,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 12,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Bowei Zhang",
+            "Maya",
+            "Yamato Okura",
+            "Maya Savory",
+            "Raymond Gong"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 12,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 6,
+            "Typical": 8,
+            "Somewhat heavier": 8,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.02.SP25": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Yuqing Wang",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 3,
+            "Good": 8,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 7,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 6,
+            "N/A": 5
+        },
+        "ta_names": [
+            "All of them.",
+            "Dilum Ferdinand",
+            "Dilum Fernando"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 7,
+            "Agree strongly": 7,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 11,
+            "Somewhat heavier": 6,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "EN.553.361.01.SP25": {
+        "course_name": "Introduction to Optimization",
+        "instructor_name": "Yuqing Wang",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 10,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 11,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 4,
+            "N/A": 5
+        },
+        "ta_names": [
+            "N/A",
+            "All of them",
+            "Allen Hao",
+            "Chia-Cheng Hao",
+            "Hamza",
+            "Chia-Cheng",
+            "Allen"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 10,
+            "Agree strongly": 2,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 3,
+            "Typical": 8,
+            "Somewhat heavier": 5,
+            "Much heavier": 0,
+            "N/A": 0
+        }
     }
 }
