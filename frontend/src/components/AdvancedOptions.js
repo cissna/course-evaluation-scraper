@@ -226,15 +226,7 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
               Course Name
             </label>
           )}
-          {/* Course Code */}
-          <label>
-            <input
-              type="checkbox"
-              checked={options.separationKeys.includes('course_code')}
-              onChange={() => handleSeparationChange('course_code')}
-            />
-            Course Code
-          </label>
+          {/* Course Code checkbox removed per requirements */}
         </div>
       </div>
       <button onClick={() => onApply(options)}>Apply</button>
