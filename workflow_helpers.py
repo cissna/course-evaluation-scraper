@@ -17,7 +17,7 @@ def get_sort_key(item):
     year = int(period[2:])
     semester = period[:2]
     # Maps semester codes to a chronological order
-    semester_map = {'SP': 0, 'SU': 1, 'FA': 2, 'IN': 3}
+    semester_map = {'IN': 0, 'SP': 1, 'SU': 2, 'FA': 3}
     return (year, semester_map.get(semester, 99))
 
 def get_all_links_by_section(session, course_code):
