@@ -162,7 +162,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         if instance_key in data:
             continue # Skip data we already have
 
-        print(f"Scraping new report: {instance_key}")
+        # print(f"Scraping new report: {instance_key}")  # prints every specific course code, kinda a lot...
         scraped_data = scrape_evaluation_data(link_url, session)
         if scraped_data:
             new_data_in_batch[instance_key] = scraped_data

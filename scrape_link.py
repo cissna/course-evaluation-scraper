@@ -32,7 +32,7 @@ def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
             delay *= 2  # Exponential backoff
 
         try:
-            print(f"Scraping data from: {report_url}")
+            # print(f"Scraping data from: {report_url}")  # prints for every specific course code, kinda a lot...
             scraped_data = {}
 
             # 1. Use the provided authenticated session to get the report page.
