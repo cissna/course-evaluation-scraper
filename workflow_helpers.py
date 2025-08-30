@@ -32,14 +32,14 @@ def get_all_links_by_section(session, course_code):
         # e.g., creates AS.020.101.01, AS.020.101.02, etc.
         section_course_code = f"{course_code}.{i:02d}"
         try:
-            links = get_evaluation_report_links(session, section_course_code)
+            links, has_more = get_evaluation_report_links(session, section_course_code)
             if links:
                 print(f"Found {len(links)} links for section {i:02d}.")
-                if len(links) < 20:
+                if not has_more:
                     all_links.update(links)
                 else:
-                    # Too many links for this section, break up by year
-                    print(f"Section {section_course_code} has {len(links)} links (≥20). Breaking up by year.")
+                    # "Show more results" button present, break up by year
+                    print(f"Section {section_course_code} has 'Show more results' button. Breaking up by year.")
                     keys = list(links.keys())
                     if keys:
                         # Use available keys to determine start year for the section
@@ -52,7 +52,7 @@ def get_all_links_by_section(session, course_code):
                     for year in range(start_year, current_academic_year + 2):  # +2 for robustness
                         print(f"  Scanning section {section_course_code}, year {year}...")
                         try:
-                            yearly_links = get_evaluation_report_links(session, section_course_code, year=year)
+                            yearly_links, _ = get_evaluation_report_links(session, section_course_code, year=year)
                             if yearly_links:
                                 print(f"    Found {len(yearly_links)} links for section {section_course_code}, year {year}.")
                                 section_yearly_links.update(yearly_links)
@@ -93,7 +93,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
     
     try:
         print(f"Fetching initial report links for {course_code}...")
-        initial_links = get_evaluation_report_links(session=session, course_code=course_code)
+        initial_links, has_more_initial = get_evaluation_report_links(session=session, course_code=course_code)
     except Exception as e:
         course_metadata['last_period_failed'] = True
         save_json_file(METADATA_FILE, metadata)
@@ -102,14 +102,14 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
     if not initial_links:
         print("No report links found on the main page.")
 
-    # Main logic branch: Decide scraping strategy
-    if len(initial_links) < 20:
-        # ✅ Simple Case: No pagination. Scrape what we found.
-        print("No pagination detected. Processing initial links.")
+    # Main logic branch: Decide scraping strategy based on "Show more results" button
+    if not has_more_initial:
+        # ✅ Simple Case: No "Show more results" button. Scrape what we found.
+        print("No pagination detected (no 'Show more results' button). Processing initial links.")
         links_to_process = initial_links
     else:
-        # ⚠️ Paginated Case: Use optimized scraping strategy.
-        print("Pagination detected (20+ links). Using optimized scraping strategy.")
+        # ⚠️ Paginated Case: "Show more results" button present. Use optimized scraping strategy.
+        print("Pagination detected ('Show more results' button present). Using optimized scraping strategy.")
         
         # Always start with initial_links - this is the key optimization
         links_to_process = initial_links.copy()
@@ -132,16 +132,16 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         for year in range(smart_start_year, current_academic_year + 2): # +2 to be safe
             print(f"\n--- Checking year: {year} ---")
             try:
-                yearly_links = get_evaluation_report_links(session=session, course_code=course_code, year=year)
+                yearly_links, has_more_yearly = get_evaluation_report_links(session=session, course_code=course_code, year=year)
             except Exception as e:
                 course_metadata['last_period_failed'] = True
                 save_json_file(METADATA_FILE, metadata)
                 return {'success': False, 'error': f"Failed during year-by-year scan at year {year}: {e}", 'metadata': course_metadata, 'data': {}, 'new_data_found': False}
 
-            if len(yearly_links) >= 20:
-                # 🚨 Edge Case: A single year has 20+ courses.
+            if has_more_yearly:
+                # 🚨 Edge Case: A single year has "Show more results" button.
                 # Per the optimization, we now switch to scraping the entire course by section number.
-                print(f"CRITICAL EDGE CASE: Found {len(yearly_links)} links for year {year}. Aborting year-by-year scan.")
+                print(f"CRITICAL EDGE CASE: Year {year} has 'Show more results' button. Aborting year-by-year scan.")
                 switchToSectionScraping = True
                 break # Exit the year-by-year loop
             

@@ -11,10 +11,10 @@ def get_evaluation_report_links(
     area_id: str = None,
     question_key: str = None,
     search: str = None
-) -> dict:
+) -> tuple[dict, bool]:
     """
     Scrapes report links for a given course and returns them in a dictionary
-    mapping the course instance code to the report URL.
+    mapping the course instance code to the report URL, along with pagination info.
 
     Args:
         session (requests.Session): An authenticated requests session object.
@@ -27,9 +27,10 @@ def get_evaluation_report_links(
         search (str, offByDefault): An unimportant search query. Defaults to None.
 
     Returns:
-        A dictionary where keys are course instance codes (e.g., 'AS.030.101.01.FA15')
-        and values are the corresponding report URLs.
-        Returns an empty dictionary if no links are found.
+        A tuple containing:
+        - dict: Dictionary where keys are course instance codes (e.g., 'AS.030.101.01.FA15')
+                and values are the corresponding report URLs. Empty dict if no links found.
+        - bool: True if "Show more results" button is present, False otherwise.
 
     Raises:
         requests.exceptions.RequestException: If the network request fails.
@@ -76,8 +77,13 @@ def get_evaluation_report_links(
     # Find all <a> tags with the class 'sr-view-report'.
     links_found = soup.find_all('a', class_='sr-view-report')
 
+    # Check for "Show more results" button
+    show_more_button = soup.find('a', id='publicMore')
+    has_more_results = show_more_button is not None
+
     if not links_found:
-        return {}
+        assert not has_more_results
+        return {}, has_more_results
 
     # 3. Construct URLs and find course codes
     for link in links_found:
@@ -109,7 +115,7 @@ def get_evaluation_report_links(
             label = link.get('aria-label', 'No label found').strip()
             print(f"Skipping a link because it was missing required data-id attributes: {label}")
 
-    return report_links
+    return report_links, has_more_results
 
 if __name__ == '__main__':
     # --- Example Usage ---
@@ -125,15 +131,17 @@ if __name__ == '__main__':
             # 1. Simple lookup with just the required course code.
             target_course = 'AS.030.101'
             print(f"--- Starting scraper for course: {target_course} ---")
-            links = get_evaluation_report_links(session=example_session, course_code=target_course)
+            links, has_more = get_evaluation_report_links(session=example_session, course_code=target_course)
             
             print("\n--- Scraping Complete ---")
             if links:
                 print(f"Found {len(links)} report(s):")
                 for code, url in links.items():
                     print(f"  - {code}: {url}")
+                print(f"Show more results button present: {has_more}")
             else:
                 print("No reports were successfully extracted or an error occurred.")
+                print(f"Show more results button present: {has_more}")
 
             print("\n" + "="*50 + "\n")
 
@@ -144,7 +152,7 @@ if __name__ == '__main__':
             target_year = '2023'
             print(f"--- Starting advanced search for course: {target_course_adv}, Instructor: {target_instructor}, Year: {target_year} ---")
             
-            adv_links = get_evaluation_report_links(
+            adv_links, adv_has_more = get_evaluation_report_links(
                 session=example_session,
                 course_code=target_course_adv,
                 instructor=target_instructor,
@@ -156,8 +164,10 @@ if __name__ == '__main__':
                 print(f"Found {len(adv_links)} report(s):")
                 for code, url in adv_links.items():
                     print(f"  - {code}: {url}")
+                print(f"Show more results button present: {adv_has_more}")
             else:
                 print("No reports were successfully extracted or an error occurred.")
+                print(f"Show more results button present: {adv_has_more}")
 
         except requests.exceptions.RequestException as e:
             print(f"Failed to authenticate for example run: {e}")
