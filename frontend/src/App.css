@@ -7,3 +7,25 @@
   padding: 20px;
   color: white;
 }
+
+.app-footer {
+  padding: 18px 8px;
+  text-align: center;
+  background: #f9fafb;
+  color: #222;
+  font-size: 1rem;
+  border-top: 1px solid #e2e2e2;
+  box-shadow: 0 -1px 6px rgba(0,0,0,0.05);
+}
+.app-footer a {
+  color: #3977d2;
+  text-decoration: underline;
+}
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}

@@ -387,6 +387,9 @@ function App() {
           errorMessage={analysisError}
         />
       </main>
+      <footer className="app-footer">
+        For questions, suggestions, bug reports, or <b>to combine the results of courses with multiple course codes (e.g. EN.601.4XX and EN.601.6XX)</b>, email <a href="mailto:icissna1@jh.edu">icissna1@jh.edu</a>
+      </footer>
       {isLoading && <LoadingOverlay message="Analyzing course evaluations…" />}
     </div>
   );
