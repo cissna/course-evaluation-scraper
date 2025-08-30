@@ -26,6 +26,14 @@
       ],
       "description": "Databases",
       "primary": null
+    },
+        {
+      "courses": [
+        "EN.500.215",
+        "EN.500.115"
+      ],
+      "description": "Intro Data Science ('Principles')",
+      "primary": null
     }
   ]
 }
