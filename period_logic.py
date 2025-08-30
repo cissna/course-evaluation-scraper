@@ -1,5 +1,5 @@
 import re
-from datetime import date, datetime
+from datetime import date
 from dateutil.relativedelta import relativedelta
 from config import PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
 
@@ -26,6 +26,30 @@ def find_oldest_year_from_keys(keys: list) -> int:
                 
     # If no valid year was found in any key, return a default start year
     return oldest_year if found_year else 2010
+
+def find_latest_year_from_keys(keys: list) -> int:
+    """
+    Finds the latest (most recent) year from a list of course instance codes.
+    Assumes year is represented by two digits (e.g., 'FA15' for 2015).
+    Returns the latest year found, or 0 if no valid years are found.
+    """
+    latest_year = 0
+    found_year = False
+    
+    year_re = re.compile(r'\.(?:FA|SP|SU|IN)(\d{2})$')
+    
+    for key in keys:
+        match = year_re.search(key)
+        if match:
+            year_short = int(match.group(1))
+            # Convert 2-digit year to 4-digit year
+            year = 2000 + year_short if year_short < 70 else 1900 + year_short
+            if year > latest_year:
+                latest_year = year
+                found_year = True
+                
+    # If no valid year was found in any key, return 0
+    return latest_year if found_year else 0
 
 def get_period_from_instance_key(instance_key: str) -> str:
     """

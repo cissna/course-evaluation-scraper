@@ -1,5 +1,5 @@
 from data_manager import load_json_file, save_json_file
-from period_logic import find_oldest_year_from_keys
+from period_logic import find_oldest_year_from_keys, find_latest_year_from_keys
 from period_logic import get_year_from_period_string, get_current_period, is_grace_period_over, get_period_from_instance_key
 from config import METADATA_FILE, DATA_FILE
 from scraping_logic import get_authenticated_session
@@ -108,19 +108,28 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         print("No pagination detected. Processing initial links.")
         links_to_process = initial_links
     else:
-        # ⚠️ Paginated Case: Must scrape year-by-year.
-        print("Pagination detected (20+ links). Switching to year-by-year scraping.")
+        # ⚠️ Paginated Case: Use optimized scraping strategy.
+        print("Pagination detected (20+ links). Using optimized scraping strategy.")
         
+        # Always start with initial_links - this is the key optimization
+        links_to_process = initial_links.copy()
+        
+        # Calculate smart start year for additional year-by-year scraping
         last_period = course_metadata.get('last_period_gathered')
-        start_year = get_year_from_period_string(last_period) if last_period else find_oldest_year_from_keys(initial_links.keys())
+        last_period_year = get_year_from_period_string(last_period) if last_period else 0
+        latest_initial_year = find_latest_year_from_keys(initial_links.keys()) if initial_links else 0
+        
+        # Start year-by-year scraping from the year AFTER the latest we already have
+        smart_start_year = max(last_period_year, latest_initial_year)
         current_academic_year = get_year_from_period_string(get_current_period())
         
-        print(f"Scanning years from {start_year} to {current_academic_year + 1}.")
+        print(f"Initial links cover up to year {latest_initial_year}.")
+        print(f"Starting additional year-by-year scraping from {smart_start_year} to {current_academic_year + 1}.")
         
         switchToSectionScraping = False
         all_yearly_links = {}
 
-        for year in range(start_year, current_academic_year + 2): # +2 to be safe
+        for year in range(smart_start_year, current_academic_year + 2): # +2 to be safe
             print(f"\n--- Checking year: {year} ---")
             try:
                 yearly_links = get_evaluation_report_links(session=session, course_code=course_code, year=year)
@@ -141,12 +150,13 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
                 all_yearly_links.update(yearly_links)
         
         if switchToSectionScraping:
-            # Execute the optimized fallback strategy
-            links_to_process = get_all_links_by_section(session, course_code)
+            # Execute the optimized fallback strategy - still include initial_links
+            section_links = get_all_links_by_section(session, course_code)
+            links_to_process.update(section_links)
         else:
-            # The year-by-year scan completed successfully without hitting the edge case.
+            # The year-by-year scan completed successfully - combine with initial_links
             print("Year-by-year scan complete.")
-            links_to_process = all_yearly_links
+            links_to_process.update(all_yearly_links)
 
     # --- PHASE 2: UNIFIED SCRAPING ---
     print(f"\nFound a total of {len(links_to_process)} unique reports to potentially process.")
