@@ -35,5 +35,5 @@ PERIOD_GRACE_MONTHS = {
 
 # Scraping Reliability
 SCRAPING_DELAY_SECONDS = 0    # No delay between scrapes
-MAX_RETRIES = 5               # Maximum number of retries for a failed scrape
+MAX_RETRIES = 8               # Maximum number of retries for a failed scrape
 INITIAL_RETRY_DELAY = 0.5     # Initial delay in seconds for content loading (will be exponential)

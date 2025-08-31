@@ -66029,5 +66029,3330 @@
         "last_period_failed": false,
         "relevant_periods": [],
         "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.100": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.101": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.101.11.SU15",
+            "AS.180.101.23.FA15",
+            "AS.180.101.22.FA15",
+            "AS.180.101.21.FA15",
+            "AS.180.101.17.FA15",
+            "AS.180.101.16.FA15",
+            "AS.180.101.15.FA15",
+            "AS.180.101.14.FA15",
+            "AS.180.101.13.FA15",
+            "AS.180.101.12.FA15",
+            "AS.180.101.11.FA15",
+            "AS.180.101.10.FA15",
+            "AS.180.101.09.FA15",
+            "AS.180.101.08.FA15",
+            "AS.180.101.07.FA15",
+            "AS.180.101.06.FA15",
+            "AS.180.101.05.FA15",
+            "AS.180.101.04.FA15",
+            "AS.180.101.03.FA15",
+            "AS.180.101.02.FA15",
+            "AS.180.101.01.FA15",
+            "AS.180.101.24.FA15",
+            "AS.180.101.01.FA16",
+            "AS.180.101.02.FA16",
+            "AS.180.101.03.FA16",
+            "AS.180.101.04.FA16",
+            "AS.180.101.05.FA16",
+            "AS.180.101.06.FA16",
+            "AS.180.101.07.FA16",
+            "AS.180.101.08.FA16",
+            "AS.180.101.09.FA16",
+            "AS.180.101.10.FA16",
+            "AS.180.101.11.FA16",
+            "AS.180.101.12.FA16",
+            "AS.180.101.13.FA16",
+            "AS.180.101.14.FA16",
+            "AS.180.101.15.FA16",
+            "AS.180.101.16.FA16",
+            "AS.180.101.17.FA16",
+            "AS.180.101.20.FA16",
+            "AS.180.101.21.FA16",
+            "AS.180.101.22.FA16",
+            "AS.180.101.23.FA16",
+            "AS.180.101.24.FA16",
+            "AS.180.101.11.SU17",
+            "AS.180.101.21.SU17",
+            "AS.180.101.01.FA17",
+            "AS.180.101.02.FA17",
+            "AS.180.101.03.FA17",
+            "AS.180.101.04.FA17",
+            "AS.180.101.05.FA17",
+            "AS.180.101.06.FA17",
+            "AS.180.101.07.FA17",
+            "AS.180.101.08.FA17",
+            "AS.180.101.09.FA17",
+            "AS.180.101.10.FA17",
+            "AS.180.101.11.FA17",
+            "AS.180.101.12.FA17",
+            "AS.180.101.14.FA17",
+            "AS.180.101.15.FA17",
+            "AS.180.101.21.FA17",
+            "AS.180.101.22.FA17",
+            "AS.180.101.23.FA17",
+            "AS.180.101.24.FA17",
+            "AS.180.101.11.SU18",
+            "AS.180.101.21.SU18",
+            "AS.180.101.01.FA18",
+            "AS.180.101.02.FA18",
+            "AS.180.101.03.FA18",
+            "AS.180.101.04.FA18",
+            "AS.180.101.05.FA18",
+            "AS.180.101.06.FA18",
+            "AS.180.101.07.FA18",
+            "AS.180.101.08.FA18",
+            "AS.180.101.09.FA18",
+            "AS.180.101.13.FA18",
+            "AS.180.101.15.FA18",
+            "AS.180.101.17.FA18",
+            "AS.180.101.21.FA18",
+            "AS.180.101.22.FA18",
+            "AS.180.101.23.FA18",
+            "AS.180.101.24.FA18",
+            "AS.180.101.11.SU19",
+            "AS.180.101.21.SU19",
+            "AS.180.101.01.FA19",
+            "AS.180.101.02.FA19",
+            "AS.180.101.03.FA19",
+            "AS.180.101.04.FA19",
+            "AS.180.101.05.FA19",
+            "AS.180.101.06.FA19",
+            "AS.180.101.07.FA19",
+            "AS.180.101.08.FA19",
+            "AS.180.101.09.FA19",
+            "AS.180.101.11.FA19",
+            "AS.180.101.12.FA19",
+            "AS.180.101.13.FA19",
+            "AS.180.101.15.FA19",
+            "AS.180.101.16.FA19",
+            "AS.180.101.21.FA19",
+            "AS.180.101.22.FA19",
+            "AS.180.101.23.FA19",
+            "AS.180.101.24.FA19",
+            "AS.180.101.81.SU20",
+            "AS.180.101.01.FA20",
+            "AS.180.101.02.FA20",
+            "AS.180.101.03.FA20",
+            "AS.180.101.04.FA20",
+            "AS.180.101.05.FA20",
+            "AS.180.101.07.FA20",
+            "AS.180.101.08.FA20",
+            "AS.180.101.09.FA20",
+            "AS.180.101.10.FA20",
+            "AS.180.101.11.FA20",
+            "AS.180.101.13.FA20",
+            "AS.180.101.14.FA20",
+            "AS.180.101.15.FA20",
+            "AS.180.101.17.FA20",
+            "AS.180.101.18.FA20",
+            "AS.180.101.19.FA20",
+            "AS.180.101.85.SU21",
+            "AS.180.101.01.FA21",
+            "AS.180.101.02.FA21",
+            "AS.180.101.03.FA21",
+            "AS.180.101.04.FA21",
+            "AS.180.101.05.FA21",
+            "AS.180.101.06.FA21",
+            "AS.180.101.07.FA21",
+            "AS.180.101.09.FA21",
+            "AS.180.101.12.FA21",
+            "AS.180.101.13.FA21",
+            "AS.180.101.16.FA21",
+            "AS.180.101.18.FA21",
+            "AS.180.101.01.SP22",
+            "AS.180.101.02.SP22",
+            "AS.180.101.03.SP22",
+            "AS.180.101.04.SP22",
+            "AS.180.101.85.SU22",
+            "AS.180.101.86.SU22",
+            "AS.180.101.01.FA22",
+            "AS.180.101.02.FA22",
+            "AS.180.101.03.FA22",
+            "AS.180.101.05.FA22",
+            "AS.180.101.06.FA22",
+            "AS.180.101.07.FA22",
+            "AS.180.101.09.FA22",
+            "AS.180.101.10.FA22",
+            "AS.180.101.11.FA22",
+            "AS.180.101.12.FA22",
+            "AS.180.101.01.SP23",
+            "AS.180.101.02.SP23",
+            "AS.180.101.03.SP23",
+            "AS.180.101.04.SP23",
+            "AS.180.101.85.SU23",
+            "AS.180.101.01.FA23",
+            "AS.180.101.02.FA23",
+            "AS.180.101.03.FA23",
+            "AS.180.101.04.FA23",
+            "AS.180.101.05.FA23",
+            "AS.180.101.06.FA23",
+            "AS.180.101.07.FA23",
+            "AS.180.101.08.FA23",
+            "AS.180.101.01.SP24",
+            "AS.180.101.02.SP24",
+            "AS.180.101.03.SP24",
+            "AS.180.101.04.SP24",
+            "AS.180.101.05.SP24",
+            "AS.180.101.06.SP24",
+            "AS.180.101.85.SU24",
+            "AS.180.101.01.FA24",
+            "AS.180.101.02.FA24",
+            "AS.180.101.03.FA24",
+            "AS.180.101.04.FA24",
+            "AS.180.101.05.FA24",
+            "AS.180.101.08.FA24",
+            "AS.180.101.01.SP25",
+            "AS.180.101.02.SP25",
+            "AS.180.101.03.SP25",
+            "AS.180.101.04.SP25",
+            "AS.180.101.05.SP25",
+            "AS.180.101.06.SP25",
+            "AS.180.101.85.SU25"
+        ],
+        "last_scrape_during_grace_period": null
+    },
+    "AS.180.102": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.102.11.SU15",
+            "AS.180.102.17.SP16",
+            "AS.180.102.04.SP16",
+            "AS.180.102.15.SP16",
+            "AS.180.102.03.SP16",
+            "AS.180.102.02.SP16",
+            "AS.180.102.14.SP16",
+            "AS.180.102.01.SP16",
+            "AS.180.102.24.SP16",
+            "AS.180.102.10.SP16",
+            "AS.180.102.23.SP16",
+            "AS.180.102.09.SP16",
+            "AS.180.102.08.SP16",
+            "AS.180.102.22.SP16",
+            "AS.180.102.06.SP16",
+            "AS.180.102.21.SP16",
+            "AS.180.102.05.SP16",
+            "AS.180.102.18.SP16",
+            "AS.180.102.11.SU16",
+            "AS.180.102.15.SP17",
+            "AS.180.102.01.SP17",
+            "AS.180.102.02.SP17",
+            "AS.180.102.03.SP17",
+            "AS.180.102.04.SP17",
+            "AS.180.102.05.SP17",
+            "AS.180.102.06.SP17",
+            "AS.180.102.08.SP17",
+            "AS.180.102.09.SP17",
+            "AS.180.102.10.SP17",
+            "AS.180.102.12.SP17",
+            "AS.180.102.14.SP17",
+            "AS.180.102.20.SP17",
+            "AS.180.102.21.SP17",
+            "AS.180.102.22.SP17",
+            "AS.180.102.23.SP17",
+            "AS.180.102.24.SP17",
+            "AS.180.102.11.SU17",
+            "AS.180.102.21.SU17",
+            "AS.180.102.01.SP18",
+            "AS.180.102.02.SP18",
+            "AS.180.102.03.SP18",
+            "AS.180.102.04.SP18",
+            "AS.180.102.06.SP18",
+            "AS.180.102.07.SP18",
+            "AS.180.102.08.SP18",
+            "AS.180.102.09.SP18",
+            "AS.180.102.10.SP18",
+            "AS.180.102.11.SP18",
+            "AS.180.102.12.SP18",
+            "AS.180.102.13.SP18",
+            "AS.180.102.14.SP18",
+            "AS.180.102.16.SP18",
+            "AS.180.102.17.SP18",
+            "AS.180.102.20.SP18",
+            "AS.180.102.11.SU18",
+            "AS.180.102.01.SP19",
+            "AS.180.102.02.SP19",
+            "AS.180.102.03.SP19",
+            "AS.180.102.04.SP19",
+            "AS.180.102.05.SP19",
+            "AS.180.102.06.SP19",
+            "AS.180.102.07.SP19",
+            "AS.180.102.08.SP19",
+            "AS.180.102.09.SP19",
+            "AS.180.102.10.SP19",
+            "AS.180.102.11.SP19",
+            "AS.180.102.12.SP19",
+            "AS.180.102.13.SP19",
+            "AS.180.102.14.SP19",
+            "AS.180.102.15.SP19",
+            "AS.180.102.16.SP19",
+            "AS.180.102.17.SP19",
+            "AS.180.102.18.SP19",
+            "AS.180.102.11.SU19",
+            "AS.180.102.21.SU19",
+            "AS.180.102.01.SP20",
+            "AS.180.102.02.SP20",
+            "AS.180.102.03.SP20",
+            "AS.180.102.04.SP20",
+            "AS.180.102.05.SP20",
+            "AS.180.102.06.SP20",
+            "AS.180.102.07.SP20",
+            "AS.180.102.08.SP20",
+            "AS.180.102.09.SP20",
+            "AS.180.102.10.SP20",
+            "AS.180.102.11.SP20",
+            "AS.180.102.12.SP20",
+            "AS.180.102.13.SP20",
+            "AS.180.102.14.SP20",
+            "AS.180.102.15.SP20",
+            "AS.180.102.16.SP20",
+            "AS.180.102.17.SP20",
+            "AS.180.102.18.SP20",
+            "AS.180.102.81.SU20",
+            "AS.180.102.01.SP21",
+            "AS.180.102.02.SP21",
+            "AS.180.102.04.SP21",
+            "AS.180.102.05.SP21",
+            "AS.180.102.06.SP21",
+            "AS.180.102.07.SP21",
+            "AS.180.102.08.SP21",
+            "AS.180.102.11.SP21",
+            "AS.180.102.12.SP21",
+            "AS.180.102.13.SP21",
+            "AS.180.102.14.SP21",
+            "AS.180.102.15.SP21",
+            "AS.180.102.16.SP21",
+            "AS.180.102.17.SP21",
+            "AS.180.102.19.SP21",
+            "AS.180.102.85.SU21",
+            "AS.180.102.01.FA21",
+            "AS.180.102.02.FA21",
+            "AS.180.102.01.SP22",
+            "AS.180.102.02.SP22",
+            "AS.180.102.03.SP22",
+            "AS.180.102.04.SP22",
+            "AS.180.102.05.SP22",
+            "AS.180.102.06.SP22",
+            "AS.180.102.85.SU22",
+            "AS.180.102.86.SU22",
+            "AS.180.102.01.FA22",
+            "AS.180.102.02.FA22",
+            "AS.180.102.01.SP23",
+            "AS.180.102.02.SP23",
+            "AS.180.102.03.SP23",
+            "AS.180.102.04.SP23",
+            "AS.180.102.05.SP23",
+            "AS.180.102.85.SU23",
+            "AS.180.102.01.FA23",
+            "AS.180.102.02.FA23",
+            "AS.180.102.03.FA23",
+            "AS.180.102.04.FA23",
+            "AS.180.102.01.SP24",
+            "AS.180.102.02.SP24",
+            "AS.180.102.03.SP24",
+            "AS.180.102.04.SP24",
+            "AS.180.102.85.SU24",
+            "AS.180.102.01.FA24",
+            "AS.180.102.02.FA24",
+            "AS.180.102.03.FA24",
+            "AS.180.102.04.FA24",
+            "AS.180.102.01.SP25",
+            "AS.180.102.02.SP25",
+            "AS.180.102.03.SP25",
+            "AS.180.102.04.SP25",
+            "AS.180.102.85.SU25"
+        ],
+        "last_scrape_during_grace_period": null
+    },
+    "AS.180.103": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.104": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.104.13.IN16",
+            "AS.180.104.13.IN17",
+            "AS.180.104.13.IN18",
+            "AS.180.104.13.IN19",
+            "AS.180.104.13.IN20",
+            "AS.180.104.12.IN21",
+            "AS.180.104.12.IN22",
+            "AS.180.104.13.IN23",
+            "AS.180.104.12.IN25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.105": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.106": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.107": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.108": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.109": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.110": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.111": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.112": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.113": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.114": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.115": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.116": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.117": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.117.01.SP16"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.118": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.118.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.119": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.120": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.121": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.122": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.123": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.124": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.125": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.126": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.127": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.128": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.129": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.130": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.131": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.132": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.133": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.134": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.135": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.136": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.137": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.138": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.139": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.140": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.141": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.142": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.143": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.144": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.145": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.146": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.147": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.148": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.149": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.150": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.151": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.152": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.153": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.154": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.155": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.156": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.157": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.158": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.159": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.160": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.161": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.162": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.163": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.164": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.165": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.166": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.167": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.168": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.169": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.170": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.171": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.172": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.173": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.174": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.175": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.176": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.177": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.178": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.179": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.180": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.181": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.182": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.183": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.184": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.185": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.186": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.187": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.188": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.189": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.190": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.191": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.192": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.193": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.194": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.195": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.196": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.197": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.198": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.199": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.200": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.201": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.202": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.203": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.203.01.SP16",
+            "AS.180.203.01.SP17",
+            "AS.180.203.01.SP18",
+            "AS.180.203.01.SP19",
+            "AS.180.203.01.SP20",
+            "AS.180.203.01.FA22",
+            "AS.180.203.01.FA23"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.204": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.205": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.206": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.207": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.208": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.209": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.210": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.210.01.SP19",
+            "AS.180.210.01.SP20",
+            "AS.180.210.01.SP21",
+            "AS.180.210.01.SP22",
+            "AS.180.210.01.SP23",
+            "AS.180.210.01.SP24",
+            "AS.180.210.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.211": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.212": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.213": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.214": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.214.01.SP18",
+            "AS.180.214.01.SP19",
+            "AS.180.214.01.SP20",
+            "AS.180.214.01.SP21",
+            "AS.180.214.01.FA21",
+            "AS.180.214.01.FA22",
+            "AS.180.214.01.FA23",
+            "AS.180.214.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.215": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.216": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.217": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.217.01.FA16",
+            "AS.180.217.01.FA17",
+            "AS.180.217.01.FA18",
+            "AS.180.217.01.FA19",
+            "AS.180.217.01.FA20",
+            "AS.180.217.01.FA21",
+            "AS.180.217.01.FA23",
+            "AS.180.217.01.FA24",
+            "AS.180.217.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.218": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.219": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.219.01.SP17",
+            "AS.180.219.01.FA23",
+            "AS.180.219.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.220": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.221": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.221.01.FA19",
+            "AS.180.221.01.FA20",
+            "AS.180.221.01.FA21"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.222": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.223": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.223.01.FA21",
+            "AS.180.223.01.FA22",
+            "AS.180.223.01.FA23",
+            "AS.180.223.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.224": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.225": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.226": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.227": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.228": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.228.01.FA17",
+            "AS.180.228.01.FA18",
+            "AS.180.228.01.FA19"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.229": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.229.01.FA21",
+            "AS.180.229.01.FA22",
+            "AS.180.229.01.FA23",
+            "AS.180.229.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.230": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.231": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.231.01.SP20",
+            "AS.180.231.01.SP21",
+            "AS.180.231.01.SP22",
+            "AS.180.231.01.SP23",
+            "AS.180.231.01.SP24",
+            "AS.180.231.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.232": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.233": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.233.01.SP20",
+            "AS.180.233.01.SP21",
+            "AS.180.233.01.SP22",
+            "AS.180.233.01.SP24",
+            "AS.180.233.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.234": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.235": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.236": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.237": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.238": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.238.01.FA16",
+            "AS.180.238.01.SP18",
+            "AS.180.238.01.FA18",
+            "AS.180.238.01.SP19",
+            "AS.180.238.01.FA19",
+            "AS.180.238.01.SP20",
+            "AS.180.238.01.FA20",
+            "AS.180.238.01.SP21",
+            "AS.180.238.01.FA21",
+            "AS.180.238.01.SP22",
+            "AS.180.238.01.FA22",
+            "AS.180.238.01.SP23"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.239": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.239.01.SP20",
+            "AS.180.239.01.SP22",
+            "AS.180.239.01.SP23",
+            "AS.180.239.01.SP24",
+            "AS.180.239.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.240": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.240.30.SU18"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.241": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.241.11.SU15",
+            "AS.180.241.01.FA15",
+            "AS.180.241.11.SU16",
+            "AS.180.241.01.FA16",
+            "AS.180.241.01.FA17",
+            "AS.180.241.01.FA18",
+            "AS.180.241.01.FA19",
+            "AS.180.241.01.FA20",
+            "AS.180.241.01.SP22",
+            "AS.180.241.01.SP23",
+            "AS.180.241.01.SP24",
+            "AS.180.241.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.242": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.242.01.SP16",
+            "AS.180.242.01.SP17",
+            "AS.180.242.21.SU17",
+            "AS.180.242.01.SP18",
+            "AS.180.242.21.SU18",
+            "AS.180.242.01.FA18",
+            "AS.180.242.01.SP20",
+            "AS.180.242.01.SP21",
+            "AS.180.242.01.SP22",
+            "AS.180.242.01.SP23",
+            "AS.180.242.01.SP24",
+            "AS.180.242.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.243": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.244": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.244.01.SP19",
+            "AS.180.244.01.SP20",
+            "AS.180.244.01.SP21",
+            "AS.180.244.01.FA21",
+            "AS.180.244.01.FA23",
+            "AS.180.244.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.245": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.246": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.246.01.FA20",
+            "AS.180.246.01.SP23",
+            "AS.180.246.01.SP24",
+            "AS.180.246.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.247": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.248": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.248.01.FA18",
+            "AS.180.248.01.SP19",
+            "AS.180.248.01.FA19",
+            "AS.180.248.01.SP20",
+            "AS.180.248.01.FA21",
+            "AS.180.248.01.SP22",
+            "AS.180.248.01.FA22",
+            "AS.180.248.01.SP23"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.249": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.249.02.SP22",
+            "AS.180.249.01.SP22",
+            "AS.180.249.01.FA22",
+            "AS.180.249.01.SP23",
+            "AS.180.249.01.SP24",
+            "AS.180.249.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.250": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.251": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.252": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.252.01.SP16",
+            "AS.180.252.01.SP17",
+            "AS.180.252.01.SP18",
+            "AS.180.252.01.FA18",
+            "AS.180.252.01.SP21"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.253": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.254": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.255": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.256": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.257": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.258": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.259": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.259.01.SP22"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.260": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.260.01.SP20",
+            "AS.180.260.01.FA20",
+            "AS.180.260.01.FA21",
+            "AS.180.260.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.261": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.261.01.FA15",
+            "AS.180.261.01.FA16",
+            "AS.180.261.02.FA17",
+            "AS.180.261.01.FA17",
+            "AS.180.261.02.FA18",
+            "AS.180.261.01.FA18",
+            "AS.180.261.02.FA19",
+            "AS.180.261.01.FA19",
+            "AS.180.261.01.FA20",
+            "AS.180.261.02.FA20",
+            "AS.180.261.02.FA21",
+            "AS.180.261.01.FA21",
+            "AS.180.261.02.FA22",
+            "AS.180.261.01.FA22",
+            "AS.180.261.01.FA23",
+            "AS.180.261.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.262": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.263": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.263.01.SP16",
+            "AS.180.263.01.SP17",
+            "AS.180.263.01.SP18",
+            "AS.180.263.01.SP19",
+            "AS.180.263.01.SP20",
+            "AS.180.263.01.SP21",
+            "AS.180.263.01.SP22",
+            "AS.180.263.01.SP23",
+            "AS.180.263.01.SP24",
+            "AS.180.263.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.264": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.265": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.266": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.266.01.SP16",
+            "AS.180.266.01.SP17",
+            "AS.180.266.01.SP18",
+            "AS.180.266.01.FA18",
+            "AS.180.266.01.FA19",
+            "AS.180.266.01.FA20",
+            "AS.180.266.01.FA21",
+            "AS.180.266.01.FA22",
+            "AS.180.266.01.FA23",
+            "AS.180.266.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.267": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.268": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.269": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.270": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.271": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.272": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.273": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.274": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.275": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.276": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.277": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.277.01.SP22"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.278": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.279": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.280": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.280.01.FA17",
+            "AS.180.280.01.SP18",
+            "AS.180.280.01.FA18",
+            "AS.180.280.02.FA18",
+            "AS.180.280.01.FA19",
+            "AS.180.280.01.SP20",
+            "AS.180.280.01.FA21",
+            "AS.180.280.01.FA22",
+            "AS.180.280.01.FA23",
+            "AS.180.280.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.281": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.282": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.283": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.284": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.285": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.285.01.SP19",
+            "AS.180.285.01.SP20",
+            "AS.180.285.01.SP21",
+            "AS.180.285.01.FA22",
+            "AS.180.285.01.FA23",
+            "AS.180.285.01.SP24",
+            "AS.180.285.01.FA24",
+            "AS.180.285.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.286": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.287": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.288": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.289": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.289.01.FA15",
+            "AS.180.289.01.FA16",
+            "AS.180.289.01.FA17",
+            "AS.180.289.01.FA18",
+            "AS.180.289.01.FA19",
+            "AS.180.289.01.FA20",
+            "AS.180.289.01.FA21",
+            "AS.180.289.01.FA22",
+            "AS.180.289.01.FA23",
+            "AS.180.289.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.290": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.291": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.292": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.293": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.294": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.295": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.296": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.297": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.298": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.299": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.300": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.301": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.301.04.FA15",
+            "AS.180.301.03.FA15",
+            "AS.180.301.02.FA15",
+            "AS.180.301.01.FA15",
+            "AS.180.301.03.FA16",
+            "AS.180.301.02.FA16",
+            "AS.180.301.01.FA16",
+            "AS.180.301.04.FA16",
+            "AS.180.301.04.FA17",
+            "AS.180.301.03.FA17",
+            "AS.180.301.02.FA17",
+            "AS.180.301.01.FA17",
+            "AS.180.301.04.FA18",
+            "AS.180.301.03.FA18",
+            "AS.180.301.02.FA18",
+            "AS.180.301.01.FA18",
+            "AS.180.301.04.FA19",
+            "AS.180.301.03.FA19",
+            "AS.180.301.02.FA19",
+            "AS.180.301.01.FA19",
+            "AS.180.301.01.FA20",
+            "AS.180.301.04.FA20",
+            "AS.180.301.03.FA20",
+            "AS.180.301.02.FA20",
+            "AS.180.301.01.FA21",
+            "AS.180.301.04.FA21",
+            "AS.180.301.03.FA21",
+            "AS.180.301.02.FA21",
+            "AS.180.301.02.SP22",
+            "AS.180.301.01.SP22",
+            "AS.180.301.02.FA22",
+            "AS.180.301.01.FA22",
+            "AS.180.301.02.SP23",
+            "AS.180.301.01.SP23",
+            "AS.180.301.02.FA23",
+            "AS.180.301.01.FA23",
+            "AS.180.301.02.SP24",
+            "AS.180.301.01.SP24",
+            "AS.180.301.02.FA24",
+            "AS.180.301.01.FA24",
+            "AS.180.301.01.SP25",
+            "AS.180.301.02.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.302": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.302.04.SP16",
+            "AS.180.302.03.SP16",
+            "AS.180.302.02.SP16",
+            "AS.180.302.01.SP16",
+            "AS.180.302.04.SP17",
+            "AS.180.302.03.SP17",
+            "AS.180.302.02.SP17",
+            "AS.180.302.01.SP17",
+            "AS.180.302.04.SP18",
+            "AS.180.302.03.SP18",
+            "AS.180.302.02.SP18",
+            "AS.180.302.01.SP18",
+            "AS.180.302.04.SP19",
+            "AS.180.302.03.SP19",
+            "AS.180.302.02.SP19",
+            "AS.180.302.01.SP19",
+            "AS.180.302.04.SP20",
+            "AS.180.302.03.SP20",
+            "AS.180.302.02.SP20",
+            "AS.180.302.01.SP20",
+            "AS.180.302.03.SP21",
+            "AS.180.302.02.SP21",
+            "AS.180.302.05.SP21",
+            "AS.180.302.01.SP21",
+            "AS.180.302.04.SP21",
+            "AS.180.302.01.FA21",
+            "AS.180.302.02.FA21",
+            "AS.180.302.01.SP22",
+            "AS.180.302.03.SP22",
+            "AS.180.302.02.SP22",
+            "AS.180.302.02.FA22",
+            "AS.180.302.01.FA22",
+            "AS.180.302.02.SP23",
+            "AS.180.302.01.SP23",
+            "AS.180.302.01.FA23",
+            "AS.180.302.02.FA23",
+            "AS.180.302.02.SP24",
+            "AS.180.302.01.SP24",
+            "AS.180.302.02.FA24",
+            "AS.180.302.01.FA24",
+            "AS.180.302.01.SP25",
+            "AS.180.302.02.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.303": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.303.01.FA15",
+            "AS.180.303.01.FA16",
+            "AS.180.303.01.FA19",
+            "AS.180.303.01.FA20",
+            "AS.180.303.01.FA21",
+            "AS.180.303.01.FA22",
+            "AS.180.303.01.FA23",
+            "AS.180.303.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.304": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.305": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.306": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.307": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.308": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.309": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.309.01.FA16",
+            "AS.180.309.01.FA17",
+            "AS.180.309.01.SP19",
+            "AS.180.309.01.FA19",
+            "AS.180.309.01.SP21",
+            "AS.180.309.01.FA22",
+            "AS.180.309.01.SP24",
+            "AS.180.309.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.310": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.310.01.FA15",
+            "AS.180.310.01.SP16",
+            "AS.180.310.01.FA16",
+            "AS.180.310.01.FA17",
+            "AS.180.310.01.FA18",
+            "AS.180.310.01.FA19",
+            "AS.180.310.01.FA20",
+            "AS.180.310.01.FA21",
+            "AS.180.310.01.FA22",
+            "AS.180.310.01.FA23",
+            "AS.180.310.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.311": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.311.01.SP23",
+            "AS.180.311.01.SP24",
+            "AS.180.311.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.312": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.312.01.FA17"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.313": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.313.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.314": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.314.01.SP18",
+            "AS.180.314.01.FA18",
+            "AS.180.314.01.FA19",
+            "AS.180.314.01.FA20"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.315": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.315.01.SP19"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.316": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.317": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.318": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.319": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.320": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.320.13.IN16"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.321": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.322": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.323": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.324": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.325": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.326": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.327": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.327.01.SP21"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.328": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.328.01.SP16",
+            "AS.180.328.01.SP17"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.329": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.330": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.331": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.332": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.332.01.SP23",
+            "AS.180.332.01.SP24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.333": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.333.01.SP23",
+            "AS.180.333.01.SP24",
+            "AS.180.333.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.334": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.334.02.FA15",
+            "AS.180.334.01.FA15",
+            "AS.180.334.02.SP16",
+            "AS.180.334.01.SP16",
+            "AS.180.334.02.FA16",
+            "AS.180.334.01.FA16",
+            "AS.180.334.04.SP17",
+            "AS.180.334.03.SP17",
+            "AS.180.334.02.SP17",
+            "AS.180.334.01.SP17",
+            "AS.180.334.02.FA17",
+            "AS.180.334.01.FA17",
+            "AS.180.334.02.SP18",
+            "AS.180.334.01.SP18",
+            "AS.180.334.02.FA18",
+            "AS.180.334.01.FA18",
+            "AS.180.334.01.SP19",
+            "AS.180.334.02.SP19",
+            "AS.180.334.02.FA19",
+            "AS.180.334.01.FA19",
+            "AS.180.334.03.SP20",
+            "AS.180.334.02.SP20",
+            "AS.180.334.01.SP20",
+            "AS.180.334.02.FA20",
+            "AS.180.334.01.FA20",
+            "AS.180.334.04.SP21",
+            "AS.180.334.03.SP21",
+            "AS.180.334.02.SP21",
+            "AS.180.334.01.SP21",
+            "AS.180.334.01.FA21",
+            "AS.180.334.04.FA21",
+            "AS.180.334.03.FA21",
+            "AS.180.334.02.FA21",
+            "AS.180.334.02.SP22",
+            "AS.180.334.01.SP22",
+            "AS.180.334.03.SP22",
+            "AS.180.334.01.FA22",
+            "AS.180.334.03.FA22",
+            "AS.180.334.02.FA22",
+            "AS.180.334.02.SP23",
+            "AS.180.334.03.SP23",
+            "AS.180.334.03.FA23",
+            "AS.180.334.02.FA23",
+            "AS.180.334.01.FA23",
+            "AS.180.334.02.SP24",
+            "AS.180.334.01.SP24",
+            "AS.180.334.02.FA24",
+            "AS.180.334.03.FA24",
+            "AS.180.334.01.FA24",
+            "AS.180.334.01.SP25",
+            "AS.180.334.02.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.335": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.336": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.336.01.SP16",
+            "AS.180.336.01.SP17",
+            "AS.180.336.01.SP18",
+            "AS.180.336.01.SP19",
+            "AS.180.336.01.SP20",
+            "AS.180.336.01.SP21",
+            "AS.180.336.01.SP22",
+            "AS.180.336.01.SP23",
+            "AS.180.336.01.SP24",
+            "AS.180.336.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.337": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.338": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.338.01.SP19",
+            "AS.180.338.01.SP20",
+            "AS.180.338.01.FA20",
+            "AS.180.338.01.FA21",
+            "AS.180.338.01.FA22"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.339": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.340": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.341": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.342": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.343": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.344": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.345": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.345.01.SP20",
+            "AS.180.345.01.SP22"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.346": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.347": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.347.01.SP22",
+            "AS.180.347.01.SP23",
+            "AS.180.347.01.SP24",
+            "AS.180.347.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.348": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.349": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.349.01.FA23",
+            "AS.180.349.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.350": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.351": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.351.01.SP16",
+            "AS.180.351.01.SP17",
+            "AS.180.351.01.FA17",
+            "AS.180.351.01.SP19",
+            "AS.180.351.01.SP20",
+            "AS.180.351.01.SP21",
+            "AS.180.351.01.FA21",
+            "AS.180.351.01.FA22",
+            "AS.180.351.01.FA23",
+            "AS.180.351.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.352": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.352.01.SP18",
+            "AS.180.352.01.SP21",
+            "AS.180.352.01.SP22",
+            "AS.180.352.01.FA22",
+            "AS.180.352.01.FA23",
+            "AS.180.352.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.353": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.354": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.354.01.FA16"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.355": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.355.01.FA15",
+            "AS.180.355.01.FA16",
+            "AS.180.355.01.FA17",
+            "AS.180.355.01.FA19",
+            "AS.180.355.01.FA20",
+            "AS.180.355.01.FA21",
+            "AS.180.355.01.SP23",
+            "AS.180.355.01.SP24",
+            "AS.180.355.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.356": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.356.01.SP17",
+            "AS.180.356.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.357": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.357.01.SP18"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.358": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.359": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.360": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.361": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.361.01.SP18",
+            "AS.180.361.01.SP19",
+            "AS.180.361.01.FA19",
+            "AS.180.361.01.FA20",
+            "AS.180.361.01.SP22",
+            "AS.180.361.01.SP23",
+            "AS.180.361.01.SP24",
+            "AS.180.361.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.362": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.363": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.363.01.FA15",
+            "AS.180.363.01.FA16",
+            "AS.180.363.01.FA17",
+            "AS.180.363.01.FA18",
+            "AS.180.363.01.FA19",
+            "AS.180.363.01.FA20",
+            "AS.180.363.01.FA21",
+            "AS.180.363.01.FA22",
+            "AS.180.363.01.FA23",
+            "AS.180.363.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.364": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.365": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.365.01.SP18",
+            "AS.180.365.01.SP19",
+            "AS.180.365.01.SP21",
+            "AS.180.365.01.FA21",
+            "AS.180.365.01.FA22",
+            "AS.180.365.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.366": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.367": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.367.01.SP16",
+            "AS.180.367.01.FA16",
+            "AS.180.367.01.FA17",
+            "AS.180.367.01.FA18",
+            "AS.180.367.01.FA19",
+            "AS.180.367.01.FA20",
+            "AS.180.367.01.FA21",
+            "AS.180.367.01.FA22",
+            "AS.180.367.01.SP24",
+            "AS.180.367.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.368": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.368.01.SP16",
+            "AS.180.368.01.SP17",
+            "AS.180.368.01.SP18",
+            "AS.180.368.01.SP19",
+            "AS.180.368.01.SP20",
+            "AS.180.368.01.SP21"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.369": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.369.01.FA23",
+            "AS.180.369.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.370": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.370.01.SP18"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.371": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.371.01.SP16",
+            "AS.180.371.01.SP17",
+            "AS.180.371.01.SP18",
+            "AS.180.371.01.SP20",
+            "AS.180.371.01.FA20",
+            "AS.180.371.01.SP22",
+            "AS.180.371.01.SP23"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.372": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.372.01.FA15",
+            "AS.180.372.01.FA16",
+            "AS.180.372.01.FA17"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.373": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.374": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.375": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.375.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.376": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.377": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.378": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.379": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.380": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.381": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.382": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.383": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.384": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.385": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.386": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.387": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.388": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.389": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.389.01.SP16",
+            "AS.180.389.01.SP17",
+            "AS.180.389.01.SP18",
+            "AS.180.389.01.SP19",
+            "AS.180.389.01.SP20",
+            "AS.180.389.01.SP21",
+            "AS.180.389.01.SP22",
+            "AS.180.389.01.FA22",
+            "AS.180.389.01.SP24",
+            "AS.180.389.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.390": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.390.01.SP17",
+            "AS.180.390.01.SP18",
+            "AS.180.390.01.SP19",
+            "AS.180.390.01.FA19",
+            "AS.180.390.01.SP21"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.391": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.391.01.SP17",
+            "AS.180.391.01.SP19",
+            "AS.180.391.01.SP20",
+            "AS.180.391.01.SP21"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.392": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.392.01.SP23"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.393": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.394": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.395": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.396": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.397": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.398": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.399": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.400": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.401": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.401.01.FA17"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.402": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.403": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.404": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.405": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.406": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.407": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.408": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.409": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.410": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.411": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.412": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.413": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.414": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.415": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.416": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.417": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.418": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.419": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.420": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.421": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.422": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.423": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.424": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.425": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.426": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.427": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.428": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.429": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.430": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.431": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.432": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.433": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.434": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.180.434.01.SP18"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.435": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.436": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.437": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.438": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.439": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.440": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.441": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.442": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.443": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.444": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.445": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.446": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.447": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.448": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.449": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.450": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.451": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.452": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.453": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.454": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.455": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.456": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.457": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.458": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.459": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.460": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.461": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.462": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.463": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.464": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.465": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.466": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.467": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.468": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.469": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.470": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.471": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.472": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.473": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.474": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.475": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.476": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.477": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.478": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.479": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.480": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.481": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.482": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.483": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.484": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.485": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.486": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.487": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.488": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.489": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.490": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.491": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.492": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.493": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.494": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.495": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.496": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.497": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.498": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.180.499": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
     }
 }
