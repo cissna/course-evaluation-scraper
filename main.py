@@ -27,6 +27,8 @@ if __name__ == "__main__":
         exit()
 
     for dept_prefix in COURSE_CODES:
+        if COURSE_CODES.find(dept_prefix) <= COURSE_CODES.find('AS.173'):
+            continue
         start = time.time()  # start timer for entire department prefix
 
         for course_number in range(100, 500):
@@ -58,13 +60,13 @@ if __name__ == "__main__":
 
         elapsed = time.time() - start  # elapsed for full dept batch
         print(f"\n{'*'*60}")
-        print(f"*** Finished all 1000 courses for {dept_prefix}    Elapsed Time: {elapsed:.2f} seconds ***")
+        print(f"*** Finished all courses for {dept_prefix}    Elapsed Time: {elapsed:.2f} seconds ***")
         print(f"{'*'*60}\n")
 
         print("\n" + "#"*60)
         print(f"# Preparing to SLEEP 5 minutes after finishing dept: {dept_prefix}")
         print("# You may safely keyboard interrupt now if desired.")
-        print("#" + " "*50 + "#")
+        print("#" + " "*58 + "#")
         print("#" * 60 + "\n")
 
         time.sleep(300) # 5 minutes
