@@ -26,49 +26,52 @@ if __name__ == "__main__":
         print(f"Could not get initial authenticated session: {e}. Aborting.")
         exit()
 
-    for target_course in COURSE_CODES:
-        print(f"\n{'='*60}")
-        print(f"=== Processing course: {target_course} ===")
-        print(f"{'='*60}\n")
+    for dept_prefix in COURSE_CODES:
+        for course_number in range(0, 1000):
+            course_number_str = f"{course_number:03d}"
+            target_course = f"{dept_prefix}.{course_number_str}"
 
-        start = time.time()
+            print(f"\n{'='*60}")
+            print(f"=== Processing course: {target_course} ===")
+            print(f"{'='*60}\n")
 
-        retries = 1 # Allow one retry
-        while retries >= 0:
-            try:
-                run_scraper_workflow(target_course, session)
-                print(f"--- Finished processing: {target_course} ---\n")
-                break
-            except SessionExpiredException:
-                print(f"Session expired while processing {target_course}. Retrying...")
+            start = time.time()
+
+            retries = 1 # Allow one retry
+            while retries >= 0:
                 try:
-                    session = get_authenticated_session()
-                except RequestException as e:
-                    print(f"Could not get new authenticated session: {e}. Aborting retries for this course.")
+                    run_scraper_workflow(target_course, session)
+                    print(f"--- Finished processing: {target_course} ---\n")
                     break
-                retries -= 1
-            except Exception as e:
-                print(f"--- CRITICAL ERROR in workflow for {target_course}: {e} ---")
-                print("--- Moving to next course. ---\n")
-                break
+                except SessionExpiredException:
+                    print(f"Session expired while processing {target_course}. Retrying...")
+                    try:
+                        session = get_authenticated_session()
+                    except RequestException as e:
+                        print(f"Could not get new authenticated session: {e}. Aborting retries for this course.")
+                        break
+                    retries -= 1
+                except Exception as e:
+                    print(f"--- CRITICAL ERROR in workflow for {target_course}: {e} ---")
+                    print("--- Moving to next course. ---\n")
+                    break
 
-        elapsed = time.time() - start
-        print(f"\n{'*'*60}")
-        print(f"*** Finished: {target_course}    Elapsed Time: {elapsed:.2f} seconds ***")
-        print(f"{'*'*60}\n")
+            elapsed = time.time() - start
+            print(f"\n{'*'*60}")
+            print(f"*** Finished: {target_course}    Elapsed Time: {elapsed:.2f} seconds ***")
+            print(f"{'*'*60}\n")
 
-        # Big, visually clear pre-sleep message
+        # Move the sleep logic here, after finishing all 1000 courses for a prefix
         print("\n" + "#"*60)
-        print(f"# Preparing to SLEEP 5 minutes after {target_course}")
+        print(f"# Preparing to SLEEP 5 minutes after finishing dept: {dept_prefix}")
         print("# You may safely keyboard interrupt now if desired.")
         print("#" + " "*50 + "#")
         print("#" * 60 + "\n")
 
         time.sleep(300) # 5 minutes
 
-        # Big, visually clear post-sleep message
         print("\n" + "#"*60)
-        print("# SLEEP COMPLETE. Starting next course.")
+        print("# SLEEP COMPLETE. Starting next department prefix.")
         print("#" + " "*50 + "#")
         print("#" * 60 + "\n")
 
