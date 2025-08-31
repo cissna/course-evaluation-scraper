@@ -102,7 +102,7 @@ def get_current_period() -> str:
         # If before the first period release of the year, it's the last period of the previous year
         return f"FA{year_short - 1}"
 
-def is_course_up_to_date(last_period_gathered: str, course_metadata: dict) -> bool:
+def is_course_up_to_date(last_period_gathered: str, course_metadata: dict, skip_grace_period_logic=False) -> bool:
     """
     Checks if the course data is up-to-date.
 
@@ -119,7 +119,7 @@ def is_course_up_to_date(last_period_gathered: str, course_metadata: dict) -> bo
     # 1. Last period gathered matches current period AND
     # 2. There's no pending grace period re-check
     return (last_period_gathered == current_period and 
-            course_metadata.get('last_scrape_during_grace_period') is None)
+            (course_metadata.get('last_scrape_during_grace_period') is None or not skip_grace_period_logic))
 
 def is_grace_period_over(period: str) -> bool:
     """
