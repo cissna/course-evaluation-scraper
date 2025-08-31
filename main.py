@@ -27,6 +27,8 @@ if __name__ == "__main__":
         exit()
 
     for dept_prefix in COURSE_CODES:
+        start = time.time()  # start timer for entire department prefix
+
         for course_number in range(0, 1000):
             course_number_str = f"{course_number:03d}"
             target_course = f"{dept_prefix}.{course_number_str}"
@@ -34,8 +36,6 @@ if __name__ == "__main__":
             print(f"\n{'='*60}")
             print(f"=== Processing course: {target_course} ===")
             print(f"{'='*60}\n")
-
-            start = time.time()
 
             retries = 1 # Allow one retry
             while retries >= 0:
@@ -56,12 +56,11 @@ if __name__ == "__main__":
                     print("--- Moving to next course. ---\n")
                     break
 
-            elapsed = time.time() - start
-            print(f"\n{'*'*60}")
-            print(f"*** Finished: {target_course}    Elapsed Time: {elapsed:.2f} seconds ***")
-            print(f"{'*'*60}\n")
+        elapsed = time.time() - start  # elapsed for full dept batch
+        print(f"\n{'*'*60}")
+        print(f"*** Finished all 1000 courses for {dept_prefix}    Elapsed Time: {elapsed:.2f} seconds ***")
+        print(f"{'*'*60}\n")
 
-        # Move the sleep logic here, after finishing all 1000 courses for a prefix
         print("\n" + "#"*60)
         print(f"# Preparing to SLEEP 5 minutes after finishing dept: {dept_prefix}")
         print("# You may safely keyboard interrupt now if desired.")
