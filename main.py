@@ -29,7 +29,7 @@ if __name__ == "__main__":
     for dept_prefix in COURSE_CODES:
         start = time.time()  # start timer for entire department prefix
 
-        for course_number in range(0, 1000):
+        for course_number in range(100, 500):
             course_number_str = f"{course_number:03d}"
             target_course = f"{dept_prefix}.{course_number_str}"
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
         print("\n" + "#"*60)
         print("# SLEEP COMPLETE. Starting next department prefix.")
-        print("#" + " "*50 + "#")
+        print("#" + " "*58 + "#")
         print("#" * 60 + "\n")
 
     print("--- All department courses have been processed. ---")
