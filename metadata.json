@@ -814,5 +814,146 @@
             "EN.553.361.01.SP25"
         ],
         "last_scrape_during_grace_period": "2025-08-30"
+    },
+    "AS.020.107": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.020.106": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.020.106.01.FA15",
+            "AS.020.106.02.FA16",
+            "AS.020.106.01.FA16",
+            "AS.020.106.02.FA17",
+            "AS.020.106.01.FA17",
+            "AS.020.106.02.FA18",
+            "AS.020.106.01.FA18",
+            "AS.020.106.02.FA19",
+            "AS.020.106.01.FA19",
+            "AS.020.106.02.FA20",
+            "AS.020.106.01.FA20",
+            "AS.020.106.02.FA21",
+            "AS.020.106.01.FA21"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.030.106": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.030.106.06.SP16",
+            "AS.030.106.05.SP16",
+            "AS.030.106.04.SP16",
+            "AS.030.106.03.SP16",
+            "AS.030.106.02.SP16",
+            "AS.030.106.01.SP16",
+            "AS.030.106.06.SP17",
+            "AS.030.106.05.SP17",
+            "AS.030.106.04.SP17",
+            "AS.030.106.03.SP17",
+            "AS.030.106.02.SP17",
+            "AS.030.106.01.SP17",
+            "AS.030.106.21.SU17",
+            "AS.030.106.06.SP18",
+            "AS.030.106.05.SP18",
+            "AS.030.106.04.SP18",
+            "AS.030.106.03.SP18",
+            "AS.030.106.02.SP18",
+            "AS.030.106.01.SP18",
+            "AS.030.106.21.SU18",
+            "AS.030.106.06.SP19",
+            "AS.030.106.01.SP19",
+            "AS.030.106.04.SP19",
+            "AS.030.106.03.SP19",
+            "AS.030.106.02.SP19",
+            "AS.030.106.21.SU19",
+            "AS.030.106.06.SP20",
+            "AS.030.106.05.SP20",
+            "AS.030.106.04.SP20",
+            "AS.030.106.03.SP20",
+            "AS.030.106.02.SP20",
+            "AS.030.106.01.SP20",
+            "AS.030.106.82.SU20",
+            "AS.030.106.06.SP21",
+            "AS.030.106.05.SP21",
+            "AS.030.106.04.SP21",
+            "AS.030.106.07.SP21",
+            "AS.030.106.03.SP21",
+            "AS.030.106.02.SP21",
+            "AS.030.106.01.SP21",
+            "AS.030.106.03.SP22",
+            "AS.030.106.02.SP22",
+            "AS.030.106.01.SP22",
+            "AS.030.106.06.SP22",
+            "AS.030.106.05.SP22",
+            "AS.030.106.04.SP22",
+            "AS.030.106.21.SU22",
+            "AS.030.106.06.SP23",
+            "AS.030.106.02.SP23",
+            "AS.030.106.05.SP23",
+            "AS.030.106.01.SP23",
+            "AS.030.106.04.SP23",
+            "AS.030.106.03.SP23",
+            "AS.030.106.21.SU23",
+            "AS.030.106.06.SP24",
+            "AS.030.106.05.SP24",
+            "AS.030.106.04.SP24",
+            "AS.030.106.03.SP24",
+            "AS.030.106.02.SP24",
+            "AS.030.106.01.SP24",
+            "AS.030.106.21.SU24",
+            "AS.030.106.06.SP25",
+            "AS.030.106.02.SP25",
+            "AS.030.106.01.SP25",
+            "AS.030.106.05.SP25",
+            "AS.030.106.04.SP25",
+            "AS.030.106.03.SP25",
+            "AS.030.106.21.SU25"
+        ],
+        "last_scrape_during_grace_period": null
+    },
+    "AS.030.300": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.030.300.22.IN16"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.030.200": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.020.304": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.020.304.01.FA20",
+            "AS.020.304.01.FA21",
+            "AS.020.304.01.FA22",
+            "AS.020.304.01.FA23",
+            "AS.020.304.01.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
+    },
+    "AS.040.307": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.040.307.01.SP16",
+            "AS.040.307.01.SP17",
+            "AS.040.307.01.FA18",
+            "AS.040.307.01.FA19",
+            "AS.040.307.01.FA21",
+            "AS.040.307.01.FA22",
+            "AS.040.307.01.FA23"
+        ],
+        "last_scrape_during_grace_period": "2025-08-31"
     }
 }

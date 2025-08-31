@@ -44125,5 +44125,6538 @@
             "Much heavier": 0,
             "N/A": 0
         }
+    },
+    "AS.020.106.01.FA15": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 5,
+            "Excellent": 0,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 11
+        },
+        "ta_names": [
+            "None",
+            "N/A",
+            "-",
+            "n/a"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 1,
+            "Agree strongly": 0,
+            "N/A": 4
+        },
+        "workload_frequency": {
+            "Much lighter": 4,
+            "Somewhat lighter": 3,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 1,
+            "N/A": 1
+        }
+    },
+    "AS.020.106.02.FA16": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 10
+        },
+        "ta_names": [
+            "n/a"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 6,
+            "Agree strongly": 1,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 6,
+            "Somewhat lighter": 2,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.01.FA16": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 5,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 10
+        },
+        "ta_names": [
+            "-",
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 2,
+            "Agree strongly": 0,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 7,
+            "Somewhat lighter": 2,
+            "Typical": 1,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.02.FA17": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 11
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 1,
+            "Agree strongly": 4,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 6,
+            "Somewhat lighter": 3,
+            "Typical": 1,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.01.FA17": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 4,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 12
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 2,
+            "Agree strongly": 0,
+            "N/A": 7
+        },
+        "workload_frequency": {
+            "Much lighter": 5,
+            "Somewhat lighter": 5,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.02.FA18": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 7,
+            "Excellent": 0,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 10
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 6,
+            "Agree strongly": 0,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 5,
+            "Typical": 1,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "AS.020.106.01.FA18": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 3,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 8
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 4,
+            "Agree strongly": 1,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 5,
+            "Somewhat lighter": 2,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.02.FA19": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 12
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 2,
+            "Agree strongly": 5,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 4,
+            "Somewhat lighter": 3,
+            "Typical": 3,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 1
+        }
+    },
+    "AS.020.106.01.FA19": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 1,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 2,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 11
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 3,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 7,
+            "Somewhat lighter": 2,
+            "Typical": 1,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.02.FA20": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 10
+        },
+        "ta_names": [
+            "N/A",
+            "No TA"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 0,
+            "Agree strongly": 3,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 6,
+            "Typical": 2,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.01.FA20": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 3,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 3,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 12
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 5,
+            "Agree strongly": 2,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 4,
+            "Somewhat lighter": 6,
+            "Typical": 2,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.02.FA21": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 5,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 10
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 2,
+            "Agree strongly": 1,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 5,
+            "Typical": 3,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.020.106.01.FA21": {
+        "course_name": "Freshman Seminar: Tuberculosis",
+        "instructor_name": "Robert Horner",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 2,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 9
+        },
+        "ta_names": [
+            "na"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 4,
+            "Agree strongly": 1,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 4,
+            "Typical": 2,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.06.SP16": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 8,
+            "Good": 11,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 6,
+            "Good": 10,
+            "Excellent": 8,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 16,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 4,
+            "Excellent": 24,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Emilie Decopet",
+            "Thomas Pangia",
+            "Thomas P.",
+            "Emillie Deccopet",
+            "Emilie Decoppet",
+            "Thomas",
+            "Emilie"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 14,
+            "Agree strongly": 10,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 5,
+            "Somewhat heavier": 16,
+            "Much heavier": 9,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.05.SP16": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 11,
+            "Weak": 7,
+            "Satisfactory": 29,
+            "Good": 27,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 11,
+            "Weak": 6,
+            "Satisfactory": 19,
+            "Good": 26,
+            "Excellent": 17,
+            "N/A": 6
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 5,
+            "Weak": 0,
+            "Satisfactory": 21,
+            "Good": 38,
+            "Excellent": 21,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 21,
+            "Excellent": 57,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Mike C.",
+            "paramita",
+            "Anton",
+            "Gabriela Rodan",
+            "Michael Clark",
+            "Gabriella",
+            "Madeline Mueller",
+            "Gabi R.",
+            "Antoine",
+            "Paramita",
+            "MICHAEL CLARK",
+            "Alex Schulick",
+            "Madeline",
+            "Mike Clark",
+            "Gabi Rodal",
+            "Gabriel Rodal",
+            "Gabriella Rodal and Darius Tolbert",
+            "Gabi R",
+            "Madeleine",
+            "Gabriela Rodal",
+            "Paramita Pal",
+            "Gabi",
+            "good",
+            "Anton Kozyryev",
+            "Madeline Muller",
+            "Gabriella Rodal",
+            "Anton K."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 7,
+            "Disagree somewhat": 7,
+            "Neither agree nor disagree": 15,
+            "Agree somewhat": 38,
+            "Agree strongly": 18,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 3,
+            "Typical": 21,
+            "Somewhat heavier": 30,
+            "Much heavier": 31,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP16": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 6,
+            "Weak": 6,
+            "Satisfactory": 39,
+            "Good": 34,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 5,
+            "Weak": 12,
+            "Satisfactory": 29,
+            "Good": 35,
+            "Excellent": 11,
+            "N/A": 4
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 31,
+            "Good": 37,
+            "Excellent": 23,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 9,
+            "Good": 36,
+            "Excellent": 48,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Darius Tolbert",
+            "no idea",
+            "Hayley",
+            "George Han",
+            "George",
+            "arjav shah",
+            "Arjav",
+            "Haley Wendt",
+            "haley",
+            "Arjuv",
+            "Darrius",
+            "Haley",
+            "Darius",
+            "Hyun",
+            "Hyunn Kim",
+            "Hyun Kim",
+            "Arjav Shah"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 8,
+            "Neither agree nor disagree": 18,
+            "Agree somewhat": 54,
+            "Agree strongly": 14,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 28,
+            "Somewhat heavier": 43,
+            "Much heavier": 24,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP16": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 7,
+            "Satisfactory": 21,
+            "Good": 44,
+            "Excellent": 17,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 4,
+            "Weak": 6,
+            "Satisfactory": 15,
+            "Good": 39,
+            "Excellent": 20,
+            "N/A": 8
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 13,
+            "Good": 44,
+            "Excellent": 30,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 4,
+            "Weak": 4,
+            "Satisfactory": 18,
+            "Good": 32,
+            "Excellent": 33,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Preeti B.",
+            "Tomojit (don't know last name)",
+            "Pretty",
+            "Alex",
+            "Preeti Bhattacharjee",
+            "Alex Schulick",
+            "Jesse Gordon",
+            "Cecelia",
+            "Preeti",
+            "Cecilia Freeman",
+            "Alex S.",
+            "Tom",
+            "Alex Schullick",
+            "Jesse",
+            "Tomojit",
+            "Cecilia",
+            "Tomjit",
+            "Tomojit Chowdhury",
+            "Alexander Schulick"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 15,
+            "Neither agree nor disagree": 13,
+            "Agree somewhat": 45,
+            "Agree strongly": 14,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 24,
+            "Somewhat heavier": 37,
+            "Much heavier": 29,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP16": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 4,
+            "Weak": 5,
+            "Satisfactory": 40,
+            "Good": 33,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 5,
+            "Weak": 5,
+            "Satisfactory": 34,
+            "Good": 31,
+            "Excellent": 17,
+            "N/A": 3
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 23,
+            "Good": 44,
+            "Excellent": 26,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 11,
+            "Good": 30,
+            "Excellent": 47,
+            "N/A": 2
+        },
+        "ta_names": [
+            ".",
+            "Melissa Dahnraj",
+            "Andrew Huang",
+            "Thomas",
+            "Andrew Hwang",
+            "Melissa D",
+            "Don Kim",
+            "Melissa Dhanraj",
+            "Tom Nguyen",
+            "Dong kim",
+            "Chris Chang",
+            "andrew hwang",
+            "Andrew",
+            "Thomas N",
+            "Dong Kim",
+            "Chris",
+            "Melissa Dhanra",
+            "Thomas Nguyen",
+            "Melissa",
+            "Andrew and Don",
+            "Don"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 3,
+            "Disagree somewhat": 15,
+            "Neither agree nor disagree": 12,
+            "Agree somewhat": 54,
+            "Agree strongly": 8,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 26,
+            "Somewhat heavier": 39,
+            "Much heavier": 28,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.01.SP16": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 5,
+            "Satisfactory": 27,
+            "Good": 34,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 5,
+            "Satisfactory": 31,
+            "Good": 26,
+            "Excellent": 17,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 4,
+            "Satisfactory": 13,
+            "Good": 38,
+            "Excellent": 24,
+            "N/A": 2
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 8,
+            "Good": 20,
+            "Excellent": 52,
+            "N/A": 0
+        },
+        "ta_names": [
+            "melanie luikart",
+            "Sim",
+            "Melanie L.",
+            "Maisa Nimer",
+            "JJ Sacramento",
+            "JJ",
+            "Avery Bauman",
+            "Sim Saund",
+            "J.J. Sacramento",
+            "Avery",
+            "Melanie Luikart",
+            "Avery Baumann",
+            "Jireh Joy",
+            "Melanie",
+            "avery",
+            "Melanie Luikhart",
+            "Sim Saud",
+            "Simran Saund",
+            "avery bauman",
+            "Maisa"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 6,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 10,
+            "Agree somewhat": 46,
+            "Agree strongly": 16,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 25,
+            "Somewhat heavier": 34,
+            "Much heavier": 23,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.06.SP17": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 19,
+            "Good": 17,
+            "Excellent": 10,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 17,
+            "Good": 22,
+            "Excellent": 9,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 10,
+            "Good": 24,
+            "Excellent": 14,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 38,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Aleksandra Popovi",
+            "Aleksandra Popovich",
+            "Haley Wendt",
+            "Aleksandra Popovic",
+            "Aleksandra",
+            "Haley",
+            "Alexsandra",
+            "Victoria",
+            "Victoria Lui",
+            "Victoria Liu"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 16,
+            "Agree somewhat": 22,
+            "Agree strongly": 9,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 13,
+            "Somewhat heavier": 19,
+            "Much heavier": 17,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.05.SP17": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 7,
+            "Satisfactory": 23,
+            "Good": 27,
+            "Excellent": 9,
+            "N/A": 2
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 9,
+            "Satisfactory": 17,
+            "Good": 27,
+            "Excellent": 13,
+            "N/A": 3
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 14,
+            "Good": 32,
+            "Excellent": 18,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 19,
+            "Excellent": 44,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Gabi Rodal",
+            "Gabi",
+            "Joy Lee",
+            "Gabbi",
+            "Arunima Vijay",
+            "Henry Dana",
+            "chem help room people",
+            "Joy",
+            "Jordan",
+            "Jordan Santiago",
+            "Henry",
+            "Arunima"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 3,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 18,
+            "Agree somewhat": 30,
+            "Agree strongly": 10,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 2,
+            "Typical": 26,
+            "Somewhat heavier": 25,
+            "Much heavier": 14,
+            "N/A": 2
+        }
+    },
+    "AS.030.106.04.SP17": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 6,
+            "Weak": 10,
+            "Satisfactory": 27,
+            "Good": 43,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 7,
+            "Weak": 6,
+            "Satisfactory": 25,
+            "Good": 38,
+            "Excellent": 17,
+            "N/A": 7
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 2,
+            "Satisfactory": 24,
+            "Good": 45,
+            "Excellent": 25,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 13,
+            "Good": 22,
+            "Excellent": 63,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Sumi\u00a0Mitra",
+            "Sumedha Mitra",
+            "Melaku Arega",
+            "Melaku",
+            "Melaku Agaera",
+            "Ayush A.",
+            "Jacob",
+            "Melaku \"Hannibal\" Arega",
+            "Jacob D",
+            "Jacob Deyell",
+            "freshte",
+            "Melaku A.",
+            "sumi",
+            "Ayush",
+            "Fereshte",
+            "Jacob Dyell",
+            "Ayush Asthana",
+            "Ayush Athansa",
+            "Fereshte Ghorbani",
+            "Feresthe Ghorbani",
+            "jacob",
+            "Sumi",
+            "Sumi Mitra"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 13,
+            "Neither agree nor disagree": 17,
+            "Agree somewhat": 48,
+            "Agree strongly": 15,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 26,
+            "Somewhat heavier": 42,
+            "Much heavier": 31,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP17": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 6,
+            "Weak": 7,
+            "Satisfactory": 31,
+            "Good": 36,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 7,
+            "Weak": 4,
+            "Satisfactory": 31,
+            "Good": 32,
+            "Excellent": 15,
+            "N/A": 7
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 1,
+            "Satisfactory": 29,
+            "Good": 37,
+            "Excellent": 26,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 16,
+            "Good": 17,
+            "Excellent": 58,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Austin",
+            "Isabelle",
+            "Antonieta Rivera",
+            "Isabelle Engelberg",
+            "Lakyn Mayo",
+            "Isabelle E.",
+            "Antonieta Salguero Rivera",
+            "Anthony Herzog",
+            "Antoinetta",
+            "Lakyn",
+            "I don't remember the name",
+            "Antonieta",
+            "Austin Herzog",
+            "Antonietta",
+            "Darius",
+            "Darius Tolbert"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 14,
+            "Neither agree nor disagree": 16,
+            "Agree somewhat": 40,
+            "Agree strongly": 23,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 7,
+            "Typical": 29,
+            "Somewhat heavier": 36,
+            "Much heavier": 24,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP17": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 5,
+            "Weak": 4,
+            "Satisfactory": 28,
+            "Good": 41,
+            "Excellent": 10,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 3,
+            "Weak": 5,
+            "Satisfactory": 31,
+            "Good": 31,
+            "Excellent": 16,
+            "N/A": 3
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 5,
+            "Satisfactory": 18,
+            "Good": 48,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 6,
+            "Weak": 9,
+            "Satisfactory": 12,
+            "Good": 29,
+            "Excellent": 31,
+            "N/A": 2
+        },
+        "ta_names": [
+            "N/A",
+            "Marcos",
+            "marco jacinto",
+            "Marco",
+            "Madeline Mueller",
+            "Victoria Stewart",
+            "Veronica",
+            "Zhaguo Zhu",
+            "Zhu Zhughao",
+            "no idea",
+            "Zhaoguo Zhu",
+            "Madeline",
+            "Zhaogou Zhu",
+            "Zhaoguo",
+            "Veronica Stewart",
+            "Zhaoghu Zhu",
+            "Madeleine Mueller",
+            "Marco Jacinto",
+            "Eric Thompson",
+            "eric thompson: the best ta ive ever had in any course in my entire life",
+            "Marco J",
+            "Zhao",
+            "Zhaoghu",
+            "Zhu"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 8,
+            "Disagree somewhat": 12,
+            "Neither agree nor disagree": 14,
+            "Agree somewhat": 44,
+            "Agree strongly": 11,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 22,
+            "Somewhat heavier": 35,
+            "Much heavier": 30,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.01.SP17": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 7,
+            "Weak": 5,
+            "Satisfactory": 21,
+            "Good": 42,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 3,
+            "Weak": 6,
+            "Satisfactory": 25,
+            "Good": 33,
+            "Excellent": 13,
+            "N/A": 4
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 2,
+            "Satisfactory": 18,
+            "Good": 43,
+            "Excellent": 16,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 7,
+            "Good": 29,
+            "Excellent": 46,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Chana Hoicick",
+            "Erick Sadler",
+            "Erick",
+            "Erick Sadler (is awesome)",
+            "Chana Honick",
+            "Mekhola",
+            "j",
+            "Erik Sadler",
+            "Sinha",
+            "Erik",
+            "Diego Morett-Aguilar",
+            "Diego",
+            "Erick Saddler",
+            "Mekhola Singh",
+            "Mekohlah",
+            "arjav, mekohla",
+            "Arjav",
+            "Mekhola Sinha",
+            "Mehkola Sinha",
+            "Diego M.",
+            "Diego Morette-Aguilar",
+            "Chana",
+            "Arjav Shah"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 5,
+            "Disagree somewhat": 5,
+            "Neither agree nor disagree": 18,
+            "Agree somewhat": 42,
+            "Agree strongly": 14,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 21,
+            "Somewhat heavier": 32,
+            "Much heavier": 28,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.21.SU17": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 10,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 7,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 13,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Henry Dana",
+            "Victoria, Henry",
+            "Victoria",
+            "Victoria Lui",
+            "Victoria Liu"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 5,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 9,
+            "Agree strongly": 4,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 6,
+            "Somewhat heavier": 8,
+            "Much heavier": 6,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.06.SP18": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Sunita Thyagarajan",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 16,
+            "Good": 29,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 16,
+            "Good": 25,
+            "Excellent": 16,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 13,
+            "Good": 21,
+            "Excellent": 20,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 12,
+            "Excellent": 40,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Dani Bautista",
+            "Becca P.",
+            "Becca Pontius",
+            "Ryan",
+            "Danielle Bautista",
+            "Veronica Stewart",
+            "Michelle Kim",
+            "Danielle",
+            "Michelle kim",
+            "Ryan Weeks",
+            "Becca",
+            "Dani",
+            "Rebecca Pontius",
+            "Veronica",
+            "Rebecca Pointus",
+            "Veronica Steward"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 28,
+            "Agree strongly": 19,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 3,
+            "Typical": 13,
+            "Somewhat heavier": 22,
+            "Much heavier": 20,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.05.SP18": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 6,
+            "Weak": 3,
+            "Satisfactory": 12,
+            "Good": 42,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 5,
+            "Weak": 4,
+            "Satisfactory": 16,
+            "Good": 29,
+            "Excellent": 18,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 43,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 16,
+            "Excellent": 54,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Henry Dayan",
+            "Tanya berry",
+            "Henry",
+            "Huijin",
+            "Henry Dana",
+            "Jessica Zarenkiewicz",
+            "Hujin Lee",
+            "Jessica",
+            "HuiJin Lee",
+            "Huijin LEe",
+            "Jesse",
+            "jess z",
+            "Victoria Lui",
+            "Jess",
+            "Jess Zarenkiewicz",
+            "Tanya Berry- funny nice",
+            "Huijin Lee",
+            "Tanya",
+            "Tanya Berry",
+            "Jess Z",
+            "Tonya Berry",
+            "Victoria"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 13,
+            "Agree somewhat": 37,
+            "Agree strongly": 13,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 19,
+            "Somewhat heavier": 33,
+            "Much heavier": 21,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP18": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 9,
+            "Weak": 7,
+            "Satisfactory": 35,
+            "Good": 33,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 9,
+            "Weak": 14,
+            "Satisfactory": 32,
+            "Good": 28,
+            "Excellent": 16,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 5,
+            "Weak": 4,
+            "Satisfactory": 21,
+            "Good": 43,
+            "Excellent": 26,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 25,
+            "Excellent": 67,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Mindy",
+            "Amanda Liu",
+            "-",
+            "Lakyn Mayo",
+            "Jordan P",
+            "Jordan",
+            "Jordan Santiago",
+            "Lucas Presley",
+            "Mindy Kim",
+            "Lucas",
+            "Lucas Plessen",
+            "Lucas Pressly",
+            "Lucas Pressley",
+            "Amanda",
+            "Lakyn"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 5,
+            "Disagree somewhat": 9,
+            "Neither agree nor disagree": 14,
+            "Agree somewhat": 50,
+            "Agree strongly": 19,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 20,
+            "Somewhat heavier": 42,
+            "Much heavier": 35,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP18": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 7,
+            "Satisfactory": 29,
+            "Good": 36,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 5,
+            "Weak": 7,
+            "Satisfactory": 24,
+            "Good": 36,
+            "Excellent": 16,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 23,
+            "Good": 45,
+            "Excellent": 20,
+            "N/A": 2
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 17,
+            "Excellent": 68,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Ayush Athana",
+            "Aleksandra",
+            "Ayush A.",
+            "Jacob",
+            "Lexi",
+            "Lexi (don't remember last name)",
+            "Aleksandra Popovic",
+            "Ayush Patel",
+            "Lexi Wallace",
+            "Alexi Wallace",
+            "Jeremy",
+            "Jeremy Harrison",
+            "Jacob Deyell",
+            "Ayush Asthani",
+            "--",
+            "Alexa Wallace",
+            "Ayush",
+            "Jacob Dyell",
+            "Aleksandra Popov",
+            "Ayush Asthana",
+            "jacob",
+            "Aleksandra Procopio",
+            "Jakob"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 8,
+            "Neither agree nor disagree": 16,
+            "Agree somewhat": 42,
+            "Agree strongly": 21,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 3,
+            "Typical": 22,
+            "Somewhat heavier": 32,
+            "Much heavier": 32,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP18": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 8,
+            "Weak": 4,
+            "Satisfactory": 29,
+            "Good": 32,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 6,
+            "Weak": 6,
+            "Satisfactory": 28,
+            "Good": 25,
+            "Excellent": 14,
+            "N/A": 4
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 26,
+            "Good": 36,
+            "Excellent": 18,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 10,
+            "Good": 18,
+            "Excellent": 52,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Hector",
+            "Hector Vivanco",
+            "Ryan B",
+            "YuChen",
+            "Ryan brady",
+            "Ryan",
+            "Sanam B.",
+            "Sanam",
+            "Rachel",
+            "Sanam Batia",
+            "Ryan Brady",
+            "Yuchen",
+            "Yuchen Wang",
+            "yuchen wang",
+            "Rachel Harris",
+            "Sanam Bhatia",
+            "Hector V."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 8,
+            "Neither agree nor disagree": 9,
+            "Agree somewhat": 47,
+            "Agree strongly": 15,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 3,
+            "Typical": 20,
+            "Somewhat heavier": 31,
+            "Much heavier": 29,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.01.SP18": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Louise Pasternack",
+        "overall_quality_frequency": {
+            "Poor": 7,
+            "Weak": 5,
+            "Satisfactory": 31,
+            "Good": 26,
+            "Excellent": 13,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 7,
+            "Weak": 4,
+            "Satisfactory": 22,
+            "Good": 27,
+            "Excellent": 21,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 3,
+            "Weak": 3,
+            "Satisfactory": 14,
+            "Good": 39,
+            "Excellent": 22,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 13,
+            "Good": 22,
+            "Excellent": 43,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Yuyang",
+            "Josh M",
+            "Eric",
+            "Eric Petersen",
+            "Josh Monts",
+            "Qifeng",
+            "Qifeng Jiang",
+            "Sachin",
+            "Yu yang Ji",
+            "Sacchin",
+            "Yuyang Ti",
+            "Josh Montz",
+            "Qifeng Jiung",
+            "Sachin Govin",
+            "Eric Peterson",
+            "yuyang",
+            "Josh",
+            "Yuyang Ji",
+            "Sachin Govind",
+            "Qifang Jiang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 9,
+            "Neither agree nor disagree": 12,
+            "Agree somewhat": 28,
+            "Agree strongly": 29,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 3,
+            "Typical": 17,
+            "Somewhat heavier": 26,
+            "Much heavier": 34,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.21.SU18": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jane Greco",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 17,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 5,
+            "Good": 11,
+            "Excellent": 10,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 20,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 7,
+            "Excellent": 23,
+            "N/A": 0
+        },
+        "ta_names": [
+            "mindy kim",
+            "Mindy",
+            "Jeremy",
+            "Mindy Kim and Jeremy Harrison (the fabulously awesome TAs)",
+            "Jeremy Harrison",
+            "Mindy Kim"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 12,
+            "Agree strongly": 14,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 17,
+            "Somewhat heavier": 10,
+            "Much heavier": 2,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.06.SP19": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 10,
+            "Good": 39,
+            "Excellent": 33,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 12,
+            "Good": 22,
+            "Excellent": 46,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 10,
+            "Good": 37,
+            "Excellent": 34,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 7,
+            "Good": 18,
+            "Excellent": 58,
+            "N/A": 0
+        },
+        "ta_names": [
+            "sean",
+            "Yi Zheng",
+            "Yi Zhang",
+            "Michelle",
+            "KAtherine",
+            "Michelle Kim",
+            "Sean",
+            "Lucas Pressely",
+            "Sean Bunachita",
+            "Yi",
+            "Katherine Marie Miller",
+            "Sean B",
+            "Katherine Miller",
+            "Lucas Pressley",
+            "Lucas Presley",
+            "Lucas",
+            "Katherine",
+            "MIchelle",
+            "Yi Zhuang",
+            "Lucas!"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 7,
+            "Neither agree nor disagree": 11,
+            "Agree somewhat": 38,
+            "Agree strongly": 23,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 9,
+            "Typical": 41,
+            "Somewhat heavier": 20,
+            "Much heavier": 12,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.01.SP19": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 14,
+            "Good": 44,
+            "Excellent": 35,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 23,
+            "Excellent": 60,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 43,
+            "Excellent": 37,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 23,
+            "Excellent": 61,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Jacque' Rhuda",
+            "Sumedha Mitra",
+            "Kowsar Ahmed",
+            "Jacqueline Ruida",
+            "Rob",
+            "Rob Palkovic",
+            "Sumi Singh",
+            "Jacque",
+            "david cho",
+            "David Cho",
+            "Rob P.",
+            "Kowsar",
+            "Rob Palkowitz",
+            "Robert",
+            "Jaque",
+            "DAVID!!!",
+            "Jacque Rhuda",
+            "Robert Palkovitz",
+            "Jacqu\u00e9 Rhuda",
+            "David",
+            "sumi",
+            "Sumi (main one) and Kowsar (on other side and occassionally helped)",
+            "Jacque'",
+            "Rob Palkovitz",
+            "Sumi",
+            "Rob!!!",
+            "Sumi &lt;3"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 10,
+            "Neither agree nor disagree": 11,
+            "Agree somewhat": 41,
+            "Agree strongly": 29,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 6,
+            "Typical": 47,
+            "Somewhat heavier": 27,
+            "Much heavier": 12,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP19": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 13,
+            "Good": 43,
+            "Excellent": 36,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 21,
+            "Excellent": 64,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 14,
+            "Good": 47,
+            "Excellent": 32,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 10,
+            "Good": 30,
+            "Excellent": 52,
+            "N/A": 0
+        },
+        "ta_names": [
+            "James Harrison",
+            "noah yan",
+            "Yinham",
+            "Yinhan",
+            "Nicholas",
+            "Noah Yan",
+            "Noah",
+            "Juan Chamorro",
+            "Nick Ng",
+            "juan",
+            "Jeremy",
+            "Jeremy Harrison",
+            "Nick Nu",
+            "Yinhan Wang",
+            "Nicholas Ng",
+            "Yin Han",
+            "NICHOLAS",
+            "Juan",
+            "Nicholas NG (but I heard all the TAs were phenomenal!)"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 3,
+            "Disagree somewhat": 5,
+            "Neither agree nor disagree": 17,
+            "Agree somewhat": 42,
+            "Agree strongly": 27,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 6,
+            "Typical": 50,
+            "Somewhat heavier": 32,
+            "Much heavier": 6,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP19": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 11,
+            "Good": 38,
+            "Excellent": 40,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 18,
+            "Excellent": 67,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 8,
+            "Good": 47,
+            "Excellent": 33,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 12,
+            "Good": 31,
+            "Excellent": 41,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Keila",
+            "Jithin Thomas",
+            "Kiela Sheetz",
+            "Anneliese",
+            "Keila Sheetz",
+            "Casey",
+            "Anneliese Faustino",
+            "Xue Chen",
+            "Annaliese",
+            "Chen",
+            "Xuechen Zheng",
+            "Annalise",
+            "XUECHEN ZHENG",
+            "Within Thomas",
+            "Xuechen",
+            "Casey Smith",
+            "Jithin",
+            "Xeuchen Zheng",
+            "Annelise Faustino",
+            "n/a",
+            "Xie Chen"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 12,
+            "Agree somewhat": 37,
+            "Agree strongly": 31,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 11,
+            "Typical": 43,
+            "Somewhat heavier": 27,
+            "Much heavier": 5,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.02.SP19": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 16,
+            "Good": 37,
+            "Excellent": 37,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 26,
+            "Excellent": 57,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 11,
+            "Good": 47,
+            "Excellent": 33,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 3,
+            "Good": 21,
+            "Excellent": 67,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Phil To",
+            "Shuchi Sehgal",
+            "Scuchi",
+            "Sophie Melvin",
+            "Philip To",
+            "Matt Jon Lee",
+            "Yifan (((((((:",
+            "TA Philip Tao!",
+            "Matthe Lee",
+            "Phillip To",
+            "Such Sehgal",
+            "Phil",
+            "Sophie",
+            "Shuchi",
+            "Shuchi Seghal",
+            "Matt",
+            "Matthew Lee",
+            "Shuchi Sengal",
+            "Matt Lee",
+            "Yifan Chen",
+            "Yifan Shen",
+            "Yifan"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 5,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 46,
+            "Agree strongly": 34,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 5,
+            "Typical": 52,
+            "Somewhat heavier": 31,
+            "Much heavier": 5,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.21.SU19": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 8,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 10,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Sean",
+            "Sea",
+            "Sean Bunachita",
+            "Sean and Karan"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 6,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 8,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 3
+        }
+    },
+    "AS.030.106.06.SP20": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 23,
+            "Excellent": 51,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 70,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 40,
+            "Excellent": 31,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 4,
+            "Good": 23,
+            "Excellent": 47,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Shane Williams",
+            "Annelise",
+            "Shane",
+            "Jacque' Rhuda",
+            "Jackie",
+            "Analise Faustino",
+            "Jaque Rhuda",
+            "Anneliese",
+            "Jessica Dun",
+            "Anneliese Faustino",
+            "Jacque",
+            "Annaleise",
+            "Leon Chen",
+            "Jacque\u2019 Rhuda",
+            "Jessica Dunn",
+            "Jessica",
+            "Yi",
+            "Annaliese Faustino",
+            "Shaun White",
+            "Anneleise",
+            "Jacque Rhuda",
+            "Analiese Faustino",
+            "Annalise",
+            "Analiase",
+            "Jess",
+            "Jacque'",
+            "Leon",
+            "Leon i think"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 36,
+            "Agree strongly": 33,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 9,
+            "Typical": 38,
+            "Somewhat heavier": 21,
+            "Much heavier": 8,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.05.SP20": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Nicholette Stachowiak",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 6,
+            "Excellent": 23,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 11,
+            "N/A": 13
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 15,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 21,
+            "N/A": 4
+        },
+        "ta_names": [
+            "Lina",
+            "Sean B",
+            "Lina Choi",
+            "Sean Buanachita",
+            "Sean Buanita",
+            "Lina Cho",
+            "Sean Buchanita",
+            "Sean",
+            "Sean Bunachita",
+            "NA"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 12,
+            "Agree strongly": 18,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 16,
+            "Somewhat heavier": 11,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP20": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 25,
+            "Excellent": 59,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 11,
+            "Excellent": 75,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 32,
+            "Excellent": 48,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 18,
+            "Excellent": 63,
+            "N/A": 5
+        },
+        "ta_names": [
+            "Evan C",
+            "Hanna Chiu",
+            "Anish",
+            "Eric",
+            "Carter Gerke",
+            "Kowsar Ahmed",
+            "Carter",
+            "Evan",
+            "evan",
+            "Kowsar",
+            "Evan Crites",
+            "Hannah Chiu",
+            "Carter G.",
+            "Hannah",
+            "Anish Mokha"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 35,
+            "Agree strongly": 43,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 5,
+            "Typical": 40,
+            "Somewhat heavier": 36,
+            "Much heavier": 7,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.03.SP20": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 31,
+            "Excellent": 48,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 17,
+            "Excellent": 69,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 44,
+            "Excellent": 39,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 2,
+            "Satisfactory": 8,
+            "Good": 18,
+            "Excellent": 61,
+            "N/A": 0
+        },
+        "ta_names": [
+            "YIfan",
+            "Valarie Del Rio",
+            "Xuechen Chen",
+            "Herbert Wakefield is amazing and deserves a gold medal.",
+            "Herert Wakefield",
+            "Xuechen Zhang",
+            "Xuechang",
+            "Drew",
+            "Xeuchen",
+            "Herb",
+            "Chen",
+            "Zuechen",
+            "Herb!",
+            "Xuechen Zheng",
+            "Xue Zheng",
+            "Drew M.",
+            "Drew MacLennen",
+            "Valerie",
+            "Valerie Del Rio",
+            "valarie Del Rio",
+            "Xuchen",
+            "Valarie del Rio",
+            "Xuechen",
+            "Herbert",
+            "Drew MacLennan",
+            "Yufan",
+            "Herb Wakefield",
+            "forgot",
+            "Yifan Chen",
+            "Herbert Wakefield",
+            "Yifan Shen",
+            "valarie del rio",
+            "Valarie",
+            "Yifan"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 11,
+            "Agree somewhat": 38,
+            "Agree strongly": 39,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 4,
+            "Typical": 47,
+            "Somewhat heavier": 34,
+            "Much heavier": 6,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP20": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 23,
+            "Excellent": 71,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 6,
+            "Excellent": 89,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 34,
+            "Excellent": 55,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 5,
+            "Good": 13,
+            "Excellent": 69,
+            "N/A": 5
+        },
+        "ta_names": [
+            "Annabel Mungan",
+            "N/A",
+            "Alex Skriven",
+            "Annabelle",
+            "I can't remember started with a Z",
+            "Yi Zhang",
+            "Dhaval Patel",
+            "Zhenyu",
+            "Alex",
+            "Alex Skirvin",
+            "Annabel",
+            "Xinyang",
+            "Anabel Mungan",
+            "Yi",
+            "yi",
+            "Skirvin",
+            "Annabel Mungen",
+            "Xi",
+            "Dhaval",
+            "Zhenya Luo",
+            "Li",
+            "Zhenya",
+            "Don't remember",
+            "dhaval",
+            "Yi Zhuang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 35,
+            "Agree strongly": 54,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 13,
+            "Typical": 54,
+            "Somewhat heavier": 24,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.01.SP20": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 28,
+            "Excellent": 60,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 11,
+            "Excellent": 77,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 34,
+            "Excellent": 52,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 8,
+            "Good": 25,
+            "Excellent": 53,
+            "N/A": 5
+        },
+        "ta_names": [
+            "Mary Shepard",
+            "Sophie Melvin",
+            "Sophia Melvin",
+            "Mary Shepherd",
+            "Kevin Bennet",
+            "Kevin B",
+            "Zoya  Khan",
+            "Divya",
+            "Mary",
+            "Mary Sheperd",
+            "Sophie",
+            "Zoya Khan",
+            "Kevin Bennett",
+            "Kevin",
+            "mary shepard",
+            "Zora Khan",
+            "Divya Yadav",
+            "Mary S",
+            "Mary Sheppard",
+            "Zoya"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 30,
+            "Agree strongly": 48,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 6,
+            "Typical": 56,
+            "Somewhat heavier": 24,
+            "Much heavier": 3,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.82.SU20": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 5,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 2,
+            "Excellent": 5,
+            "N/A": 4
+        },
+        "ta_names": [
+            "Alex",
+            "I did not interact directly with a TA so I can't answer this question honestly",
+            "Mary",
+            "Alex Skirvin",
+            "Dhaval Patel"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 3,
+            "Agree somewhat": 7,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 7,
+            "Somewhat heavier": 4,
+            "Much heavier": 1,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.06.SP21": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 4,
+            "Excellent": 25,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 28,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 15,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 4,
+            "Excellent": 10,
+            "N/A": 16
+        },
+        "ta_names": [
+            "Kai",
+            "Kelsey",
+            "N/A",
+            "Kai Abiola",
+            "Kai Channel",
+            "Kelsey Zhang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 10,
+            "Agree strongly": 16,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 26,
+            "Somewhat heavier": 4,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.05.SP21": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Nicholette Stachowiak",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 11,
+            "Excellent": 17,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 5,
+            "Excellent": 8,
+            "N/A": 15
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 12,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 9,
+            "N/A": 10
+        },
+        "ta_names": [
+            "Ben Bilik",
+            "unsure",
+            "Rachel harris",
+            "Ben",
+            "N/A",
+            "Kai Abiola",
+            "Ben R",
+            "Kai Holton",
+            "Ben B.",
+            "Kai Abola"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 14,
+            "Agree strongly": 10,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 3,
+            "Typical": 25,
+            "Somewhat heavier": 3,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP21": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 14,
+            "Excellent": 40,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 15,
+            "Excellent": 43,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 11,
+            "Good": 21,
+            "Excellent": 29,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 14,
+            "Excellent": 17,
+            "N/A": 19
+        },
+        "ta_names": [
+            "Annabel Mungan",
+            "April",
+            "Ben Bilik",
+            "Stella",
+            "no specific TA",
+            "ANNABEL MUNGAN",
+            "Annabel",
+            "Divya Yadav",
+            "n/a",
+            "Ben Redemann",
+            "Yingzi (April) Xia",
+            "Yingzi Xia",
+            "Stella Ikuzwe",
+            "Stella Matutina Ikuzwe"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 9,
+            "Agree somewhat": 27,
+            "Agree strongly": 17,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 10,
+            "Typical": 36,
+            "Somewhat heavier": 11,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.07.SP21": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Nicholette Stachowiak",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 36,
+            "Excellent": 120,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 24,
+            "Excellent": 43,
+            "N/A": 88
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 16,
+            "Good": 79,
+            "Excellent": 70,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 5,
+            "Satisfactory": 15,
+            "Good": 30,
+            "Excellent": 42,
+            "N/A": 73
+        },
+        "ta_names": [
+            "Shannon Bernier",
+            "N/A",
+            "Yunqi Tian",
+            "Kelsey",
+            "Rachel",
+            "Lyupeng",
+            "Kai Abiola",
+            "Tatsuya",
+            "Tatsuya Shiba",
+            "Divya",
+            "Kelsey Zhang",
+            "Anya Gunewardena",
+            "Stachowiak",
+            "NA",
+            "Shannon",
+            "IDK",
+            "Song",
+            "Yuqi Song",
+            "Divya Yadav",
+            "Tatsuya Chiba",
+            "n/a",
+            "Rachael Harris",
+            "Rachel Harris",
+            "Ewa Harazinska"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 21,
+            "Agree somewhat": 73,
+            "Agree strongly": 59,
+            "N/A": 4
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 14,
+            "Typical": 113,
+            "Somewhat heavier": 30,
+            "Much heavier": 7,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP21": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 19,
+            "Excellent": 47,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 15,
+            "Excellent": 50,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 30,
+            "Excellent": 33,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 6,
+            "Good": 12,
+            "Excellent": 18,
+            "N/A": 31
+        },
+        "ta_names": [
+            "Lina",
+            "Alex",
+            "Yinhan wang",
+            "Lina Choi",
+            "none",
+            "N/A",
+            "Lina and Alex",
+            "Lina Chanel",
+            "Lina Channel",
+            "Yinhan Wang",
+            "n/a",
+            "Ben Redemann",
+            "Yingzi Xia",
+            "Stella Ikuzwe",
+            "na"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 30,
+            "Agree strongly": 26,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 13,
+            "Typical": 38,
+            "Somewhat heavier": 16,
+            "Much heavier": 2,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP21": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 18,
+            "Excellent": 54,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 12,
+            "Excellent": 62,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 11,
+            "Good": 29,
+            "Excellent": 35,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 12,
+            "Excellent": 17,
+            "N/A": 39
+        },
+        "ta_names": [
+            "Divya",
+            "Kevin Bennet",
+            "Yihan Wang",
+            "Shannon",
+            "Shannon Bernier",
+            "N/A",
+            "Divya Yadav",
+            "Yinhan Wang",
+            "I never talked to my TA",
+            "Yanfei",
+            "n/a",
+            "Kevin Bennett"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 10,
+            "Agree somewhat": 35,
+            "Agree strongly": 26,
+            "N/A": 4
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 12,
+            "Typical": 47,
+            "Somewhat heavier": 15,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.01.SP21": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 21,
+            "Excellent": 48,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 63,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 24,
+            "Excellent": 37,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 16,
+            "Excellent": 14,
+            "N/A": 33
+        },
+        "ta_names": [
+            "Mary Shepard",
+            "I didn't really utiilize the TAs so it'd be a bit unfair of me to judge them.",
+            "Lyupeng Wen",
+            "n.a",
+            "Carter Gleke",
+            "N/A",
+            "Alex Skirvin",
+            "Do not remember",
+            "Lyupeng",
+            "Kai Abiola",
+            "Nicki Stachowiak",
+            "Ben Redemann",
+            "Carter Gerke",
+            "Didn't interact with the TA"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 14,
+            "Agree somewhat": 30,
+            "Agree strongly": 24,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 15,
+            "Typical": 40,
+            "Somewhat heavier": 11,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP22": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 31,
+            "Excellent": 60,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 10,
+            "Excellent": 84,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 42,
+            "Excellent": 52,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 9,
+            "Excellent": 85,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Sajean and Jeffery",
+            "Sanjana Boyapalli",
+            "Alex",
+            "Alex Skirvin",
+            "Jeffery Cho",
+            "Snigda",
+            "Sanjana B",
+            "Snigdha",
+            "Sejean Yang",
+            "Snigdha Panda",
+            "Jeffrey",
+            "Sanjana B.",
+            "Jeffrey C.",
+            "Sejean",
+            "Jefferey",
+            "Sanjana",
+            "Santana",
+            "Alexander Jacob Skirvin",
+            "Jeffery",
+            "Jeffrey Chao",
+            "sejean yang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 33,
+            "Agree strongly": 52,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 8,
+            "Typical": 47,
+            "Somewhat heavier": 31,
+            "Much heavier": 11,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP22": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 36,
+            "Excellent": 49,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 19,
+            "Excellent": 64,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 44,
+            "Excellent": 38,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 6,
+            "Good": 23,
+            "Excellent": 55,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Anya, Julia",
+            "Rachel Zhang",
+            "GUNEWARDENA, ANYA",
+            "Amy",
+            "amy",
+            "Rachel Oh",
+            "Carolina",
+            "Sachin Mehta",
+            "Rachel",
+            "Sachin",
+            "Sachin Nalin Mehta",
+            "Carolina M Rodriguez",
+            "anya",
+            "Anya",
+            "Anya Gunewardena",
+            "Anya Miyanadeniya Gunewardena",
+            "Amy Son",
+            "Maria Carolina Rodriguez Steube",
+            "Anya G"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 5,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 42,
+            "Agree strongly": 34,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 11,
+            "Typical": 44,
+            "Somewhat heavier": 26,
+            "Much heavier": 9,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.01.SP22": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 25,
+            "Excellent": 65,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 12,
+            "Excellent": 80,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 40,
+            "Excellent": 47,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 16,
+            "Excellent": 72,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Jeffrey Shin",
+            "Alice Han",
+            "Ashley",
+            "Alice",
+            "Daniel Shin",
+            "daniel",
+            "Ashley T",
+            "Ashely",
+            "Hannah Pugh",
+            "Daniel",
+            "Hannah",
+            "Jeffery Shin",
+            "jeffery shin",
+            "Ashley Tyburski",
+            "ashley",
+            "Jeffrey",
+            "Jefferey Shin",
+            "Jeffery",
+            "hannah pugh",
+            "n/a",
+            "Jeff",
+            "Dan Shin"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 29,
+            "Agree strongly": 55,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 10,
+            "Typical": 48,
+            "Somewhat heavier": 27,
+            "Much heavier": 6,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.06.SP22": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 23,
+            "Excellent": 49,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 15,
+            "Excellent": 60,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 31,
+            "Excellent": 40,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 9,
+            "Excellent": 63,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Runai",
+            "Shane Williams",
+            "Runlai/Amrita",
+            "Runali",
+            "Shane",
+            "Amrita",
+            "Evan",
+            "Amirta",
+            "Runlai",
+            "Amrita Balram",
+            "shane",
+            "Runlai Wang",
+            "Yifan Chen",
+            "Evan Chen",
+            "no",
+            "Ian Dilingham"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 4,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 28,
+            "Agree strongly": 39,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 12,
+            "Typical": 33,
+            "Somewhat heavier": 23,
+            "Much heavier": 9,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.05.SP22": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 8,
+            "Good": 35,
+            "Excellent": 51,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 11,
+            "Excellent": 77,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 43,
+            "Excellent": 43,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 13,
+            "Excellent": 73,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Janet Phillp",
+            "Janet",
+            "Joshua Shin",
+            "Janet Philip",
+            "Nicholas",
+            "Josh Woo",
+            "Joshua",
+            "Janet Phillips",
+            "Juliet",
+            "Nicholas Doupas",
+            "Hami Kang",
+            "Joshua Woo",
+            "Josh",
+            "IDK",
+            "Hami",
+            "Juliet Okorie",
+            "Nicholas Doupsas",
+            "Janet Philips",
+            "Janet P",
+            "Not sure"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 9,
+            "Agree somewhat": 45,
+            "Agree strongly": 37,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 9,
+            "Typical": 42,
+            "Somewhat heavier": 34,
+            "Much heavier": 9,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP22": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 25,
+            "Excellent": 65,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 16,
+            "Excellent": 77,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 8,
+            "Good": 46,
+            "Excellent": 42,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 19,
+            "Excellent": 69,
+            "N/A": 3
+        },
+        "ta_names": [
+            "N/A",
+            "Isaac",
+            "Kia",
+            "issac choi",
+            "Issac",
+            "Nicole",
+            "Kai",
+            "Nicole Loza",
+            "Issac Choi",
+            "Kylie Yang",
+            "Nathaniel Ofosu Amoah",
+            "Kai Abiola",
+            "Nathaniel",
+            "kai",
+            "Nathaniel Amoah(?)",
+            "Isaac Choi",
+            "Kylie Ning",
+            "Kai A.",
+            "Kylie!",
+            "Nathaniel Amoah",
+            "Kai A",
+            "kylie",
+            "Kylie"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 37,
+            "Agree strongly": 51,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 8,
+            "Typical": 61,
+            "Somewhat heavier": 23,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.21.SU22": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Nicholette Stachowiak",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 4,
+            "N/A": 7
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 9,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Snighda Panda",
+            "Snigdha Panda",
+            "Snigda Panda, Isaac Choi",
+            "Isaac",
+            "Isaac Choi",
+            "Isaac Choi, Snighda Panda"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 2,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 5,
+            "Somewhat heavier": 4,
+            "Much heavier": 0,
+            "N/A": 2
+        }
+    },
+    "AS.030.106.06.SP23": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 36,
+            "Excellent": 33,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 5,
+            "Good": 25,
+            "Excellent": 45,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 11,
+            "Good": 35,
+            "Excellent": 32,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 5,
+            "Satisfactory": 12,
+            "Good": 22,
+            "Excellent": 38,
+            "N/A": 1
+        },
+        "ta_names": [
+            "kellen",
+            "Anna",
+            "Anna V",
+            "Tanisha Tarrin",
+            "Amy Son",
+            "Tanisha Tarin",
+            "Amy",
+            "Tanisha",
+            "Kellen Gibson",
+            "Amy S",
+            "Kellen",
+            "Anna V.",
+            "Anna and Kellen",
+            "Anna Vakhnovetsky",
+            "tanisha",
+            "ANNA VAKHNOVETSKY"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 7,
+            "Neither agree nor disagree": 6,
+            "Agree somewhat": 37,
+            "Agree strongly": 28,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 8,
+            "Typical": 42,
+            "Somewhat heavier": 21,
+            "Much heavier": 9,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP23": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 13,
+            "Good": 32,
+            "Excellent": 48,
+            "N/A": 2
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 10,
+            "Good": 27,
+            "Excellent": 50,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 8,
+            "Good": 49,
+            "Excellent": 34,
+            "N/A": 2
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 11,
+            "Good": 24,
+            "Excellent": 56,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Kevin Zhang",
+            "Victoria (Tuesday 1:30-4:20...IDK her last name)",
+            "Abby Swamidoss",
+            "Abby S",
+            "Talia",
+            "Isa Ramos",
+            "ISA",
+            "Talia Estrada",
+            "Isabella Ramos-Bracho",
+            "Victoria George",
+            "Isabella Ramos",
+            "NA",
+            "Isa",
+            "Kevin Zhao",
+            "Kevin",
+            "Kevin Z",
+            "Abby S!",
+            "Abby",
+            "Isabel Ramos",
+            "Victoria"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 14,
+            "Agree somewhat": 36,
+            "Agree strongly": 38,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 9,
+            "Typical": 47,
+            "Somewhat heavier": 22,
+            "Much heavier": 8,
+            "N/A": 2
+        }
+    },
+    "AS.030.106.05.SP23": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 7,
+            "Good": 41,
+            "Excellent": 46,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 25,
+            "Excellent": 61,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 39,
+            "Excellent": 43,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 20,
+            "Excellent": 62,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Clement",
+            "Chime Nwogu",
+            "Aaliyah",
+            "Jillian",
+            "Clement Adedeji",
+            "Aaliyah Gonzalez.",
+            "Clement the man",
+            "Jillian Acosta",
+            "Aaliyah Gonzalez",
+            "Clement Adediji",
+            "maahi",
+            "not sure",
+            "Jilliam Acoste",
+            "Jillian A",
+            "Maahi Amir",
+            "Jillian Acost",
+            "NA",
+            "Maahi Ameer",
+            "Aaliyah Gonzales",
+            "Chime",
+            "Maahi"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 10,
+            "Agree somewhat": 41,
+            "Agree strongly": 34,
+            "N/A": 4
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 10,
+            "Typical": 49,
+            "Somewhat heavier": 24,
+            "Much heavier": 7,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.01.SP23": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 13,
+            "Good": 33,
+            "Excellent": 52,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 8,
+            "Good": 22,
+            "Excellent": 65,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 14,
+            "Good": 37,
+            "Excellent": 45,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 15,
+            "Excellent": 77,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Molly",
+            "Zoe Readi-Brown",
+            "Steven",
+            "Ariel Li",
+            "stephen",
+            "ETHAN",
+            "Zoe Readi-Braun",
+            "Zoe and Steven",
+            "Zoe",
+            "Ethan Gale",
+            "Steven G.",
+            "Juan Garcia",
+            "Ethan",
+            "Steven Garrido Hidalgo",
+            "Steven Garrido",
+            "juan",
+            "Zoe Brown",
+            "Ariel Yu",
+            "Steven Hidalgo",
+            "Ariel",
+            "Zoe Readi Brown",
+            "Steven Garrido-Hidalgo",
+            "Zoe Read-Brown",
+            "n/a",
+            "Juan",
+            "Etan Gale"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 5,
+            "Agree somewhat": 37,
+            "Agree strongly": 53,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 12,
+            "Typical": 40,
+            "Somewhat heavier": 40,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP23": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 31,
+            "Excellent": 60,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 6,
+            "Good": 20,
+            "Excellent": 69,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 10,
+            "Good": 46,
+            "Excellent": 40,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 16,
+            "Excellent": 75,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Sreenidhi",
+            "Issac Choi",
+            "rebecca",
+            "Rebecca Zhang",
+            "Himanshi",
+            "Jessica Zhang",
+            "Himanshi Sharma",
+            "issac",
+            "Himanshe",
+            "Sachin",
+            "Isaac",
+            "Sreenidhi Sankar",
+            "Isaac Choi",
+            "Sreenidhi Sankararaman",
+            "Sachin Mehta",
+            "Rebecca"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 5,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 38,
+            "Agree strongly": 44,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 13,
+            "Typical": 37,
+            "Somewhat heavier": 40,
+            "Much heavier": 6,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP23": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 32,
+            "Excellent": 64,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 19,
+            "Excellent": 74,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 40,
+            "Excellent": 48,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 81,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Allison Gonzalez",
+            "Reyginald",
+            "Adrian Rivera",
+            "Adrien",
+            "Allison Gonzales",
+            "Reyginald Ines",
+            "REGYYYYYYYYYYYYYY",
+            "Regy",
+            "Chris  Alexander",
+            "Vivian P",
+            "Chris Alexander",
+            "Vivian Paguada",
+            "Vivian",
+            "Reyg and Adrian",
+            "Chris A",
+            "Reyg",
+            "Allison",
+            "Adrian",
+            "Reygenald Del Rosario Ines",
+            "reygenald Del Rosario",
+            "REYGENALD DEL ROSARIO INES",
+            "Allison Garcia",
+            "vivian",
+            "Reygenald",
+            "Chris",
+            "Adrian Riviera",
+            "Reygenald Ines",
+            "Vivian P."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 2,
+            "Agree somewhat": 42,
+            "Agree strongly": 47,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 6,
+            "Typical": 60,
+            "Somewhat heavier": 24,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.21.SU23": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 7,
+            "Excellent": 20,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 26,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 6,
+            "Excellent": 21,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Steven and Yaya",
+            "Steven",
+            "YaYa",
+            "Juan Garcia",
+            "Steven Hidalgo",
+            "Yaya and Steven",
+            "steven",
+            "Steven/Yaya",
+            "Steven and YaYa",
+            "STEVEN GARRIDO HIDALGO",
+            "Steven Garrido Hidalgo",
+            "Yaya",
+            "Steven, Yaya",
+            "Juan",
+            "Steven Garrido",
+            "yaya"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 9,
+            "Agree strongly": 19,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 16,
+            "Somewhat heavier": 5,
+            "Much heavier": 5,
+            "N/A": 4
+        }
+    },
+    "AS.030.106.06.SP24": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 22,
+            "Excellent": 47,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 15,
+            "Excellent": 53,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 30,
+            "Excellent": 37,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 4,
+            "Good": 9,
+            "Excellent": 56,
+            "N/A": 2
+        },
+        "ta_names": [
+            "Kevin Zhang",
+            "Kevin Z.",
+            "Ettan Gale",
+            "Abby S.",
+            "Abby Swamidoss",
+            "Abby S",
+            "Mel Martinez",
+            "kevin",
+            "Melissa Marie Martinez",
+            "Ethan Gale",
+            "Vivian P",
+            "Melissa Martinez",
+            "Mellisa Martinez",
+            "Vivian Paguada",
+            "Vivian",
+            "Mel",
+            "Ethan Gage",
+            "Kevin",
+            "Kevin Z",
+            "vivian",
+            "Abby",
+            "n/a",
+            "Kevin Zhong"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 11,
+            "Agree somewhat": 27,
+            "Agree strongly": 33,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 10,
+            "Typical": 46,
+            "Somewhat heavier": 13,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.05.SP24": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 3,
+            "Good": 25,
+            "Excellent": 69,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 10,
+            "Excellent": 83,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 40,
+            "Excellent": 52,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 7,
+            "Excellent": 81,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Himanshi",
+            "N/A",
+            "Chris A.",
+            "Iris A.",
+            "Christina Riveria",
+            "Himanshi Sharma",
+            "Chris Alexander",
+            "Jamie Young",
+            "Christina Rivera (BEST TA EVER)",
+            "Iris",
+            "Chris A",
+            "Christina",
+            "Christina Rivera",
+            "Iris Ambuehl",
+            "Grace",
+            "Chris Gomez",
+            "Easier",
+            "grace noh",
+            "Himanshi and Grace",
+            "Christina Rivera- AKA THE NICEST AND BEST CHEM LAB TA EVER",
+            "Himanchi",
+            "Chris",
+            "Iris Ambhuel",
+            "Himanhshi",
+            "Grace Noh",
+            "Christina Ramirez"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 37,
+            "Agree strongly": 49,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 12,
+            "Typical": 55,
+            "Somewhat heavier": 23,
+            "Much heavier": 6,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP24": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 5,
+            "Good": 32,
+            "Excellent": 58,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 22,
+            "Excellent": 66,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 15,
+            "Good": 43,
+            "Excellent": 37,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 9,
+            "Good": 13,
+            "Excellent": 71,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Sofia Ixotoyac",
+            "Steven",
+            "Sofia Ixcotoyac",
+            "Stanley Garrido Hidalgo",
+            "Yahaira Mejia",
+            "Aaliyah",
+            "Samreen Sheraz",
+            "Steven Garrindo",
+            "na",
+            "Sofia",
+            "Steven G.",
+            "Steven H.",
+            "YaYa",
+            "Aaliyah Gonzalez",
+            "samreen",
+            "Steven Garrido Hidalgo",
+            "SAMREEN",
+            "Aaliyah Gomez",
+            "Steven Garrido",
+            "Steven G",
+            "steven",
+            "Sofia I.",
+            "Steven Garrido Hildago",
+            "Aaliyah (not sure of her last name)",
+            "Steven Hilgado Gonzalez",
+            "Yahaira Mejia (Yaya)",
+            "Samreen",
+            "Aaliyah Gonzales",
+            "Yaya",
+            "n/a",
+            "Sofia I"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 51,
+            "Agree strongly": 35,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 17,
+            "Typical": 52,
+            "Somewhat heavier": 21,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP24": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 33,
+            "Excellent": 54,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 15,
+            "Excellent": 79,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 14,
+            "Good": 41,
+            "Excellent": 39,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 5,
+            "Good": 17,
+            "Excellent": 68,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Nick Hwang",
+            "Clement",
+            "Nick",
+            "Isa",
+            "Nick Huang",
+            "Nick Whang",
+            "Shriya",
+            "Maahi Ameer",
+            "Nicholas Hwang",
+            "Sriya",
+            "Sriya Vattipally",
+            "Clement A",
+            "isa",
+            "Maahi",
+            "Clement Adedeji",
+            "Sriya V.",
+            "Isabella Ramos",
+            "Isa Ramos"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 7,
+            "Agree somewhat": 38,
+            "Agree strongly": 44,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 10,
+            "Typical": 50,
+            "Somewhat heavier": 26,
+            "Much heavier": 7,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.02.SP24": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 7,
+            "Good": 30,
+            "Excellent": 51,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 6,
+            "Good": 14,
+            "Excellent": 65,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 12,
+            "Good": 32,
+            "Excellent": 42,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 9,
+            "Good": 20,
+            "Excellent": 47,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Patel",
+            "Zachary",
+            "Allison Gonzalez",
+            "Allison G",
+            "roshan",
+            "Andrea Vilicana",
+            "zachary",
+            "Andrea Villacana",
+            "Zachary Tung",
+            "Andrea V.",
+            "adarsh",
+            "Roshan",
+            "Allison (don't know last name)",
+            "Allison",
+            "Adarsh Patel",
+            "Andrea V",
+            "Andrea",
+            "Adarsh",
+            "andrea",
+            "Roshan Pathak"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 15,
+            "Agree somewhat": 27,
+            "Agree strongly": 36,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 4,
+            "Typical": 56,
+            "Somewhat heavier": 19,
+            "Much heavier": 3,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.01.SP24": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 31,
+            "Excellent": 61,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 18,
+            "Excellent": 74,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 9,
+            "Good": 36,
+            "Excellent": 46,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 9,
+            "Good": 24,
+            "Excellent": 56,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Sreenidhi",
+            "Victoria Georgia",
+            "Reyg Del Rosario Ines",
+            "Talia",
+            "Denion",
+            "denion",
+            "Talia Estrada",
+            "Denton",
+            "Reyg",
+            "Talio E.",
+            "Victoria George",
+            "All the TA's",
+            "Sreenidhi Sankar",
+            "Denion Prifti",
+            "Reygenald Del Rosario Ines",
+            "12",
+            "Sreendhi",
+            "Victoria Georges",
+            "Sreenidni",
+            "n/a",
+            "Sreenidhi Sankararaman",
+            "Victoria",
+            "Reygenald Ines"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 12,
+            "Agree somewhat": 41,
+            "Agree strongly": 31,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 10,
+            "Typical": 56,
+            "Somewhat heavier": 22,
+            "Much heavier": 2,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.21.SU24": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 8,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 5,
+            "Excellent": 19,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 15,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 3,
+            "Good": 6,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "ta_names": [
+            "Steven",
+            "Steven G.",
+            "Andrew",
+            "steven g",
+            "Steven Garrido Hidalgo",
+            "Steven Garrido",
+            "Steven G"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 8,
+            "Agree strongly": 12,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 11,
+            "Somewhat heavier": 3,
+            "Much heavier": 3,
+            "N/A": 7
+        }
+    },
+    "AS.030.106.06.SP25": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Steven Flynn",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 0,
+            "Satisfactory": 11,
+            "Good": 35,
+            "Excellent": 20,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 17,
+            "Good": 30,
+            "Excellent": 17,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 1,
+            "Satisfactory": 12,
+            "Good": 43,
+            "Excellent": 11,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 5,
+            "Good": 17,
+            "Excellent": 42,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Victor",
+            "Mel",
+            "Victor Ceballos",
+            "Yaharia Meijia",
+            "Yaya Meija",
+            "Aaliyah G",
+            "Aaliyah Gonzalez",
+            "Aaliyah Gonzales",
+            "Aaliyah (love her)",
+            "Yaya",
+            "Aaliyah",
+            "Melissa Martinez",
+            "Melanie",
+            "Yaya Galo",
+            "Yaya Mejia",
+            "Victor Ceball",
+            "Sadie Waldron",
+            "Sadie"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 6,
+            "Neither agree nor disagree": 9,
+            "Agree somewhat": 29,
+            "Agree strongly": 23,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 8,
+            "Typical": 40,
+            "Somewhat heavier": 17,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.02.SP25": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Steven Flynn",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 21,
+            "Good": 38,
+            "Excellent": 20,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 20,
+            "Good": 35,
+            "Excellent": 17,
+            "N/A": 5
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 13,
+            "Good": 47,
+            "Excellent": 21,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 4,
+            "Satisfactory": 7,
+            "Good": 22,
+            "Excellent": 46,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Himanshi (shes a queennnn)",
+            "Piyush rath",
+            "Himanchi Sharma",
+            "Piyush",
+            "Piyush R",
+            "Sen Wong",
+            "Talia Estrada",
+            "talia",
+            "Himanshi Sharma",
+            "Piyush Rath",
+            "Felix Titre",
+            "Felix",
+            "himanshi",
+            "Sen Wang",
+            "Talia",
+            "piyush"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 9,
+            "Neither agree nor disagree": 12,
+            "Agree somewhat": 40,
+            "Agree strongly": 18,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 9,
+            "Typical": 44,
+            "Somewhat heavier": 20,
+            "Much heavier": 6,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.01.SP25": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Steven Flynn",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 21,
+            "Excellent": 12,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 9,
+            "Good": 9,
+            "Excellent": 14,
+            "N/A": 4
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 5,
+            "Good": 17,
+            "Excellent": 11,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 3,
+            "Excellent": 32,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Vivian PaGuada",
+            "Isa",
+            "Steven",
+            "Steven &amp; Vivian",
+            "Sydney",
+            "ISA RAMOS",
+            "Sydney Quintana",
+            "Vivian Paguada",
+            "Vivian",
+            "Steven G",
+            "Isabella Ramos-Bracho, Sydney Quintana",
+            "Isa Ramos"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 4,
+            "Agree somewhat": 11,
+            "Agree strongly": 20,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 5,
+            "Typical": 20,
+            "Somewhat heavier": 8,
+            "Much heavier": 3,
+            "N/A": 1
+        }
+    },
+    "AS.030.106.05.SP25": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Steven Flynn",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 12,
+            "Good": 38,
+            "Excellent": 40,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 13,
+            "Good": 37,
+            "Excellent": 36,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 15,
+            "Good": 42,
+            "Excellent": 34,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 4,
+            "Good": 15,
+            "Excellent": 70,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Alejandra L.",
+            "N/A",
+            "Sriya Madhuri Vattipally",
+            "Sriya Vattipaly",
+            "Sriya",
+            "Sriya Vattipaldi",
+            "Reggie",
+            "Alehandra",
+            "Christina Rivera and Katrina",
+            "Katrina",
+            "Christina",
+            "Christina Rivera",
+            "Christina (Friday 1:30 pm)",
+            "Reyg",
+            "siraya",
+            "katrina",
+            "Sriya Vatipally",
+            "Reygenald Del Rosario Ines",
+            "Alejandra Lamoso",
+            "Alejandra",
+            "Alejandra lamoso",
+            "Katrina Wang",
+            "Sriya Vattipally",
+            "Kristina Wang",
+            "Sriya V.",
+            "katrina wang"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 12,
+            "Agree somewhat": 48,
+            "Agree strongly": 27,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 8,
+            "Typical": 43,
+            "Somewhat heavier": 32,
+            "Much heavier": 5,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.04.SP25": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Steven Flynn",
+        "overall_quality_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 22,
+            "Good": 38,
+            "Excellent": 27,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 4,
+            "Satisfactory": 17,
+            "Good": 35,
+            "Excellent": 28,
+            "N/A": 4
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 25,
+            "Good": 35,
+            "Excellent": 26,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 1,
+            "Weak": 5,
+            "Satisfactory": 13,
+            "Good": 10,
+            "Excellent": 59,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Iris Ambueh",
+            "CHRIS",
+            "N/A",
+            "Christopher Alexander",
+            "Beatrice",
+            "Chris A.",
+            "Chris Alexander",
+            "Iris",
+            "Chris A",
+            "Iris Ambuehl",
+            "Beatrice B",
+            "Victoria George",
+            "Malaika",
+            "Malaika Voyou",
+            "Maliaka",
+            "dont know",
+            "Beatrice Bustillo",
+            "Chris",
+            "bea",
+            "Victoria"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 3,
+            "Neither agree nor disagree": 12,
+            "Agree somewhat": 38,
+            "Agree strongly": 32,
+            "N/A": 1
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 12,
+            "Typical": 40,
+            "Somewhat heavier": 28,
+            "Much heavier": 5,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.03.SP25": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Steven Flynn",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 20,
+            "Good": 44,
+            "Excellent": 28,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 3,
+            "Satisfactory": 16,
+            "Good": 31,
+            "Excellent": 41,
+            "N/A": 4
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 13,
+            "Good": 48,
+            "Excellent": 33,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 2,
+            "Weak": 3,
+            "Satisfactory": 9,
+            "Good": 18,
+            "Excellent": 61,
+            "N/A": 3
+        },
+        "ta_names": [
+            "Lenny",
+            "Sheraz",
+            "Allison Gonzalez",
+            "Samreen, she's amazing!",
+            "Sreenidhi",
+            "Allison G",
+            "samreen shiraz",
+            "Allison Gonzales",
+            "Samreen Sheraz",
+            "Arlenni Rodriguez-Carpio",
+            "Tanisha Tarin",
+            "samreen sheraz",
+            "Arlenni",
+            "Alison Gonzalez",
+            "Allison",
+            "Lennie R",
+            "Sreenidhi Sankar",
+            "Samreeh sheraz",
+            "Lennie",
+            "Lenni",
+            "Leni",
+            "tanisha tarin",
+            "Sreendihi",
+            "LENNI",
+            "Sunita",
+            "Sreenidhi S.",
+            "Tanisha",
+            "Samreen",
+            "Sreenidni",
+            "Sreenidhi Sankararaman"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 1,
+            "Disagree somewhat": 7,
+            "Neither agree nor disagree": 15,
+            "Agree somewhat": 43,
+            "Agree strongly": 27,
+            "N/A": 3
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 6,
+            "Typical": 43,
+            "Somewhat heavier": 35,
+            "Much heavier": 11,
+            "N/A": 0
+        }
+    },
+    "AS.030.106.21.SU25": {
+        "course_name": "Introductory Chemistry Laboratory II",
+        "instructor_name": "Jamie Young",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 2,
+            "Good": 7,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 6,
+            "Excellent": 14,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 8,
+            "Excellent": 12,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 16,
+            "N/A": 1
+        },
+        "ta_names": [
+            "Josefina Aguilar-Plizska",
+            "Josefina  Aguilar-Plizska",
+            "Andrew Gonzalez",
+            "Josefina and Andrew",
+            "Josefina AP",
+            "Josefina Aguilar",
+            "Josefina"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 8,
+            "Agree strongly": 12,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 14,
+            "Somewhat heavier": 3,
+            "Much heavier": 1,
+            "N/A": 3
+        }
+    },
+    "AS.030.300.22.IN16": {
+        "course_name": "Food Fermentation: Theory & Insight",
+        "instructor_name": "BENJAMIN CRANE",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 9,
+            "Excellent": 9,
+            "N/A": 1
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 2,
+            "Good": 11,
+            "Excellent": 7,
+            "N/A": 1
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 10,
+            "Good": 9,
+            "Excellent": 2,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 22
+        },
+        "ta_names": [
+            "no TA"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 8,
+            "Agree somewhat": 3,
+            "Agree strongly": 1,
+            "N/A": 9
+        },
+        "workload_frequency": {
+            "Much lighter": 5,
+            "Somewhat lighter": 10,
+            "Typical": 5,
+            "Somewhat heavier": 0,
+            "Much heavier": 0,
+            "N/A": 2
+        }
+    },
+    "AS.020.304.01.FA20": {
+        "course_name": "Molecular Biology",
+        "instructor_name": "Robert Johnston",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 32,
+            "Good": 92,
+            "Excellent": 82,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 17,
+            "Good": 66,
+            "Excellent": 126,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 19,
+            "Good": 88,
+            "Excellent": 102,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 21,
+            "Good": 15,
+            "Excellent": 12,
+            "N/A": 157
+        },
+        "ta_names": [
+            "?",
+            "All of them",
+            "all of them",
+            "N/A Changed Throughout",
+            "N/A",
+            "There were Four TAs but I didn't really know their names",
+            "Lukas Vortman (I think?)",
+            "Christina McNerny",
+            "Lukas Voortman",
+            "Not sure, I never worked with a TA",
+            "Not sure who my TA was",
+            "I don't know who my TA is",
+            "I did not work with a TA this semester",
+            "I apologize, but I do not remember the name of any TA",
+            "None",
+            "Luke Voortman",
+            "Unknown",
+            "Jakob Voortman",
+            "Multiple TAs over the course of the semester",
+            "All TA's",
+            "Lukas",
+            "All the TA",
+            "I don't remember their names because there were so many sorry.",
+            "They varied, didn't interact with them.",
+            "NA",
+            "Do we even have TAs?",
+            "Christina McNerney",
+            "multiple",
+            "Christina Lynne McNerney",
+            "there were different TAs for each portion of the course throughout the semester, so there was not one specific TA for question 4",
+            "n/a",
+            "I was not aware that we had teaching assistants.",
+            "I didn't know there were TAs."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 5,
+            "Disagree somewhat": 20,
+            "Neither agree nor disagree": 41,
+            "Agree somewhat": 91,
+            "Agree strongly": 46,
+            "N/A": 7
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 30,
+            "Typical": 131,
+            "Somewhat heavier": 45,
+            "Much heavier": 3,
+            "N/A": 0
+        }
+    },
+    "AS.020.304.01.FA21": {
+        "course_name": "Molecular Biology",
+        "instructor_name": "Robert Johnston",
+        "overall_quality_frequency": {
+            "Poor": 2,
+            "Weak": 8,
+            "Satisfactory": 54,
+            "Good": 125,
+            "Excellent": 95,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 2,
+            "Weak": 5,
+            "Satisfactory": 39,
+            "Good": 96,
+            "Excellent": 143,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 1,
+            "Weak": 0,
+            "Satisfactory": 30,
+            "Good": 144,
+            "Excellent": 107,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 26,
+            "Good": 51,
+            "Excellent": 67,
+            "N/A": 134
+        },
+        "ta_names": [
+            "morgan",
+            "Samantha",
+            "Morgan Raun",
+            "stephanie ruiz-torres",
+            "Ayaka Inoki, Kent Kotaka, and Stephanie Ruiz-Torres",
+            "N/A",
+            "I don't remember their names",
+            "Ayaka Inoki (LA)",
+            "all LAs",
+            "All TAs",
+            "there were various TAs that helped me",
+            "Kent Koba",
+            "Stephanie Ruiz-Torres; Ayaka Inoki; Kent Kotaka",
+            "Since we don't communicate much with the TAs, this applies to all the LAs.",
+            "Stephanie Torrez",
+            "None",
+            "I don't know",
+            "n.a",
+            "-",
+            "Ayaka",
+            "Stephanie Ruiz-Torrez",
+            "Ayaka Inochi",
+            "Morgan",
+            "Kent Kotaka",
+            "No TAs",
+            "All TAs work together and we are not assigned specific TA, so I would say my comment applies to all of them.",
+            "All the learning assistants",
+            "I dont know the name",
+            "There are many and they all help everyone",
+            "Stephanie &lt;3 &lt;3 &lt;3",
+            "we did not have exact",
+            "Stephanie Ruiz-Torres",
+            "one big class with multiple learning assistants.",
+            "Morgan Ruan",
+            "Kent Kotaka, Stephanie Ruiz-Torres",
+            "Ayaka Inoki",
+            "There are several teaching assistants. In general, they were all wonderful.",
+            "kent kotaka",
+            "IDK",
+            "Morgan R.",
+            "Stephanie Ruiz",
+            "n/a",
+            "Kent",
+            "Stephanie, Ayoki, Kent",
+            "Stephanie R",
+            "Stephanie Torres",
+            "Stephanie Ruiz Torres",
+            "Stephanie"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 3,
+            "Disagree somewhat": 18,
+            "Neither agree nor disagree": 54,
+            "Agree somewhat": 127,
+            "Agree strongly": 67,
+            "N/A": 12
+        },
+        "workload_frequency": {
+            "Much lighter": 1,
+            "Somewhat lighter": 26,
+            "Typical": 187,
+            "Somewhat heavier": 58,
+            "Much heavier": 10,
+            "N/A": 0
+        }
+    },
+    "AS.020.304.01.FA22": {
+        "course_name": "Molecular Biology",
+        "instructor_name": "Robert Johnston",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 5,
+            "Satisfactory": 40,
+            "Good": 125,
+            "Excellent": 82,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 2,
+            "Satisfactory": 18,
+            "Good": 82,
+            "Excellent": 150,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 4,
+            "Satisfactory": 26,
+            "Good": 129,
+            "Excellent": 95,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 3,
+            "Weak": 5,
+            "Satisfactory": 30,
+            "Good": 41,
+            "Excellent": 22,
+            "N/A": 152
+        },
+        "ta_names": [
+            "Unsure",
+            "Clement",
+            "All of them",
+            "N/A",
+            "not sure which",
+            "There wasn't a TA that i worked with",
+            "All TAs",
+            "Clement Adedeji",
+            "Just in general LAs weren't that helpful",
+            "na",
+            "Simon Zhang",
+            "Multiple Learning Assistants",
+            "Nathaniel",
+            "all",
+            "multiple of them",
+            "none",
+            "No assigned TA/LA",
+            "not even sure who our TA is",
+            "Christina",
+            "I think we only have LA",
+            "No TA in this class",
+            "Can't remember/Multiple TAs",
+            "Amanda Ray",
+            "Amanda and someone else (not sure)",
+            "Zed",
+            "Sumayah and Cristina",
+            "N/a",
+            "NA",
+            "Learning Assistants in general",
+            "N/A (we had LAs).",
+            "course CAs",
+            "Z",
+            "NO idea",
+            "n/a",
+            "Way too many LAs",
+            "Never interacted with any of the TAs"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 4,
+            "Disagree somewhat": 20,
+            "Neither agree nor disagree": 34,
+            "Agree somewhat": 121,
+            "Agree strongly": 68,
+            "N/A": 7
+        },
+        "workload_frequency": {
+            "Much lighter": 7,
+            "Somewhat lighter": 33,
+            "Typical": 156,
+            "Somewhat heavier": 51,
+            "Much heavier": 7,
+            "N/A": 0
+        }
+    },
+    "AS.020.304.01.FA23": {
+        "course_name": "Molecular Biology",
+        "instructor_name": "Robert Johnston",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 6,
+            "Satisfactory": 53,
+            "Good": 138,
+            "Excellent": 102,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 1,
+            "Weak": 3,
+            "Satisfactory": 43,
+            "Good": 100,
+            "Excellent": 143,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 2,
+            "Satisfactory": 43,
+            "Good": 146,
+            "Excellent": 100,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 5,
+            "Weak": 2,
+            "Satisfactory": 28,
+            "Good": 38,
+            "Excellent": 38,
+            "N/A": 179
+        },
+        "ta_names": [
+            "All",
+            "Alek Jorge",
+            "All of them",
+            "We were not given specific names, but I am evaluating the TAs as a group",
+            "I don't know, they just helped me during the class.",
+            "N/A",
+            "Do not remember their names. There were a lot.",
+            "LA: Rawan El Shobaky!",
+            "Don't know the name",
+            "Haven't interacted with any particular TA, but I do know that they've been very helpful with grading, support, and the like!",
+            "na",
+            "Austin",
+            "None",
+            "Alek Gorge",
+            "-",
+            "Jordan",
+            "only saw them on exams",
+            "Only saw the TAs during exams, but all of the LAs were excellent!",
+            "all of them are helpful with answering questions in class",
+            "only LAs",
+            "Not sure her name (the girl with black hair)",
+            "Rowan",
+            "Rawan",
+            "Multiple",
+            "Austin Sponaugle",
+            "All of the TAs in general",
+            "Muhammad Bennani",
+            "N/a",
+            "NA",
+            "Moh",
+            "Not a specific one, but all the LAs are great.",
+            "multiple",
+            "Learning assistants, collectively",
+            "The LAs",
+            "there's no ta's",
+            "Lorna Mitchison-Field",
+            "Not really need TA",
+            "n/a",
+            "I don't know any of my TA's",
+            "Learning Assistants",
+            "There were several, and I don't know their exact names."
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 2,
+            "Disagree somewhat": 15,
+            "Neither agree nor disagree": 50,
+            "Agree somewhat": 126,
+            "Agree strongly": 81,
+            "N/A": 14
+        },
+        "workload_frequency": {
+            "Much lighter": 2,
+            "Somewhat lighter": 45,
+            "Typical": 194,
+            "Somewhat heavier": 43,
+            "Much heavier": 3,
+            "N/A": 2
+        }
+    },
+    "AS.020.304.01.FA24": {
+        "course_name": "Molecular Biology",
+        "instructor_name": "Nichole Broderick",
+        "overall_quality_frequency": {
+            "Poor": 3,
+            "Weak": 11,
+            "Satisfactory": 64,
+            "Good": 143,
+            "Excellent": 97,
+            "N/A": 3
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 16,
+            "Weak": 47,
+            "Satisfactory": 99,
+            "Good": 103,
+            "Excellent": 52,
+            "N/A": 2
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 2,
+            "Weak": 4,
+            "Satisfactory": 44,
+            "Good": 160,
+            "Excellent": 109,
+            "N/A": 1
+        },
+        "ta_frequency": {
+            "Poor": 4,
+            "Weak": 8,
+            "Satisfactory": 43,
+            "Good": 68,
+            "Excellent": 64,
+            "N/A": 132
+        },
+        "ta_names": [
+            "Nonee",
+            "Not sure, they all helped",
+            "All of them",
+            "N/A",
+            "LA's in Class",
+            "Benjamin Soto",
+            "N/A, never interacted",
+            "Jennifer Izaguirre Martinez",
+            "Bejamin Soto",
+            "Jonathan",
+            "na",
+            "Jen",
+            "n.a",
+            "Benjy",
+            "The head TA",
+            "benjamin soto",
+            "Benjiamin",
+            "Benji",
+            "Little to no interactions with the TA's",
+            "LAs",
+            "There were LAs",
+            "Benji?",
+            "Jennifer Martinez",
+            "I don't remember their name.",
+            "I have no idea TA office hours were always when I had class",
+            "Multiple",
+            "no",
+            "all TAs and LAs",
+            "Multiple LAs and TAs - don't know all of their names, but know that Benji has been especially helpful",
+            "Benjamin",
+            "NA",
+            "All of them.",
+            "benji",
+            "Hanah Amirkhanian",
+            "multiple",
+            "Kaven Konda",
+            "dont know any by name",
+            "Marie Pearce",
+            "Jennifer",
+            "didn't submit one",
+            "Benjy is the sweetest and very helpful during worksheet time!",
+            "n/a",
+            "Benji Soto",
+            "Not sure"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 7,
+            "Disagree somewhat": 34,
+            "Neither agree nor disagree": 72,
+            "Agree somewhat": 131,
+            "Agree strongly": 62,
+            "N/A": 10
+        },
+        "workload_frequency": {
+            "Much lighter": 3,
+            "Somewhat lighter": 40,
+            "Typical": 205,
+            "Somewhat heavier": 53,
+            "Much heavier": 12,
+            "N/A": 1
+        }
+    },
+    "AS.040.307.01.SP16": {
+        "course_name": "Advanced Latin Prose",
+        "instructor_name": "Shane Butler",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 2,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 6
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 1,
+            "Agree somewhat": 2,
+            "Agree strongly": 2,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 1,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "AS.040.307.01.SP17": {
+        "course_name": "Advanced Latin Prose",
+        "instructor_name": "Shane Butler",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 11
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 2,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 2,
+            "Agree strongly": 7,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 2,
+            "Typical": 4,
+            "Somewhat heavier": 5,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.040.307.01.FA18": {
+        "course_name": "Advanced Latin Prose",
+        "instructor_name": "Shane Butler",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 7
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 2,
+            "Agree strongly": 3,
+            "N/A": 2
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 1,
+            "Typical": 3,
+            "Somewhat heavier": 2,
+            "Much heavier": 1,
+            "N/A": 0
+        }
+    },
+    "AS.040.307.01.FA19": {
+        "course_name": "Advanced Latin Prose",
+        "instructor_name": "Ryan Warwick",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 1,
+            "Satisfactory": 1,
+            "Good": 1,
+            "Excellent": 2,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 3,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 5
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 1,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 1,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 4,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.040.307.01.FA21": {
+        "course_name": "Advanced Latin Prose",
+        "instructor_name": "Karen ni Mheallaigh",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 3,
+            "Excellent": 7,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 2,
+            "Excellent": 8,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 10
+        },
+        "ta_names": [
+            "None",
+            "N/A",
+            "n/a"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 2,
+            "Agree strongly": 8,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 2,
+            "Somewhat heavier": 4,
+            "Much heavier": 4,
+            "N/A": 0
+        }
+    },
+    "AS.040.307.01.FA22": {
+        "course_name": "Advanced Latin Prose",
+        "instructor_name": "Yanneck Wiegers",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 6,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 5,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 6
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 1,
+            "Agree strongly": 5,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 5,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
+    },
+    "AS.040.307.01.FA23": {
+        "course_name": "Advanced Latin Prose",
+        "instructor_name": "Shane Butler",
+        "overall_quality_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 1,
+            "Excellent": 4,
+            "N/A": 0
+        },
+        "instructor_effectiveness_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "intellectual_challenge_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 4,
+            "Excellent": 1,
+            "N/A": 0
+        },
+        "ta_frequency": {
+            "Poor": 0,
+            "Weak": 0,
+            "Satisfactory": 0,
+            "Good": 0,
+            "Excellent": 0,
+            "N/A": 5
+        },
+        "ta_names": [
+            "N/A"
+        ],
+        "feedback_frequency": {
+            "Disagree strongly": 0,
+            "Disagree somewhat": 0,
+            "Neither agree nor disagree": 0,
+            "Agree somewhat": 2,
+            "Agree strongly": 3,
+            "N/A": 0
+        },
+        "workload_frequency": {
+            "Much lighter": 0,
+            "Somewhat lighter": 0,
+            "Typical": 4,
+            "Somewhat heavier": 1,
+            "Much heavier": 0,
+            "N/A": 0
+        }
     }
 }

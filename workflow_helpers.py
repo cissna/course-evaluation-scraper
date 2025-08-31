@@ -1,6 +1,6 @@
 from data_manager import load_json_file, save_json_file
 from period_logic import find_oldest_year_from_keys, find_latest_year_from_keys
-from period_logic import get_year_from_period_string, get_current_period, is_grace_period_over, get_period_from_instance_key
+from period_logic import get_year_from_period_string, get_current_period, is_grace_period_over, get_period_from_instance_key, is_course_up_to_date
 from config import METADATA_FILE, DATA_FILE
 from scraping_logic import get_authenticated_session
 from scrape_search import get_evaluation_report_links
@@ -225,3 +225,35 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         'metadata': course_metadata,
         'error': f"Scraping halted for {course_code} due to a failed report." if batch_failed else None
     }
+
+def check_course_status(course_code: str) -> tuple:
+    """
+    Checks if a course is up-to-date and returns its data and metadata.
+    Returns (None, None) if the course is up-to-date and doesn't need scraping.
+    Returns (data_dict, metadata_dict) if the course needs scraping.
+    """
+    metadata = load_json_file(METADATA_FILE)
+    data = load_json_file(DATA_FILE)
+    
+    # Check if the last scraping attempt failed for this course
+    if course_code in metadata and metadata[course_code].get('last_period_failed', False):
+        print(f"Course {course_code} has last_period_failed set to true. Skipping.")
+        return None, None
+    
+    # Check if course is up-to-date
+    if course_code in metadata and is_course_up_to_date(metadata[course_code].get('last_period_gathered')):
+        print(f"Course {course_code} is up-to-date. Skipping scraping.")
+        return None, None
+    
+    # Course needs scraping - return data and metadata for processing
+    course_metadata = metadata.get(course_code, {
+        "last_period_gathered": None,
+        "last_period_failed": False,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": None
+    })
+    
+    relevant_keys = course_metadata.get('relevant_periods', [])
+    course_data = {key: data[key] for key in relevant_keys if key in data}
+    
+    return course_data, course_metadata

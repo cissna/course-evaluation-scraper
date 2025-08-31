@@ -5,6 +5,7 @@ import requests
 from config import TARGET_DEPARTMENT, COURSE_NUMBER_START, COURSE_NUMBER_END
 
 if __name__ == "__main__":
+    # Get initial authenticated session
     try:
         session = get_authenticated_session()
     except requests.exceptions.RequestException as e:
@@ -12,8 +13,7 @@ if __name__ == "__main__":
         exit()
 
     for course_number in range(COURSE_NUMBER_START, COURSE_NUMBER_END + 1):
-        if course_number != 101:
-            continue
+        # Remove the debug filter - process all courses in the range
         formatted_course_number = f"{course_number:03d}"
         target_course = f"{TARGET_DEPARTMENT}.{formatted_course_number}"
         
@@ -22,7 +22,8 @@ if __name__ == "__main__":
         retries = 1 # Allow one retry
         while retries >= 0:
             try:
-                run_scraper_workflow(target_course)
+                # Pass the session to the workflow function
+                run_scraper_workflow(target_course, session)
                 print(f"--- Finished processing: {target_course} ---\n")
                 break # Success, exit retry loop
             except SessionExpiredException:
