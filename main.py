@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     if SCRAPE_BY_DEPARTMENT:
         for dept_prefix in DEPARTMENT_CODES:
-            if DEPARTMENT_CODES.index(dept_prefix) <= DEPARTMENT_CODES.index('AS.173'):
+            if DEPARTMENT_CODES.index(dept_prefix) <= DEPARTMENT_CODES.index('AS.180'):
                 continue
             start = time.time()  # start timer for entire department prefix
 
