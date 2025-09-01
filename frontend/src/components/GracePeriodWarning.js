@@ -21,7 +21,20 @@ const GracePeriodWarning = ({ courseCode, gracePeriodInfo, isDismissed, onRechec
         <div className="grace-period-warning">
             <div className="warning-content">
                 <span className="warning-text">
-                    {gracePeriodInfo.current_period} period might have data but hasn't been checked since {gracePeriodInfo.last_scrape_date}, would you like to recheck?
+                    {Array.isArray(gracePeriodInfo.future_course_periods) && gracePeriodInfo.future_course_periods.length > 0
+                        ? (
+                            <>
+                                No evaluation data found for the most recent period. <br/>
+                                However, the course is listed on SIS for {gracePeriodInfo.future_course_periods.join(', ')}.<br/>
+                                No evaluation data is available yet. Would you like to recheck?
+                            </>
+                        )
+                        : (
+                            <>
+                                {gracePeriodInfo.current_period} period might have data but hasn't been checked since {gracePeriodInfo.last_scrape_date}, would you like to recheck?
+                            </>
+                        )
+                    }
                 </span>
                 <button 
                     className="recheck-button" 

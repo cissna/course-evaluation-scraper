@@ -1,8 +1,11 @@
-# check_course.py
-
+from dotenv import load_dotenv
 import requests
 import argparse
 from typing import List
+
+
+load_dotenv()
+# check_course.py
 
 # Base URL for the JHU SIS API
 BASE_URL = "https://sis.jhu.edu/api"
@@ -58,42 +61,33 @@ def _fetch_course_data(api_key: str, course_number: str, terms_to_check: List[st
     return response.json()
 
 # --- Public Function ---
-def find_course_offerings(api_key: str, course_number: str, start_term: str, limit: int = 4) -> List[str]:
+def find_course_offerings(api_key: str, course_number: str, start_term: str, limit: int = 4):
     """
     Checks the JHU SIS API to see which future terms a course is offered in.
 
-    This function is designed to be imported into other scripts. It performs the API
-    calls and returns a simple list of terms.
-
-    Args:
-        api_key (str): Your JHU SIS API key.
-        course_number (str): The course to search for (e.g., 'EN.601.479').
-        start_term (str): The term to start searching from (e.g., 'SU25').
-        limit (int, optional): The total number of terms to check, including the
-                             start term. Defaults to 4.
-
     Returns:
-        List[str]: A chronologically sorted list of full term names where the
-                   course is offered. Returns an empty list if not found.
-    
-    Raises:
-        ValueError: If the term format is invalid or the start term is not found.
-        requests.exceptions.RequestException: For network or API errors.
+        dict: {
+            "status": "success"|"api_failed"|"invalid_term",
+            "offerings": List[str] (may be empty),
+            "error": Optional error message
+        }
     """
-    start_term_full = _convert_term_format(start_term)
-    target_terms = _get_target_terms(api_key, start_term_full, limit)
-    offerings = _fetch_course_data(api_key, course_number, target_terms)
+    try:
+        start_term_full = _convert_term_format(start_term)
+        target_terms = _get_target_terms(api_key, start_term_full, limit)
+        offerings = _fetch_course_data(api_key, course_number, target_terms)
 
-    if not offerings:
-        return []
+        if not offerings:
+            return {"status": "success", "offerings": [], "error": None}
 
-    # Use a set for efficient collection of unique term names
-    found_terms_set = {offering['Term'] for offering in offerings}
-    
-    # Filter the original chronological list to preserve the correct order
-    chronological_found_terms = [term for term in target_terms if term in found_terms_set]
-    
-    return chronological_found_terms
+        found_terms_set = {offering['Term'] for offering in offerings}
+        chronological_found_terms = [term for term in target_terms if term in found_terms_set]
+
+        return {"status": "success", "offerings": chronological_found_terms, "error": None}
+    except ValueError as ve:
+        return {"status": "invalid_term", "offerings": [], "error": str(ve)}
+    except requests.exceptions.RequestException as re:
+        return {"status": "api_failed", "offerings": [], "error": str(re)}
 
 # --- Example usage when run as a standalone script ---
 def main():

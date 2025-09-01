@@ -285,7 +285,8 @@ def get_course_grace_status(course_code: str) -> dict:
     return {
         "needs_warning": True,
         "current_period": current_period,
-        "last_scrape_date": last_scrape_during_grace
+        "last_scrape_date": last_scrape_during_grace,
+        "future_course_periods": course_metadata.get('future_course_periods')
     }
 
 def find_courses_by_name(search_query: str) -> list:

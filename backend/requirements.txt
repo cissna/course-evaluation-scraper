@@ -1,6 +1,2 @@
-Flask
-Flask-Cors
 requests
-beautifulsoup4
-python-dateutil
-gunicorn
+python-dotenv

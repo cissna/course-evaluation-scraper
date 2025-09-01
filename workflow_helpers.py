@@ -7,6 +7,7 @@ from scrape_search import get_evaluation_report_links
 from scrape_link import scrape_evaluation_data
 import requests
 from datetime import date
+from check_course import find_course_offerings
 
 # Helper function to sort links chronologically before scraping
 def get_sort_key(item):
@@ -75,8 +76,11 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
 
     if course_code not in metadata:
         metadata[course_code] = {
-            "last_period_gathered": None, "last_period_failed": False,
-            "relevant_periods": [], "last_scrape_during_grace_period": None
+            "last_period_gathered": None,
+            "last_period_failed": False,
+            "relevant_periods": [],
+            "last_scrape_during_grace_period": None,
+            "future_course_periods": None  # SIS API future offerings info
         }
     course_metadata = metadata[course_code]
 
@@ -206,12 +210,52 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         if current_period_data_found:
             print(f"Found data for current period {current_period}. Clearing grace period flag.")
             course_metadata['last_scrape_during_grace_period'] = None
+            course_metadata['future_course_periods'] = None
         elif is_grace_period_over(current_period):
             print("No current period data found, but grace period is over. Marking as up-to-date.")
             course_metadata['last_scrape_during_grace_period'] = None
+            # Do not re-check SIS API if we've already checked and have 'future_course_periods'
         else:
-            print("No current period data found and still in grace period. Marking for re-check.")
-            course_metadata['last_scrape_during_grace_period'] = date.today().isoformat()
+            # Determine if SIS API check is needed
+            should_check_sis = (
+                course_metadata.get('future_course_periods') is None or
+                (
+                    course_metadata.get('future_course_periods') == [] and
+                    course_metadata.get('last_scrape_during_grace_period') is not None
+                )
+            )
+            if should_check_sis:
+                print("No current period data and still in grace period. Checking SIS API for future courses...")
+                import os
+                sis_api_key = os.environ.get("SIS_API_KEY")
+                check_result = find_course_offerings(
+                    api_key=sis_api_key,
+                    course_number=course_code,
+                    start_term=current_period,
+                    limit=6
+                )
+                now_iso = date.today().isoformat()
+                if check_result["status"] == "api_failed":
+                    print(f"SIS API failed: {check_result['error']}")
+                    course_metadata['future_course_periods'] = []
+                    course_metadata['last_scrape_during_grace_period'] = now_iso
+                elif check_result["status"] == "success":
+                    periods = check_result["offerings"]
+                    if periods:
+                        print(f"SIS API found future offerings: {periods}")
+                        course_metadata['future_course_periods'] = periods
+                        course_metadata['last_scrape_during_grace_period'] = now_iso
+                    else:
+                        print("SIS API found no future offerings. Marking course as fully scraped.")
+                        course_metadata['future_course_periods'] = []
+                        course_metadata['last_scrape_during_grace_period'] = None
+                else: # invalid_term or other error
+                    print(f"SIS API term invalid: {check_result['error']}")
+                    course_metadata['future_course_periods'] = []
+                    course_metadata['last_scrape_during_grace_period'] = now_iso
+            else:
+                print("No current period data and still in grace period, but SIS API already checked. Marking for re-check.")
+                course_metadata['last_scrape_during_grace_period'] = date.today().isoformat()
     
     save_json_file(METADATA_FILE, metadata)
 
@@ -254,7 +298,8 @@ def check_course_status(course_code: str) -> tuple:
         "last_period_gathered": None,
         "last_period_failed": False,
         "relevant_periods": [],
-        "last_scrape_during_grace_period": None
+        "last_scrape_during_grace_period": None,
+        "future_course_periods": None
     })
     
     relevant_keys = course_metadata.get('relevant_periods', [])
