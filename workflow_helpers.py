@@ -164,7 +164,8 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
     new_data_found = False
     new_data_in_batch = {}
     new_relevant_periods = []
-    
+    failed_scrapes = {}
+
     # Sort links chronologically to process older data first
     sorted_links = sorted(links_to_process.items(), key=get_sort_key)
 
@@ -172,8 +173,14 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         if instance_key in data:
             continue # Skip data we already have
 
-        # print(f"Scraping new report: {instance_key}")  # prints every specific course code, kinda a lot...
         scraped_data = scrape_evaluation_data(link_url, session)
+
+        # Check for explicit scrape failure (e.g., missing overall_quality_frequency)
+        if scraped_data and scraped_data.get("scrape_failed", False):
+            # Collect all failed scrapes separately for failed.json
+            failed_scrapes[instance_key] = scraped_data
+            continue  # Skip normal handling; don't include in metadata or data.json
+
         if scraped_data:
             new_data_in_batch[instance_key] = scraped_data
             if instance_key not in course_metadata['relevant_periods']:
@@ -185,6 +192,14 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
             break # Exit the scraping loop immediately
 
     # --- PHASE 3: SAVING & FINALIZATION ---
+
+    # Handle saving failed scrapes to failed.json if any detected
+    if failed_scrapes:
+        from data_manager import load_json_file, save_json_file
+        failed_data = load_json_file("failed.json")
+        failed_data.update(failed_scrapes)
+        save_json_file("failed.json", failed_data)
+
     if not batch_failed and new_data_in_batch:
         print("Batch successful. Saving all new data...")
         data.update(new_data_in_batch)

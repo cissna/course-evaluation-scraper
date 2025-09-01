@@ -1,0 +1,34 @@
+{
+    "AS.080.312.02.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.601.477.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.601.665.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.601.675.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.601.682.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.601.667.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.601.647.02.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.601.647.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    }
+}
