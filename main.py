@@ -3,7 +3,7 @@ from scraping_logic import get_authenticated_session
 from exceptions import SessionExpiredException
 from requests.exceptions import RequestException
 import time
-from data_sources import DEPARTMENT_CODES, COURSE_CODES
+from random_unused.data_sources import DEPARTMENT_CODES, COURSE_CODES
 
 
 SCRAPE_BY_DEPARTMENT = False
