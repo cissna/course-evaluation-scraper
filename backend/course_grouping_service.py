@@ -36,14 +36,18 @@ class CourseGroupingService:
             return equivalents
         try:
             levels = pattern_info.get("equivalent_levels", [])
-            # Find course number's level; assume last digit is hundreds (e.g. 485 -> 400)
+            # Find course number's level; assume last digits are hundreds (e.g. 485 -> 400)
             try:
                 course_level = int(number)
             except Exception:
                 return equivalents
+            this_level = course_level // 100 * 100
+            if this_level not in levels:
+                # Only group if this course is one of those levels
+                return []
             # Generate codes for all levels in equivalent_levels
             for lvl in levels:
-                equiv_number = f"{lvl + int(number)%100:03d}"
+                equiv_number = f"{lvl + course_level % 100:03d}"
                 equivalents.append(f"{dept}.{equiv_number}")
         except Exception:
             pass
