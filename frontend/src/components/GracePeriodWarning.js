@@ -26,7 +26,7 @@ const GracePeriodWarning = ({ courseCode, gracePeriodInfo, isDismissed, onRechec
                             <>
                                 No evaluation data found for the most recent period. <br/>
                                 However, the course is listed on SIS for {gracePeriodInfo.future_course_periods.join(', ')}.<br/>
-                                No evaluation data is available yet. Would you like to recheck?
+                                That evaluation data is not available yet. Would you like to recheck?
                             </>
                         )
                         : (

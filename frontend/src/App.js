@@ -351,6 +351,37 @@ function App() {
           isDismissed={dismissedGraceWarnings.has(courseCode)}
           onRecheck={handleRecheck}
         />
+        {/* Diagnostic logging for debug */}
+        {(() => {
+          console.log('DEBUG SIS FALLBACK MSG:');
+          console.log('gracePeriodInfo:', gracePeriodInfo);
+          console.log('gracePeriodInfo.needs_warning:', gracePeriodInfo?.needs_warning);
+          console.log('gracePeriodInfo.future_course_periods:', gracePeriodInfo?.future_course_periods);
+          console.log('analysisResult:', analysisResult);
+          return null;
+        })()}
+        {/* SIS periods soft text */}
+        {(
+          !gracePeriodInfo?.needs_warning &&
+          Array.isArray(analysisResult?.future_course_periods) &&
+          analysisResult.future_course_periods.length > 0 &&
+          // No real course data keys in analysisResult (likely only metadata)
+          Object.keys(analysisResult).filter(
+            key => typeof key === 'string' && key.match(/^\w+\.\d+\.\d+/)
+          ).length === 0
+        ) && (
+          <div
+            style={{
+              color: "#888",
+              fontSize: "1rem",
+              textAlign: "center",
+              margin: "1em 0"
+            }}
+          >
+            The course is listed on SIS for {analysisResult.future_course_periods.join(', ')},<br/>
+            but that evaluation data is not available yet.
+          </div>
+        )}
         <div className="controls">
           <button onClick={handleTimeFilterToggle}>
             {showLast3YearsActive ? 'Show All Time' : 'Show Last 3 Years'}
@@ -379,6 +410,7 @@ function App() {
               relevant_periods,
               last_scrape_during_grace_period,
               grouping_metadata,
+              future_course_periods,
               ...dataWithoutMetadata
             } = analysisResult;
             return dataWithoutMetadata;
