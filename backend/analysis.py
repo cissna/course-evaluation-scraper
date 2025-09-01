@@ -1,6 +1,7 @@
 import re
 import json
 from backend.course_grouping_service import CourseGroupingService
+from scraper_service import get_course_data_and_update_cache
 
 # --- Mappings for Statistical Calculations ---
 
@@ -408,7 +409,6 @@ def process_analysis_request(
         for course_code in grouping_metadata["grouped_courses"]:
             if course_code != primary_course_code:  # Don't duplicate primary course
                 try:
-                    from scraper_service import get_course_data_and_update_cache
                     grouped_data = get_course_data_and_update_cache(course_code)
                     if grouped_data and isinstance(grouped_data, dict):
                         # Add course code prefix to instance keys to avoid conflicts

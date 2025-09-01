@@ -173,6 +173,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         if instance_key in data:
             continue # Skip data we already have
 
+        # print(f"Scraping new report: {instance_key}")  # prints every specific course code, kinda a lot...
         scraped_data = scrape_evaluation_data(link_url, session)
 
         # Check for explicit scrape failure (e.g., missing overall_quality_frequency)
@@ -195,7 +196,6 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
 
     # Handle saving failed scrapes to failed.json if any detected
     if failed_scrapes:
-        from data_manager import load_json_file, save_json_file
         failed_data = load_json_file("failed.json")
         failed_data.update(failed_scrapes)
         save_json_file("failed.json", failed_data)
