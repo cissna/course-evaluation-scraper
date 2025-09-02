@@ -4,9 +4,12 @@ from flask import request
 from scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
 from similarity import find_instructor_variants
 from analysis import process_analysis_request
+from backend.course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
 CORS(app)  # Enable Cross-Origin Resource Sharing
+
+grouping_service = CourseGroupingService()
 
 @app.route('/')
 def home():
@@ -114,9 +117,16 @@ def analyze_course_data(course_code):
 
         # First, get all the data for the course (from cache or by scraping)
         all_course_data = get_course_data_and_update_cache(course_code)
+
+        # If no data, check for groupings before returning an error
         if not all_course_data:
-            return jsonify({"error": "No data found for this course."}), 404
-        # Check if the response contains an error
+            group_info = grouping_service.get_group_info(course_code)
+            if not group_info or not group_info.get("courses"):
+                return jsonify({"error": "No data found for this course."}), 404
+            # If grouped, proceed with an empty dict; analysis module will fetch grouped data
+            all_course_data = {}
+
+        # Check if the response contains an error (e.g., from scraping)
         if isinstance(all_course_data, dict) and "error" in all_course_data:
             return jsonify(all_course_data), 500
 
