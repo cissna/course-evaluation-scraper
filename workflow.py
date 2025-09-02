@@ -16,7 +16,7 @@ def run_scraper_workflow(course_code: str, session: requests.Session = None):
     data, course_metadata = check_course_status(course_code)
     if data is None and course_metadata is None:
         # Course is up-to-date, skip workflow
-        return
+        return False
 
     # Use provided session or get a new one
     if session is None:
@@ -30,7 +30,7 @@ def run_scraper_workflow(course_code: str, session: requests.Session = None):
                 metadata[course_code] = {"last_period_gathered": None, "last_period_failed": False, "relevant_periods": [], "last_scrape_during_grace_period": None}
             metadata[course_code]['last_period_failed'] = True
             save_json_file(METADATA_FILE, metadata)
-            return
+            return False
 
     # Use the shared core scraping function with grace period logic (skip_grace_period_logic=False)
     # This means it will behave like normal web app scraping, not like force recheck
@@ -40,3 +40,4 @@ def run_scraper_workflow(course_code: str, session: requests.Session = None):
         print(f"--- CRITICAL ERROR in workflow for {course_code}: {result['error']} ---")
     else:
         print(f"--- Workflow for {course_code} complete. ---")
+        return True
