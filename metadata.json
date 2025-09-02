@@ -69455,16 +69455,6 @@
         ],
         "last_scrape_during_grace_period": "2025-09-01"
     },
-    "EN.601.477": {
-        "last_period_gathered": "SU25",
-        "last_period_failed": false,
-        "relevant_periods": [
-            "EN.601.477.01.FA17",
-            "EN.601.477.01.FA20",
-            "EN.601.477.01.FA22"
-        ],
-        "last_scrape_during_grace_period": "2025-09-01"
-    },
     "EN.601.472": {
         "last_period_gathered": "SU25",
         "last_period_failed": false,
@@ -69924,5 +69914,47 @@
             "EN.601.104.88.SU25"
         ],
         "last_scrape_during_grace_period": null
+    },
+    "EN.601.477": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.601.468": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.468.01.FA17",
+            "EN.601.468.01.FA20",
+            "EN.601.468.01.FA21",
+            "EN.601.468.01.FA22"
+        ],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.601.668": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.668.01.FA17",
+            "EN.601.668.01.FA18",
+            "EN.601.668.02.FA22",
+            "EN.601.668.01.FA23",
+            "EN.601.668.02.FA23",
+            "EN.601.668.01.FA24",
+            "EN.601.668.02.FA24"
+        ],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.553.439": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.553.439.01.SP18",
+            "EN.553.439.01.SP20",
+            "EN.553.439.01.SP21",
+            "EN.553.439.01.SP22"
+        ],
+        "last_scrape_during_grace_period": "2025-09-01"
     }
 }
