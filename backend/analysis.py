@@ -66,7 +66,7 @@ def calculate_weighted_average(frequency_dict: dict, value_mapping: dict) -> flo
     return round(weighted_sum / total_responses, 2)
 
 
-def extract_course_metadata(course_names: dict, course_code: str, metadata_from_file: dict, primary_course_code: str = None) -> dict:
+def extract_course_metadata(course_names: dict, course_code: str, metadata_from_file: dict, primary_course_code: str = None, primary_course_has_no_data: bool = False) -> dict:
     """
     Extract course name metadata from course instances and merge with existing metadata.
 
@@ -75,6 +75,7 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
         course_code (str): The course code (e.g., "AS.171.105").
         metadata_from_file (dict): The metadata loaded from metadata.json.
         primary_course_code (str, optional): The primary course code to filter for grouping.
+        primary_course_has_no_data (bool): Flag indicating if the primary course had no data.
 
     Returns:
         dict: Contains 'current_name', 'former_names', and merged fields from metadata_from_file.
@@ -83,7 +84,7 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
     result_metadata = {'current_name': None, 'former_names': []}
 
     filtered_course_names = course_names
-    if primary_course_code:
+    if primary_course_code and not primary_course_has_no_data:
         # Only include instances matching the base code, e.g., "AS.050.375" from "AS.050.375.01.FA23"
         def matches_primary(instance_key):
             match = re.match(r'([A-Z]+\.\d+\.\d+)', instance_key)
@@ -324,7 +325,7 @@ def process_analysis_request(
     all_course_data: dict,
     params: dict,
     primary_course_code: str = None,
-    skip_grouping: bool = False
+    skip_grouping: bool = False,
 ) -> dict:
     """
     Main function to process an analysis request.
@@ -401,6 +402,7 @@ def process_analysis_request(
             }
 
     # 2. Collect all data including grouped courses if not skipping grouping
+    primary_course_has_no_data = not all_course_data
     all_instances = {}
     all_instances.update(all_course_data)
     
@@ -442,7 +444,7 @@ def process_analysis_request(
 
     # Find the most recent course name and collect former names, merging with metadata from file
     course_metadata = extract_course_metadata(
-        course_names, course_code, metadata_from_file, primary_course_code=primary_course_code
+        course_names, course_code, metadata_from_file, primary_course_code=primary_course_code, primary_course_has_no_data=primary_course_has_no_data
     )
 
     # 5. Separate the filtered data into groups
