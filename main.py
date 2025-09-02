@@ -47,10 +47,26 @@ if __name__ == "__main__":
         if scraped:
             scraped_count += 1
 
+        # Log progress every 10% of the 250 scrapes
+        if scraped_count > 0 and scraped_count % 25 == 0:
+            current_elapsed = time.time() - batch_start
+            percentage = (scraped_count % 250) / 250 * 100
+            if percentage == 0 and scraped_count > 0: # For the 250th scrape, it should be 100%
+                percentage = 100
+            
+            if percentage == 50:
+                print(f"\n--- Halfway through the current batch ({scraped_count} scrapes). Elapsed: {current_elapsed:.2f} seconds ---")
+            elif percentage == 100:
+                # This will be handled by the 250-scrape pause logic below
+                pass
+            else:
+                print(f"\n--- {percentage:.0f}% through current batch ({scraped_count % 250} scrapes). Elapsed: {current_elapsed:.2f} seconds ---")
+
+
         if scraped_count > 0 and scraped_count % 250 == 0:
             batch_elapsed = time.time() - batch_start
             print("\n" + "*"*60)
-            print(f"*** {scraped_count} scrapes + an additional {attempted_count - scraped_count} attempted scrapes. Elapsed Time (this batch): {batch_elapsed:.2f} seconds ***")
+            print(f"*** Processed {scraped_count} scrapes + an additional {attempted_count - scraped_count} attempted scrapes. Elapsed Time (this batch): {batch_elapsed:.2f} seconds ***")
             print(f"{'*'*60}\n")
             print("\n" + "#"*60)
             print("# Pausing for 1 minute. You may safely keyboard interrupt now if desired.")
