@@ -69457,7 +69457,7 @@
     },
     "EN.601.477": {
         "last_period_gathered": "SU25",
-    "last_period_failed": false,
+        "last_period_failed": false,
         "relevant_periods": [
             "EN.601.477.01.FA17",
             "EN.601.477.01.FA20",
@@ -69810,5 +69810,119 @@
             "EN.601.686.01.FA24"
         ],
         "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.601.498": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.601.698": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.601.476": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.476.01.SP19",
+            "EN.601.476.01.SP21"
+        ],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.601.676": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "AS.200.332": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "AS.200.332.01.SP19",
+            "AS.200.332.01.SP21",
+            "AS.200.332.01.SP23",
+            "AS.200.332.01.SP24",
+            "AS.200.332.01.SP25"
+        ],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.600.104": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.600.104.02.FA15",
+            "EN.600.104.01.FA15",
+            "EN.600.104.01.SP16",
+            "EN.600.104.01.FA16",
+            "EN.600.104.01.SP17"
+        ],
+        "last_scrape_during_grace_period": "2025-09-01"
+    },
+    "EN.601.104": {
+        "last_period_gathered": "SU25",
+        "last_period_failed": false,
+        "relevant_periods": [
+            "EN.601.104.02.FA17",
+            "EN.601.104.01.FA17",
+            "EN.601.104.02.SP18",
+            "EN.601.104.01.SP18",
+            "EN.601.104.02.FA18",
+            "EN.601.104.01.FA18",
+            "EN.601.104.02.SP19",
+            "EN.601.104.01.SP19",
+            "EN.601.104.04.SP19",
+            "EN.601.104.03.SP19",
+            "EN.601.104.01.FA19",
+            "EN.601.104.02.FA19",
+            "EN.601.104.03.SP20",
+            "EN.601.104.01.SP20",
+            "EN.601.104.02.SP20",
+            "EN.601.104.04.SP20",
+            "EN.601.104.03.FA20",
+            "EN.601.104.02.FA20",
+            "EN.601.104.01.FA20",
+            "EN.601.104.02.SP21",
+            "EN.601.104.04.SP21",
+            "EN.601.104.03.SP21",
+            "EN.601.104.01.SP21",
+            "EN.601.104.02.FA21",
+            "EN.601.104.01.FA21",
+            "EN.601.104.03.FA21",
+            "EN.601.104.04.SP22",
+            "EN.601.104.02.SP22",
+            "EN.601.104.85.SU22",
+            "EN.601.104.03.FA22",
+            "EN.601.104.01.FA22",
+            "EN.601.104.02.FA22",
+            "EN.601.104.04.FA22",
+            "EN.601.104.04.SP23",
+            "EN.601.104.03.SP23",
+            "EN.601.104.01.SP23",
+            "EN.601.104.02.SP23",
+            "EN.601.104.88.SU23",
+            "EN.601.104.04.FA23",
+            "EN.601.104.01.FA23",
+            "EN.601.104.02.FA23",
+            "EN.601.104.03.FA23",
+            "EN.601.104.01.SP24",
+            "EN.601.104.02.SP24",
+            "EN.601.104.04.SP24",
+            "EN.601.104.03.SP24",
+            "EN.601.104.88.SU24",
+            "EN.601.104.02.FA24",
+            "EN.601.104.04.FA24",
+            "EN.601.104.01.FA24",
+            "EN.601.104.03.FA24",
+            "EN.601.104.03.SP25",
+            "EN.601.104.02.SP25",
+            "EN.601.104.04.SP25",
+            "EN.601.104.01.SP25",
+            "EN.601.104.88.SU25"
+        ],
+        "last_scrape_during_grace_period": null
     }
 }

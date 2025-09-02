@@ -132,6 +132,8 @@ def analyze_course_data(course_code):
 
         # Process the data using the analysis module
         results = process_analysis_request(all_course_data, analysis_params, primary_course_code=course_code)
+        if results is None:
+            return jsonify({"error": "No data found for this course."}), 404
         return jsonify(results)
 
     except Exception as e:

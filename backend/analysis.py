@@ -421,6 +421,10 @@ def process_analysis_request(
                 except Exception as e:
                     print(f"Warning: Could not load grouped course {course_code}: {e}")
 
+    # If after all checks, there are no instances, return None to indicate no data
+    if not all_instances:
+        return None
+
     # 3. Apply filters to the combined dataset
     filtered_data = filter_instances(all_instances, filters)
 
