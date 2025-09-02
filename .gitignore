@@ -6,3 +6,5 @@ node_modules/  # shouldn't matter but roo codebase indexing seems to be taking a
 
 
 .env
+
+output.log

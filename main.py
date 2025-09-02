@@ -9,7 +9,14 @@ import time
 if __name__ == "__main__":
     # Read all course codes from 'jhu_as_en_courses.txt'
     with open("jhu_as_en_courses.txt") as f:
-        course_codes = [line.strip() for line in f if line.strip()]
+        course_codes = []
+        start_adding = False
+        for line in f:
+            stripped_line = line.strip()
+            if stripped_line == 'AS.191.371':
+                start_adding = True
+            if start_adding and stripped_line:
+                course_codes.append(stripped_line)
 
     try:
         session = get_authenticated_session()
