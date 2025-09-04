@@ -20,13 +20,6 @@ from period_logic import is_course_up_to_date, get_current_period
 # --- Course Grouping Service Instance ---
 grouping_service = CourseGroupingService()
 
-
-# --- Custom Exceptions (from exceptions.py) ---
-
-class SessionExpiredException(Exception):
-    """Raised when the session is believed to have expired."""
-    pass
-
 # --- Data Management (from data_manager.py) ---
 
 def load_json_file(filepath: str) -> dict:
