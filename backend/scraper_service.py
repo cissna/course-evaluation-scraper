@@ -15,30 +15,11 @@ from config import (
     INDIVIDUAL_REPORT_BASE_URL
 )
 from period_logic import is_course_up_to_date, get_current_period
+from data_manager import load_json_file, save_json_file
 
 
 # --- Course Grouping Service Instance ---
 grouping_service = CourseGroupingService()
-
-# --- Data Management (from data_manager.py) ---
-
-def load_json_file(filepath: str) -> dict:
-    """Safely loads a JSON file, creating it if it doesn't exist."""
-    if not os.path.exists(filepath):
-        return {}
-    with open(filepath, 'r') as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError:
-            return {}
-
-def save_json_file(filepath: str, data: dict):
-    """Saves a dictionary to a JSON file with pretty printing."""
-    with open(filepath, 'w') as f:
-        json.dump(data, f, indent=4)
-
-# --- Period Logic (from period_logic.py) ---
-
 
 
 # --- Scraping Logic (from scraping_logic.py, scrape_search.py, scrape_link.py) ---
