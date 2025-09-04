@@ -30,5 +30,351 @@
     "EN.601.647.01.FA19": {
         "scrape_failed": true,
         "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.500.111.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.500.111.24.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.500.111.29.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.500.111.31.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.500.111.34.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.500.497.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.510.135.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.510.235.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.510.438.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.510.440.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.510.444.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.510.447.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.510.607.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.424.02.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.432.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.482.01.SP20": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.495.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.495.03.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.614.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.632.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.647.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.654.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.662.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.691.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.773.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.773.03.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.520.773.02.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.201.06.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.201.05.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.201.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.201.03.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.403.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.403.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.420.07.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.420.05.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.420.03.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.420.02.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.495.03.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.636.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.530.675.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.540.309.02.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.540.311.02.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.540.311.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.540.415.01.FA20": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.540.621.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.540.640.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.540.665.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.553.427.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.553.446.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.553.632.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.553.671.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.553.688.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.560.201.03.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.560.201.06.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.560.201.05.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.560.201.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.560.442.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.560.653.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.570.403.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.570.411.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.570.490.01.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.570.690.01.FA19": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.02.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.03.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.04.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.07.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.08.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.09.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.10.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.11.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.12.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.13.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.14.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.15.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.16.FA17": {
+        "scrape_failed": true,
+        "reason": "network_error",
+        "exception": "HTTPSConnectionPool(host='asen-jhu.evaluationkit.com', port=443): Read timed out. (read timeout=10)"
+    },
+    "EN.580.111.17.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.18.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.19.FA17": {
+        "scrape_failed": true,
+        "reason": "network_error",
+        "exception": "HTTPSConnectionPool(host='asen-jhu.evaluationkit.com', port=443): Read timed out. (read timeout=10)"
+    },
+    "EN.580.111.20.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.21.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.22.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.23.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.24.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.25.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.26.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
+    },
+    "EN.580.111.27.FA17": {
+        "scrape_failed": true,
+        "reason": "overall_quality_frequency missing after successful requests"
     }
 }
