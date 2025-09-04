@@ -2,7 +2,6 @@ import json
 import os
 import re
 import requests
-from datetime import date
 from bs4 import BeautifulSoup
 from course_grouping_service import CourseGroupingService
 from urllib.parse import urlencode, urljoin
@@ -13,9 +12,9 @@ from workflow_helpers import scrape_course_data_core
 # --- Import Constants from config.py ---
 from config import (
     METADATA_FILE, DATA_FILE, AUTH_URL, BASE_REPORT_URL,
-    INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES
+    INDIVIDUAL_REPORT_BASE_URL
 )
-from period_logic import is_course_up_to_date
+from period_logic import is_course_up_to_date, get_current_period
 
 
 # --- Course Grouping Service Instance ---
@@ -47,47 +46,6 @@ def save_json_file(filepath: str, data: dict):
 
 # --- Period Logic (from period_logic.py) ---
 
-def find_oldest_year_from_keys(keys: list) -> int:
-    oldest_year = date.today().year
-    found_year = False
-    year_re = re.compile(r'\.(?:FA|SP|SU|IN)(\d{2})$')
-    for key in keys:
-        match = year_re.search(key)
-        if match:
-            year_short = int(match.group(1))
-            year = 2000 + year_short if year_short < 70 else 1900 + year_short
-            if year < oldest_year:
-                oldest_year = year
-                found_year = True
-    return oldest_year if found_year else 2010
-
-def get_period_from_instance_key(instance_key: str) -> str:
-    match = re.search(r'\.((?:FA|SP|SU|IN)\d{2})$', instance_key)
-    return match.group(1) if match else None
-
-def get_year_from_period_string(period_string: str) -> int:
-    if not period_string or len(period_string) < 4:
-        return None
-    year_short = int(period_string[-2:])
-    return 2000 + year_short
-
-def get_current_period() -> str:
-    today = date.today()
-    year_short = today.year % 100
-    if today.month > PERIOD_RELEASE_DATES['FA'][0] or \
-       (today.month == PERIOD_RELEASE_DATES['FA'][0] and today.day >= PERIOD_RELEASE_DATES['FA'][1]):
-        return f"FA{year_short}"
-    elif today.month > PERIOD_RELEASE_DATES['SU'][0] or \
-         (today.month == PERIOD_RELEASE_DATES['SU'][0] and today.day >= PERIOD_RELEASE_DATES['SU'][1]):
-        return f"SU{year_short}"
-    elif today.month > PERIOD_RELEASE_DATES['SP'][0] or \
-         (today.month == PERIOD_RELEASE_DATES['SP'][0] and today.day >= PERIOD_RELEASE_DATES['SP'][1]):
-        return f"SP{year_short}"
-    elif today.month > PERIOD_RELEASE_DATES['IN'][0] or \
-         (today.month == PERIOD_RELEASE_DATES['IN'][0] and today.day >= PERIOD_RELEASE_DATES['IN'][1]):
-        return f"IN{year_short}"
-    else:
-        return f"FA{year_short - 1}"
 
 
 # --- Scraping Logic (from scraping_logic.py, scrape_search.py, scrape_link.py) ---
