@@ -16,6 +16,7 @@ from config import (
     METADATA_FILE, DATA_FILE, AUTH_URL, BASE_REPORT_URL,
     INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
 )
+from period_logic import is_course_up_to_date
 
 
 # --- Course Grouping Service Instance ---
@@ -88,10 +89,6 @@ def get_current_period() -> str:
         return f"IN{year_short}"
     else:
         return f"FA{year_short - 1}"
-
-def is_course_up_to_date(last_period_gathered: str) -> bool:
-    current_period = get_current_period()
-    return last_period_gathered == current_period
 
 def is_grace_period_over(period: str) -> bool:
     today = date.today()

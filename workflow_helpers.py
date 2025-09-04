@@ -257,9 +257,7 @@ def check_course_status(course_code: str) -> tuple:
     
     # Check if course is up-to-date
     if course_code in metadata and is_course_up_to_date(
-        metadata[course_code].get('last_period_gathered'),
-        metadata[course_code],
-        skip_grace_period_logic=False
+        metadata[course_code].get('last_period_gathered')
     ):
         print(f"Course {course_code} is up-to-date. Skipping scraping.")
         return None, None
