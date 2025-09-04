@@ -6,7 +6,6 @@ from datetime import date
 from bs4 import BeautifulSoup
 from course_grouping_service import CourseGroupingService
 from urllib.parse import urlencode, urljoin
-from dateutil.relativedelta import relativedelta
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 from workflow_helpers import scrape_course_data_core
@@ -14,7 +13,7 @@ from workflow_helpers import scrape_course_data_core
 # --- Import Constants from config.py ---
 from config import (
     METADATA_FILE, DATA_FILE, AUTH_URL, BASE_REPORT_URL,
-    INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
+    INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES
 )
 from period_logic import is_course_up_to_date
 
@@ -90,16 +89,6 @@ def get_current_period() -> str:
     else:
         return f"FA{year_short - 1}"
 
-def is_grace_period_over(period: str) -> bool:
-    today = date.today()
-    period_prefix = period[:2]
-    year_short = int(period[2:])
-    year = 2000 + year_short
-    release_month, release_day = PERIOD_RELEASE_DATES[period_prefix]
-    release_date = date(year, release_month, release_day)
-    grace_months = PERIOD_GRACE_MONTHS[period_prefix]
-    grace_period_end = release_date + relativedelta(months=grace_months)
-    return today > grace_period_end
 
 # --- Scraping Logic (from scraping_logic.py, scrape_search.py, scrape_link.py) ---
 
