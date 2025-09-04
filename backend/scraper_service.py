@@ -11,28 +11,16 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 from workflow_helpers import scrape_course_data_core
 
-# --- Constants (Adapted from config.py) ---
+# --- Import Constants from config.py ---
+from config import (
+    METADATA_FILE, DATA_FILE, AUTH_URL, BASE_REPORT_URL,
+    INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
+)
 
-# File Paths (anchored to the project root)
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-METADATA_FILE = os.path.join(PROJECT_ROOT, 'metadata.json')
-DATA_FILE = os.path.join(PROJECT_ROOT, 'data.json')
-
-# Scraping URLs
-AUTH_URL = 'https://asen-jhu.evaluationkit.com/Login/ReportPublic?id=THo7RYxiDOgppCUb8vkY%2bPMVFDNyK2ADK0u537x%2fnZsNvzOBJJZTTNEcJihG8hqZ'
-BASE_REPORT_URL = 'https://asen-jhu.evaluationkit.com/'
-INDIVIDUAL_REPORT_BASE_URL = 'https://asen-jhu.evaluationkit.com/Reports/StudentReport.aspx'
-
-# Period Logic Constants
 
 # --- Course Grouping Service Instance ---
 grouping_service = CourseGroupingService()
-PERIOD_RELEASE_DATES = {
-    'IN': (1, 16), 'SP': (5, 15), 'SU': (8, 15), 'FA': (12, 15)
-}
-PERIOD_GRACE_MONTHS = {
-    'IN': 1, 'SP': 1, 'SU': 2, 'FA': 1
-}
+
 
 # --- Custom Exceptions (from exceptions.py) ---
 
