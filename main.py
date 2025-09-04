@@ -13,7 +13,7 @@ if __name__ == "__main__":
         start_adding = False
         for line in f:
             stripped_line = line.strip()
-            if stripped_line == 'AS.191.371':
+            if stripped_line == 'EN.580.306':
                 start_adding = True
             if start_adding and stripped_line:
                 course_codes.append(stripped_line)
