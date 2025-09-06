@@ -1,6 +1,5 @@
 from data_manager import load_json_file, save_json_file
-from period_logic import find_oldest_year_from_keys, find_latest_year_from_keys
-from period_logic import get_year_from_period_string, get_current_period, is_grace_period_over, get_period_from_instance_key, is_course_up_to_date
+from period_logic import get_current_period, is_grace_period_over, get_period_from_instance_key
 from config import METADATA_FILE, DATA_FILE
 from scraping_logic import get_authenticated_session
 from scrape_search import get_evaluation_report_links
@@ -9,7 +8,6 @@ import requests
 from datetime import date
 
 # Helper function to sort links chronologically before scraping
-
 def scrape_course_data_core(course_code: str, session: requests.Session = None, skip_grace_period_logic: bool = True) -> dict:
     """
     Core scraping function that handles the actual data collection logic.
