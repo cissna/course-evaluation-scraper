@@ -9,16 +9,6 @@ import requests
 from datetime import date
 
 # Helper function to sort links chronologically before scraping
-def get_sort_key(item):
-    """Creates a sort key based on year and semester from an instance_key."""
-    instance_key = item[0]
-    # Example instance_key: AS.020.101.01.FA23
-    period = instance_key.split('.')[-1]
-    year = int(period[2:])
-    semester = period[:2]
-    # Maps semester codes to a chronological order
-    semester_map = {'IN': 0, 'SP': 1, 'SU': 2, 'FA': 3}
-    return (year, semester_map.get(semester, 99))
 
 def get_all_links_by_section(session, course_code):
     """
