@@ -10,51 +10,6 @@ from datetime import date
 
 # Helper function to sort links chronologically before scraping
 
-def get_all_links_by_section(session, course_code):
-    """
-    Iterates through sections 00-99 for a course to find all possible report links.
-    If any section returns 20 or more links, break up the section gathering by year for future-proof robustness.
-    """
-    print(f"--- Switching to section-based link gathering for {course_code} ---")
-    all_links = {}
-
-    for i in range(100):
-        # e.g., creates AS.020.101.01, AS.020.101.02, etc.
-        section_course_code = f"{course_code}.{i:02d}"
-        try:
-            links, has_more = get_evaluation_report_links(session, section_course_code)
-            if links:
-                print(f"Found {len(links)} links for section {i:02d}.")
-                if not has_more:
-                    all_links.update(links)
-                else:
-                    # "Show more results" button present, break up by year
-                    print(f"Section {section_course_code} has 'Show more results' button. Breaking up by year.")
-                    keys = list(links.keys())
-                    if keys:
-                        # Use available keys to determine start year for the section
-                        start_year = find_oldest_year_from_keys(keys)
-                    else:
-                        # Fallback if links dict is empty for some reason
-                        start_year = 2010
-                    current_academic_year = get_year_from_period_string(get_current_period())
-                    section_yearly_links = {}
-                    for year in range(start_year, current_academic_year + 2):  # +2 for robustness
-                        print(f"  Scanning section {section_course_code}, year {year}...")
-                        try:
-                            yearly_links, _ = get_evaluation_report_links(session, section_course_code, year=year)
-                            if yearly_links:
-                                print(f"    Found {len(yearly_links)} links for section {section_course_code}, year {year}.")
-                                section_yearly_links.update(yearly_links)
-                        except Exception as e_year:
-                            print(f"    --- Could not get links for section {section_course_code}, year {year}: {e_year} ---")
-                    if section_yearly_links:
-                        all_links.update(section_yearly_links)
-        except Exception as e:
-            # It's okay if some sections don't exist; we log and continue.
-            print(f"--- Could not get links for section {section_course_code}: {e} ---")
-    return all_links
-
 def scrape_course_data_core(course_code: str, session: requests.Session = None, skip_grace_period_logic: bool = True) -> dict:
     """
     Core scraping function that handles the actual data collection logic.
