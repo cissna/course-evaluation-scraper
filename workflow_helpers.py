@@ -52,56 +52,6 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         # ✅ Simple Case: No "Show more results" button. Scrape what we found.
         print("No pagination detected (no 'Show more results' button). Processing initial links.")
         links_to_process = initial_links
-    else:
-        # ⚠️ Paginated Case: "Show more results" button present. Use optimized scraping strategy.
-        print("Pagination detected ('Show more results' button present). Using optimized scraping strategy.")
-        
-        # Always start with initial_links - this is the key optimization
-        links_to_process = initial_links.copy()
-        
-        # Calculate smart start year for additional year-by-year scraping
-        last_period = course_metadata.get('last_period_gathered')
-        last_period_year = get_year_from_period_string(last_period) if last_period else 0
-        latest_initial_year = find_latest_year_from_keys(initial_links.keys()) if initial_links else 0
-        
-        # Start year-by-year scraping from the year AFTER the latest we already have
-        smart_start_year = max(last_period_year, latest_initial_year)
-        current_academic_year = get_year_from_period_string(get_current_period())
-        
-        print(f"Initial links cover up to year {latest_initial_year}.")
-        print(f"Starting additional year-by-year scraping from {smart_start_year} to {current_academic_year + 1}.")
-        
-        switchToSectionScraping = False
-        all_yearly_links = {}
-
-        for year in range(smart_start_year, current_academic_year + 2): # +2 to be safe
-            print(f"\n--- Checking year: {year} ---")
-            try:
-                yearly_links, has_more_yearly = get_evaluation_report_links(session=session, course_code=course_code, year=year)
-            except Exception as e:
-                course_metadata['last_period_failed'] = True
-                save_json_file(METADATA_FILE, metadata)
-                return {'success': False, 'error': f"Failed during year-by-year scan at year {year}: {e}", 'metadata': course_metadata, 'data': {}, 'new_data_found': False}
-
-            if has_more_yearly:
-                # 🚨 Edge Case: A single year has "Show more results" button.
-                # Per the optimization, we now switch to scraping the entire course by section number.
-                print(f"CRITICAL EDGE CASE: Year {year} has 'Show more results' button. Aborting year-by-year scan.")
-                switchToSectionScraping = True
-                break # Exit the year-by-year loop
-            
-            if yearly_links:
-                print(f"Found {len(yearly_links)} links for {year}.")
-                all_yearly_links.update(yearly_links)
-        
-        if switchToSectionScraping:
-            # Execute the optimized fallback strategy - still include initial_links
-            section_links = get_all_links_by_section(session, course_code)
-            links_to_process.update(section_links)
-        else:
-            # The year-by-year scan completed successfully - combine with initial_links
-            print("Year-by-year scan complete.")
-            links_to_process.update(all_yearly_links)
 
     # --- PHASE 2: UNIFIED SCRAPING ---
     print(f"\nFound a total of {len(links_to_process)} unique reports to potentially process.")
@@ -112,7 +62,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
     failed_scrapes = {}
 
     # Sort links chronologically to process older data first
-    sorted_links = sorted(links_to_process.items(), key=get_sort_key)
+    sorted_links = links_to_process.items()
 
     for instance_key, link_url in sorted_links:
         if instance_key in data:
