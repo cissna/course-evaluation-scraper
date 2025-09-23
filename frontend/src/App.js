@@ -5,7 +5,7 @@ import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
 import GracePeriodWarning from './components/GracePeriodWarning';
-import { STAT_MAPPINGS, STATISTICS_CONFIG, ALL_STAT_KEYS } from './utils/statsMapping';
+import { STATISTICS_CONFIG, ALL_STAT_KEYS } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 
 function App() {
@@ -28,51 +28,6 @@ function App() {
   const startLoading = () => setLoadingCount(c => c + 1);
   const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
 
-  // Helper: checks if stats are the only thing changed
-  const onlyStatsChanged = (newOptions, prevOptions) => {
-    // Compare stats deep equality, filters and separationKeys referential
-    const statsKeys = Object.keys(newOptions.stats);
-    const statsSame =
-      statsKeys.length === Object.keys(prevOptions.stats).length &&
-      statsKeys.every(
-        k => newOptions.stats[k] === prevOptions.stats[k]
-      );
-    const filtersSame = JSON.stringify(newOptions.filters) === JSON.stringify(prevOptions.filters);
-    const separationSame = JSON.stringify(newOptions.separationKeys) === JSON.stringify(prevOptions.separationKeys);
-    return statsSame && (!filtersSame || !separationSame ? false : true);
-  };
-
-  // Called when advanced options (checkbox) toggled
-  const handleAdvancedOptionsApply = (options) => {
-    console.log('[App] AdvancedOptions applied:', options);
-
-    // If only stats changed, no API needed, just update advancedOptions state for column hiding/showing
-    const statsChanged =
-      JSON.stringify(options.stats) !== JSON.stringify(advancedOptions.stats);
-    const filtersChanged =
-      JSON.stringify(options.filters) !== JSON.stringify(advancedOptions.filters);
-    const separationChanged =
-      JSON.stringify(options.separationKeys) !== JSON.stringify(advancedOptions.separationKeys);
-
-    setAdvancedOptions(options);
-
-    if (
-      courseCode &&
-      (filtersChanged || separationChanged)
-    ) {
-      // Fetch new analysis if filters or separation changed
-      console.log('[App] Fetching new analysis for course:', courseCode, 'due to filter or separation change.');
-      fetchAnalysisData(courseCode, options);
-    } else if (statsChanged) {
-      // Column show/hide only, no data fetch
-      console.log('[App] Stats columns changed only, not refetching data.');
-    } else {
-      // Edge case: nothing substantial changed
-      console.log('[App] AdvancedOptions applied but changes do not need new analysis or column update.');
-    }
-    // Show current loading state
-    console.log('[App] isLoading after apply:', isLoading, 'loadingCount:', loadingCount);
-  };
 
   const checkGracePeriodStatus = async (code) => {
     if (!code) return;

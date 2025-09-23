@@ -2,14 +2,6 @@ import React, { useState } from 'react';
 import './AdvancedOptions.css';
 import { STATISTICS_CONFIG, ALL_STAT_KEYS } from '../utils/statsMapping';
 
-// Optionally add custom separation options for exact period and course_name.
-const SEPARATION_OPTIONS = [
-  { key: 'instructor', label: 'Instructor' },
-  { key: 'year', label: 'Year' },
-  { key: 'season', label: 'Season' },
-  { key: 'exact_period', label: 'Exact Period' },
-  { key: 'course_code', label: 'Course Code' },
-];
 
 const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActive, onDeactivateLast3Years }) => {
   // UI state: control Advanced Options visibility only.
