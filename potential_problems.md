@@ -8,22 +8,12 @@ This document has been updated to reflect the current state of the codebase.
   - **Status**: LARGELY FIXED.
   - **Details**: Most of the duplicate functions previously found in `backend/scraper_service.py` have been resolved. The backend now correctly calls the centralized `scrape_course_data_core` function in `workflow_helpers.py`, which in turn imports functions from `period_logic.py`, `data_manager.py`, and `scraping_logic.py`. This is a significant improvement.
 
-- **Duplicate Constants**:
-  - **Status**: NEW PROBLEM.
-  - **Details**: The `backend/scraper_service.py` file defines its own set of constants (file paths, URLs) at the top of the file. These constants appear to be copied from `config.py` but are not imported from it. This creates a new source of duplication and a potential for inconsistency if the main `config.py` is updated and the backend service is not.
-  - **Recommendation**: Refactor `backend/scraper_service.py` to import all constants directly from `config.py`.
-
 ## 2. Architectural and Performance Issues
 
 - **Inefficient Data Handling**:
   - **Status**: UNCHANGED.
   - **Details**: The `data.json` file is very large (over 1.1 million lines). The backend loads this entire file into memory for every request that requires a data lookup (`load_json_file(DATA_FILE)`). This is highly inefficient and will lead to high memory consumption and slow response times, especially under concurrent load.
   - **Recommendation**: This is the most critical issue. The application should be migrated from using a single JSON file to a proper database (like SQLite, PostgreSQL, or MongoDB) for storing and querying course evaluation data.
-
-- **Brittle `sys.path` Manipulation**:
-  - **Status**: NEW PROBLEM.
-  - **Details**: `backend/scraper_service.py` uses `sys.path.append()` to import modules from the parent directory. This is generally considered an anti-pattern in Python as it makes the project structure rigid and can lead to import issues.
-  - **Recommendation**: Structure the backend as a proper Python package with `__init__.py` files to enable relative imports (e.g., `from ..workflow_helpers import ...`).
 
 ## 3. Data Integrity and Quality
 
@@ -39,9 +29,9 @@ This document has been updated to reflect the current state of the codebase.
 ## 4. Unused/Unreferenced Code
 
 - **Unreferenced Files**:
-  - **Status**: PARTIALLY FIXED.
-  - **Details**: `period_logic.py` is now correctly referenced and used. However, `config.py` is not used by the backend service, which duplicates its constants instead (as noted above).
-  - **Recommendation**: Ensure all modules import from the central `config.py` where applicable.
+  - **Status**: FIXED.
+  - **Details**: `period_logic.py` is now correctly referenced and used. The issues with duplicate constants in `backend/scraper_service.py` and brittle `sys.path` manipulation have been resolved.
+  - **Recommendation**: Continue to ensure all modules import from the central `config.py` where applicable.
 
 - **Unused Directory**:
   - **Status**: FIXED.

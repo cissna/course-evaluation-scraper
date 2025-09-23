@@ -4,34 +4,19 @@ import requests
 from datetime import date
 from course_grouping_service import CourseGroupingService
 from dateutil.relativedelta import relativedelta
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 from workflow_helpers import scrape_course_data_core
 from data_manager import load_json_file, save_json_file
 from scraping_logic import get_authenticated_session
+from config import METADATA_FILE, DATA_FILE, AUTH_URL, BASE_REPORT_URL, INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
 
-# --- Constants (Adapted from config.py) ---
-
-# File Paths (anchored to the project root)
+# Determine project root relative to this file (backend/scraper_service.py)
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-METADATA_FILE = os.path.join(PROJECT_ROOT, 'metadata.json')
-DATA_FILE = os.path.join(PROJECT_ROOT, 'data.json')
-
-# Scraping URLs
-AUTH_URL = 'https://asen-jhu.evaluationkit.com/Login/ReportPublic?id=THo7RYxiDOgppCUb8vkY%2bPMVFDNyK2ADK0u537x%2fnZsNvzOBJJZTTNEcJihG8hqZ'
-BASE_REPORT_URL = 'https://asen-jhu.evaluationkit.com/'
-INDIVIDUAL_REPORT_BASE_URL = 'https://asen-jhu.evaluationkit.com/Reports/StudentReport.aspx'
-
-# Period Logic Constants
+# Create absolute paths for use in this service
+METADATA_FILE_ABS = os.path.join(PROJECT_ROOT, METADATA_FILE)
+DATA_FILE_ABS = os.path.join(PROJECT_ROOT, DATA_FILE)
 
 # --- Course Grouping Service Instance ---
 grouping_service = CourseGroupingService()
-PERIOD_RELEASE_DATES = {
-    'IN': (1, 16), 'SP': (5, 15), 'SU': (8, 15), 'FA': (12, 15)
-}
-PERIOD_GRACE_MONTHS = {
-    'IN': 1, 'SP': 1, 'SU': 2, 'FA': 1
-}
 
 # --- Custom Exceptions (from exceptions.py) ---
 
@@ -90,8 +75,8 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
     Main service function to get course data.
     Checks cache, scrapes if necessary, and returns all relevant data.
     """
-    metadata = load_json_file(METADATA_FILE)
-    data = load_json_file(DATA_FILE)
+    metadata = load_json_file(METADATA_FILE_ABS)
+    data = load_json_file(DATA_FILE_ABS)
 
     # Check if the last scraping attempt failed for this course
     if course_code in metadata and metadata[course_code].get('last_period_failed', False):
@@ -115,7 +100,7 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
         if course_code not in metadata:
             metadata[course_code] = {"last_period_gathered": None, "last_period_failed": False, "relevant_periods": [], "last_scrape_during_grace_period": None}
         metadata[course_code]['last_period_failed'] = True
-        save_json_file(METADATA_FILE, metadata)
+        save_json_file(METADATA_FILE_ABS, metadata)
         return {"error": "Failed to authenticate with scraping service."}
 
     # Use the shared core scraping function (skip grace period logic for web interface)
@@ -156,7 +141,7 @@ def get_course_grace_status(course_code: str) -> dict:
     Check if a course needs a grace period warning.
     Returns info about grace period status for frontend.
     """
-    metadata = load_json_file(METADATA_FILE)
+    metadata = load_json_file(METADATA_FILE_ABS)
     
     if course_code not in metadata:
         return {"needs_warning": False}
@@ -180,7 +165,7 @@ def find_courses_by_name(search_query: str) -> list:
     """
     Finds course codes by searching for a query in the course names.
     """
-    data = load_json_file(DATA_FILE)
+    data = load_json_file(DATA_FILE_ABS)
     if not data:
         return []
 
