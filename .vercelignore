@@ -1,0 +1,27 @@
+# Ignore Python virtual environment
+.venv/
+venv/
+env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore frontend code
+frontend/
+
+# Ignore local development files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore data files
+data.json
+metadata.json
+course_groupings.json
+failed.json
+
+# Ignore other artifacts
+batch_scrape_report_*.json
+jhu_as_en_courses.txt
+one-time-scripts/
