@@ -4,7 +4,7 @@ from flask import request
 from scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
 from similarity import find_instructor_variants
 from analysis import process_analysis_request
-from backend.course_grouping_service import CourseGroupingService
+from course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
 CORS(app)  # Enable Cross-Origin Resource Sharing

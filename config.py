@@ -18,7 +18,7 @@ INDIVIDUAL_REPORT_BASE_URL = 'https://asen-jhu.evaluationkit.com/Reports/Student
 # A dictionary mapping period prefixes to their release month and day.
 # (Month, Day) for when evaluation results are typically released.
 PERIOD_RELEASE_DATES = {
-    'IN': (1, 15),   # Intersession
+    'IN': (1, 16),   # Intersession
     'SP': (5, 15),   # Spring
     'SU': (8, 15),   # Summer
     'FA': (12, 15)  # Fall
@@ -32,6 +32,7 @@ PERIOD_GRACE_MONTHS = {
     'SU': 2,
     'FA': 1
 }
+
 
 # Scraping Reliability
 SCRAPING_DELAY_SECONDS = 0    # No delay between scrapes

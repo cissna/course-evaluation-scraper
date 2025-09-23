@@ -8,19 +8,14 @@ To run the application, you will need to start both the backend and frontend ser
 
 ### Backend (Flask API)
 
-1.  **Navigate to the `backend` directory:**
+1.  **Install the required Python packages:**
     ```bash
-    cd backend
+    pip install -r backend/requirements.txt
     ```
 
-2.  **Install the required Python packages:**
+2.  **Run the Flask server from the project root directory:**
     ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Run the Flask server:**
-    ```bash
-    python3 app.py
+    python3 backend/app.py
     ```
 
     The backend server will start on `http://127.0.0.1:5000`.
