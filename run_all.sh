@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+export PYTHONPATH=.
+
 # Kill child processes on exit/interrupt
 cleanup() {
   jobs -p | xargs -r kill 2>/dev/null || true
@@ -26,7 +28,7 @@ python3 backend/app.py &
 ) &
 
 # Wait for any background job to exit
-wait -n || true
+wait
 
 # Keep waiting for remaining jobs so trap can clean up
 wait || true
