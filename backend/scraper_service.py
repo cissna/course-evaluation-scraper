@@ -5,15 +5,14 @@ from datetime import date
 from course_grouping_service import CourseGroupingService
 from dateutil.relativedelta import relativedelta
 from workflow_helpers import scrape_course_data_core
-from data_manager import load_json_file, save_json_file
+from backend.db_utils import (
+    get_course_metadata,
+    update_course_metadata,
+    get_course_data_by_keys,
+    find_courses_by_name_db,
+)
 from scraping_logic import get_authenticated_session
-from config import METADATA_FILE, DATA_FILE, AUTH_URL, BASE_REPORT_URL, INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
-
-# Determine project root relative to this file (backend/scraper_service.py)
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-# Create absolute paths for use in this service
-METADATA_FILE_ABS = os.path.join(PROJECT_ROOT, METADATA_FILE)
-DATA_FILE_ABS = os.path.join(PROJECT_ROOT, DATA_FILE)
+from config import AUTH_URL, BASE_REPORT_URL, INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
 
 # --- Course Grouping Service Instance ---
 grouping_service = CourseGroupingService()
@@ -73,21 +72,20 @@ def is_grace_period_over(period: str) -> bool:
 def get_course_data_and_update_cache(course_code: str) -> dict:
     """
     Main service function to get course data.
-    Checks cache, scrapes if necessary, and returns all relevant data.
+    Checks database, scrapes if necessary, and returns all relevant data.
     """
-    metadata = load_json_file(METADATA_FILE_ABS)
-    data = load_json_file(DATA_FILE_ABS)
+    metadata = get_course_metadata(course_code)
 
     # Check if the last scraping attempt failed for this course
-    if course_code in metadata and metadata[course_code].get('last_period_failed', False):
+    if metadata and metadata.get('last_period_failed', False):
         print(f"Course {course_code} has last_period_failed set to true. Returning error.")
         return {"error": f"The last attempt to gather data for course {course_code} failed. Please try again later or contact support if this persists."}
 
     # Check if course is up-to-date
-    if course_code in metadata and is_course_up_to_date(metadata[course_code].get('last_period_gathered')):
+    if metadata and is_course_up_to_date(metadata.get('last_period_gathered')):
         print(f"Course {course_code} is up-to-date. Returning cached data.")
-        relevant_keys = metadata[course_code].get('relevant_periods', [])
-        return {key: data[key] for key in relevant_keys if key in data}
+        relevant_keys = metadata.get('relevant_periods', [])
+        return get_course_data_by_keys(relevant_keys)
 
     # If not up-to-date, use the shared core scraping function
     print(f"--- Starting scraper for course: {course_code} ---")
@@ -97,10 +95,10 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
     except requests.exceptions.RequestException as e:
         print(f"Could not get authenticated session: {e}. Aborting.")
         # Update metadata to mark failure
-        if course_code not in metadata:
-            metadata[course_code] = {"last_period_gathered": None, "last_period_failed": False, "relevant_periods": [], "last_scrape_during_grace_period": None}
-        metadata[course_code]['last_period_failed'] = True
-        save_json_file(METADATA_FILE_ABS, metadata)
+        if not metadata:
+            metadata = {"last_period_gathered": None, "last_period_failed": False, "relevant_periods": [], "last_scrape_during_grace_period": None}
+        metadata['last_period_failed'] = True
+        update_course_metadata(course_code, metadata)
         return {"error": "Failed to authenticate with scraping service."}
 
     # Use the shared core scraping function (skip grace period logic for web interface)
@@ -141,43 +139,26 @@ def get_course_grace_status(course_code: str) -> dict:
     Check if a course needs a grace period warning.
     Returns info about grace period status for frontend.
     """
-    metadata = load_json_file(METADATA_FILE_ABS)
+    metadata = get_course_metadata(course_code)
     
-    if course_code not in metadata:
+    if not metadata:
         return {"needs_warning": False}
     
-    course_metadata = metadata[course_code]
-    last_scrape_during_grace = course_metadata.get('last_scrape_during_grace_period')
+    last_scrape_during_grace = metadata.get('last_scrape_during_grace_period')
     
     if last_scrape_during_grace is None:
         return {"needs_warning": False}
     
-    # Course has grace period flag, get current period info
     current_period = get_current_period()
     
     return {
         "needs_warning": True,
         "current_period": current_period,
-        "last_scrape_date": last_scrape_during_grace
+        "last_scrape_date": last_scrape_during_grace.isoformat() if last_scrape_during_grace else None
     }
 
 def find_courses_by_name(search_query: str) -> list:
     """
-    Finds course codes by searching for a query in the course names.
+    Finds course codes by searching for a query in the course names in the database.
     """
-    data = load_json_file(DATA_FILE_ABS)
-    if not data:
-        return []
-
-    matching_codes = set()
-    search_query_lower = search_query.lower()
-
-    for instance_key, course_data in data.items():
-        course_name = course_data.get('course_name', '')
-        if search_query_lower in course_name.lower():
-            # Extract the base course code (e.g., "AS.123.456") from the instance key
-            match = re.match(r'([A-Z]{2}\.\d{3}\.\d{3})', instance_key)
-            if match:
-                matching_codes.add(match.group(1))
-    
-    return sorted(list(matching_codes))
+    return find_courses_by_name_db(search_query)

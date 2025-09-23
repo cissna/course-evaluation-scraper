@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask import request
 from scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
-from similarity import find_instructor_variants
+from backend.db_utils import find_instructor_variants_db
 from analysis import process_analysis_request
 from course_grouping_service import CourseGroupingService
 
@@ -59,7 +59,7 @@ def search_by_instructor_name(instructor_name):
     """
     print(f"Received instructor search for: {instructor_name}")
     try:
-        variants = find_instructor_variants(instructor_name)
+        variants = find_instructor_variants_db(instructor_name)
         return jsonify(variants)
     except Exception as e:
         print(f"An error occurred during instructor search: {e}")
