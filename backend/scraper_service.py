@@ -1,5 +1,3 @@
-import os
-import re
 import requests
 from datetime import date
 from course_grouping_service import CourseGroupingService
@@ -12,7 +10,7 @@ from backend.db_utils import (
     find_courses_by_name_db,
 )
 from scraping_logic import get_authenticated_session
-from config import AUTH_URL, BASE_REPORT_URL, INDIVIDUAL_REPORT_BASE_URL, PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
+from config import PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
 
 # --- Course Grouping Service Instance ---
 grouping_service = CourseGroupingService()
