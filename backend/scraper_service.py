@@ -8,6 +8,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 from workflow_helpers import scrape_course_data_core
 from data_manager import load_json_file, save_json_file
+from scraping_logic import get_authenticated_session
 
 # --- Constants (Adapted from config.py) ---
 
@@ -80,12 +81,7 @@ def is_grace_period_over(period: str) -> bool:
 
 # --- Scraping Logic (from scraping_logic.py, scrape_search.py, scrape_link.py) ---
 
-def get_authenticated_session() -> requests.Session:
-    session = requests.Session()
-    auth_response = session.get(AUTH_URL, timeout=10)
-    auth_response.raise_for_status()
-    print("Authentication session created successfully.")
-    return session
+# get_authenticated_session imported from scraping_logic.py
 
 # --- Main Workflow (Adapted from workflow.py) ---
 

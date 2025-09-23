@@ -7,7 +7,7 @@ There are several functions that appear to be duplicated across different files:
 - [x] **`get_period_from_instance_key`** - Defined in both `period_logic.py` and `backend/scraper_service.py`
 - [x] **`load_json_file`** - Defined in both `data_manager.py` and `backend/scraper_service.py`
 - [x] **`save_json_file`** - Defined in both `data_manager.py` and `backend/scraper_service.py`
-- [ ] **`get_authenticated_session`** - Defined in both `scraping_logic.py` and `backend/scraper_service.py`
+- [x] **`get_authenticated_session`** - Defined in both `scraping_logic.py` and `backend/scraper_service.py`
 - [x] **`scrape_evaluation_data`** - Defined in both `scrape_link.py` and `backend/scraper_service.py`
 - [x] **`get_evaluation_report_links`** - Defined in both `scrape_search.py` and `backend/scraper_service.py`
 
