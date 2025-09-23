@@ -1,36 +1,55 @@
 # Potential Problems in Course Evaluation Scraper
 
-## 1. Duplicate Functions
-There are several functions that appear to be duplicated across different files:
+This document has been updated to reflect the current state of the codebase.
 
-- [x] **`find_oldest_year_from_keys`** - Defined in both `period_logic.py` and `backend/scraper_service.py`
-- [x] **`get_period_from_instance_key`** - Defined in both `period_logic.py` and `backend/scraper_service.py`
-- [x] **`load_json_file`** - Defined in both `data_manager.py` and `backend/scraper_service.py`
-- [x] **`save_json_file`** - Defined in both `data_manager.py` and `backend/scraper_service.py`
-- [x] **`get_authenticated_session`** - Defined in both `scraping_logic.py` and `backend/scraper_service.py`
-- [x] **`scrape_evaluation_data`** - Defined in both `scrape_link.py` and `backend/scraper_service.py`
-- [x] **`get_evaluation_report_links`** - Defined in both `scrape_search.py` and `backend/scraper_service.py`
+## 1. Code Duplication and Consistency
 
-This duplication can lead to maintenance issues where changes need to be made in multiple places.
+- **Duplicate Functions**:
+  - **Status**: LARGELY FIXED.
+  - **Details**: Most of the duplicate functions previously found in `backend/scraper_service.py` have been resolved. The backend now correctly calls the centralized `scrape_course_data_core` function in `workflow_helpers.py`, which in turn imports functions from `period_logic.py`, `data_manager.py`, and `scraping_logic.py`. This is a significant improvement.
 
-## 2. Inconsistent Function Usage
-Some functions appear to have better implementations in other files but are not being used:
-- As noted in `potential_improvements.md`, the `scrape_evaluation_data()` function in `scrape_link.py` includes a retry mechanism with exponential backoff, making it more resilient to network errors, but the web app currently uses a simpler version.
+- **Duplicate Constants**:
+  - **Status**: NEW PROBLEM.
+  - **Details**: The `backend/scraper_service.py` file defines its own set of constants (file paths, URLs) at the top of the file. These constants appear to be copied from `config.py` but are not imported from it. This creates a new source of duplication and a potential for inconsistency if the main `config.py` is updated and the backend service is not.
+  - **Recommendation**: Refactor `backend/scraper_service.py` to import all constants directly from `config.py`.
 
-## 3. Potential Dead Code
-The `data.json` file contains a very large amount of data (1.1M+ lines) and includes a line that says `"def didnt have one"`, which suggests there might be corrupted or improperly formatted data in the file.
+## 2. Architectural and Performance Issues
 
-## 4. Unreferenced Files
-There are Python files in the repository that don't seem to be imported or used anywhere:
-- `config.py` - Doesn't appear to be imported anywhere
-- `period_logic.py` - Contains functions that are duplicated in `backend/scraper_service.py`
+- **Inefficient Data Handling**:
+  - **Status**: UNCHANGED.
+  - **Details**: The `data.json` file is very large (over 1.1 million lines). The backend loads this entire file into memory for every request that requires a data lookup (`load_json_file(DATA_FILE)`). This is highly inefficient and will lead to high memory consumption and slow response times, especially under concurrent load.
+  - **Recommendation**: This is the most critical issue. The application should be migrated from using a single JSON file to a proper database (like SQLite, PostgreSQL, or MongoDB) for storing and querying course evaluation data.
 
-## 5. Unused Directory
-The `random_unused` directory has been removed as it contained several Python scripts and markdown files that were development tools or experiments that were not part of the main application.
+- **Brittle `sys.path` Manipulation**:
+  - **Status**: NEW PROBLEM.
+  - **Details**: `backend/scraper_service.py` uses `sys.path.append()` to import modules from the parent directory. This is generally considered an anti-pattern in Python as it makes the project structure rigid and can lead to import issues.
+  - **Recommendation**: Structure the backend as a proper Python package with `__init__.py` files to enable relative imports (e.g., `from ..workflow_helpers import ...`).
 
-## Recommendations
+## 3. Data Integrity and Quality
 
-1. Consolidate duplicate functions into a single location and remove duplicates
-2. Use the more robust version of `scrape_evaluation_data` from `scrape_link.py` in the main application
-3. Clean up `data.json` to remove any corrupted entries
-4. Remove truly unused files like `config.py` if they're not needed
+- **Corrupted Data in `data.json`**:
+  - **Status**: UNCHANGED.
+  - **Details**: The `data.json` file contains entries like `"def didnt have one"`, which indicates that some data may have been scraped or processed incorrectly.
+  - **Recommendation**: A data cleanup script should be created to parse `data.json`, identify and fix or remove malformed entries.
+
+- **Inconsistent Function Usage**:
+  - **Status**: FIXED.
+  - **Details**: The web application now correctly uses the more robust `scrape_evaluation_data` function (with retry logic) from `scrape_link.py` via the `workflow_helpers.py` module.
+
+## 4. Unused/Unreferenced Code
+
+- **Unreferenced Files**:
+  - **Status**: PARTIALLY FIXED.
+  - **Details**: `period_logic.py` is now correctly referenced and used. However, `config.py` is not used by the backend service, which duplicates its constants instead (as noted above).
+  - **Recommendation**: Ensure all modules import from the central `config.py` where applicable.
+
+- **Unused Directory**:
+  - **Status**: FIXED.
+  - **Details**: The `random_unused` directory was removed.
+
+## 5. Lack of Testing
+
+- **No Automated Tests**:
+  - **Status**: NEW PROBLEM.
+  - **Details**: There are no unit tests or integration tests in the project. This makes it difficult to refactor code or add new features without risking regressions. The complexity of the scraping and data processing logic makes testing especially important.
+  - **Recommendation**: Introduce a testing framework like `pytest`. Start by writing tests for the critical business logic in `period_logic.py`, `workflow_helpers.py`, and the backend services.
