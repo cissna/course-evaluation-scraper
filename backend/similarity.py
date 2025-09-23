@@ -1,5 +1,9 @@
 import re
-from scraper_service import load_json_file, DATA_FILE
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
+from data_manager import load_json_file
+from config import DATA_FILE
 
 def get_last_name(full_name: str) -> str:
     """

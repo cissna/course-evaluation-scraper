@@ -1,15 +1,13 @@
-import json
 import os
 import re
 import requests
 from datetime import date
-from bs4 import BeautifulSoup
 from course_grouping_service import CourseGroupingService
-from urllib.parse import urlencode, urljoin
 from dateutil.relativedelta import relativedelta
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 from workflow_helpers import scrape_course_data_core
+from data_manager import load_json_file, save_json_file
 
 # --- Constants (Adapted from config.py) ---
 
@@ -40,22 +38,6 @@ class SessionExpiredException(Exception):
     """Raised when the session is believed to have expired."""
     pass
 
-# --- Data Management (from data_manager.py) ---
-
-def load_json_file(filepath: str) -> dict:
-    """Safely loads a JSON file, creating it if it doesn't exist."""
-    if not os.path.exists(filepath):
-        return {}
-    with open(filepath, 'r') as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError:
-            return {}
-
-def save_json_file(filepath: str, data: dict):
-    """Saves a dictionary to a JSON file with pretty printing."""
-    with open(filepath, 'w') as f:
-        json.dump(data, f, indent=4)
 
 def get_year_from_period_string(period_string: str) -> int:
     if not period_string or len(period_string) < 4:
