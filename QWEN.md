@@ -13,6 +13,8 @@ This project is a full-stack web application designed to scrape, analyze, and di
 
 - **Architecture**: The application follows a classic client-server model. The React frontend is the user-facing client, and the Flask backend serves as the data provider and processing engine. The core scraping logic is centralized in `workflow_helpers.py`.
 
+- **Scraping Model**: Currently, scraping is performed on-demand via user searches in the web application. A key future goal is to add support for programmatic batch scraping of many courses at once.
+
 ## 2. Project Structure
 
 ```
