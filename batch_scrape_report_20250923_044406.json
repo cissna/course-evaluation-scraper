@@ -1,0 +1,29 @@
+{
+    "summary": {
+        "total_courses": 2,
+        "successful": 2,
+        "failed": 0,
+        "skipped": 0,
+        "start_time": "2025-09-23T04:43:56.629953",
+        "end_time": "2025-09-23T04:44:06.379241",
+        "duration_seconds": 9.749288
+    },
+    "successful_courses": [
+        {
+            "course_code": "AS.001.100",
+            "success": true,
+            "new_data_count": 0,
+            "total_data_count": 3,
+            "error": null
+        },
+        {
+            "course_code": "AS.001.101",
+            "success": true,
+            "new_data_count": 0,
+            "total_data_count": 2,
+            "error": null
+        }
+    ],
+    "failed_courses": [],
+    "skipped_courses": []
+}
