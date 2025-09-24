@@ -9,3 +9,4 @@ node_modules/  # shouldn't matter but roo codebase indexing seems to be taking a
 
 output.log
 .vercel
+.env*.local
