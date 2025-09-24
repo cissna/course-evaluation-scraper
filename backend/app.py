@@ -7,7 +7,7 @@ from analysis import process_analysis_request
 from course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
-CORS(app)  # Enable Cross-Origin Resource Sharing
+CORS(app, origins=["http://localhost:3000", "http://127.0.0.1:5000"])  # Enable Cross-Origin Resource Sharing
 
 grouping_service = CourseGroupingService()
 
