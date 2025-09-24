@@ -7,6 +7,7 @@ import LoadingOverlay from './components/LoadingOverlay';
 import GracePeriodWarning from './components/GracePeriodWarning';
 import { STATISTICS_CONFIG, ALL_STAT_KEYS } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
+import { API_BASE_URL } from './config';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -33,7 +34,7 @@ function App() {
     if (!code) return;
     
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/grace-status/${code}`);
+      const response = await fetch(`${API_BASE_URL}/api/grace-status/${code}`);
       const graceStatus = await response.json();
       setGracePeriodInfo(graceStatus);
     } catch (error) {
@@ -47,7 +48,7 @@ function App() {
     
     startLoading();
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/recheck/${courseCode}`, {
+      const response = await fetch(`${API_BASE_URL}/api/recheck/${courseCode}`, {
         method: 'POST',
       });
       
@@ -80,7 +81,7 @@ function App() {
       separation_keys: options.separationKeys
     };
 
-    fetch(`http://127.0.0.1:5000/api/analyze/${code}`, {
+    fetch(`${API_BASE_URL}/api/analyze/${code}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(params),

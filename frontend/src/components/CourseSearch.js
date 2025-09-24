@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './CourseSearch.css';
+import { API_BASE_URL } from '../config';
 
 const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
     const [query, setQuery] = useState('');
@@ -23,7 +24,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
             } else {
                 // It's a course name search
                 if (onLoadingChange) onLoadingChange(true);
-                const searchResponse = await fetch(`http://127.0.0.1:5000/api/search/course_name/${query.trim()}`);
+                const searchResponse = await fetch(`${API_BASE_URL}/api/search/course_name/${query.trim()}`);
                 if (!searchResponse.ok) throw new Error('Error searching for course name.');
                 
                 const courseCodes = await searchResponse.json();
