@@ -7,9 +7,6 @@ env/
 __pycache__/
 *.pyc
 
-# Ignore frontend code
-frontend/
-
 # Ignore local development files
 .vscode/
 *.sublime-project
