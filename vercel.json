@@ -20,32 +20,32 @@
       "dest": "backend/app.py"
     },
     {
-      "src": "^/static/(.*)",
-      "dest": "/static/$1"
+      "src": "/static/(.*)",
+      "dest": "/frontend/static/$1"
     },
     {
-      "src": "^/favicon.ico",
-      "dest": "/favicon.ico"
+      "src": "/favicon.ico",
+      "dest": "/frontend/favicon.ico"
     },
     {
-      "src": "^/logo192.png",
-      "dest": "/logo192.png"
+      "src": "/logo192.png",
+      "dest": "/frontend/logo192.png"
     },
     {
-      "src": "^/logo512.png",
-      "dest": "/logo512.png"
+      "src": "/logo512.png",
+      "dest": "/frontend/logo512.png"
     },
     {
-      "src": "^/manifest.json",
-      "dest": "/manifest.json"
+      "src": "/manifest.json",
+      "dest": "/frontend/manifest.json"
     },
     {
-      "src": "^/robots.txt",
-      "dest": "/robots.txt"
+      "src": "/robots.txt",
+      "dest": "/frontend/robots.txt"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/frontend/index.html"
     }
   ]
 }
