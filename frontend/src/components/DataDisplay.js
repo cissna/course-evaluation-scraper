@@ -31,13 +31,13 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
 
         if (details && details.n !== undefined && details.n !== null) {
             return (
-                <td key={statKey} className="stat-cell-with-tooltip">
+                <td key={statKey}>
                     <span className="stat-value">
                         {typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A'}
-                    </span>
-                    <span className="stat-tooltip">
-                        n = {details.n}
-                        {details.std !== undefined && details.std !== null && `, σ = ${details.std.toFixed(2)}`}
+                        <span className="stat-tooltip">
+                            n = {details.n}
+                            {details.std !== undefined && details.std !== null && `, σ = ${details.std.toFixed(2)}`}
+                        </span>
                     </span>
                 </td>
             );

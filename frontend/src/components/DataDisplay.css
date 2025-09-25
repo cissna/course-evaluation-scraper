@@ -59,8 +59,9 @@
     border-radius: 4px;
 }
 
-.stat-cell-with-tooltip {
+.stat-value {
     position: relative;
+    display: inline-block;
 }
 
 .stat-tooltip {
@@ -89,6 +90,6 @@
     border-top-color: #333;
 }
 
-.stat-cell-with-tooltip:hover .stat-tooltip {
+.stat-value:hover .stat-tooltip {
     display: block;
 }
