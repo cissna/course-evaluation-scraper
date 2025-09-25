@@ -7,7 +7,28 @@ from .analysis import process_analysis_request
 from .course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
-CORS(app, origins=["http://localhost:3000", "http://127.0.0.1:5000", "https://*.vercel.app"])  # Enable Cross-Origin Resource Sharing
+
+def check_origin(origin):
+    allowed_origins = [
+        "http://localhost:3000",
+        "http://127.0.0.1:5000",
+        "https://course-evaluation-scraper.vercel.app"
+    ]
+    
+    # Check exact matches first
+    if origin in allowed_origins:
+        return True
+    
+    # Check for Vercel preview deployments
+    if origin and origin.startswith("https://") and "vercel.app" in origin:
+        # Match pattern: https://course-evaluation-scraper-*.vercel.app
+        import re
+        pattern = r"^https://course-evaluation-scraper-[a-z0-9]+-[a-z0-9-]+\.vercel\.app$"
+        return bool(re.match(pattern, origin))
+    
+    return False
+
+CORS(app, origins=check_origin)  # Enable Cross-Origin Resource Sharing
 
 grouping_service = CourseGroupingService()
 
