@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
 import os
-import sys
 import argparse
 
 # Directories to exclude
-EXCLUDE_DIRS = {'.vercel', 'node_modules', '.git', 'one-time-scripts', 'frontend/build'}
+EXCLUDE_PARTS = {'.vercel', 'node_modules', '.git', 'one-time-scripts', 'frontend/build', 'metadata.json', 'data.json'}
 
 # File extensions to include
-EXTENSIONS = {'.py', '.js', '.html'}
+EXTENSIONS = {'.py', '.js', '.html', '.json'}
 
 def should_include_file(filepath):
-    # Check if file is in excluded directories
-    parts = filepath.split(os.sep)
-    for part in parts[:-1]:  # exclude the filename itself
-        if part in EXCLUDE_DIRS:
+    # Check if file is in excluded directories/is excluded
+    for part in filepath.split(os.sep):
+        if part in EXCLUDE_PARTS:
             return False
     # Check extension
     _, ext = os.path.splitext(filepath)
@@ -54,7 +52,7 @@ def main():
     code_files = []
     for root, dirs, files in os.walk('.'):
         # Modify dirs in place to skip excluded
-        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_PARTS]
         for file in files:
             filepath = os.path.join(root, file)
             if should_include_file(filepath):
