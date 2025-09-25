@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask import request
+import re
 from .scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
 from .db_utils import find_instructor_variants_db
 from .analysis import process_analysis_request
@@ -28,6 +29,17 @@ def check_origin(origin):
     
     return False
 
+def validate_course_code(course_code):
+    """
+    Validate that a course code matches the expected format: XX.###.###
+    Returns True if valid, False otherwise.
+    """
+    if not course_code or len(course_code) > 50:  # Prevent extremely long strings
+        return False
+    # Pattern: 2 letters, dot, 3 digits, dot, 3 digits (case insensitive)
+    pattern = r'^[A-Za-z]{2}\.\d{3}\.\d{3}$'
+    return bool(re.match(pattern, course_code))
+
 CORS(app, origins=check_origin)  # Enable Cross-Origin Resource Sharing
 
 grouping_service = CourseGroupingService()
@@ -42,6 +54,10 @@ def get_course_data(course_code):
     API endpoint to get course evaluation data.
     It triggers the scraper if the data is not up-to-date in the cache.
     """
+    # Validate course code format
+    if not validate_course_code(course_code):
+        return jsonify({"error": "Invalid course code format. Expected format: XX.###.###"}), 400
+
     # Normalize course code to uppercase to match stored format
     course_code = course_code.upper()
     print(f"Received request for course code: {course_code}")
@@ -65,6 +81,10 @@ def search_by_course_name(search_query):
     """
     API endpoint to search for courses by name.
     """
+    # Prevent extremely long search queries that could cause performance issues
+    if len(search_query) > 1000:
+        return jsonify({"error": "Search query too long. Maximum 1000 characters allowed."}), 400
+
     print(f"Received search request for: {search_query}")
     try:
         course_codes = find_courses_by_name(search_query)
@@ -78,6 +98,10 @@ def search_by_instructor_name(instructor_name):
     """
     API endpoint to find variations of an instructor's name.
     """
+    # Prevent extremely long instructor names that could cause performance issues
+    if len(instructor_name) > 1000:
+        return jsonify({"error": "Instructor name too long. Maximum 1000 characters allowed."}), 400
+
     print(f"Received instructor search for: {instructor_name}")
     try:
         variants = find_instructor_variants_db(instructor_name)
@@ -91,6 +115,10 @@ def get_grace_status(course_code):
     """
     API endpoint to check if a course needs grace period warning.
     """
+    # Validate course code format
+    if not validate_course_code(course_code):
+        return jsonify({"error": "Invalid course code format. Expected format: XX.###.###"}), 400
+
     # Normalize course code to uppercase to match stored format
     course_code = course_code.upper()
     try:
@@ -105,6 +133,10 @@ def recheck_course_data(course_code):
     """
     API endpoint to force recheck course data during grace periods.
     """
+    # Validate course code format
+    if not validate_course_code(course_code):
+        return jsonify({"error": "Invalid course code format. Expected format: XX.###.###"}), 400
+
     # Normalize course code to uppercase to match stored format
     course_code = course_code.upper()
     print(f"Received force recheck request for course: {course_code}")
@@ -125,6 +157,10 @@ def analyze_course_data(course_code):
     """
     API endpoint to perform filtering and separation analysis on course data.
     """
+    # Validate course code format
+    if not validate_course_code(course_code):
+        return jsonify({"error": "Invalid course code format. Expected format: XX.###.###"}), 400
+
     # Normalize course code to uppercase to match stored format
     course_code = course_code.upper()
     print(f"Received analysis request for course: {course_code}")
