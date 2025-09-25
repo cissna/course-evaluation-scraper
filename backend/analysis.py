@@ -1,7 +1,7 @@
 import re
 import json
-from backend.course_grouping_service import CourseGroupingService
-from scraper_service import get_course_data_and_update_cache
+from .course_grouping_service import CourseGroupingService
+from .scraper_service import get_course_data_and_update_cache
 
 # --- Mappings for Statistical Calculations ---
 

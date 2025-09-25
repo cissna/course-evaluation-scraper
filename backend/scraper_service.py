@@ -1,16 +1,22 @@
 import requests
 from datetime import date
-from course_grouping_service import CourseGroupingService
+from .course_grouping_service import CourseGroupingService
 from dateutil.relativedelta import relativedelta
-from workflow_helpers import scrape_course_data_core
-from backend.db_utils import (
+from .workflow_helpers import scrape_course_data_core
+from .db_utils import (
     get_course_metadata,
-    update_course_metadata,
     get_course_data_by_keys,
-    find_courses_by_name_db,
+    update_course_metadata,
+    find_courses_by_name_db
 )
-from scraping_logic import get_authenticated_session
-from config import PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
+from .scraping_logic import get_authenticated_session
+from .config import PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
+from .period_logic import (
+    get_year_from_period_string,
+    get_current_period,
+    is_course_up_to_date,
+    is_grace_period_over
+)
 
 # --- Course Grouping Service Instance ---
 grouping_service = CourseGroupingService()
@@ -22,44 +28,7 @@ class SessionExpiredException(Exception):
     pass
 
 
-def get_year_from_period_string(period_string: str) -> int:
-    if not period_string or len(period_string) < 4:
-        return None
-    year_short = int(period_string[-2:])
-    return 2000 + year_short
 
-def get_current_period() -> str:
-    today = date.today()
-    year_short = today.year % 100
-    if today.month > PERIOD_RELEASE_DATES['FA'][0] or \
-       (today.month == PERIOD_RELEASE_DATES['FA'][0] and today.day >= PERIOD_RELEASE_DATES['FA'][1]):
-        return f"FA{year_short}"
-    elif today.month > PERIOD_RELEASE_DATES['SU'][0] or \
-         (today.month == PERIOD_RELEASE_DATES['SU'][0] and today.day >= PERIOD_RELEASE_DATES['SU'][1]):
-        return f"SU{year_short}"
-    elif today.month > PERIOD_RELEASE_DATES['SP'][0] or \
-         (today.month == PERIOD_RELEASE_DATES['SP'][0] and today.day >= PERIOD_RELEASE_DATES['SP'][1]):
-        return f"SP{year_short}"
-    elif today.month > PERIOD_RELEASE_DATES['IN'][0] or \
-         (today.month == PERIOD_RELEASE_DATES['IN'][0] and today.day >= PERIOD_RELEASE_DATES['IN'][1]):
-        return f"IN{year_short}"
-    else:
-        return f"FA{year_short - 1}"
-
-def is_course_up_to_date(last_period_gathered: str) -> bool:
-    current_period = get_current_period()
-    return last_period_gathered == current_period
-
-def is_grace_period_over(period: str) -> bool:
-    today = date.today()
-    period_prefix = period[:2]
-    year_short = int(period[2:])
-    year = 2000 + year_short
-    release_month, release_day = PERIOD_RELEASE_DATES[period_prefix]
-    release_date = date(year, release_month, release_day)
-    grace_months = PERIOD_GRACE_MONTHS[period_prefix]
-    grace_period_end = release_date + relativedelta(months=grace_months)
-    return today > grace_period_end
 
 # --- Scraping Logic (from scraping_logic.py, scrape_search.py, scrape_link.py) ---
 
@@ -80,7 +49,7 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
         return {"error": f"The last attempt to gather data for course {course_code} failed. Please try again later or contact support if this persists."}
 
     # Check if course is up-to-date
-    if metadata and is_course_up_to_date(metadata.get('last_period_gathered')):
+    if metadata and is_course_up_to_date(metadata.get('last_period_gathered'), metadata):
         print(f"Course {course_code} is up-to-date. Returning cached data.")
         relevant_keys = metadata.get('relevant_periods', [])
         return get_course_data_by_keys(relevant_keys)

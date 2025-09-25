@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
-from config import MAX_RETRIES, INITIAL_RETRY_DELAY
+from .config import MAX_RETRIES, INITIAL_RETRY_DELAY
 
 def scrape_evaluation_data(report_url: str, session: requests.Session) -> dict:
     """

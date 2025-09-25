@@ -1,10 +1,10 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask import request
-from scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
-from backend.db_utils import find_instructor_variants_db
-from analysis import process_analysis_request
-from course_grouping_service import CourseGroupingService
+from .scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
+from .db_utils import find_instructor_variants_db
+from .analysis import process_analysis_request
+from .course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
 CORS(app, origins=["http://localhost:3000", "http://127.0.0.1:5000", "https://*.vercel.app"])  # Enable Cross-Origin Resource Sharing

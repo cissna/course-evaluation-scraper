@@ -1,5 +1,5 @@
 import requests
-from config import AUTH_URL
+from .config import AUTH_URL
 
 def get_authenticated_session() -> requests.Session:
     """

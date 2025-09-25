@@ -1,5 +1,5 @@
-from backend.db_utils import get_course_metadata, update_course_metadata, update_course_data, get_course_data_by_keys
-from period_logic import (
+from .db_utils import get_course_metadata, update_course_metadata, update_course_data, get_course_data_by_keys
+from .period_logic import (
     get_current_period,
     is_grace_period_over,
     get_period_from_instance_key,
@@ -7,11 +7,12 @@ from period_logic import (
     find_latest_year_from_keys,
     find_oldest_year_from_keys,
 )
-from scraping_logic import get_authenticated_session
-from scrape_search import get_evaluation_report_links
-from scrape_link import scrape_evaluation_data
+from .scraping_logic import get_authenticated_session
+from .scrape_search import get_evaluation_report_links
+from .scrape_link import scrape_evaluation_data
 import requests
-from datetime import date
+from datetime import date, datetime
+from dateutil.relativedelta import relativedelta
 
 def get_all_links_by_section(session, course_code):
     """

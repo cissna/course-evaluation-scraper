@@ -1,7 +1,7 @@
 import re
 from datetime import date
 from dateutil.relativedelta import relativedelta
-from config import PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
+from .config import PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
 
 def find_oldest_year_from_keys(keys: list) -> int:
     """

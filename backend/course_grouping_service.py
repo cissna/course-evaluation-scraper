@@ -4,22 +4,69 @@ import re
 from typing import List, Dict
 
 class CourseGroupingService:
-    def __init__(self, config_path='course_groupings.json'):
+    # Embedded default config for serverless deployments
+    DEFAULT_CONFIG = {
+        "department_patterns": {
+            "EN.601": {
+                "equivalent_levels": [400, 600]
+            },
+            "AS.050": {
+                "equivalent_levels": [200, 300, 400, 600]
+            }
+        },
+        "explicit_groupings": [
+            {
+                "courses": [
+                    "AS.050.375",
+                    "AS.050.675",
+                    "EN.601.485",
+                    "EN.601.685"
+                ],
+                "description": "Cross-department cognitive science/neuro and computer science advanced/graduate group",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.601.315",
+                    "EN.601.415",
+                    "EN.601.615"
+                ],
+                "description": "Databases",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.500.215",
+                    "EN.500.115"
+                ],
+                "description": "Intro Data Science ('Principles')",
+                "primary": None
+            }
+        ]
+    }
+
+    def __init__(self, config_path=None):
         self.config_path = config_path
         self.department_patterns = {}
         self.explicit_groupings = []
         self._load_config()
 
     def _load_config(self):
-        if not os.path.exists(self.config_path):
-            raise FileNotFoundError(f"Config file not found: {self.config_path}")
-        try:
-            with open(self.config_path, 'r') as f:
-                config = json.load(f)
+        if self.config_path and os.path.exists(self.config_path):
+            try:
+                with open(self.config_path, 'r') as f:
+                    config = json.load(f)
+                self.department_patterns = config.get('department_patterns', {})
+                self.explicit_groupings = config.get('explicit_groupings', [])
+                print(f"Config loaded from file: {len(self.department_patterns)} patterns, {len(self.explicit_groupings)} explicit groupings")
+            except Exception as e:
+                raise ValueError(f"Failed to load config from file: {str(e)}")
+        else:
+            # Use embedded default config
+            config = self.DEFAULT_CONFIG
             self.department_patterns = config.get('department_patterns', {})
             self.explicit_groupings = config.get('explicit_groupings', [])
-        except Exception as e:
-            raise ValueError(f"Failed to load config: {str(e)}")
+            print(f"Config loaded from embedded defaults: {len(self.department_patterns)} patterns, {len(self.explicit_groupings)} explicit groupings")
 
     def _parse_course_code(self, code: str):
         # Match pattern "DEPT.NUM.NUM" e.g., "EN.601.485"
