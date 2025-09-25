@@ -10,7 +10,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
 
     const handleSearch = async () => {
         if (!query.trim()) return;
-        const trimmedQuery = query.trim();
+        const trimmedQuery = query.trim().substring(0, 1000); // Ensure max 1000 chars to prevent abuse
         setLastSearchedQuery(trimmedQuery);
         setIsLoading(true);
         setError(null);
@@ -51,7 +51,13 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
             <input
                 type="text"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                maxLength="1000"
+                onChange={(e) => {
+                    const value = e.target.value;
+                    if (value.length <= 1000) {
+                        setQuery(value);
+                    }
+                }}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter' && query.trim() !== '' && query.trim() !== lastSearchedQuery) {
                         handleSearch();
