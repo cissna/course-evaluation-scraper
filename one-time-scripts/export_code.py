@@ -8,6 +8,22 @@ EXCLUDE_PARTS = {'.vercel', 'node_modules', '.git', 'one-time-scripts', 'fronten
 # File extensions to include
 EXTENSIONS = {'.py', '.js', '.html', '.json'}
 
+# Specific files to keep when using --specific flag (dataflow-related only)
+KEEP_SPECIFIC = [
+    'backend/app.py',
+    'backend/analysis.py',
+    'backend/db_utils.py',
+    'backend/course_grouping_service.py',
+    'backend/config.py',
+    'frontend/src/App.js',
+    'frontend/src/components/DataDisplay.js',
+    'frontend/src/components/AdvancedOptions.js',
+    'frontend/src/components/CourseSearch.js',
+    'frontend/src/utils/statsMapping.js',
+    'frontend/src/utils/yearUtils.js',
+    'frontend/src/config.js'
+]
+
 def should_include_file(filepath):
     # Check if file is in excluded directories/is excluded
     for part in filepath.split(os.sep):
@@ -46,6 +62,7 @@ def should_include_file(filepath):
 def main():
     parser = argparse.ArgumentParser(description="Export code files in markdown format or list names only.")
     parser.add_argument('--name-only', action='store_true', help="Print only the filenames, one per line.")
+    parser.add_argument('--specific', action='store_true', help="Export only the specific dataflow-related files listed in KEEP_SPECIFIC.")
     args = parser.parse_args()
 
     # Find all files recursively
@@ -60,6 +77,10 @@ def main():
 
     # Sort for consistent output
     code_files.sort()
+
+    # Filter to specific files if --specific flag is used
+    if args.specific:
+        code_files = [f for f in code_files if f.lstrip('./') in KEEP_SPECIFIC]
 
     if args.name_only:
         # Print filenames only, one per line
