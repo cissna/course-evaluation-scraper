@@ -18,8 +18,11 @@ def setup_database():
         cur = conn.cursor()
 
         # Read the schema file
-        with open('db_schema.sql', 'r') as f:
-            schema_sql = f.read()
+        try:
+            with open('../db_schema.sql', 'r') as f:
+                schema_sql = f.read()
+        except FileNotFoundError:
+            raise FileNotFoundError("Likely caused by not running this from the one-time-scripts/ directory")
 
         # Execute the schema setup
         cur.execute(schema_sql)
