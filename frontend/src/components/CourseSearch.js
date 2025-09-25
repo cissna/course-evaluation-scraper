@@ -6,25 +6,28 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
     const [query, setQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [lastSearchedQuery, setLastSearchedQuery] = useState('');
 
     const handleSearch = async () => {
         if (!query.trim()) return;
+        const trimmedQuery = query.trim();
+        setLastSearchedQuery(trimmedQuery);
         setIsLoading(true);
         setError(null);
 
         // Case-insensitive check if it's a course code (e.g., AS.123.456 or as.123.456)
         const courseCodePattern = /^[A-Za-z]{2}\.\d{3}\.\d{3}$/;
-        const isCourseCode = courseCodePattern.test(query.trim());
+        const isCourseCode = courseCodePattern.test(trimmedQuery);
 
         try {
             let courseCode;
             if (isCourseCode) {
                 // Auto-uppercase the course code to match the stored format
-                courseCode = query.trim().toUpperCase();
+                courseCode = trimmedQuery.toUpperCase();
             } else {
                 // It's a course name search
                 if (onLoadingChange) onLoadingChange(true);
-                const searchResponse = await fetch(`${API_BASE_URL}/api/search/course_name/${query.trim()}`);
+                const searchResponse = await fetch(`${API_BASE_URL}/api/search/course_name/${trimmedQuery}`);
                 if (!searchResponse.ok) throw new Error('Error searching for course name.');
                 
                 const courseCodes = await searchResponse.json();
@@ -49,6 +52,11 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' && query.trim() !== '' && query.trim() !== lastSearchedQuery) {
+                        handleSearch();
+                    }
+                }}
                 placeholder="Enter course code or name (e.g., AS.180.101 or Intro to Psych)"
             />
             <button onClick={handleSearch} disabled={isLoading}>
