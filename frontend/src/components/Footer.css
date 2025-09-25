@@ -1,0 +1,28 @@
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+}
+
+.footer-toggle {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.footer-toggle .caret {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.footer-toggle .caret.open {
+  transform: rotate(180deg);
+}
+
+.footer-content {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #ccc;
+}
