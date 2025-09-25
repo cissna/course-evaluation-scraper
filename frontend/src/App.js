@@ -80,7 +80,8 @@ function App() {
     const params = {
       stats: options.stats,
       filters: options.filters,
-      separation_keys: options.separationKeys
+      separation_keys: options.separationKeys,
+      api_version: 2  // Use new API version
     };
 
     fetch(`${API_BASE_URL}/api/analyze/${code}`, {
@@ -107,7 +108,19 @@ function App() {
       // Success
       console.log(data)
       if (data && !data.error) {
-        setAnalysisResult(data);
+        // Handle new response structure
+        if (data.data && data.metadata) {
+          // API v2 format - reconstruct legacy format for backward compatibility
+          const legacyFormat = {
+            ...data.data,
+            ...data.metadata,
+            statistics_metadata: data.statistics_metadata
+          };
+          setAnalysisResult(legacyFormat);
+        } else {
+          // Legacy format fallback
+          setAnalysisResult(data);
+        }
         setAnalysisError(null);
       } else {
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
@@ -337,12 +350,14 @@ function App() {
               relevant_periods,
               last_scrape_during_grace_period,
               grouping_metadata,
+              statistics_metadata,
               ...dataWithoutMetadata
             } = analysisResult;
             return dataWithoutMetadata;
           })() : null}
           selectedStats={Object.keys(advancedOptions.stats).filter(k => advancedOptions.stats[k])}
           errorMessage={analysisError}
+          statisticsMetadata={analysisResult?.statistics_metadata || {}}
         />
       </main>
       <Footer />

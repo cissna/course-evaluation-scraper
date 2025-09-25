@@ -44,7 +44,7 @@ grouping_service = CourseGroupingService()
 def calculate_weighted_average(frequency_dict: dict, value_mapping: dict) -> float:
     """
     Calculates the weighted average for a set of frequency data.
-    
+
     Args:
         frequency_dict (dict): A dictionary of response counts (e.g., {"Good": 10, "Excellent": 20}).
         value_mapping (dict): A dictionary mapping response text to numerical values (e.g., {"Good": 4, "Excellent": 5}).
@@ -54,16 +54,60 @@ def calculate_weighted_average(frequency_dict: dict, value_mapping: dict) -> flo
     """
     total_responses = 0
     weighted_sum = 0
-    
+
     for response_text, count in frequency_dict.items():
         if response_text in value_mapping:
             total_responses += count
             weighted_sum += count * value_mapping[response_text]
-            
+
     if total_responses == 0:
         return 0.0
-        
+
     return round(weighted_sum / total_responses, 2)
+
+
+def calculate_detailed_statistics(frequency_dict: dict, value_mapping: dict) -> dict:
+    """
+    Calculates detailed statistics including mean, standard deviation, and count.
+
+    Args:
+        frequency_dict (dict): A dictionary of response counts.
+        value_mapping (dict): A dictionary mapping response text to numerical values.
+
+    Returns:
+        dict: Contains 'mean', 'std', 'n' keys. Returns None values if no data.
+    """
+    if not frequency_dict or not value_mapping:
+        return {"mean": None, "std": None, "n": 0}
+
+    # Collect all individual data points
+    data_points = []
+    total_responses = 0
+
+    for response_text, count in frequency_dict.items():
+        if response_text in value_mapping and count > 0:
+            value = value_mapping[response_text]
+            data_points.extend([value] * count)
+            total_responses += count
+
+    if total_responses == 0:
+        return {"mean": None, "std": None, "n": 0}
+
+    # Calculate mean
+    mean = sum(data_points) / total_responses
+
+    # Calculate standard deviation
+    if total_responses == 1:
+        std = 0.0
+    else:
+        variance = sum((x - mean) ** 2 for x in data_points) / (total_responses - 1)
+        std = variance ** 0.5
+
+    return {
+        "mean": round(mean, 2),
+        "std": round(std, 2),
+        "n": total_responses
+    }
 
 
 def extract_course_metadata(course_names: dict, course_code: str, metadata_from_file: dict, primary_course_code: str = None, primary_course_has_no_data: bool = False) -> dict:
@@ -141,7 +185,9 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
     return result_metadata
 
 
-def calculate_group_statistics(course_instances: list, stats_to_calculate: list, metadata: dict = None, instance_keys: list = None) -> dict:
+def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
+                             metadata: dict = None, instance_keys: list = None,
+                             return_detailed: bool = False) -> dict:
     """
     Calculates aggregated statistics for a group of course instances.
 
@@ -150,9 +196,14 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
         stats_to_calculate (list): A list of frequency keys to be calculated (e.g., ["overall_quality_frequency"]).
         metadata (dict, optional): Metadata for special-case stats like 'periods_course_has_been_run'.
         instance_keys (list, optional): List of instance keys corresponding to course_instances for period calculation.
+        return_detailed (bool): If True, returns detailed statistics including n and std.
 
     Returns:
-        dict: A dictionary containing the calculated average for each requested statistic.
+        dict: If return_detailed is False, returns {stat_key: mean_value}
+              If return_detailed is True, returns {
+                  "values": {stat_key: mean_value},
+                  "details": {stat_key: {"n": count, "std": std_dev}}
+              }
     """
     # Aggregate frequencies from all instances in the group
     aggregated_frequencies = {}
@@ -166,20 +217,40 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
                     agg_dict = aggregated_frequencies[key]
                     agg_dict[response_text] = agg_dict.get(response_text, 0) + count
 
-    # Calculate the final averages from the aggregated frequencies
+    # Calculate the final statistics from the aggregated frequencies
     results = {}
+    details = {}
+
     for key in stats_to_calculate:
         ui_name, value_mapping = STAT_MAPPINGS[key]
         if key == "periods_course_has_been_run":
             # Compute periods_course_has_been_run using actual instance keys from the filtered group
             value = compute_periods_from_instance_keys(instance_keys)
-            # Use the original key, not the converted UI name
             results[key] = value
+            # No detailed stats for periods_course_has_been_run
+            if return_detailed:
+                details[key] = {"n": None, "std": None}
         else:
-            avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
-            # Use the original key (e.g., "feedback_frequency"), not the converted UI name
-            results[key] = avg
-    return results
+            if return_detailed:
+                # Calculate detailed statistics
+                detailed_stats = calculate_detailed_statistics(aggregated_frequencies[key], value_mapping)
+                results[key] = detailed_stats["mean"] if detailed_stats["mean"] is not None else 0.0
+                details[key] = {
+                    "n": detailed_stats["n"],
+                    "std": detailed_stats["std"]
+                }
+            else:
+                # Calculate simple average (backward compatibility)
+                avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
+                results[key] = avg
+
+    if return_detailed:
+        return {
+            "values": results,
+            "details": details
+        }
+    else:
+        return results
 
 # --- Filtering and Separation Logic ---
 
@@ -326,6 +397,7 @@ def process_analysis_request(
     params: dict,
     primary_course_code: str = None,
     skip_grouping: bool = False,
+    api_version: int = 1
 ) -> dict:
     """
     Main function to process an analysis request.
@@ -338,11 +410,15 @@ def process_analysis_request(
                          (backward compatible with 'separation_key': str)
                        - 'stats_to_calculate': list of frequency keys
         primary_course_code (str, optional): The base code for grouping analysis.
+        skip_grouping (bool): Whether to skip course grouping logic.
+        api_version (int): API version for response format (1=legacy, 2=separated).
 
     Returns:
-        A dictionary containing the results of the analysis, structured by group,
-        plus course metadata including current and former course names,
-        and course grouping metadata.
+        API v1 (legacy): A dictionary containing the results mixed with metadata.
+        API v2 (separated): A dictionary with three keys:
+            - "data": renderable statistical data by group
+            - "metadata": course metadata (names, grouping info, etc.)
+            - "statistics_metadata": detailed stats info (n, std) by group and stat
     """
     filters = params.get('filters', {})
     separation_keys = params.get('separation_keys')
@@ -463,7 +539,10 @@ def process_analysis_request(
             stats_backend_keys.append(backend_key)
             statkey_reverse_map[backend_key] = s
 
+    # 4. Calculate statistics for each group
     analysis_results = {}
+    statistics_metadata = {}
+
     for group_name, instances in separated_groups.items():
         # Patch: Special stats (feedback_frequency, ta_frequency) use the raw key from the UI/config, not "_frequency"
         backend_keys_fixed = []
@@ -484,23 +563,58 @@ def process_analysis_request(
             if instance_data in instances:
                 group_instance_keys.append(instance_key)
 
+        # Calculate statistics with detailed info for v2, simple for v1
+        use_detailed = api_version >= 2
         backend_result = calculate_group_statistics(
-            instances, backend_keys_fixed, course_metadata, group_instance_keys
+            instances, backend_keys_fixed, course_metadata, group_instance_keys,
+            return_detailed=use_detailed
         )
-        # Convert backend keys back to frontend keys
-        analysis_results[group_name] = {
-            statkey_reverse_map_fixed[k]: v
-            for k, v in backend_result.items()
-            if k in statkey_reverse_map_fixed
+
+        if use_detailed:
+            # API v2: separate values and details
+            values_data = backend_result["values"]
+            details_data = backend_result["details"]
+
+            # Convert backend keys back to frontend keys for both values and details
+            analysis_results[group_name] = {
+                statkey_reverse_map_fixed[k]: v
+                for k, v in values_data.items()
+                if k in statkey_reverse_map_fixed
+            }
+
+            statistics_metadata[group_name] = {
+                statkey_reverse_map_fixed[k]: v
+                for k, v in details_data.items()
+                if k in statkey_reverse_map_fixed
+            }
+        else:
+            # API v1: legacy format
+            # Convert backend keys back to frontend keys
+            analysis_results[group_name] = {
+                statkey_reverse_map_fixed[k]: v
+                for k, v in backend_result.items()
+                if k in statkey_reverse_map_fixed
+            }
+
+    # Assemble final result based on API version
+    if api_version >= 2:
+        # API v2: Clean separation of data, metadata, and statistics metadata
+        return {
+            "data": analysis_results,
+            "metadata": {
+                "current_name": course_metadata.get("current_name"),
+                "former_names": course_metadata.get("former_names", []),
+                "grouping_metadata": grouping_metadata,
+                **{k: v for k, v in course_metadata.items()
+                   if k not in ["current_name", "former_names"]}
+            },
+            "statistics_metadata": statistics_metadata
         }
-
-    # 7. Add course metadata to results
-    analysis_results.update(course_metadata)
-
-    # 8. Add grouping metadata to results
-    analysis_results["grouping_metadata"] = grouping_metadata
-
-    return analysis_results
+    else:
+        # API v1: Legacy format - mix everything together
+        analysis_results.update(course_metadata)
+        analysis_results["grouping_metadata"] = grouping_metadata
+        return analysis_results
 
 
 

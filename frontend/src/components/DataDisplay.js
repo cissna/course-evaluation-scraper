@@ -2,7 +2,7 @@ import React from 'react';
 import './DataDisplay.css';
 import { STAT_MAPPINGS } from '../utils/statsMapping';
 
-const DataDisplay = ({ data, errorMessage, selectedStats = [] }) => {
+const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {} }) => {
     if (errorMessage) {
         return <div className="data-display-error" dangerouslySetInnerHTML={{ __html: errorMessage }}></div>;
     }
@@ -25,6 +25,31 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [] }) => {
     };
 
     const headers = generateHeaders();
+
+    const renderCell = (groupName, statKey, value) => {
+        const details = statisticsMetadata[groupName]?.[statKey];
+
+        if (details && details.n !== undefined && details.n !== null) {
+            return (
+                <td key={statKey} className="stat-cell-with-tooltip">
+                    <span className="stat-value">
+                        {typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A'}
+                    </span>
+                    <span className="stat-tooltip">
+                        n = {details.n}
+                        {details.std !== undefined && details.std !== null && `, σ = ${details.std.toFixed(2)}`}
+                    </span>
+                </td>
+            );
+        }
+
+        // Regular cell without tooltip
+        return (
+            <td key={statKey}>
+                {typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A'}
+            </td>
+        );
+    };
 
     const convertToCSV = () => {
         const rows = [headers.join(',')];
@@ -78,13 +103,9 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [] }) => {
                     {groups.map(groupName => (
                         <tr key={groupName}>
                             <td>{groupName}</td>
-                            {selectedStats.map(statKey => (
-                                <td key={statKey}>
-                                    {typeof data[groupName][statKey] === 'number'
-                                        ? data[groupName][statKey].toFixed(2)
-                                        : data[groupName][statKey] ?? 'N/A'}
-                                </td>
-                            ))}
+                            {selectedStats.map(statKey =>
+                                renderCell(groupName, statKey, data[groupName][statKey])
+                            )}
                         </tr>
                     ))}
                 </tbody>

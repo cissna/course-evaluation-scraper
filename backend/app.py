@@ -130,8 +130,16 @@ def analyze_course_data(course_code):
         if isinstance(all_course_data, dict) and "error" in all_course_data:
             return jsonify(all_course_data), 500
 
+        # Check for API version in request
+        api_version = analysis_params.get('api_version', 1)
+
         # Process the data using the analysis module
-        results = process_analysis_request(all_course_data, analysis_params, primary_course_code=course_code)
+        results = process_analysis_request(
+            all_course_data,
+            analysis_params,
+            primary_course_code=course_code,
+            api_version=api_version
+        )
         if results is None:
             return jsonify({"error": "No data found for this course."}), 404
         return jsonify(results)
