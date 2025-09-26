@@ -9,26 +9,6 @@ from .course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
 
-def check_origin(origin):
-    allowed_origins = [
-        "http://localhost:3000",
-        "http://127.0.0.1:5000",
-        "https://course-evaluation-scraper.vercel.app"
-    ]
-    
-    # Check exact matches first
-    if origin in allowed_origins:
-        return True
-    
-    # Check for Vercel preview deployments
-    if origin and origin.startswith("https://") and "vercel.app" in origin:
-        # Match pattern: https://course-evaluation-scraper-*.vercel.app
-        import re
-        pattern = r"^https://course-evaluation-scraper-[a-z0-9]+-[a-z0-9-]+\.vercel\.app$"
-        return bool(re.match(pattern, origin))
-    
-    return False
-
 def validate_course_code(course_code):
     """
     Validate that a course code matches the expected format: XX.###.###
@@ -40,7 +20,15 @@ def validate_course_code(course_code):
     pattern = r'^[A-Za-z]{2}\.\d{3}\.\d{3}$'
     return bool(re.match(pattern, course_code))
 
-CORS(app, origins=check_origin)  # Enable Cross-Origin Resource Sharing
+# Define allowed origins for CORS, including a regex for Vercel preview deployments.
+# This is compatible with Flask-Cors >= 4.0.
+allowed_origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:5000",
+    "https://course-evaluation-scraper.vercel.app",
+    re.compile(r"^https://course-evaluation-scraper-[a-z0-9]+-[a-z0-9-]+\.vercel\.app$")
+]
+CORS(app, origins=allowed_origins)  # Enable Cross-Origin Resource Sharing
 
 grouping_service = CourseGroupingService()
 
