@@ -327,7 +327,7 @@ function App() {
             {showLast3YearsActive ? 'Show All Time' : 'Show Last 3 Years'}
           </button>
           <button onClick={handleSeparateByTeacherToggle}>
-            {advancedOptions.separationKeys.includes('instructor') ? 'Combine Teachers' : 'Separate by Teacher'}
+            {advancedOptions.separationKeys.includes('instructor') ? 'Combine Professors' : 'Separate by Professor'}
           </button>
         </div>
         <AdvancedOptions
@@ -340,6 +340,11 @@ function App() {
           showLast3YearsActive={showLast3YearsActive}
           onDeactivateLast3Years={() => setShowLast3YearsActive(false)}
         />
+        {analysisResult && (
+          <p style={{ textAlign: 'center', margin: '20px 0', fontWeight: 'bold' }}>
+            All numeric results are between 1 and 5
+          </p>
+        )}
         <DataDisplay
           data={analysisResult ? (() => {
             const {

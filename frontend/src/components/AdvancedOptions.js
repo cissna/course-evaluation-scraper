@@ -175,7 +175,7 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
               checked={options.separationKeys.includes('instructor')}
               onChange={() => handleSeparationChange('instructor')}
             />
-            Instructor
+            Professor
           </label>
           {/* Year */}
           <label>
