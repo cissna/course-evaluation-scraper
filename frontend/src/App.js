@@ -9,6 +9,7 @@ import { STATISTICS_CONFIG, ALL_STAT_KEYS } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 import { API_BASE_URL } from './config';
 import Footer from './components/Footer';
+import { addToSearchHistory } from './utils/storageUtils';
 
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
       if (!response.ok) {
         // Specific 404/no data handling
         if (response.status === 404 || data?.error === 'No data found for this course.') {
+          addToSearchHistory(code, 'No data');
           const searchUrl = `https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(code)}`;
           setAnalysisError(`No course evaluations found for ${code}.<br/><br/>No evaluations found at this search: <a href="${searchUrl}" target="_blank" rel="noopener noreferrer">${searchUrl}</a>`);
           setAnalysisResult(null);
@@ -109,6 +111,8 @@ function App() {
       if (data && !data.error) {
         setAnalysisResult(data);
         setAnalysisError(null);
+        const courseName = data.metadata?.current_name || 'No data';
+        addToSearchHistory(code, courseName);
       } else {
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
         setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
@@ -231,7 +235,11 @@ function App() {
         <h1>JHU Course Evaluation Analyzer</h1>
       </header>
       <main>
-        <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={(is) => is ? startLoading() : stopLoading()} />
+        <CourseSearch 
+          onDataReceived={handleDataReceived} 
+          onLoadingChange={(is) => is ? startLoading() : stopLoading()}
+          currentCourseCode={courseCode} 
+        />
         {/* Grouped courses codes banner - always show if grouped */}
         {analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
           <div
