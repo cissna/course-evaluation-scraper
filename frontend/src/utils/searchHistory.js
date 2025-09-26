@@ -56,6 +56,23 @@ export const addToSearchHistory = (courseCode, courseName) => {
 };
 
 /**
+ * Removes a course from search history by course code.
+ * @param {string} courseCode
+ */
+export const removeFromSearchHistory = (courseCode) => {
+  try {
+    let history = getSearchHistory();
+    history = history.filter(item => item.code !== courseCode);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      version: 1,
+      items: history
+    }));
+  } catch (e) {
+    console.warn('Failed to remove from search history:', e);
+  }
+};
+
+/**
  * Clears all stored search history.
  */
 export const clearSearchHistory = () => {
