@@ -8,6 +8,7 @@ This project is a full-stack web application designed to scrape, analyze, and di
     - On-demand scraping of course evaluation data from the JHU website.
     - Storing and retrieving course data and metadata from a Supabase (PostgreSQL) database.
     - Performing data analysis, filtering, and aggregation.
+    - Handling logical groupings of courses (e.g., cross-listed courses) via a `CourseGroupingService`.
 
 - **Frontend**: A single-page application (SPA) built with React. It provides the user interface for searching, displaying, and interacting with the evaluation data.
 
@@ -26,30 +27,40 @@ The application is a monorepo composed of three main parts:
 
 ### 2.1. Data Model (Supabase)
 
-The application uses a PostgreSQL database hosted by Supabase. The schema is defined in `db_schema.sql` and consists of two main tables:
+The application uses a PostgreSQL database hosted by Supabase. The schema is defined in `db_schema.sql` and consists of two main tables with automatic timestamping for updates.
 
 - **`course_metadata`**: Stores metadata for each course.
     - `course_code` (Primary Key): The unique code for the course (e.g., `AS.180.101`).
     - `last_period_gathered`: The most recent academic period successfully scraped.
-    - `relevant_periods`: A JSON field listing all academic periods for which this course has evaluations.
-    - Other fields for tracking scraping status and grace periods.
+    - `last_period_failed`: A boolean indicating if the last scrape attempt for a new period failed.
+    - `relevant_periods`: A JSONB field listing all academic periods for which this course has evaluations.
+    - `last_scrape_during_grace_period`: A date tracking the last scrape attempt within a grace period.
+    - `created_at`: Timestamp of when the record was created.
+    - `updated_at`: Timestamp of the last update to the record.
 
 - **`courses`**: Stores the raw evaluation data for each specific course instance (i.e., a course from a specific semester and instructor).
     - `instance_key` (Primary Key): A unique identifier for a course instance (e.g., `AS.180.101_FA23`).
-    - `course_code`: A foreign key referencing the `course_metadata` table.
-    - `data`: A JSON field containing the full scraped evaluation data for that instance.
+    - `course_code`: A foreign key referencing `course_metadata`.
+    - `data`: A JSONB field containing the full scraped evaluation data for that instance.
+    - `created_at`: Timestamp of when the record was created.
+    - `updated_at`: Timestamp of the last update to the record.
+
+A database trigger (`trigger_set_timestamp`) automatically updates the `updated_at` field on any row modification for both tables.
 
 ### 2.2. Deployment (Vercel)
 
-The application is deployed as a monorepo on Vercel. The deployment is configured using the `vercel.json` file, which defines the build and routing rules.
+The application is deployed as a monorepo on Vercel. The deployment is configured using `vercel.json`.
 
 - **Builds**:
-    1.  A Python build (`@vercel/python`) for the backend API located at `backend/app.py`.
-    2.  A static build (`@vercel/static-build`) for the React frontend located in the `frontend/` directory.
+    1.  A Python build (`@vercel/python`) for the backend API (`backend/app.py`).
+    2.  A static-build (`@vercel/static-build`) for the React frontend, triggered by `frontend/package.json`, which outputs to a `build` directory.
 
 - **Routing**:
-    - Requests starting with `/api/` are routed to the Python backend.
-    - All other requests are routed to the React frontend, with specific rules to handle static assets (CSS, JS) and the `index.html` file for client-side routing.
+    - Requests to `/api/(.*)` are routed to the Python backend.
+    - Static assets (`/static/*`, `/favicon.ico`, etc.) are served directly from the frontend build output.
+    - All other requests are routed to the frontend's `index.html` to enable client-side routing.
+
+- **CORS**: The Flask backend is configured to handle Cross-Origin Resource Sharing (CORS) from the main production URL, `localhost` for development, and a regular expression to dynamically allow Vercel preview deployment URLs.
 
 ### 2.3. Environment Variables
 
@@ -95,11 +106,11 @@ To run the project locally, you will need to start the frontend and backend serv
 
 ## 4. API Endpoints
 
-The backend provides the following REST API endpoints, all prefixed with `/api/`:
+The backend provides the following REST API endpoints, all prefixed with `/api/`. The API validates `course_code` parameters to ensure they match the `XX.###.###` format.
 
 - `GET /api/course/<course_code>`: Retrieves all evaluation data for a given course, triggering a scrape if the data is stale.
 - `GET /api/search/course_name/<query>`: Searches for courses by name.
 - `GET /api/search/instructor/<name>`: Finds variations of an instructor's name based on last name.
 - `GET /api/grace-status/<course_code>`: Checks if a course is in a "grace period" where new evaluations may be available.
 - `POST /api/recheck/<course_code>`: Forces a re-scrape of a course, even if it's within a grace period.
-- `POST /api/analyze/<course_code>`: Performs filtering and separation analysis on a course's data based on parameters provided in the request body.
+- `POST /api/analyze/<course_code>`: Performs filtering and separation analysis on a course's data. This endpoint can also use the `CourseGroupingService` to aggregate data from cross-listed courses.
