@@ -193,8 +193,7 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
 
 
 def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
-                             metadata: dict = None, instance_keys: list = None,
-                             return_detailed: bool = False) -> dict:
+                             metadata: dict = None, instance_keys: list = None) -> dict:
     """
     Calculates aggregated statistics for a group of course instances.
 
@@ -203,14 +202,12 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
         stats_to_calculate (list): A list of frequency keys to be calculated (e.g., ["overall_quality_frequency"]).
         metadata (dict, optional): Metadata for special-case stats like 'periods_course_has_been_run'.
         instance_keys (list, optional): List of instance keys corresponding to course_instances for period calculation.
-        return_detailed (bool): If True, returns detailed statistics including n and std.
 
     Returns:
-        dict: If return_detailed is False, returns {stat_key: mean_value}
-              If return_detailed is True, returns {
-                  "values": {stat_key: mean_value},
-                  "details": {stat_key: {"n": count, "std": std_dev}}
-              }
+        dict: Returns {
+            "values": {stat_key: mean_value},
+            "details": {stat_key: {"n": count, "std": std_dev}}
+        }
     """
     # Aggregate frequencies from all instances in the group
     aggregated_frequencies = {}
@@ -235,29 +232,20 @@ def calculate_group_statistics(course_instances: list, stats_to_calculate: list,
             value = compute_periods_from_instance_keys(instance_keys)
             results[key] = value
             # No detailed stats for periods_course_has_been_run
-            if return_detailed:
-                details[key] = {"n": None, "std": None}
+            details[key] = {"n": None, "std": None}
         else:
-            if return_detailed:
-                # Calculate detailed statistics
-                detailed_stats = calculate_detailed_statistics(aggregated_frequencies[key], value_mapping)
-                results[key] = detailed_stats["mean"] if detailed_stats["mean"] is not None else 0.0
-                details[key] = {
-                    "n": detailed_stats["n"],
-                    "std": detailed_stats["std"]
-                }
-            else:
-                # Calculate simple average (backward compatibility)
-                avg = calculate_weighted_average(aggregated_frequencies[key], value_mapping)
-                results[key] = avg
+            # Calculate detailed statistics
+            detailed_stats = calculate_detailed_statistics(aggregated_frequencies[key], value_mapping)
+            results[key] = detailed_stats["mean"] if detailed_stats["mean"] is not None else 0.0
+            details[key] = {
+                "n": detailed_stats["n"],
+                "std": detailed_stats["std"]
+            }
 
-    if return_detailed:
-        return {
-            "values": results,
-            "details": details
-        }
-    else:
-        return results
+    return {
+        "values": results,
+        "details": details
+    }
 
 # --- Filtering and Separation Logic ---
 
@@ -430,8 +418,7 @@ def process_analysis_request(
     all_course_data: dict,
     params: dict,
     primary_course_code: str = None,
-    skip_grouping: bool = False,
-    api_version: int = 1
+    skip_grouping: bool = False
 ) -> dict:
     """
     Main function to process an analysis request.
@@ -445,11 +432,9 @@ def process_analysis_request(
                        - 'stats_to_calculate': list of frequency keys
         primary_course_code (str, optional): The base code for grouping analysis.
         skip_grouping (bool): Whether to skip course grouping logic.
-        api_version (int): API version for response format (1=legacy, 2=separated).
 
     Returns:
-        API v1 (legacy): A dictionary containing the results mixed with metadata.
-        API v2 (separated): A dictionary with three keys:
+        A dictionary with three keys:
             - "data": renderable statistical data by group
             - "metadata": course metadata (names, grouping info, etc.)
             - "statistics_metadata": detailed stats info (n, std) by group and stat
@@ -597,58 +582,40 @@ def process_analysis_request(
             if instance_data in instances:
                 group_instance_keys.append(instance_key)
 
-        # Calculate statistics with detailed info for v2, simple for v1
-        use_detailed = api_version >= 2
+        # Calculate statistics with detailed info
         backend_result = calculate_group_statistics(
-            instances, backend_keys_fixed, course_metadata, group_instance_keys,
-            return_detailed=use_detailed
+            instances, backend_keys_fixed, course_metadata, group_instance_keys
         )
 
-        if use_detailed:
-            # API v2: separate values and details
-            values_data = backend_result["values"]
-            details_data = backend_result["details"]
+        # Separate values and details
+        values_data = backend_result["values"]
+        details_data = backend_result["details"]
 
-            # Convert backend keys back to frontend keys for both values and details
-            analysis_results[group_name] = {
-                statkey_reverse_map_fixed[k]: v
-                for k, v in values_data.items()
-                if k in statkey_reverse_map_fixed
-            }
-
-            statistics_metadata[group_name] = {
-                statkey_reverse_map_fixed[k]: v
-                for k, v in details_data.items()
-                if k in statkey_reverse_map_fixed
-            }
-        else:
-            # API v1: legacy format
-            # Convert backend keys back to frontend keys
-            analysis_results[group_name] = {
-                statkey_reverse_map_fixed[k]: v
-                for k, v in backend_result.items()
-                if k in statkey_reverse_map_fixed
-            }
-
-    # Assemble final result based on API version
-    if api_version >= 2:
-        # API v2: Clean separation of data, metadata, and statistics metadata
-        return {
-            "data": analysis_results,
-            "metadata": {
-                "current_name": course_metadata.get("current_name"),
-                "former_names": course_metadata.get("former_names", []),
-                "grouping_metadata": grouping_metadata,
-                **{k: v for k, v in course_metadata.items()
-                   if k not in ["current_name", "former_names"]}
-            },
-            "statistics_metadata": statistics_metadata
+        # Convert backend keys back to frontend keys for both values and details
+        analysis_results[group_name] = {
+            statkey_reverse_map_fixed[k]: v
+            for k, v in values_data.items()
+            if k in statkey_reverse_map_fixed
         }
-    else:
-        # API v1: Legacy format - mix everything together
-        analysis_results.update(course_metadata)
-        analysis_results["grouping_metadata"] = grouping_metadata
-        return analysis_results
+
+        statistics_metadata[group_name] = {
+            statkey_reverse_map_fixed[k]: v
+            for k, v in details_data.items()
+            if k in statkey_reverse_map_fixed
+        }
+
+    # Return clean separated data structure
+    return {
+        "data": analysis_results,
+        "metadata": {
+            "current_name": course_metadata.get("current_name"),
+            "former_names": course_metadata.get("former_names", []),
+            "grouping_metadata": grouping_metadata,
+            **{k: v for k, v in course_metadata.items()
+               if k not in ["current_name", "former_names"]}
+        },
+        "statistics_metadata": statistics_metadata
+    }
 
 
 

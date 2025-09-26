@@ -80,8 +80,7 @@ function App() {
     const params = {
       stats: options.stats,
       filters: options.filters,
-      separation_keys: options.separationKeys,
-      api_version: 2  // Use new API version
+      separation_keys: options.separationKeys
     };
 
     fetch(`${API_BASE_URL}/api/analyze/${code}`, {
@@ -108,19 +107,7 @@ function App() {
       // Success
       console.log(data)
       if (data && !data.error) {
-        // Handle new response structure
-        if (data.data && data.metadata) {
-          // API v2 format - reconstruct legacy format for backward compatibility
-          const legacyFormat = {
-            ...data.data,
-            ...data.metadata,
-            statistics_metadata: data.statistics_metadata
-          };
-          setAnalysisResult(legacyFormat);
-        } else {
-          // Legacy format fallback
-          setAnalysisResult(data);
-        }
+        setAnalysisResult(data);
         setAnalysisError(null);
       } else {
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
@@ -246,7 +233,7 @@ function App() {
       <main>
         <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={(is) => is ? startLoading() : stopLoading()} />
         {/* Grouped courses codes banner - always show if grouped */}
-        {analysisResult && analysisResult.grouping_metadata && analysisResult.grouping_metadata.is_grouped && (
+        {analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
           <div
             style={{
               background: "#ffe066",
@@ -261,8 +248,8 @@ function App() {
             }}
           >
             This course was automatically grouped with:&nbsp;
-            {Array.isArray(analysisResult?.grouping_metadata?.grouped_courses)
-              ? analysisResult.grouping_metadata.grouped_courses
+            {Array.isArray(analysisResult?.metadata?.grouping_metadata?.grouped_courses)
+              ? analysisResult.metadata.grouping_metadata.grouped_courses
                   .filter(code => code !== courseCode)
                   .map((code, idx, arr) =>
                     <span key={code}>
@@ -302,12 +289,12 @@ function App() {
           >
             {/* If backend returns current_name and former_names fields, use them.
                 Fallback to courseCode if not present. */}
-            {analysisResult.current_name ? (
+            {analysisResult.metadata?.current_name ? (
               <>
-                <span>{analysisResult.current_name}</span>
-                {Array.isArray(analysisResult.former_names) && analysisResult.former_names.length > 0 && (
+                <span>{analysisResult.metadata.current_name}</span>
+                {Array.isArray(analysisResult.metadata.former_names) && analysisResult.metadata.former_names.length > 0 && (
                   <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
-                    (formerly known as {analysisResult.former_names.join(', ')})
+                    (formerly known as {analysisResult.metadata.former_names.join(', ')})
                   </span>
                 )}
               </>
@@ -333,9 +320,9 @@ function App() {
         <AdvancedOptions
           options={advancedOptions}
           onApply={handleApplyAdvancedOptions}
-          courseMetadata={analysisResult ? {
-            current_name: analysisResult.current_name,
-            former_names: analysisResult.former_names
+          courseMetadata={analysisResult?.metadata ? {
+            current_name: analysisResult.metadata.current_name,
+            former_names: analysisResult.metadata.former_names
           } : null}
           showLast3YearsActive={showLast3YearsActive}
           onDeactivateLast3Years={() => setShowLast3YearsActive(false)}
@@ -346,20 +333,7 @@ function App() {
           </p>
         )}
         <DataDisplay
-          data={analysisResult ? (() => {
-            const {
-              current_name,
-              former_names,
-              last_period_gathered,
-              last_period_failed,
-              relevant_periods,
-              last_scrape_during_grace_period,
-              grouping_metadata,
-              statistics_metadata,
-              ...dataWithoutMetadata
-            } = analysisResult;
-            return dataWithoutMetadata;
-          })() : null}
+          data={analysisResult?.data || null}
           selectedStats={Object.keys(advancedOptions.stats).filter(k => advancedOptions.stats[k])}
           errorMessage={analysisError}
           statisticsMetadata={analysisResult?.statistics_metadata || {}}
