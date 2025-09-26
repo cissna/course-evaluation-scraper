@@ -3,6 +3,28 @@ import json
 from .course_grouping_service import CourseGroupingService
 from .scraper_service import get_course_data_and_update_cache
 
+def _simplify_name(name: str) -> str:
+    """Simplifies a name to only its lowercase letters."""
+    if not isinstance(name, str):
+        return ""
+    return "".join(filter(str.isalpha, name)).lower()
+
+def parse_semester_year(instance_key: str) -> tuple[int, int]:
+    """Parse semester and year from instance key for chronological sorting."""
+    # Updated regex to be more specific and include 'IN' for intersession
+    match = re.search(r'\.((?:IN|SP|SU|FA))(\d{2})$', instance_key)
+    if match:
+        semester, year = match.groups()
+        year_num = int('20' + year)  # Convert '24' to 2024
+
+        # Convert semesters to numbers for sorting (IN=0, SP=1, SU=2, FA=3)
+        semester_order = {'IN': 0, 'SP': 1, 'SU': 2, 'FA': 3}
+        semester_num = semester_order.get(semester, 0)
+
+        return (year_num, semester_num)
+    return (0, 0)  # Default for unparseable keys
+
+
 # --- Mappings for Statistical Calculations ---
 
 # Maps frequency keys to a tuple: (name for UI, numerical value mapping)
@@ -141,21 +163,6 @@ def extract_course_metadata(course_names: dict, course_code: str, metadata_from_
         if course_code in metadata_from_file:
             result_metadata.update(metadata_from_file[course_code])
         return result_metadata
-
-    def parse_semester_year(instance_key):
-        """Parse semester and year from instance key for chronological sorting."""
-        # Extract semester/year pattern (e.g., 'FA24', 'SP23', 'SU22')
-        match = re.search(r'([A-Z]{2})(\d{2})', instance_key)
-        if match:
-            semester, year = match.groups()
-            year_num = int('20' + year)  # Convert '24' to 2024
-
-            # Convert semesters to numbers for sorting (SP=1, SU=2, FA=3)
-            semester_order = {'SP': 1, 'SU': 2, 'FA': 3}
-            semester_num = semester_order.get(semester, 0)
-
-            return (year_num, semester_num)
-        return (0, 0)  # Default for unparseable keys
 
     # Sort by chronological order (year, then semester within year)
     sorted_instances = sorted(filtered_course_names.keys(), key=parse_semester_year)
@@ -358,13 +365,40 @@ def separate_instances(instances: dict, separation_keys=None) -> dict:
     if not separation_keys:
         return {"All Data": list(instances.values())}
 
+    # If separating by instructor, create a map from simplified names to the most recent display name
+    simplified_to_display_name = {}
+    if 'instructor' in separation_keys:
+        # Create a temporary map to find the most recent name for each simplified name
+        temp_map = {}
+        for key, instance in instances.items():
+            instructor_name = instance.get("instructor_name")
+            if not instructor_name:
+                continue
+
+            simplified_name = _simplify_name(instructor_name)
+            if not simplified_name:
+                continue
+
+            period_tuple = parse_semester_year(key)
+
+            # If this instructor's name is new or from a more recent period, update the map
+            if simplified_name not in temp_map or period_tuple > temp_map[simplified_name][0]:
+                temp_map[simplified_name] = (period_tuple, instructor_name)
+        
+        # Finalize the mapping from simplified name to the chosen display name
+        for simplified_name, (_, display_name) in temp_map.items():
+            simplified_to_display_name[simplified_name] = display_name
+
     groups = {}
     for key, instance in instances.items():
         group_parts = []
         for sep_key in separation_keys:
             value = "Unknown"
             if sep_key == "instructor":
-                value = instance.get("instructor_name", "Unknown")
+                instructor_name = instance.get("instructor_name", "Unknown")
+                simplified_name = _simplify_name(instructor_name)
+                # Use the canonical name if available, otherwise fall back to the original name
+                value = simplified_to_display_name.get(simplified_name, instructor_name)
             elif sep_key == "year":
                 value = str(get_instance_year(key))
             elif sep_key == "season":
