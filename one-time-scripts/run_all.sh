@@ -1,36 +1,29 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
-export PYTHONPATH=.
-
-# Kill child processes on exit/interrupt
+# Function to clean up background processes when the script exits
 cleanup() {
-  jobs -p | xargs -r kill 2>/dev/null || true
+    echo "Shutting down servers..."
+    # Kill all processes in the process group
+    kill 0
 }
-trap cleanup INT TERM EXIT
 
-# Start backend
-python3 backend/app.py &
+# Trap the EXIT signal to call the cleanup function
+trap cleanup EXIT
 
-# Start frontend
-(
-  cd frontend
-  npm install --no-fund --no-audit >/dev/null 2>&1
-  echo "Starting frontend..."
-  npm start 2>&1 | while IFS= read -r line; do
-    if [[ $line == *"webpack compiled"* ]] || [[ $line == *"Compiled successfully"* ]]; then
-      echo "frontend loaded on http://localhost:3000"
-    elif [[ $line == *"Failed to compile"* ]] || [[ $line == *"ERROR"* ]]; then
-      echo "$line"
-    fi
-  done
-) &
+# Start the backend server in the background and prefix its output
+echo "Starting backend server..."
+python3 -m backend.app 2>&1 | while IFS= read -r line; do
+  echo "[backend] $line"
+done &
 
-# Wait for any background job to exit
+# Start the frontend server in the background and prefix its output
+echo "Starting frontend server..."
+(cd frontend && npm start | cat) 2>&1 | while IFS= read -r line; do
+  echo "[frontend] $line"
+done &
+
+# Wait for all background processes to finish
 wait
-
-# Keep waiting for remaining jobs so trap can clean up
-wait || true
-
-
