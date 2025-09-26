@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './CourseSearch.css';
+import SearchHistory from './SearchHistory';
 import { API_BASE_URL } from '../config';
 
-const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
+const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) => {
     const [query, setQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [lastSearchedQuery, setLastSearchedQuery] = useState('');
+    const [showHistory, setShowHistory] = useState(false);
+    const searchInputRef = useRef(null);
 
     const handleSearch = async () => {
         if (!query.trim()) return;
@@ -14,6 +17,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
         setLastSearchedQuery(trimmedQuery);
         setIsLoading(true);
         setError(null);
+        setShowHistory(false); // Close history dropdown when searching
 
         // Case-insensitive check if it's a course code (e.g., AS.123.456 or as.123.456)
         const courseCodePattern = /^[A-Za-z]{2}\.\d{3}\.\d{3}$/;
@@ -46,9 +50,16 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
         }
     };
 
+    const handleHistoryItemClick = (courseCode) => {
+        setQuery(courseCode);
+        setShowHistory(false);
+        onDataReceived(courseCode);
+    };
+
     return (
         <div className="course-search">
             <input
+                ref={searchInputRef}
                 type="text"
                 value={query}
                 maxLength="1000"
@@ -58,6 +69,8 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
                         setQuery(value);
                     }
                 }}
+                onFocus={() => setShowHistory(true)}
+                onClick={() => setShowHistory(true)}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter' && query.trim() !== '' && query.trim() !== lastSearchedQuery) {
                         handleSearch();
@@ -68,6 +81,14 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
             <button onClick={handleSearch} disabled={isLoading}>
                 {isLoading ? 'Searching...' : 'Search'}
             </button>
+            <SearchHistory
+                isOpen={showHistory}
+                onClose={() => setShowHistory(false)}
+                onItemClick={handleHistoryItemClick}
+                searchValue={query}
+                currentCourseCode={currentCourseCode}
+                anchorRef={searchInputRef}
+            />
             {error && <p className="error-message">{error}</p>}
         </div>
     );

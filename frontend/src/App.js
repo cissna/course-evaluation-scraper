@@ -9,6 +9,7 @@ import { STATISTICS_CONFIG, ALL_STAT_KEYS } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 import { API_BASE_URL } from './config';
 import Footer from './components/Footer';
+import { addToSearchHistory } from './utils/searchHistory';
 
 
 function App() {
@@ -96,6 +97,8 @@ function App() {
           const searchUrl = `https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(code)}`;
           setAnalysisError(`No course evaluations found for ${code}.<br/><br/>No evaluations found at this search: <a href="${searchUrl}" target="_blank" rel="noopener noreferrer">${searchUrl}</a>`);
           setAnalysisResult(null);
+          // Add to search history for no data case
+          addToSearchHistory(code, 'No data');
           return;
         }
         // Generic error handling with details
@@ -109,6 +112,10 @@ function App() {
       if (data && !data.error) {
         setAnalysisResult(data);
         setAnalysisError(null);
+        
+        // Add to search history
+        const courseName = data.metadata?.current_name || 'No data';
+        addToSearchHistory(code, courseName);
       } else {
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
         setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
@@ -231,7 +238,11 @@ function App() {
         <h1>JHU Course Evaluation Analyzer</h1>
       </header>
       <main>
-        <CourseSearch onDataReceived={handleDataReceived} onLoadingChange={(is) => is ? startLoading() : stopLoading()} />
+        <CourseSearch 
+          currentCourseCode={courseCode} 
+          onDataReceived={handleDataReceived} 
+          onLoadingChange={(is) => is ? startLoading() : stopLoading()} 
+        />
         {/* Grouped courses codes banner - always show if grouped */}
         {analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
           <div
