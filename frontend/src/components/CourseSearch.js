@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './CourseSearch.css';
 import { API_BASE_URL } from '../config';
+import SearchHistory from './SearchHistory';
 
-const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
+const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) => {
     const [query, setQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [lastSearchedQuery, setLastSearchedQuery] = useState('');
+    const [showHistory, setShowHistory] = useState(false);
+    const searchInputRef = useRef(null);
+
+    const handleHistoryItemClick = (courseCode) => {
+        setQuery(courseCode);
+        setShowHistory(false);
+        // Directly call onDataReceived to trigger search, bypassing handleSearch
+        onDataReceived(courseCode);
+    };
 
     const handleSearch = async () => {
         if (!query.trim()) return;
@@ -49,6 +59,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
     return (
         <div className="course-search">
             <input
+                ref={searchInputRef}
                 type="text"
                 value={query}
                 maxLength="1000"
@@ -58,12 +69,22 @@ const CourseSearch = ({ onDataReceived, onLoadingChange }) => {
                         setQuery(value);
                     }
                 }}
+                onFocus={() => setShowHistory(true)}
+                onClick={() => setShowHistory(true)}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter' && query.trim() !== '' && query.trim() !== lastSearchedQuery) {
                         handleSearch();
                     }
                 }}
                 placeholder="Enter course code or name (e.g., AS.180.101 or Intro to Psych)"
+            />
+            <SearchHistory
+                isOpen={showHistory}
+                onClose={() => setShowHistory(false)}
+                onItemClick={handleHistoryItemClick}
+                searchValue={query}
+                currentCourseCode={currentCourseCode}
+                anchorRef={searchInputRef}
             />
             <button onClick={handleSearch} disabled={isLoading}>
                 {isLoading ? 'Searching...' : 'Search'}
