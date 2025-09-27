@@ -5,10 +5,11 @@
   left: 0;
   background: white;
   border: 1px solid #ccc;
-  border-top: none;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 1000;
   max-height: none; /* No scrolling */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .search-history-header {

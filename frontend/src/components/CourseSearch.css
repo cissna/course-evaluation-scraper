@@ -24,6 +24,7 @@
 .course-search input:focus {
     outline: none;
     border-radius: 0;
+    border-bottom: none;
 }
 
 .course-search button {
