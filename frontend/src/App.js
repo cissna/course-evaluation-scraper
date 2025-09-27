@@ -114,7 +114,7 @@ function App() {
 
         // Add to search history
         const courseName = data.metadata?.current_name || 'No data';
-        addToSearchHistory(newCourseCode, courseName);
+        addToSearchHistory(code, courseName);
       } else {
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
         setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
