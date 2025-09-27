@@ -54,7 +54,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) =>
 
     return (
         <div className="course-search">
-            <div style={{ position: 'relative', width: '100%' }}>
+            <div className="search-input-container">
                 <input
                     ref={searchInputRef}
                     type="text"

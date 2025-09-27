@@ -2,8 +2,14 @@
     margin: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
     gap: 10px;
+}
+
+.search-input-container {
+    position: relative;
+    flex-grow: 1;
+    max-width: 500px; /* Max width of the search input */
 }
 
 .course-search input {
@@ -11,7 +17,8 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 400px;
+    width: 100%; /* Make input responsive */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .course-search button {
@@ -22,6 +29,7 @@
     color: white;
     border: none;
     border-radius: 4px;
+    flex-shrink: 0; /* Prevent the button from shrinking */
 }
 
 .course-search button:disabled {

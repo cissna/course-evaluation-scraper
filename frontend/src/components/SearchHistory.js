@@ -31,6 +31,7 @@ const SearchHistory = ({
   const [history, setHistory] = useState(getSearchHistory());
   const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [dropdownWidth, setDropdownWidth] = useState(0);
   const dropdownRef = useRef(null);
 
   const filteredHistory = useMemo(() => 
@@ -56,8 +57,11 @@ const SearchHistory = ({
       setHistory(getSearchHistory());
       setSelectedIndex(-1);
       setDisplayCount(INITIAL_DISPLAY_COUNT);
+      if (anchorRef.current) {
+        setDropdownWidth(anchorRef.current.offsetWidth);
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, anchorRef]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -131,7 +135,11 @@ const SearchHistory = ({
   }
 
   return (
-    <div className="search-history-dropdown" ref={dropdownRef}>
+    <div 
+      className="search-history-dropdown"
+      ref={dropdownRef}
+      style={{ width: dropdownWidth > 0 ? `${dropdownWidth}px` : 'auto' }}
+    >
       <div className="search-history-header">
         <span className="search-history-title">Recent Searches</span>
         <button className="search-history-close" onClick={onClose}>&times;</button>
