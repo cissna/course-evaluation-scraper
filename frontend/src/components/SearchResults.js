@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './SearchResults.css';
 import { API_BASE_URL } from '../config';
 
@@ -13,11 +13,11 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
 
     useEffect(() => {
         if (searchQuery) {
-            fetchResults(1);
+            fetchResults(1, searchQuery);
         }
-    }, [searchQuery]);
+    }, [searchQuery, fetchResults]);
 
-    const fetchResults = async (page) => {
+    const fetchResults = useCallback(async (page, query) => {
         setIsLoading(true);
         setError(null);
 
@@ -25,7 +25,7 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
 
         try {
             const response = await fetch(
-                `${API_BASE_URL}/api/search/course_name_detailed/${encodeURIComponent(searchQuery)}?limit=${resultsPerPage}&offset=${offset}`
+                `${API_BASE_URL}/api/search/course_name_detailed/${encodeURIComponent(query)}?limit=${resultsPerPage}&offset=${offset}`
             );
 
             if (!response.ok) {
@@ -41,11 +41,11 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
         } finally {
             setIsLoading(false);
         }
-    };
+    }, [resultsPerPage]);
 
     const handleLoadMore = () => {
         const nextPage = currentPage + 1;
-        fetchResults(nextPage);
+        fetchResults(nextPage, searchQuery);
     };
 
     const handleCourseClick = (result) => {
