@@ -223,11 +223,6 @@ export function processAnalysisRequest(rawData, params) {
   
   // Map frontend stat keys to backend keys
   const statsToSend = Object.keys(params.stats).filter(k => params.stats[k]);
-  const backendStatKeys = statsToSend.map(stat => {
-    if (stat === 'periods_course_has_been_run') return stat;
-    if (['feedback_frequency', 'ta_frequency'].includes(stat)) return stat;
-    return stat + '_frequency';
-  });
 
   for (const [groupName, instances] of Object.entries(separated)) {
     // Get instance keys for this group
