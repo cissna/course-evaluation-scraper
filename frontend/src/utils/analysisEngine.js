@@ -230,17 +230,9 @@ export function processAnalysisRequest(rawData, params) {
     
     const result = calculateGroupStatistics(instances, statsToSend, groupInstanceKeys);
     
-    // Map back to frontend keys
-    const groupData = {};
-    const groupMetadata = {};
-    for (const [backendKey, value] of Object.entries(result.values)) {
-      const frontendKey = backendKey.replace('_frequency', '');
-      groupData[frontendKey] = value;
-    }
-    for (const [backendKey, value] of Object.entries(result.details)) {
-      const frontendKey = backendKey.replace('_frequency', '');
-      groupMetadata[frontendKey] = value;
-    }
+    // Use keys directly - no transformation needed
+    const groupData = result.values;
+    const groupMetadata = result.details;
     analysisResults[groupName] = groupData;
     statisticsMetadata[groupName] = groupMetadata;
   }
