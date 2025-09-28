@@ -10,7 +10,7 @@ This project is a full-stack web application designed to scrape, analyze, and di
     - Performing data analysis, filtering, and aggregation.
     - Handling logical groupings of courses (e.g., cross-listed courses) via a `CourseGroupingService`.
 
-- **Frontend**: A single-page application (SPA) built with React. It provides the user interface for searching, displaying, and interacting with the evaluation data.
+- **Frontend**: A single-page application (SPA) built with React. It provides the user interface for searching, displaying, and interacting with the evaluation data. It also includes a search history feature that stores recent searches in the browser's local storage.
 
 - **Database**: A PostgreSQL database hosted on Supabase, which stores all course and metadata information.
 
@@ -47,7 +47,15 @@ The application uses a PostgreSQL database hosted by Supabase. The schema is def
 
 A database trigger (`trigger_set_timestamp`) automatically updates the `updated_at` field on any row modification for both tables.
 
-### 2.2. Deployment (Vercel)
+### 2.2. Backend (Flask)
+
+The backend is a Python/Flask server. The `CourseGroupingService` now uses a default, embedded configuration for course groupings, as `course_groupings.json` has been removed.
+
+### 2.3. Frontend (React)
+
+The frontend is a React SPA. It includes a `SearchHistory` component that displays a dropdown of recent searches, and a `storageUtils` utility to manage the search history in the browser's local storage.
+
+### 2.4. Deployment (Vercel)
 
 The application is deployed as a monorepo on Vercel. The deployment is configured using `vercel.json`.
 
@@ -62,7 +70,7 @@ The application is deployed as a monorepo on Vercel. The deployment is configure
 
 - **CORS**: The Flask backend is configured to handle Cross-Origin Resource Sharing (CORS) from the main production URL, `localhost` for development, and a regular expression to dynamically allow Vercel preview deployment URLs.
 
-### 2.3. Environment Variables
+### 2.5. Environment Variables
 
 The application connects to the Supabase database via a connection string. This is managed by a single environment variable that must be configured in the Vercel project settings:
 
@@ -113,4 +121,4 @@ The backend provides the following REST API endpoints, all prefixed with `/api/`
 - `GET /api/search/instructor/<name>`: Finds variations of an instructor's name based on last name.
 - `GET /api/grace-status/<course_code>`: Checks if a course is in a "grace period" where new evaluations may be available.
 - `POST /api/recheck/<course_code>`: Forces a re-scrape of a course, even if it's within a grace period.
-- `POST /api/analyze/<course_code>`: Performs filtering and separation analysis on a course's data. This endpoint can also use the `CourseGroupingService` to aggregate data from cross-listed courses.
+- `POST /api/analyze/<course_code>`: Performs filtering and separation analysis on a course's data. This endpoint can also use the `CourseGroupingService` to aggregate data from cross-listed courses. The `CourseGroupingService` now uses a default, embedded configuration.
