@@ -5,7 +5,7 @@ import argparse
 # Directories to exclude
 EXCLUDE_PARTS = {'.vercel', 'node_modules', '.git', 'one-time-scripts', 'frontend/build', 'metadata.json', 'data.json',
                  'failed.json', 'package-lock.json', 'package.json', '__pycache__', 'settings.local.json', 'GEMINI.md',
-                 'README.md'}
+                 '.vscode'}
 
 # File extensions to include
 EXTENSIONS = {'.py', '.js', '.html', '.json', '.sql', '.md'}
