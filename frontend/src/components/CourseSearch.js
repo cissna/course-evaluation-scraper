@@ -87,7 +87,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) =>
                     }}
                     onFocus={() => setShowHistory(true)}
                     onClick={() => setShowHistory(true)}
-                    placeholder="Enter course code or name (e.g., AS.180.101 or Intro to Psych)"
+                    placeholder="Enter course code or name (e.g., AS.180.101 or Introduction to Psych)"
                 />
                 <SearchHistory
                     isOpen={showHistory}
