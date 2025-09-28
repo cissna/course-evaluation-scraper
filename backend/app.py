@@ -1,10 +1,10 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
-from flask import request
 import re
+import json
 from .scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
 from .db_utils import find_instructor_variants_db
-from .analysis import process_analysis_request
+from .analysis import process_analysis_request, extract_course_metadata
 from .course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
@@ -144,6 +144,7 @@ def recheck_course_data(course_code):
 def analyze_course_data(course_code):
     """
     API endpoint to perform filtering and separation analysis on course data.
+    Modified to support raw data mode for frontend processing.
     """
     # Validate course code format
     if not validate_course_code(course_code):
@@ -158,9 +159,86 @@ def analyze_course_data(course_code):
         if not analysis_params:
             return jsonify({"error": "Missing analysis parameters in request body."}), 400
 
+        # Check if requesting raw data for frontend processing
+        if analysis_params.get('raw_data_mode'):
+            print(f"Raw data mode requested for {course_code}")
+            
+            # Get all the data for the course
+            all_course_data = get_course_data_and_update_cache(course_code)
+            
+            # Get metadata
+            metadata_from_file = {}
+            try:
+                with open('metadata.json', 'r') as f:
+                    metadata_from_file = json.load(f)
+            except (FileNotFoundError, json.JSONDecodeError):
+                pass
+            
+            # Get grouping info
+            group_info = grouping_service.get_group_info(course_code)
+            grouped_courses = []
+            all_instances = {}
+            
+            if group_info and group_info.get("courses"):
+                grouped_courses = group_info["courses"]
+                
+                # Add main course data
+                if all_course_data:
+                    all_instances.update(all_course_data)
+                
+                # Fetch data for all grouped courses
+                for grouped_code in grouped_courses:
+                    if grouped_code != course_code:
+                        try:
+                            grouped_data = get_course_data_and_update_cache(grouped_code)
+                            if grouped_data and isinstance(grouped_data, dict):
+                                # Add course_code field to each instance for separation
+                                for instance_key, instance_data in grouped_data.items():
+                                    if isinstance(instance_data, dict):
+                                        instance_data_with_code = instance_data.copy()
+                                        instance_data_with_code['course_code'] = grouped_code
+                                        all_instances[f"{grouped_code}_{instance_key}"] = instance_data_with_code
+                        except Exception as e:
+                            print(f"Warning: Could not load grouped course {grouped_code}: {e}")
+            else:
+                # No grouping, just use the main course data
+                if all_course_data:
+                    all_instances.update(all_course_data)
+            
+            # Extract course names for metadata
+            course_names = {}
+            for instance_key, instance_data in all_instances.items():
+                if 'course_name' in instance_data:
+                    course_names[instance_key] = instance_data['course_name']
+            
+            # Get course metadata
+            course_metadata = extract_course_metadata(
+                course_names, 
+                course_code, 
+                metadata_from_file,
+                primary_course_code=course_code,
+                primary_course_has_no_data=not all_course_data
+            )
+            
+            # Return raw data structure
+            return jsonify({
+                "raw_data": {
+                    "instances": all_instances,
+                    "metadata": {
+                        "current_name": course_metadata.get("current_name"),
+                        "former_names": course_metadata.get("former_names", []),
+                        **{k: v for k, v in course_metadata.items() 
+                           if k not in ["current_name", "former_names"]}
+                    },
+                    "grouping_metadata": {
+                        "grouped_courses": grouped_courses,
+                        "group_description": group_info.get("description", "") if group_info else "",
+                        "is_grouped": bool(grouped_courses and len(grouped_courses) > 1)
+                    }
+                }
+            })
 
-
-        # First, get all the data for the course (from cache or by scraping)
+        # Otherwise, use existing backend processing (backward compatibility)
         all_course_data = get_course_data_and_update_cache(course_code)
 
         # If no data, check for groupings before returning an error

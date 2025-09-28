@@ -10,10 +10,11 @@ import { calculateLast3YearsRange } from './utils/yearUtils';
 import { API_BASE_URL } from './config';
 import Footer from './components/Footer';
 import { addToSearchHistory } from './utils/storageUtils';
-
+import { processAnalysisRequest } from './utils/analysisEngine.js';
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
+  const [rawCourseData, setRawCourseData] = useState(null);
   const [courseCode, setCourseCode] = useState(null);
   const [advancedOptions, setAdvancedOptions] = useState({
     stats: Object.fromEntries(
@@ -27,7 +28,6 @@ function App() {
   const [loadingCount, setLoadingCount] = useState(0);
   const [gracePeriodInfo, setGracePeriodInfo] = useState(null);
   const [dismissedGraceWarnings, setDismissedGraceWarnings] = useState(new Set());
-  // (No longer tracking a separate autoGroupingBanner state: always show based on analysisResult.grouping_metadata.is_grouped)
   const isLoading = loadingCount > 0;
   const startLoading = () => setLoadingCount(c => c + 1);
   const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
@@ -48,40 +48,51 @@ function App() {
 
   const handleRecheck = async () => {
     if (!courseCode) return;
-    
     startLoading();
     try {
-      const response = await fetch(`${API_BASE_URL}/api/recheck/${courseCode}`, {
-        method: 'POST',
-      });
-      
-      if (response.ok) {
-        // Dismiss the warning temporarily and refresh analysis
-        setDismissedGraceWarnings(prev => new Set(prev).add(courseCode));
-        fetchAnalysisData(courseCode, advancedOptions);
-      } else {
-        const errorData = await response.json().catch(() => ({}));
-        setAnalysisError(`Recheck failed: ${errorData.error || 'Unknown error'}`);
-      }
+        const response = await fetch(`${API_BASE_URL}/api/recheck/${courseCode}`, { method: 'POST' });
+        if (response.ok) {
+            setDismissedGraceWarnings(prev => new Set(prev).add(courseCode));
+            setRawCourseData(null); // Invalidate raw data to force refetch
+            fetchAnalysisData(courseCode, advancedOptions, true);
+        } else {
+            const errorData = await response.json().catch(() => ({}));
+            setAnalysisError(`Recheck failed: ${errorData.error || 'Unknown error'}`);
+        }
     } catch (error) {
-      setAnalysisError(`Recheck failed: ${String(error)}`);
+        setAnalysisError(`Recheck failed: ${String(error)}`);
     } finally {
-      stopLoading();
+        stopLoading();
     }
   };
 
-  const fetchAnalysisData = (code, options) => {
+  const fetchAnalysisData = (code, options, forceBackend = false) => {
     if (!code) return;
+
+    if (rawCourseData && rawCourseData.courseCode === code && !forceBackend) {
+        try {
+            const result = processAnalysisRequest(rawCourseData.data, {
+                stats: options.stats,
+                filters: options.filters,
+                separationKeys: options.separationKeys
+            });
+            setAnalysisResult(result);
+        } catch (error) {
+            console.error('Frontend processing error:', error);
+            fetchAnalysisData(code, options, true); // Fallback to backend
+        }
+        return;
+    }
 
     setAnalysisError(null);
     setAnalysisResult(null);
     startLoading();
 
-    // Shape the request body from advanced options
     const params = {
       stats: options.stats,
       filters: options.filters,
-      separation_keys: options.separationKeys
+      separation_keys: options.separationKeys,
+      raw_data_mode: true // NEW FLAG
     };
 
     fetch(`${API_BASE_URL}/api/analyze/${code}`, {
@@ -92,7 +103,6 @@ function App() {
     .then(async response => {
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
-        // Specific 404/no data handling
         if (response.status === 404 || data?.error === 'No data found for this course.') {
           addToSearchHistory(code, 'No data');
           const searchUrl = `https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(code)}`;
@@ -100,36 +110,37 @@ function App() {
           setAnalysisResult(null);
           return;
         }
-        // Generic error handling with details
         const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
         setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
         setAnalysisResult(null);
+        setRawCourseData(null);
         return;
       }
-      // Success
-      console.log(data)
-      if (data && !data.error) {
-        setAnalysisResult(data);
-        setAnalysisError(null);
-        const courseName = data.metadata?.current_name || 'No data';
-        addToSearchHistory(code, courseName);
-      } else {
-        const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
-        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
-        setAnalysisResult(null);
-      }
+      
+      setRawCourseData({ courseCode: code, data: data.raw_data });
+      const result = processAnalysisRequest(data.raw_data, {
+          stats: options.stats,
+          filters: options.filters,
+          separationKeys: options.separationKeys
+      });
+      setAnalysisResult(result);
+      setAnalysisError(null);
+      const courseName = result.metadata?.current_name || 'No data';
+      addToSearchHistory(code, courseName);
     })
     .catch(error => {
       setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${String(error)}`);
       setAnalysisResult(null);
+      setRawCourseData(null);
     })
     .finally(() => { stopLoading(); });
   };
 
   const handleDataReceived = (newCourseCode) => {
     setCourseCode(newCourseCode);
-    setDismissedGraceWarnings(new Set()); // Clear dismissed warnings for new course
-    fetchAnalysisData(newCourseCode, advancedOptions);
+    setRawCourseData(null);
+    setDismissedGraceWarnings(new Set());
+    fetchAnalysisData(newCourseCode, advancedOptions, true);
     checkGracePeriodStatus(newCourseCode);
   };
 
@@ -139,12 +150,10 @@ function App() {
       let newShowLast3YearsActive;
 
       if (showLast3YearsActive) {
-        // Toggle off - clear the values
         newMinYear = '';
         newMaxYear = '';
         newShowLast3YearsActive = false;
       } else {
-        // Toggle on - use sophisticated period-based calculation
         const yearRange = calculateLast3YearsRange();
         newMinYear = yearRange.min_year;
         newMaxYear = yearRange.max_year;
@@ -159,7 +168,6 @@ function App() {
           max_year: newMaxYear
         }
       };
-      // Trigger backend call
       if (courseCode) {
         handleApplyAdvancedOptions(updated);
       }
@@ -175,7 +183,6 @@ function App() {
         ? prev.separationKeys.filter(key => key !== 'instructor')
         : [...prev.separationKeys, 'instructor'];
       const updated = { ...prev, separationKeys: newKeys };
-      // Trigger backend call
       if (courseCode) {
         handleApplyAdvancedOptions(updated);
       }
@@ -190,7 +197,6 @@ function App() {
         ? prev.separationKeys.filter(key => key !== 'course_code')
         : [...prev.separationKeys, 'course_code'];
       const updated = { ...prev, separationKeys: newKeys };
-      // Trigger backend call
       if (courseCode) {
         handleApplyAdvancedOptions(updated);
       }
@@ -198,15 +204,12 @@ function App() {
     });
   };
 
-
-
   const handleApplyAdvancedOptions = (options) => {
-    // Always update advanceOptions for column/rerender
     setAdvancedOptions(options);
     if (!courseCode) return;
 
     const validateYear = (year) => {
-      if (year === '') return true; // Allow empty string to clear filter
+      if (year === '') return true;
       const parsedYear = parseInt(year, 10);
       return !isNaN(parsedYear) && parsedYear >= 2000;
     };
@@ -218,15 +221,21 @@ function App() {
       return;
     }
 
-    // Only refetch for separation/filter changes, not stats-only
-    const filtersChanged =
-      JSON.stringify(options.filters) !== JSON.stringify(advancedOptions.filters);
-    const separationChanged =
-      JSON.stringify(options.separationKeys) !== JSON.stringify(advancedOptions.separationKeys);
-    if (filtersChanged || separationChanged) {
-      fetchAnalysisData(courseCode, options);
+    if (rawCourseData && rawCourseData.courseCode === courseCode) {
+        try {
+            const result = processAnalysisRequest(rawCourseData.data, {
+                stats: options.stats,
+                filters: options.filters,
+                separationKeys: options.separationKeys
+            });
+            setAnalysisResult(result);
+        } catch (error) {
+            console.error('Frontend processing error:', error);
+            fetchAnalysisData(courseCode, options, true);
+        }
+    } else {
+        fetchAnalysisData(courseCode, options, true);
     }
-    // For stats-only, DataDisplay will update immediately due to props/state
   };
 
   return (
@@ -240,7 +249,6 @@ function App() {
           onLoadingChange={(is) => is ? startLoading() : stopLoading()}
           currentCourseCode={courseCode} 
         />
-        {/* Grouped courses codes banner - always show if grouped */}
         {analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
           <div
             style={{
@@ -295,8 +303,6 @@ function App() {
               alignItems: 'center'
             }}
           >
-            {/* If backend returns current_name and former_names fields, use them.
-                Fallback to courseCode if not present. */}
             {analysisResult.metadata?.current_name ? (
               <>
                 <span>{analysisResult.metadata.current_name}</span>
