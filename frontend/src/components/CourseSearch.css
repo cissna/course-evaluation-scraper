@@ -2,29 +2,46 @@
     margin: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
     gap: 10px;
+}
+
+.search-input-container {
+    position: relative;
+    flex-grow: 1;
+    max-width: 500px; /* Max width of the search input */
 }
 
 .course-search input {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 400px;
+    border-radius: 0;
+    width: 100%; /* Make input responsive */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-.course-search button {
+.course-search input:focus {
+    outline: none;
+    border-radius: 0;
+}
+
+.course-search input:focus.dropdown-visible {
+    border-bottom: 1px solid white;
+}
+
+.course-search > button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0;
+    flex-shrink: 0; /* Prevent the button from shrinking */
 }
 
-.course-search button:disabled {
+.course-search > button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
