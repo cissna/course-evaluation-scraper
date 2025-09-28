@@ -169,8 +169,8 @@ const SearchHistory = ({
             Show more
           </a>
         )}
-        {displayCount > INITIAL_DISPLAY_COUNT && (
-           <a href="#" className="search-history-action" onClick={handleClearAll}>
+        {filteredHistory.length > 0 && (
+           <a href="#" className="search-history-action" style={{marginLeft: 'auto'}} onClick={handleClearAll}>
             Clear all history
           </a>
         )}
