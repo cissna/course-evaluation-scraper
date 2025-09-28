@@ -92,24 +92,26 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
 
     return (
         <div className="data-display">
-            <button onClick={handleDownload} className="download-btn">Download as CSV</button>
-            <table>
-                <thead>
-                    <tr>
-                        {headers.map(h => <th key={h}>{h}</th>)}
-                    </tr>
-                </thead>
-                <tbody>
-                    {groups.map(groupName => (
-                        <tr key={groupName}>
-                            <td>{groupName}</td>
-                            {selectedStats.map(statKey =>
-                                renderCell(groupName, statKey, data[groupName][statKey])
-                            )}
+            <div className="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            {headers.map(h => <th key={h}>{h}</th>)}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {groups.map(groupName => (
+                            <tr key={groupName}>
+                                <td>{groupName}</td>
+                                {selectedStats.map(statKey =>
+                                    renderCell(groupName, statKey, data[groupName][statKey])
+                                )}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <button onClick={handleDownload} className="download-btn">&#x2913;</button>
         </div>
     );
 };
