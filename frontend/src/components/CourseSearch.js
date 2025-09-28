@@ -47,21 +47,29 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, onLoadingChange, curr
                 courseCode = trimmedQuery.toUpperCase();
             } else {
                 if (onLoadingChange) onLoadingChange(true);
-                const searchResponse = await fetch(`${API_BASE_URL}/api/search/course_name/${trimmedQuery}`);
-                if (!searchResponse.ok) throw new Error('Error searching for course name.');
-                
-                const courseCodes = await searchResponse.json();
-                if (courseCodes.length === 0) throw new Error('No matching courses found in existing database. Use a course code if this is a new course.');
-                if (courseCodes.length === 1) {
-                    courseCode = courseCodes[0];
+
+                // First, check the grouped results to see if we have multiple groups
+                const detailedResponse = await fetch(`${API_BASE_URL}/api/search/course_name_detailed/${encodeURIComponent(trimmedQuery)}?limit=2`);
+                if (!detailedResponse.ok) throw new Error('Error searching for course name.');
+
+                const detailedResults = await detailedResponse.json();
+                if (detailedResults.total_count === 0) {
+                    throw new Error('No matching courses found in existing database. Use a course code if this is a new course.');
+                }
+
+                if (detailedResults.total_count === 1) {
+                    // Single group - go directly to analysis
+                    const result = detailedResults.results[0];
+                    courseCode = result.primary_course || result.course_code;
                 } else {
-                    // Multiple results - route to search results page
+                    // Multiple groups - route to search results page
                     if (onMultipleResults) {
                         onMultipleResults(trimmedQuery);
                         return;
                     } else {
                         // Fallback to first result if onMultipleResults not provided
-                        courseCode = courseCodes[0];
+                        const result = detailedResults.results[0];
+                        courseCode = result.primary_course || result.course_code;
                     }
                 }
             }
