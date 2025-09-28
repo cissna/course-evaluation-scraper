@@ -51,7 +51,7 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, onLoadingChange, curr
                 if (!searchResponse.ok) throw new Error('Error searching for course name.');
                 
                 const courseCodes = await searchResponse.json();
-                if (courseCodes.length === 0) throw new Error('No matching courses found. Try a course code.');
+                if (courseCodes.length === 0) throw new Error('No matching courses found in existing database. Use a course code if this is a new course.');
                 if (courseCodes.length === 1) {
                     courseCode = courseCodes[0];
                 } else {
