@@ -165,14 +165,14 @@ const SearchHistory = ({
       </div>
       <div className="search-history-footer">
         {filteredHistory.length > displayCount && (
-          <a href="#" className="search-history-action" onClick={handleShowMore}>
+          <button className="search-history-action" onClick={handleShowMore}>
             Show more
-          </a>
+          </button>
         )}
         {filteredHistory.length > 0 && (
-           <a href="#" className="search-history-action" style={{marginLeft: 'auto'}} onClick={handleClearAll}>
+           <button className="search-history-action" style={{marginLeft: 'auto'}} onClick={handleClearAll}>
             Clear all history
-          </a>
+          </button>
         )}
       </div>
     </div>
