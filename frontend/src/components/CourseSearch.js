@@ -18,7 +18,7 @@ const getFilteredHistory = (history, searchValue, currentCourseCode) => {
   return filtered;
 };
 
-const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) => {
+const CourseSearch = ({ onDataReceived, onMultipleResults, onLoadingChange, currentCourseCode }) => {
     const [query, setQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -52,8 +52,18 @@ const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) =>
                 
                 const courseCodes = await searchResponse.json();
                 if (courseCodes.length === 0) throw new Error('No matching courses found. Try a course code.');
-
-                courseCode = courseCodes[0];
+                if (courseCodes.length === 1) {
+                    courseCode = courseCodes[0];
+                } else {
+                    // Multiple results - route to search results page
+                    if (onMultipleResults) {
+                        onMultipleResults(trimmedQuery);
+                        return;
+                    } else {
+                        // Fallback to first result if onMultipleResults not provided
+                        courseCode = courseCodes[0];
+                    }
+                }
             }
             onDataReceived(courseCode);
         } catch (err) {

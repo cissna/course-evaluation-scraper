@@ -7,7 +7,9 @@ from .db_utils import (
     get_course_metadata,
     get_course_data_by_keys,
     update_course_metadata,
-    find_courses_by_name_db
+    find_courses_by_name_db,
+    find_courses_by_name_with_details_db,
+    count_courses_by_name_db
 )
 from .scraping_logic import get_authenticated_session
 from .config import PERIOD_RELEASE_DATES, PERIOD_GRACE_MONTHS
@@ -129,3 +131,17 @@ def find_courses_by_name(search_query: str) -> list:
     Finds course codes by searching for a query in the course names in the database.
     """
     return find_courses_by_name_db(search_query)
+
+def find_courses_by_name_with_details(search_query: str, limit: int = None, offset: int = None) -> dict:
+    """
+    Finds courses by name with detailed results including course names.
+    Returns a dictionary with results and metadata.
+    """
+    total_count = count_courses_by_name_db(search_query)
+    results = find_courses_by_name_with_details_db(search_query, limit, offset)
+
+    return {
+        "results": results,
+        "total_count": total_count,
+        "search_query": search_query
+    }

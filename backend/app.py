@@ -3,7 +3,7 @@ from flask_cors import CORS
 import re
 import json
 from urllib.parse import unquote
-from .scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
+from .scraper_service import get_course_data_and_update_cache, find_courses_by_name, find_courses_by_name_with_details, force_recheck_course, get_course_grace_status
 from .db_utils import find_instructor_variants_db
 from .analysis import process_analysis_request, extract_course_metadata
 from .course_grouping_service import CourseGroupingService
@@ -83,6 +83,37 @@ def search_by_course_name(search_query):
         return jsonify(course_codes)
     except Exception as e:
         print(f"An error occurred during search: {e}")
+        return jsonify({"error": "An internal server error occurred during search."}), 500
+
+@app.route('/api/search/course_name_detailed/<string:search_query>')
+def search_by_course_name_detailed(search_query):
+    """
+    API endpoint to search for courses by name with detailed results including course names.
+    Supports pagination via query parameters: limit and offset.
+    """
+    # URL-decode the search query in case it's not automatically decoded
+    search_query = unquote(search_query)
+
+    # Prevent extremely long search queries that could cause performance issues
+    if len(search_query) > 1000:
+        return jsonify({"error": "Search query too long. Maximum 1000 characters allowed."}), 400
+
+    # Get pagination parameters
+    limit = request.args.get('limit', type=int)
+    offset = request.args.get('offset', 0, type=int)
+
+    # Validate pagination parameters
+    if limit is not None and (limit <= 0 or limit > 100):
+        return jsonify({"error": "Limit must be between 1 and 100."}), 400
+    if offset < 0:
+        return jsonify({"error": "Offset must be non-negative."}), 400
+
+    print(f"Received detailed search request for: {search_query} (limit={limit}, offset={offset})")
+    try:
+        results = find_courses_by_name_with_details(search_query, limit, offset)
+        return jsonify(results)
+    except Exception as e:
+        print(f"An error occurred during detailed search: {e}")
         return jsonify({"error": "An internal server error occurred during search."}), 500
 
 @app.route('/api/search/instructor/<string:instructor_name>')

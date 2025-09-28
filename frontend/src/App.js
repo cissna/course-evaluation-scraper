@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import CourseSearch from './components/CourseSearch';
+import SearchResults from './components/SearchResults';
 import DataDisplay from './components/DataDisplay';
 import AdvancedOptions from './components/AdvancedOptions';
 import LoadingOverlay from './components/LoadingOverlay';
@@ -16,6 +17,8 @@ function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [rawCourseData, setRawCourseData] = useState(null);
   const [courseCode, setCourseCode] = useState(null);
+  const [currentView, setCurrentView] = useState('search'); // 'search', 'results', 'analysis'
+  const [searchResultsQuery, setSearchResultsQuery] = useState('');
   const [advancedOptions, setAdvancedOptions] = useState({
     stats: Object.fromEntries(
       ALL_STAT_KEYS.map(key => [key, STATISTICS_CONFIG[key].defaultEnabled])
@@ -140,8 +143,27 @@ function App() {
     setCourseCode(newCourseCode);
     setRawCourseData(null);
     setDismissedGraceWarnings(new Set());
+    setCurrentView('analysis');
     fetchAnalysisData(newCourseCode, advancedOptions, true);
     checkGracePeriodStatus(newCourseCode);
+  };
+
+  const handleMultipleResults = (searchQuery) => {
+    setSearchResultsQuery(searchQuery);
+    setCurrentView('results');
+  };
+
+  const handleSearchResultSelect = (courseCode) => {
+    handleDataReceived(courseCode);
+  };
+
+  const handleBackToSearch = () => {
+    setCurrentView('search');
+    setSearchResultsQuery('');
+    setCourseCode(null);
+    setAnalysisResult(null);
+    setAnalysisError(null);
+    setRawCourseData(null);
   };
 
   const handleTimeFilterToggle = () => {
@@ -244,12 +266,33 @@ function App() {
         <h1>JHU Course Evaluation Analyzer</h1>
       </header>
       <main>
-        <CourseSearch 
-          onDataReceived={handleDataReceived} 
-          onLoadingChange={(is) => is ? startLoading() : stopLoading()}
-          currentCourseCode={courseCode} 
-        />
-        {analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
+        {currentView === 'search' && (
+          <CourseSearch
+            onDataReceived={handleDataReceived}
+            onMultipleResults={handleMultipleResults}
+            onLoadingChange={(is) => is ? startLoading() : stopLoading()}
+            currentCourseCode={courseCode}
+          />
+        )}
+
+        {currentView === 'results' && (
+          <SearchResults
+            searchQuery={searchResultsQuery}
+            onCourseSelect={handleSearchResultSelect}
+            onBack={handleBackToSearch}
+          />
+        )}
+
+        {currentView === 'analysis' && (
+          <CourseSearch
+            onDataReceived={handleDataReceived}
+            onMultipleResults={handleMultipleResults}
+            onLoadingChange={(is) => is ? startLoading() : stopLoading()}
+            currentCourseCode={courseCode}
+          />
+        )}
+
+        {currentView === 'analysis' && analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
           <div
             style={{
               background: "#ffe066",
@@ -290,7 +333,7 @@ function App() {
             </div>
           </div>
         )}
-        {analysisResult && courseCode && (
+        {currentView === 'analysis' && analysisResult && courseCode && (
           <div
             style={{
               marginTop: '20px',
@@ -320,41 +363,46 @@ function App() {
             )}
           </div>
         )}
-        <GracePeriodWarning
-          courseCode={courseCode}
-          gracePeriodInfo={gracePeriodInfo}
-          isDismissed={dismissedGraceWarnings.has(courseCode)}
-          onRecheck={handleRecheck}
-        />
-        <div className="controls">
-          <button onClick={handleTimeFilterToggle}>
-            {showLast3YearsActive ? 'Show All Time' : 'Show Last 3 Years'}
-          </button>
-          <button onClick={handleSeparateByTeacherToggle}>
-            {advancedOptions.separationKeys.includes('instructor') ? 'Combine Professors' : 'Separate by Professor'}
-          </button>
-        </div>
-        <AdvancedOptions
-          options={advancedOptions}
-          onApply={handleApplyAdvancedOptions}
-          courseMetadata={analysisResult?.metadata ? {
-            current_name: analysisResult.metadata.current_name,
-            former_names: analysisResult.metadata.former_names
-          } : null}
-          showLast3YearsActive={showLast3YearsActive}
-          onDeactivateLast3Years={() => setShowLast3YearsActive(false)}
-        />
-        {analysisResult && (
-          <p style={{ textAlign: 'center', margin: '20px 0', fontWeight: 'bold' }}>
-            All numeric results are between 1 and 5
-          </p>
+
+        {currentView === 'analysis' && (
+          <>
+            <GracePeriodWarning
+              courseCode={courseCode}
+              gracePeriodInfo={gracePeriodInfo}
+              isDismissed={dismissedGraceWarnings.has(courseCode)}
+              onRecheck={handleRecheck}
+            />
+            <div className="controls">
+              <button onClick={handleTimeFilterToggle}>
+                {showLast3YearsActive ? 'Show All Time' : 'Show Last 3 Years'}
+              </button>
+              <button onClick={handleSeparateByTeacherToggle}>
+                {advancedOptions.separationKeys.includes('instructor') ? 'Combine Professors' : 'Separate by Professor'}
+              </button>
+            </div>
+            <AdvancedOptions
+              options={advancedOptions}
+              onApply={handleApplyAdvancedOptions}
+              courseMetadata={analysisResult?.metadata ? {
+                current_name: analysisResult.metadata.current_name,
+                former_names: analysisResult.metadata.former_names
+              } : null}
+              showLast3YearsActive={showLast3YearsActive}
+              onDeactivateLast3Years={() => setShowLast3YearsActive(false)}
+            />
+            {analysisResult && (
+              <p style={{ textAlign: 'center', margin: '20px 0', fontWeight: 'bold' }}>
+                All numeric results are between 1 and 5
+              </p>
+            )}
+            <DataDisplay
+              data={analysisResult?.data || null}
+              selectedStats={Object.keys(advancedOptions.stats).filter(k => advancedOptions.stats[k])}
+              errorMessage={analysisError}
+              statisticsMetadata={analysisResult?.statistics_metadata || {}}
+            />
+          </>
         )}
-        <DataDisplay
-          data={analysisResult?.data || null}
-          selectedStats={Object.keys(advancedOptions.stats).filter(k => advancedOptions.stats[k])}
-          errorMessage={analysisError}
-          statisticsMetadata={analysisResult?.statistics_metadata || {}}
-        />
       </main>
       <Footer />
       {isLoading && <LoadingOverlay message="Analyzing course evaluations…" />}
