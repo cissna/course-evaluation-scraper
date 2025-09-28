@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DataDisplay.css';
 import { STAT_MAPPINGS } from '../utils/statsMapping';
 
 const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {} }) => {
+    const [downloadClicked, setDownloadClicked] = useState(false);
+
     if (errorMessage) {
         return <div className="data-display-error" dangerouslySetInnerHTML={{ __html: errorMessage }}></div>;
     }
@@ -67,6 +69,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
     };
 
     const handleDownload = () => {
+        setDownloadClicked(true);
         const csv = convertToCSV();
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
@@ -77,6 +80,10 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+
+        setTimeout(() => {
+            setDownloadClicked(false);
+        }, 2000);
     };
 
     // Edge case: if selectedStats is undefined/null or empty, show fallback
@@ -111,7 +118,9 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
                     </tbody>
                 </table>
             </div>
-            <button onClick={handleDownload} className="download-btn">&#x2913;</button>
+            <button onClick={handleDownload} className="download-btn" disabled={downloadClicked}>
+                {downloadClicked ? '✅' : '📥'}
+            </button>
         </div>
     );
 };
