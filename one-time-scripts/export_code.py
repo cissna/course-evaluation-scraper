@@ -3,10 +3,11 @@ import os
 import argparse
 
 # Directories to exclude
-EXCLUDE_PARTS = {'.vercel', 'node_modules', '.git', 'one-time-scripts', 'frontend/build', 'metadata.json', 'data.json'}
+EXCLUDE_PARTS = {'.vercel', 'node_modules', '.git', 'one-time-scripts', 'frontend/build', 'metadata.json', 'data.json',
+                 '__pycache__'}
 
 # File extensions to include
-EXTENSIONS = {'.py', '.js', '.html', '.json'}
+EXTENSIONS = {'.py', '.js', '.html', '.json', '.sql'}
 
 # Specific files to keep when using --specific flag (dataflow-related only)
 KEEP_SPECIFIC = [
