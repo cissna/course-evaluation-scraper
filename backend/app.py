@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import re
 import json
+from urllib.parse import unquote
 from .scraper_service import get_course_data_and_update_cache, find_courses_by_name, force_recheck_course, get_course_grace_status
 from .db_utils import find_instructor_variants_db
 from .analysis import process_analysis_request, extract_course_metadata
@@ -69,6 +70,9 @@ def search_by_course_name(search_query):
     """
     API endpoint to search for courses by name.
     """
+    # URL-decode the search query in case it's not automatically decoded
+    search_query = unquote(search_query)
+
     # Prevent extremely long search queries that could cause performance issues
     if len(search_query) > 1000:
         return jsonify({"error": "Search query too long. Maximum 1000 characters allowed."}), 400
@@ -86,6 +90,9 @@ def search_by_instructor_name(instructor_name):
     """
     API endpoint to find variations of an instructor's name.
     """
+    # URL-decode the instructor name in case it's not automatically decoded
+    instructor_name = unquote(instructor_name)
+
     # Prevent extremely long instructor names that could cause performance issues
     if len(instructor_name) > 1000:
         return jsonify({"error": "Instructor name too long. Maximum 1000 characters allowed."}), 400
