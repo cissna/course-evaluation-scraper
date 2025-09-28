@@ -11,8 +11,7 @@ from .scraping_logic import get_authenticated_session
 from .scrape_search import get_evaluation_report_links
 from .scrape_link import scrape_evaluation_data
 import requests
-from datetime import date, datetime
-from dateutil.relativedelta import relativedelta
+from datetime import date
 
 def get_all_links_by_section(session, course_code):
     """
@@ -71,6 +70,8 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
             "last_period_gathered": None, "last_period_failed": False,
             "relevant_periods": [], "last_scrape_during_grace_period": None
         }
+        # Immediately create the metadata record to prevent foreign key violations
+        update_course_metadata(course_code, course_metadata)
 
     if session is None:
         try:
