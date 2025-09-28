@@ -26,6 +26,9 @@
 }
 
 .search-history-close {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 20px;
   height: 20px;
   background: #f0f0f0;
@@ -38,6 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1001; /* Above header content */
 }
 
 .search-history-close:hover {

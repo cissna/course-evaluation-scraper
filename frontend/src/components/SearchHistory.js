@@ -135,15 +135,15 @@ const SearchHistory = ({
   }
 
   return (
-    <div 
+    <div
       className="search-history-dropdown"
       ref={dropdownRef}
       style={{ width: dropdownWidth > 0 ? `${dropdownWidth}px` : 'auto' }}
     >
       <div className="search-history-header">
         <span className="search-history-title">Recent Searches</span>
-        <button className="search-history-close" onClick={onClose}>&times;</button>
       </div>
+      <button className="search-history-close" onClick={onClose}>&times;</button>
       <div className="search-history-list">
         {visibleItems.map((item, index) => (
           <div
