@@ -2,6 +2,21 @@ import React, { useState, useRef } from 'react';
 import './CourseSearch.css';
 import { API_BASE_URL } from '../config';
 import SearchHistory from './SearchHistory';
+import { getSearchHistory } from '../utils/storageUtils';
+
+const getFilteredHistory = (history, searchValue, currentCourseCode) => {
+  let filtered = history.filter(item => item.code !== currentCourseCode);
+  
+  if (searchValue && searchValue.trim()) {
+    const lowerSearch = searchValue.toLowerCase();
+    filtered = filtered.filter(item => {
+      const displayText = `${item.code} ${item.name}`.toLowerCase();
+      return displayText.includes(lowerSearch);
+    });
+  }
+  
+  return filtered;
+};
 
 const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) => {
     const [query, setQuery] = useState('');
@@ -10,6 +25,9 @@ const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) =>
     const [lastSearchedQuery, setLastSearchedQuery] = useState('');
     const [showHistory, setShowHistory] = useState(false);
     const searchInputRef = useRef(null);
+
+    const filteredHistory = getFilteredHistory(getSearchHistory(), query, currentCourseCode);
+    const willShowDropdown = showHistory && filteredHistory.length > 0;
 
     const handleSearch = async (searchQuery) => {
         const finalQuery = searchQuery || query;
@@ -60,6 +78,7 @@ const CourseSearch = ({ onDataReceived, onLoadingChange, currentCourseCode }) =>
                     type="text"
                     value={query}
                     maxLength="1000"
+                    className={willShowDropdown ? "dropdown-visible" : undefined}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={(e) => {
                         if (e.key === 'Enter' && query.trim() !== '' && query.trim() !== lastSearchedQuery) {
