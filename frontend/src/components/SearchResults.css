@@ -33,6 +33,13 @@
     font-size: 1.5rem;
 }
 
+.search-note {
+    color: #666;
+    font-size: 13px;
+    margin: 8px 0 0 0;
+    font-style: italic;
+}
+
 .results-count {
     color: #666;
     font-size: 14px;

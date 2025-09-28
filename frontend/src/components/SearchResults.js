@@ -65,6 +65,10 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
                     ← Back to Search
                 </button>
                 <h2>Search Results for "{searchQuery}"</h2>
+                <p className="search-note">
+                    This is only among courses that have already been searched, so if what you're expecting doesn't come up, you may have to directly search by course code first
+                </p>
+                <br />
                 <p className="results-count">
                     {totalCount > 0 ? (
                         <>Showing {Math.min(currentResultCount, totalCount)} of {totalCount} results</>
