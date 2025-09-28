@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Align items to the top */
-    gap: 10px;
+    gap: 0;
 }
 
 .search-input-container {
@@ -39,6 +39,8 @@
     border: none;
     border-radius: 0;
     flex-shrink: 0; /* Prevent the button from shrinking */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    align-self: stretch; /* Make button stretch to full height of flex container */
 }
 
 .course-search > button:disabled {
