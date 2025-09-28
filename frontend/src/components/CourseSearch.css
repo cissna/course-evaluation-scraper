@@ -30,7 +30,7 @@
     border-bottom: 1px solid white;
 }
 
-.course-search button {
+.course-search > button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -41,7 +41,7 @@
     flex-shrink: 0; /* Prevent the button from shrinking */
 }
 
-.course-search button:disabled {
+.course-search > button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
