@@ -27,7 +27,7 @@
 }
 
 .course-search input:focus.dropdown-visible {
-    border-bottom: none;
+    border-bottom: 1px solid white;
 }
 
 .course-search button {
