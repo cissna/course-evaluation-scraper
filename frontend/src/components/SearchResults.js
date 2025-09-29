@@ -39,6 +39,11 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
 
     useEffect(() => {
         if (searchQuery) {
+            // Reset state for new search to ensure loading indicator shows correctly
+            setResults([]);
+            setTotalCount(0);
+            setCurrentPage(1);
+            setError(null);
             fetchResults(1, searchQuery);
         }
     }, [searchQuery, fetchResults]);
