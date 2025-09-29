@@ -135,6 +135,7 @@ def find_courses_by_name_with_details_db(search_query, limit=None, offset=None):
                 # Find the most recent course name among all courses in the group
                 most_recent_name = course_name
                 most_recent_timestamp = updated_at
+                courses_with_data = {course_code}
 
                 # Check if any other courses in the group have more recent names
                 for other_course in group_courses:
@@ -149,13 +150,15 @@ def find_courses_by_name_with_details_db(search_query, limit=None, offset=None):
                         """
                         cur.execute(other_query, (other_course,))
                         other_result = cur.fetchone()
-                        if other_result and other_result[1] > most_recent_timestamp:
-                            most_recent_name = other_result[0]
-                            most_recent_timestamp = other_result[1]
+                        if other_result:
+                            courses_with_data.add(other_course)
+                            if other_result[1] > most_recent_timestamp:
+                                most_recent_name = other_result[0]
+                                most_recent_timestamp = other_result[1]
 
                 # Create display name - if multiple courses, join with "/"
-                if len(group_courses) > 1:
-                    display_code = "/".join(sorted(group_courses))
+                if len(courses_with_data) > 1:
+                    display_code = "/".join(sorted(list(courses_with_data)))
                 else:
                     display_code = course_code
 

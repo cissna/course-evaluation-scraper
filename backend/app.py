@@ -261,6 +261,13 @@ def analyze_course_data(course_code):
             primary_course_has_no_data=not all_course_data
         )
         
+        # From the final set of instances, find which courses actually contributed data
+        actual_grouped_courses = set()
+        for key in all_instances.keys():
+            match = re.match(r'([A-Z]{2}\.\d{3}\.\d{3})', key)
+            if match:
+                actual_grouped_courses.add(match.group(1))
+
         # Return raw data structure
         return jsonify({
             "raw_data": {
@@ -272,9 +279,9 @@ def analyze_course_data(course_code):
                        if k not in ["current_name", "former_names"]}
                 },
                 "grouping_metadata": {
-                    "grouped_courses": grouped_courses,
+                    "grouped_courses": sorted(list(actual_grouped_courses)),
                     "group_description": group_info.get("description", "") if group_info else "",
-                    "is_grouped": bool(grouped_courses and len(grouped_courses) > 1)
+                    "is_grouped": bool(len(actual_grouped_courses) > 1)
                 }
             }
         })
