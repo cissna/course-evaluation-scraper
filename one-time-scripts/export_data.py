@@ -29,7 +29,7 @@ def export_data_and_metadata_to_json():
         # Export metadata
         cur.execute("SELECT course_code, last_period_gathered, last_period_failed, relevant_periods, last_scrape_during_grace_period FROM course_metadata")
         rows = cur.fetchall()
-        metadata_export = {row[0]: {"last_period_gathered": row[1], "last_period_failed": row[2], "relevant_periods": row[3], "last_scrape_during_grace_period": str(row[4])} for row in rows}
+        metadata_export = {row[0]: {"last_period_gathered": row[1], "last_period_failed": row[2], "relevant_periods": row[3], "last_scrape_during_grace_period": row[4]} for row in rows}
         with open('metadata.json', 'w') as f:
             json.dump(metadata_export, f, indent=4)
         print("Metadata exported successfully to metadata.json")
