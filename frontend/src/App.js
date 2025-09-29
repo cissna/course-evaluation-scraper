@@ -17,7 +17,7 @@ function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [rawCourseData, setRawCourseData] = useState(null);
   const [courseCode, setCourseCode] = useState(null);
-  const [currentView, setCurrentView] = useState('search'); // 'search', 'results', 'analysis'
+  const [currentView, setCurrentView] = useState('analysis'); // 'search', 'results', 'analysis'
   const [searchResultsQuery, setSearchResultsQuery] = useState('');
   const [advancedOptions, setAdvancedOptions] = useState({
     stats: Object.fromEntries(
