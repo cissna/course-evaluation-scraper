@@ -96,7 +96,11 @@ export function separateInstances(instances, separationKeys = []) {
       const simplified = simplifyName(instructor);
       if (!simplified) continue;
       const periodTuple = parseSemesterYear(key);
-      if (!tempMap[simplified] || periodTuple > tempMap[simplified][0]) {
+      if (
+        !tempMap[simplified] ||
+        periodTuple.year > tempMap[simplified][0].year ||
+        (periodTuple.year === tempMap[simplified][0].year && periodTuple.semesterNum > tempMap[simplified][0].semesterNum)
+      ) {
         tempMap[simplified] = [periodTuple, instructor];
       }
     }
