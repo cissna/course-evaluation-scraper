@@ -10,6 +10,9 @@ class CourseGroupingService:
             "EN.601": {
                 "equivalent_levels": [400, 600]
             },
+            "EN.553": {
+                "equivalent_levels": [400, 600]
+            },
             "AS.050": {
                 "equivalent_levels": [200, 300, 400, 600]
             }
