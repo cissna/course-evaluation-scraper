@@ -317,7 +317,7 @@ function App() {
                   )
               : ''}
             <div style={{ marginTop: '12px' }}>
-              <button 
+              <button
                 onClick={() => handleSeparateByCourseCode()}
                 style={{
                   background: '#4CAF50',
@@ -328,7 +328,7 @@ function App() {
                   cursor: 'pointer'
                 }}
               >
-                Separate by Course Code
+                {advancedOptions.separationKeys.includes('course_code') ? 'Recombine by Course Code' : 'Separate by Course Code'}
               </button>
             </div>
           </div>
