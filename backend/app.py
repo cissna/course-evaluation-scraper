@@ -203,6 +203,12 @@ def analyze_course_data(course_code):
             
             # Get all the data for the course
             all_course_data = get_course_data_and_update_cache(course_code)
+
+            # If no data, check for groupings before returning an error
+            if not all_course_data:
+                group_info = grouping_service.get_group_info(course_code)
+                if not group_info or not group_info.get("courses"):
+                    return jsonify({"error": "No data found for this course."}), 404
             
             # Get metadata
             metadata_from_file = {}
