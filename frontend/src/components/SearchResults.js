@@ -27,7 +27,7 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
             }
 
             const data = await response.json();
-            setResults(data.results);
+            setResults(prevResults => page === 1 ? data.results : [...prevResults, ...data.results]);
             setTotalCount(data.total_count);
             setCurrentPage(page);
         } catch (err) {
