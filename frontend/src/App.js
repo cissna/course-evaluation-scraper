@@ -349,14 +349,14 @@ function App() {
             {analysisResult.metadata?.current_name ? (
               <>
                 <span>{analysisResult.metadata.current_name}</span>
-                <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
-                  {courseCode}
-                </span>
                 {Array.isArray(analysisResult.metadata.former_names) && analysisResult.metadata.former_names.length > 0 && (
                   <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
                     (formerly known as {analysisResult.metadata.former_names.join(', ')})
                   </span>
                 )}
+                <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
+                  {courseCode}
+                </span>
               </>
             ) : (
               <span>{courseCode}</span>
