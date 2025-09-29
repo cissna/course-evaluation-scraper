@@ -35,7 +35,6 @@ function App() {
   const startLoading = () => setLoadingCount(c => c + 1);
   const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
 
-
   const checkGracePeriodStatus = async (code) => {
     if (!code) return;
     
@@ -128,6 +127,7 @@ function App() {
       });
       setAnalysisResult(result);
       setAnalysisError(null);
+
       const courseName = result.metadata?.current_name || 'No data';
       addToSearchHistory(code, courseName);
     })
@@ -144,7 +144,17 @@ function App() {
     setRawCourseData(null);
     setDismissedGraceWarnings(new Set());
     setCurrentView('analysis');
-    fetchAnalysisData(newCourseCode, advancedOptions, true);
+
+    // Immediately clear course_name separation when navigating to a new course
+    // This prevents the "stuck" state where the filter affects data processing
+    // even when the UI option is hidden
+    const optionsWithoutCourseName = {
+      ...advancedOptions,
+      separationKeys: advancedOptions.separationKeys.filter(key => key !== 'course_name')
+    };
+    setAdvancedOptions(optionsWithoutCourseName);
+
+    fetchAnalysisData(newCourseCode, optionsWithoutCourseName, true);
     checkGracePeriodStatus(newCourseCode);
   };
 
