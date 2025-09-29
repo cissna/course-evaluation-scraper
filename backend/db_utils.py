@@ -101,7 +101,15 @@ def find_courses_by_name_with_details_db(search_query, limit=None, offset=None):
                        updated_at
                 FROM courses
                 WHERE data->>'course_name' ILIKE %s
-                ORDER BY course_code, updated_at DESC;
+                ORDER BY
+                    course_code,
+                    SUBSTRING(instance_key FROM '..(\\d{2})$') DESC,
+                    CASE SUBSTRING(instance_key FROM '..(FA|SP|SU|IN)..$')
+                        WHEN 'FA' THEN 3
+                        WHEN 'SU' THEN 2
+                        WHEN 'SP' THEN 1
+                        ELSE 0
+                    END DESC;
             """
             cur.execute(query, ('%' + search_query + '%',))
             rows = cur.fetchall()
