@@ -221,7 +221,6 @@ const AdvancedOptions = ({ options, onApply, courseMetadata, showLast3YearsActiv
           {/* Course Code checkbox removed per requirements */}
         </div>
       </div>
-      <button onClick={() => onApply(options)}>Apply</button>
       <button onClick={() => setShowOptions(false)}>Hide</button>
     </div>
   );
