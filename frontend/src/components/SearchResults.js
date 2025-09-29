@@ -11,12 +11,6 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
 
     const resultsPerPage = 20;
 
-    useEffect(() => {
-        if (searchQuery) {
-            fetchResults(1, searchQuery);
-        }
-    }, [searchQuery, fetchResults]);
-
     const fetchResults = useCallback(async (page, query) => {
         setIsLoading(true);
         setError(null);
@@ -42,6 +36,12 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
             setIsLoading(false);
         }
     }, [resultsPerPage]);
+
+    useEffect(() => {
+        if (searchQuery) {
+            fetchResults(1, searchQuery);
+        }
+    }, [searchQuery, fetchResults]);
 
     const handleLoadMore = () => {
         const nextPage = currentPage + 1;
