@@ -1,16 +1,20 @@
-# QWEN.md: JHU Course Evaluation Analyzer
+QWEN.md/GEMINI.md
+
+# JHU Course Evaluation Analyzer
 
 ## 1. Project Overview
 
 This project is a full-stack web application designed to scrape, analyze, and display course evaluation data from Johns Hopkins University. It has been migrated from a local, file-based system to a robust, cloud-based architecture using Supabase for data storage and Vercel for deployment.
 
-- **Backend**: A Python/Flask server that exposes a REST API. Its responsibilities include:
+- **Backend**: A Python/Flask server that exposes a REST API. Its responsibilities have been streamlined to focus on:
     - On-demand scraping of course evaluation data from the JHU website.
     - Storing and retrieving course data and metadata from a Supabase (PostgreSQL) database.
-    - Performing data analysis, filtering, and aggregation.
-    - Handling logical groupings of courses (e.g., cross-listed courses) via a `CourseGroupingService`.
+    - Aggregating raw data for a course and all courses in its logical group (e.g., cross-listed courses).
 
-- **Frontend**: A single-page application (SPA) built with React. It provides the user interface for searching, displaying, and interacting with the evaluation data. It also includes a search history feature that stores recent searches in the browser's local storage.
+- **Frontend**: A single-page application (SPA) built with React. It provides the user interface and is now responsible for all data processing. Its duties include:
+    - Searching, displaying, and interacting with the evaluation data.
+    - Performing all client-side data analysis, including filtering (by year, instructor, etc.), separation (grouping for display), and all statistical calculations, using its internal `analysisEngine.js`.
+    - A search history feature that stores recent searches in the browser's local storage.
 
 - **Database**: A PostgreSQL database hosted on Supabase, which stores all course and metadata information.
 
@@ -49,11 +53,11 @@ A database trigger (`trigger_set_timestamp`) automatically updates the `updated_
 
 ### 2.2. Backend (Flask)
 
-The backend is a Python/Flask server. The `CourseGroupingService` now uses a default, embedded configuration for course groupings, as `course_groupings.json` has been removed.
+The backend is a Python/Flask server. Its primary role is to serve as a data gateway, handling scraping and raw data aggregation. The `CourseGroupingService` uses a default, embedded configuration for course groupings.
 
 ### 2.3. Frontend (React)
 
-The frontend is a React SPA. It includes a `SearchHistory` component that displays a dropdown of recent searches, and a `storageUtils` utility to manage the search history in the browser's local storage.
+The frontend is a React SPA that contains all the application's business logic. It fetches raw data from the backend and uses `src/utils/analysisEngine.js` to perform all filtering, separation, and statistical calculations on the client side. It also includes a `SearchHistory` component that displays a dropdown of recent searches, and a `storageUtils` utility to manage the search history in the browser's local storage.
 
 ### 2.4. Deployment (Vercel)
 
@@ -121,4 +125,4 @@ The backend provides the following REST API endpoints, all prefixed with `/api/`
 - `GET /api/search/instructor/<name>`: Finds variations of an instructor's name based on last name.
 - `GET /api/grace-status/<course_code>`: Checks if a course is in a "grace period" where new evaluations may be available.
 - `POST /api/recheck/<course_code>`: Forces a re-scrape of a course, even if it's within a grace period.
-- `POST /api/analyze/<course_code>`: Performs filtering and separation analysis on a course's data. This endpoint can also use the `CourseGroupingService` to aggregate data from cross-listed courses. The `CourseGroupingService` now uses a default, embedded configuration.
+- `POST /api/analyze/<course_code>`: Aggregates and returns the complete, raw evaluation data for a given course and all other courses in its group. It returns a `raw_data` object containing all course instances. All filtering, analysis, and statistical calculations are performed by the client (frontend).
