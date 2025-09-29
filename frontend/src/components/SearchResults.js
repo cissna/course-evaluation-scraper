@@ -70,10 +70,8 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
                 </p>
                 <br />
                 <p className="results-count">
-                    {totalCount > 0 ? (
+                    {totalCount > 0 && (
                         <>Showing {Math.min(currentResultCount, totalCount)} of {totalCount} results</>
-                    ) : (
-                        'No results found'
                     )}
                 </p>
             </div>
@@ -85,21 +83,27 @@ const SearchResults = ({ searchQuery, onCourseSelect, onBack }) => {
             )}
 
             <div className="results-list">
-                {results.map((course, index) => (
-                    <div
-                        key={course.primary_course || course.course_code || index}
-                        className="result-item"
-                        onClick={() => handleCourseClick(course)}
-                    >
-                        <div className="course-code">{course.course_code}</div>
-                        <div className="course-name">{course.course_name}</div>
-                    </div>
-                ))}
+                {isLoading && results.length === 0 ? (
+                    <div className="loading-message">Loading results...</div>
+                ) : !isLoading && results.length === 0 ? (
+                    <div className="no-results-message">No results found</div>
+                ) : (
+                    results.map((course, index) => (
+                        <div
+                            key={course.primary_course || course.course_code || index}
+                            className="result-item"
+                            onClick={() => handleCourseClick(course)}
+                        >
+                            <div className="course-code">{course.course_code}</div>
+                            <div className="course-name">{course.course_name}</div>
+                        </div>
+                    ))
+                )}
             </div>
 
-            {isLoading && (
+            {isLoading && results.length > 0 && (
                 <div className="loading-message">
-                    Loading results...
+                    Loading more results...
                 </div>
             )}
 
