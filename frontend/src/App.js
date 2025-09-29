@@ -292,6 +292,37 @@ function App() {
           />
         )}
 
+        {currentView === 'analysis' && analysisResult && courseCode && (
+          <div
+            style={{
+              marginTop: '20px',
+              marginBottom: '10px',
+              textAlign: 'center',
+              fontWeight: 'bold',
+              fontSize: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}
+          >
+            {analysisResult.metadata?.current_name ? (
+              <>
+                <span>{analysisResult.metadata.current_name}</span>
+                {Array.isArray(analysisResult.metadata.former_names) && analysisResult.metadata.former_names.length > 0 && (
+                  <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
+                    (formerly known as {analysisResult.metadata.former_names.join(', ')})
+                  </span>
+                )}
+                <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
+                  {courseCode}
+                </span>
+              </>
+            ) : (
+              <span>{courseCode}</span>
+            )}
+          </div>
+        )}
+
         {currentView === 'analysis' && analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
           <div
             style={{
@@ -299,7 +330,7 @@ function App() {
               borderRadius: "6px",
               color: "#442",
               padding: "8px 16px",
-              margin: "16px auto 0 auto",
+              margin: "16px auto 20px auto",
               fontSize: "1.1rem",
               textAlign: "center",
               maxWidth: 650,
@@ -331,36 +362,6 @@ function App() {
                 {advancedOptions.separationKeys.includes('course_code') ? 'Recombine by Course Code' : 'Separate by Course Code'}
               </button>
             </div>
-          </div>
-        )}
-        {currentView === 'analysis' && analysisResult && courseCode && (
-          <div
-            style={{
-              marginTop: '20px',
-              marginBottom: '10px',
-              textAlign: 'center',
-              fontWeight: 'bold',
-              fontSize: '2rem',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}
-          >
-            {analysisResult.metadata?.current_name ? (
-              <>
-                <span>{analysisResult.metadata.current_name}</span>
-                {Array.isArray(analysisResult.metadata.former_names) && analysisResult.metadata.former_names.length > 0 && (
-                  <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
-                    (formerly known as {analysisResult.metadata.former_names.join(', ')})
-                  </span>
-                )}
-                <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
-                  {courseCode}
-                </span>
-              </>
-            ) : (
-              <span>{courseCode}</span>
-            )}
           </div>
         )}
 
