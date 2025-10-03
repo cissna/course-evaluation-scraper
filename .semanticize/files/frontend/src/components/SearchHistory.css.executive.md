@@ -1,0 +1,3 @@
+This file defines the visual appearance of the search history dropdown menu. This feature improves the user experience by showing a list of recent searches, allowing users to quickly access previously viewed course evaluations without needing to re-type their queries.
+
+The primary business value is increased efficiency and convenience for the user. By making it easy to revisit past searches, the application becomes more user-friendly and encourages repeated use. The styling ensures the search history is presented in a clear, organized, and visually appealing way, which contributes to a professional and polished feel for the overall application.

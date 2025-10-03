@@ -1,0 +1,5 @@
+### Component Summary: Code Export Utility
+
+This utility script is designed to gather and package the source code of the application for external review, documentation, or archival purposes. It systematically scans the entire project directory, intelligently ignoring non-essential files like configuration data, temporary build artifacts, and development environment settings. The primary function is to produce a clean, consolidated output that represents the core logic and structure of the application.
+
+The business value of this tool is centered on facilitating controlled sharing and transparency. By providing a mechanism to quickly export a curated set of relevant code files—either as a simple list or formatted neatly with content included—it streamlines processes such as security audits, onboarding new team members to complex areas, or preparing for external contractor reviews. It ensures that stakeholders receive a focused snapshot of the actual working code, minimizing noise from irrelevant files.

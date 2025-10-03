@@ -1,0 +1,3 @@
+This document serves as the primary guide for our development team working on the user interface of the Course Evaluation Analyzer. It provides clear, standardized instructions for running the application in a local development environment, which is crucial for building new features, fixing bugs, and testing changes before they are released to the public.
+
+By following the steps outlined here, developers can ensure the application is properly prepared for deployment. This process optimizes the application for the best performance and reliability, directly contributing to a high-quality user experience. Essentially, this guide is a foundational tool that supports efficient development and the consistent delivery of a stable, well-performing product.

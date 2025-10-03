@@ -1,0 +1,3 @@
+The Loading Overlay provides immediate visual feedback to users, letting them know that the system is actively processing their request. It temporarily dims the screen and displays a clear loading indicator, which prevents confusion and assures the user that their action is being handled.
+
+This component is essential for maintaining a smooth and professional user experience. By clearly communicating that the application is working, it reduces user frustration and uncertainty during data-intensive operations, such as searching for courses or analyzing evaluation results. This helps manage user expectations and improves overall application usability and satisfaction.

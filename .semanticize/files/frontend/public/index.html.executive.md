@@ -1,0 +1,3 @@
+This file is the main entry point for the JHU Course Evaluation Analyzer application. It provides the foundational web page that loads in a user's browser, setting the stage for the entire interactive experience. When a user navigates to the website, this is the first component that loads, preparing their browser to run the course analysis tool.
+
+The business value of this file is to deliver the application to the end-user. It establishes the application's identity with the title "JHU Course Evaluations" and acts as the essential container that holds and launches all user-facing features. Without this core component, users would not be able to access or interact with any of the course search, analysis, or data visualization tools.

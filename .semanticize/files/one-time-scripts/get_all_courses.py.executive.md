@@ -1,0 +1,5 @@
+# Course Data Acquisition Utility
+
+This script is a specialized, one-time utility designed to comprehensively collect the official course catalog information for the Johns Hopkins University (JHU) Krieger School of Arts and Sciences and the Whiting School of Engineering. It achieves this by securely connecting to the central JHU academic system (SIS API) and systematically requesting course data across nearly two decades of academic terms, spanning from Spring 2009 up to future planned terms.
+
+The business value of this component is to establish a complete, historical, and forward-looking master list of all valid course identifiers (codes) offered by these two major schools. This authoritative dataset is crucial for any downstream system, reporting tool, or application that requires accurate validation of course numbers, ensuring data integrity across planning, reporting, or integration projects related to JHU academics. By automating this collection process, we save significant manual effort and ensure the resulting list is exhaustive and up-to-date based on the available system data.

@@ -1,0 +1,5 @@
+# Component Documentation: JHU Course List Update
+
+This file, `jhu_as_en_courses.txt`, contains a comprehensive, one-time listing of course codes relevant to Johns Hopkins University (JHU) programs, spanning both academic subjects (AS) and English language courses (EN), as well as some miscellaneous (MI) and professional education (PE/ME) identifiers. This script is designed to establish or refresh a master set of course identifiers within our system.
+
+The business value of this component is to ensure data integrity and completeness regarding the Johns Hopkins courses we track or support. By providing a definitive, up-to-date list of course codes, this script supports critical downstream functions such as catalog management, student record synchronization, reporting, and system validation. Its execution is a foundational step for maintaining accurate academic records tied to JHU offerings.

@@ -1,0 +1,3 @@
+This configuration file acts as a central control panel for the application's data gathering operations. It stores all the key settings that direct the system on where to find course evaluation data online and when to look for it, based on the university's academic calendar.
+
+The business value of this file lies in its ability to make the application adaptable and easy to maintain. By centralizing these settings, we can quickly update the system if the university changes its website or data release schedules. This ensures the application can reliably and efficiently collect timely course evaluation data, which is the foundation for all the analysis and insights the tool provides.

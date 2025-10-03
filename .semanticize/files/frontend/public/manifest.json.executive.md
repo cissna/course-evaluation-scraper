@@ -1,0 +1,3 @@
+This configuration file defines the application's identity and appearance when a user adds it to their mobile home screen or desktop. It sets the app's name, icons, and initial look and feel, ensuring a consistent and branded experience.
+
+By allowing the web application to be "installed" like a native app, this file enhances user convenience and accessibility. It makes the application feel more integrated with the user's device, which can lead to increased engagement and easier access to the course evaluation data.

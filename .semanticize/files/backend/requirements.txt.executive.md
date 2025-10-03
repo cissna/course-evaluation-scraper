@@ -1,0 +1,3 @@
+The backend of the JHU Course Evaluation Analyzer is built upon a collection of standard, well-regarded software components that provide its core functionality. These components are essential for running the web server, handling data, and communicating with other services.
+
+Collectively, these tools enable the application to retrieve course evaluation information from the university's website, process that raw data, and store it in the application's database. They also provide the foundation for the backend server, allowing it to securely handle requests from the user's browser and ensuring the service is reliable and efficient. This allows the application to deliver up-to-date course insights to students and faculty.

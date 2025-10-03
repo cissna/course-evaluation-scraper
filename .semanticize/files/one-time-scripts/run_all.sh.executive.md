@@ -1,0 +1,3 @@
+This script is responsible for launching the core components of our application simultaneously to enable development, testing, or demonstration environments. It ensures that both the necessary supporting services (the "backend") and the user-facing interface (the "frontend") start up together in an organized manner.
+
+The primary business value of this script is efficiency and consistency. By providing a single command to start everything required, it drastically reduces the setup time for new team members or for quality assurance checks. This streamlined process minimizes errors associated with manually starting multiple services, ensuring that stakeholders can quickly access a fully functional version of the system for testing new features or presenting progress.

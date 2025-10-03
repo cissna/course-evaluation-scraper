@@ -1,0 +1,3 @@
+The **backend/app.py** file (the main application server) relies on the **backend/course_grouping_service.py** file to handle logic related to grouping related courses together.
+
+Specifically, the main application server initializes an instance of `CourseGroupingService` and uses it within the `/api/analyze/<course_code>` endpoint. When a user requests analysis for a specific course, the application server queries the `CourseGroupingService` (`grouping_service.get_group_info(course_code)`) to determine if that course belongs to a predefined group of related course sections or cross-listings. This allows the analysis endpoint to gather data not just for the requested course, but for all related courses in that grouping for a comprehensive analysis.

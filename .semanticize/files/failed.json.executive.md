@@ -1,0 +1,3 @@
+This file serves as a log that tracks any course evaluations the system was unable to automatically collect from the university's official source. Each entry in this list represents a specific course for which the data retrieval process failed, along with a brief note explaining the cause of the failure.
+
+The business value of this log is in maintaining the quality and completeness of our data. By keeping a detailed record of these failures, our technical team can quickly diagnose and resolve problems in the data collection process. This ensures that the information presented in the application is as comprehensive and reliable as possible, ultimately improving the user's experience by minimizing data gaps and ensuring the integrity of the evaluation insights we provide.

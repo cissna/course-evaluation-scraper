@@ -1,0 +1,5 @@
+## Component Summary: Data Export Utility
+
+This script is a one-time utility designed to systematically extract critical business data and operational tracking information from our primary course database. It connects securely to the database and pulls two main categories of information: the core content details for all courses and a separate log tracking when and how that data was last updated or processed. This extracted information is then organized and saved into two distinct, human-readable files (JSON format) for external use or archival.
+
+The business value of this component is ensuring data integrity, providing auditable snapshots of system content, and facilitating reliable data sharing or migration efforts without putting direct load on the live operational database. By creating flat files of the course data and its metadata, we establish a clean, external reference point for reporting, compliance checks, or transferring information to other systems that may not have direct access to our primary database structure.

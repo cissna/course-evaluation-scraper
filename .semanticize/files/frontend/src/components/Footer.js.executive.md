@@ -1,0 +1,3 @@
+The Footer component provides a dedicated space for user support and feedback. It offers a direct email contact for users who have questions, encounter issues, or wish to provide suggestions. This establishes a clear communication channel, enabling continuous improvement of the application based on user experience.
+
+Beyond general support, the footer also educates users on a key feature: the grouping of related courses (e.g., undergraduate and graduate versions of the same class). It invites users to contribute by requesting additional course groupings, effectively crowdsourcing data improvements. This enhances the quality and accuracy of the evaluation data, ensuring a more comprehensive and useful tool for the entire user community.

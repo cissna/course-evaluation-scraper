@@ -1,0 +1,496 @@
+{
+  "initialized": true,
+  "files_discovered": true,
+  "file_states": {
+    ".claude/settings.local.json": {
+      "path": ".claude/settings.local.json",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    ".gitignore": {
+      "path": ".gitignore",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    ".rooignore": {
+      "path": ".rooignore",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    ".vercelignore": {
+      "path": ".vercelignore",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "backend/__init__.py": {
+      "path": "backend/__init__.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "backend/analysis.py": {
+      "path": "backend/analysis.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/course_grouping_service.py",
+        "backend/scraper_service.py"
+      ]
+    },
+    "backend/app.py": {
+      "path": "backend/app.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/analysis.py",
+        "backend/course_grouping_service.py",
+        "backend/db_utils.py",
+        "backend/scraper_service.py"
+      ]
+    },
+    "backend/config.py": {
+      "path": "backend/config.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "backend/course_grouping_service.py": {
+      "path": "backend/course_grouping_service.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "backend/db_utils.py": {
+      "path": "backend/db_utils.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/course_grouping_service.py"
+      ]
+    },
+    "backend/period_logic.py": {
+      "path": "backend/period_logic.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/config.py"
+      ]
+    },
+    "backend/requirements.txt": {
+      "path": "backend/requirements.txt",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "backend/scrape_link.py": {
+      "path": "backend/scrape_link.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/config.py"
+      ]
+    },
+    "backend/scrape_search.py": {
+      "path": "backend/scrape_search.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "backend/scraper_service.py": {
+      "path": "backend/scraper_service.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/config.py",
+        "backend/course_grouping_service.py",
+        "backend/db_utils.py",
+        "backend/period_logic.py",
+        "backend/scraping_logic.py",
+        "backend/workflow_helpers.py"
+      ]
+    },
+    "backend/scraping_logic.py": {
+      "path": "backend/scraping_logic.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/config.py"
+      ]
+    },
+    "backend/workflow_helpers.py": {
+      "path": "backend/workflow_helpers.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": [
+        "backend/db_utils.py",
+        "backend/period_logic.py",
+        "backend/scrape_link.py",
+        "backend/scrape_search.py",
+        "backend/scraping_logic.py"
+      ]
+    },
+    "db_schema.sql": {
+      "path": "db_schema.sql",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "failed.json": {
+      "path": "failed.json",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/.gitignore": {
+      "path": "frontend/.gitignore",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/package-lock.json": {
+      "path": "frontend/package-lock.json",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/package.json": {
+      "path": "frontend/package.json",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/public/index.html": {
+      "path": "frontend/public/index.html",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/public/manifest.json": {
+      "path": "frontend/public/manifest.json",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/public/robots.txt": {
+      "path": "frontend/public/robots.txt",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/App.css": {
+      "path": "frontend/src/App.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/App.js": {
+      "path": "frontend/src/App.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/App.test.js": {
+      "path": "frontend/src/App.test.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/AdvancedOptions.css": {
+      "path": "frontend/src/components/AdvancedOptions.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/AdvancedOptions.js": {
+      "path": "frontend/src/components/AdvancedOptions.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/CourseSearch.css": {
+      "path": "frontend/src/components/CourseSearch.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/CourseSearch.js": {
+      "path": "frontend/src/components/CourseSearch.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/DataDisplay.css": {
+      "path": "frontend/src/components/DataDisplay.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/DataDisplay.js": {
+      "path": "frontend/src/components/DataDisplay.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/Footer.css": {
+      "path": "frontend/src/components/Footer.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/Footer.js": {
+      "path": "frontend/src/components/Footer.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/GracePeriodWarning.css": {
+      "path": "frontend/src/components/GracePeriodWarning.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/GracePeriodWarning.js": {
+      "path": "frontend/src/components/GracePeriodWarning.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/LoadingOverlay.css": {
+      "path": "frontend/src/components/LoadingOverlay.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/LoadingOverlay.js": {
+      "path": "frontend/src/components/LoadingOverlay.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/SearchHistory.css": {
+      "path": "frontend/src/components/SearchHistory.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/SearchHistory.js": {
+      "path": "frontend/src/components/SearchHistory.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/SearchResults.css": {
+      "path": "frontend/src/components/SearchResults.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/components/SearchResults.js": {
+      "path": "frontend/src/components/SearchResults.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/config.js": {
+      "path": "frontend/src/config.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/index.css": {
+      "path": "frontend/src/index.css",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/index.js": {
+      "path": "frontend/src/index.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/reportWebVitals.js": {
+      "path": "frontend/src/reportWebVitals.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/setupTests.js": {
+      "path": "frontend/src/setupTests.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/utils/analysisEngine.js": {
+      "path": "frontend/src/utils/analysisEngine.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/utils/statsMapping.js": {
+      "path": "frontend/src/utils/statsMapping.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/utils/storageUtils.js": {
+      "path": "frontend/src/utils/storageUtils.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "frontend/src/utils/yearUtils.js": {
+      "path": "frontend/src/utils/yearUtils.js",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/backend_import_helper.py": {
+      "path": "one-time-scripts/backend_import_helper.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/clear_grace_period_flags.py": {
+      "path": "one-time-scripts/clear_grace_period_flags.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/db_setup.py": {
+      "path": "one-time-scripts/db_setup.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/export_code.py": {
+      "path": "one-time-scripts/export_code.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/export_data.py": {
+      "path": "one-time-scripts/export_data.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/find_highest_n_course.py": {
+      "path": "one-time-scripts/find_highest_n_course.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/get_all_courses.py": {
+      "path": "one-time-scripts/get_all_courses.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/jhu_as_en_courses.txt": {
+      "path": "one-time-scripts/jhu_as_en_courses.txt",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/migrate_data.py": {
+      "path": "one-time-scripts/migrate_data.py",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "one-time-scripts/run_all.sh": {
+      "path": "one-time-scripts/run_all.sh",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "requirements.txt": {
+      "path": "requirements.txt",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    },
+    "vercel.json": {
+      "path": "vercel.json",
+      "technical_done": true,
+      "developer_done": true,
+      "executive_done": true,
+      "edges_done": []
+    }
+  },
+  "project_summaries": {
+    "technical": true,
+    "developer": true,
+    "executive": true
+  },
+  "last_updated": "2025-10-03T16:39:24.759432"
+}

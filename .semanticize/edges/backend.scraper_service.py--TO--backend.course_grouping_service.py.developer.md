@@ -1,0 +1,5 @@
+The `scraper_service.py` file **depends on** the `course_grouping_service.py` file by importing and instantiating the `CourseGroupingService` class: `from .course_grouping_service import CourseGroupingService` and `grouping_service = CourseGroupingService()`.
+
+The `CourseGroupingService` (defined in the target file) is responsible for managing course groupings based on department patterns and explicit configurations.
+
+Although the `scraper_service.py` imports the service, based on the provided snippet, it does not appear to *call* any methods on the `grouping_service` instance. This suggests that while the dependency exists for potential future use or for components not shown (like metadata processing that might use grouping logic), the immediate interaction pattern is one of **dependency declaration** rather than active functional invocation within the visible functions (`get_course_data_and_update_cache`, `force_recheck_course`, etc.).

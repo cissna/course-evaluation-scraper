@@ -1,0 +1,3 @@
+This utility module is responsible for managing the user's recent search history within the application interface. It securely records the courses the user has looked up, allowing the system to quickly recall and display these previous searches when the user returns to the tool.
+
+The business value of this feature is enhanced user experience and efficiency. By remembering recent activity, we reduce the steps required for repeat users to find relevant course information, leading to faster task completion and higher satisfaction with the search functionality. This persistent memory ensures continuity across user sessions.

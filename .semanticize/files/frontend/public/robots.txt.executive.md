@@ -1,0 +1,3 @@
+This configuration file provides instructions for web crawlers, such as those used by search engines like Google. It is set up to grant these crawlers full access to scan and index the entire website.
+
+The primary business value of this setup is to maximize the application's visibility on the internet. By allowing search engines to freely explore all content, we ensure that all pages of our site can be discovered and listed in search results. This improves our Search Engine Optimization (SEO), making it easier for users to find and access our course evaluation tool.

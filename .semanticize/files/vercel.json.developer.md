@@ -1,0 +1,2 @@
+*   **What it does:** This is the final, catch-all rule. Any request that hasn't been matched by the preceding rules (i.e., non-API requests that aren't specific static files) is directed to `frontend/index.html`.
+*   **Interaction Pattern:** This pattern is standard for Single Page Applications (SPAs). The frontend framework (React, Vue, Angular) handles the routing internally once `index.html` is loaded, except for requests explicitly routed to the API.

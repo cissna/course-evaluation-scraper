@@ -1,0 +1,3 @@
+This file contains a foundational quality assurance test for the web application. It automatically verifies that the main application screen loads correctly and displays its essential components without errors.
+
+The business value of this test is to ensure application reliability and a consistent user experience. By confirming that the application's starting point is stable, it prevents users from encountering a broken or blank page, which builds trust and ensures that new features or updates have not disrupted the core functionality.

@@ -1,0 +1,3 @@
+The Loading Overlay component provides visual feedback to users when the application is busy. It displays a full-screen message and a spinner, indicating that a process, such as fetching course data or performing an analysis, is running in the background. This prevents users from thinking the application is frozen or unresponsive.
+
+This component is essential for a smooth and professional user experience. By clearly communicating that the system is working, it reduces user frustration and uncertainty during wait times. This helps manage user expectations and improves the overall usability and perceived performance of the application, ensuring users have a seamless interaction even when data is being loaded.

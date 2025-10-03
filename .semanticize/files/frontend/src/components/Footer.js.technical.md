@@ -1,0 +1,1 @@
+-   The `Footer` component is exported as the default export of the module, making it available for import into other parts of the application, such as `App.js`.

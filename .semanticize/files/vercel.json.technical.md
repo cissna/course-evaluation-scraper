@@ -1,0 +1,122 @@
+# Vercel Configuration File (`vercel.json`) Technical Documentation
+
+This document details the structure and configuration directives within the provided `vercel.json` file, which is used by the Vercel deployment platform to define build steps, environment variables, and routing rules for a project.
+
+## Overview
+
+The `vercel.json` file configures how Vercel builds and deploys a project composed of a Python backend and a static frontend (likely React/Next.js static export or similar). It specifies the runtime environments, the source files for building, and how incoming HTTP requests should be routed to the appropriate handler (backend serverless function or static asset).
+
+The file adheres to the Vercel configuration schema version 2.
+
+## Configuration Structure Analysis
+
+The configuration object contains three primary top-level keys: `version`, `env`, `builds`, and `routes`.
+
+### 1. `version`
+
+| Key | Type | Description |
+| :--- | :--- | :--- |
+| `version` | Integer | Specifies the schema version of the configuration file. |
+
+**Implementation Detail:**
+*   **Line 2:** `"version": 2` indicates the use of the standard Vercel configuration schema version 2.
+
+### 2. `env` (Environment Variables)
+
+| Key | Type | Description |
+| :--- | :--- | :--- |
+| `env` | Object | A map containing environment variables to be set during the build and runtime phases of the deployment. |
+
+**Implementation Detail:**
+*   **Lines 3-5:** Sets a single environment variable:
+    *   Key: `"CI"`
+    *   Value: `"false"`
+    *   This is often used to disable Continuous Integration specific checks or optimizations within build tooling (like setting up CI-specific caches or logging levels).
+
+### 3. `builds`
+
+The `builds` array defines the necessary build steps. Each object in this array specifies a source file and the Vercel builder plugin to use for processing it.
+
+#### Build 1: Python Backend
+
+| Key | Value | Description |
+| :--- | :--- | :--- |
+| `src` | `"backend/app.py"` | The source file entry point for the backend service. Vercel will treat this file as the entry point for a Serverless Function. |
+| `use` | `"@vercel/python"` | Specifies the Vercel Builder responsible for packaging and deploying Python applications (e.g., handling dependencies from `requirements.txt` if present, and exposing this file as an HTTP endpoint). |
+
+**Implementation Detail:**
+*   **Lines 6-10:** Configures the Python backend build. The resulting Serverless Function will be accessible via the routes defined later (specifically `/api/(.*)`).
+
+#### Build 2: Static Frontend
+
+| Key | Value | Description |
+| :--- | :--- | :--- |
+| `src` | `"frontend/package.json"` | The source file used to identify the project type. Using `package.json` signals a Node.js/JavaScript project, typically handled by Yarn, npm, or pnpm. |
+| `use` | `"@vercel/static-build"` | The standard builder for static site generators (like Create React App build output, Gatsby, Hugo, etc.). It executes build scripts defined in `package.json` (e.g., `npm run build`) and finds the resulting static assets. |
+| `config.distDir` | `"build"` | Specifies the directory where the static assets are outputted after the build script runs. This directory will be served statically. |
+
+**Implementation Detail:**
+*   **Lines 11-15:** Configures the static frontend build. The output directory is expected to be `./frontend/build/`.
+
+### 4. `routes`
+
+The `routes` array defines URL rewriting and redirection rules. Vercel processes these routes sequentially. The first matching rule applies.
+
+All routes use the `src` (Source pattern, using glob syntax) to match incoming URLs and the `dest` (Destination) to determine the handler.
+
+#### Route 1: API Backend Proxy
+
+| Key | Value | Description |
+| :--- | :--- | :--- |
+| `src` | `"/api/(.*)"` | Matches any path starting with `/api/`, capturing the remainder of the path in group 1 (`$1`). |
+| `dest` | `"backend/app.py"` | Rewrites the request to the Python Serverless Function defined in the first build step. The captured path segment (`$1`) will be available within the function context (e.g., in frameworks like Flask/FastAPI handling the request). |
+
+**Implementation Detail:**
+*   **Lines 17-19:** Ensures all API calls are routed to the Python backend.
+
+#### Route 2: Static Assets Proxy (General)
+
+| Key | Value | Description |
+| :--- | :--- | :--- |
+| `src` | `"/static/(.*)"` | Matches any path starting with `/static/`. |
+| `dest` | `"/frontend/static/$1"` | Rewrites the request to the corresponding path within the statically built output directory (`./frontend/build/static/`). The captured segment `$1` is substituted. |
+
+**Implementation Detail:**
+*   **Lines 20-22:** This is standard practice for serving assets bundled by tools like Create React App (CRA) where CSS, JS chunks, and images are placed in a `static` folder inside the build output.
+
+#### Route 3-7: Specific Static File Overrides
+
+These routes explicitly map common root-level static assets often generated by frontend frameworks (especially SPAs like React).
+
+| Route Index | `src` Pattern | `dest` Destination | Purpose |
+| :--- | :--- | :--- | :--- |
+| 3 | `"/favicon.ico"` | `"/frontend/favicon.ico"` | Serves the favicon directly from the frontend source root. |
+| 4 | `"/logo192.png"` | `"/frontend/logo192.png"` | Serves a standard PWA logo asset. |
+| 5 | `"/logo512.png"` | `"/frontend/logo512.png"` | Serves a standard PWA logo asset. |
+| 6 | `"/manifest.json"` | `"/frontend/manifest.json"` | Serves the web application manifest file. |
+| 7 | `"/robots.txt"` | `"/frontend/robots.txt"` | Serves the robots exclusion protocol file. |
+
+**Implementation Detail:**
+*   **Lines 23-34:** These routes ensure these specific files are accessible at the root level, mapping them relative to the project structure defined for the static build.
+
+#### Route 8: Catch-all for Single Page Applications (SPA Fallback)
+
+| Key | Value | Description |
+| :--- | :--- | :--- |
+| `src` | `"(.*)"` | Matches *any* incoming request path that hasn't been matched by previous routes. |
+| `dest` | `"/frontend/index.html"` | Rewrites the request to serve the main entry point of the SPA (`index.html`). |
+
+**Implementation Detail:**
+*   **Lines 35-37:** This is the crucial routing rule for Single Page Applications (SPAs). If a request (e.g., `/about` or `/dashboard`) doesn't match an API route or a specific static asset, it is served the main HTML file. The frontend routing logic (e.g., React Router) is then responsible for interpreting the URL path on the client side.
+
+## Summary of Deployment Flow
+
+1.  **Environment Setup:** The deployment environment is initialized with `CI=false`.
+2.  **Build Phase:**
+    *   The Python code (`backend/app.py`) is packaged into a Serverless Function using the `@vercel/python` builder.
+    *   The frontend project (identified by `frontend/package.json`) is built using `@vercel/static-build`, outputting assets into `./frontend/build/`.
+3.  **Routing Phase (Runtime):** Incoming requests are processed in order:
+    *   `/api/*` requests are directed to the Python Serverless Function.
+    *   Requests matching `/static/*` are directed to the built static assets folder.
+    *   Specific root files (`favicon.ico`, `manifest.json`, etc.) are served directly.
+    *   All other requests fall through to serve `/frontend/index.html`, enabling client-side routing for the SPA.

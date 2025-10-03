@@ -1,0 +1,3 @@
+This file sets the foundational visual style for the entire application interface. Its primary function is to establish the default appearance for text and the overall layout structure across all web pages. This ensures a consistent, clean, and professional look and feel for every user interacting with the software.
+
+The business value lies in creating a reliable and pleasant user experience. By standardizing the base appearance—such as the default font used for reading content—this file ensures brand consistency and readability, which directly contributes to user satisfaction and ease of use for our product.

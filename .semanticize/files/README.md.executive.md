@@ -1,0 +1,3 @@
+The JHU Course Evaluation Analyzer is a web application that provides students and faculty with a centralized, easy-to-use platform for accessing and analyzing course evaluation data from Johns Hopkins University. The system automatically collects the latest evaluation information directly from the university, ensuring the data is up-to-date and reliable.
+
+This tool empowers users to make more informed academic choices. By searching for specific courses or instructors, users can view detailed feedback and historical trends. The application simplifies the research process by allowing users to filter results, save their recent searches for quick access, and view combined data for related or cross-listed courses, providing a comprehensive overview of academic options.

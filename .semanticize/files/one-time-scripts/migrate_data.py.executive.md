@@ -1,0 +1,5 @@
+### Component Summary: Data Migration Script
+
+This script serves as a one-time utility to transfer historical or configuration data, currently stored in local data files (JSON format), into our primary PostgreSQL database system. Its primary function is to establish a baseline dataset within the production database environment, ensuring that necessary structural and historical information is correctly loaded before standard operations begin or after a system upgrade.
+
+The business value of this component is ensuring data integrity and system readiness. By reliably moving essential setup information—such as course metadata and specific course records—from portable files into the central, persistent database, we guarantee that our core application has the necessary foundation to run correctly, track historical performance, and maintain configuration settings without manual re-entry. This process is critical for initializing new environments or recovering specific datasets.

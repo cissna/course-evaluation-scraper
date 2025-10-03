@@ -1,0 +1,3 @@
+Although these imported constants are not explicitly called or used in the provided snippet of `scraper_service.py`, their presence indicates that the workflow logic (likely within functions not fully shown, or implicitly used by imported functions like `is_course_up_to_date` which depends on period logic) relies on configuration values defined in `config.py` to determine when a course is considered "up-to-date" based on release dates and grace periods.
+
+Specifically, `PERIOD_RELEASE_DATES` and `PERIOD_GRACE_MONTHS` are configuration settings governing the timing logic within the scraping workflow. The `config.py` file defines these as dictionaries containing month/day tuples and integer grace periods keyed by period prefixes ('IN', 'SP', 'SU', 'FA').

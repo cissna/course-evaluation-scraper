@@ -1,0 +1,3 @@
+This component is responsible for establishing an authorized connection to the university's official course evaluation system. It acts as a digital key, securely logging into the system to gain the necessary permissions to view and retrieve data.
+
+The primary business value of this component is that it enables the entire application to function. By successfully authenticating, it unlocks access to the raw course evaluation data that powers all of the application's features, from search to analysis. This ensures that we are accessing the information legitimately and can provide up-to-date and accurate data to our users. Without this initial step, no data can be collected.

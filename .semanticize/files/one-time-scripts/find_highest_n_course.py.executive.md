@@ -1,0 +1,5 @@
+## Component Summary: Course Data Aggregation and Ranking Script
+
+This script performs a specialized analysis of course evaluation data stored in the system's primary data file (`data.json`). Its primary function is to group related course offerings (e.g., different semesters or sections of the same core subject) and calculate the total number of responses ("N") collected for each resulting course group based on "Overall Quality" feedback.
+
+The business value of this component is to identify which aggregated course groups have the largest volume of evaluation data. By ranking courses based on the highest number of responses (N), stakeholders can quickly pinpoint the most heavily evaluated subjects or programs. This information is crucial for understanding where the most significant feedback exists, which can then guide resource allocation, in-depth quality reviews, or reporting priorities for the most representative data sets.

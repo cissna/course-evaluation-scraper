@@ -1,0 +1,3 @@
+This utility file serves as the central, definitive source for managing all performance metrics displayed within the system. It defines a standardized list of available statistics—such as "Overall Quality" or "Workload"—including the user-friendly name for each metric and whether it should be visible by default when a user views their data.
+
+The business value of this component is ensuring consistency, accuracy, and ease of management for all reporting features. By centralizing this configuration, we guarantee that the data presented to users is correctly labeled across the entire application and allows administrators to easily enable or disable specific insights without requiring complex code changes, streamlining future updates to our performance analysis tools.
