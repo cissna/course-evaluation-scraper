@@ -11,7 +11,7 @@ export const STATISTICS_CONFIG = {
   },
   'intellectual_challenge': {
     displayName: 'Intellectual Challenge',
-    defaultEnabled: true
+    defaultEnabled: false
   },
   'workload': {
     displayName: 'Workload',
