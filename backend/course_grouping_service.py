@@ -14,7 +14,7 @@ class CourseGroupingService:
                 "equivalent_levels": [400, 600]
             },
             "AS.050": {
-                "equivalent_levels": [200, 300, 400, 600]
+                "equivalent_levels": [300, 400, 600]
             }
         },
         "explicit_groupings": [
