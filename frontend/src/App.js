@@ -145,16 +145,17 @@ function App() {
     setDismissedGraceWarnings(new Set());
     setCurrentView('analysis');
 
-    // Immediately clear course_name separation when navigating to a new course
-    // This prevents the "stuck" state where the filter affects data processing
-    // even when the UI option is hidden
-    const optionsWithoutCourseName = {
+    // Immediately clear conditional separation options when navigating to a new course.
+    // This prevents "stuck" states where hidden options still affect processing.
+    const optionsWithoutConditionalSeparators = {
       ...advancedOptions,
-      separationKeys: advancedOptions.separationKeys.filter(key => key !== 'course_name')
+      separationKeys: advancedOptions.separationKeys.filter(
+        key => key !== 'course_name' && key !== 'course_code'
+      )
     };
-    setAdvancedOptions(optionsWithoutCourseName);
+    setAdvancedOptions(optionsWithoutConditionalSeparators);
 
-    fetchAnalysisData(newCourseCode, optionsWithoutCourseName, true);
+    fetchAnalysisData(newCourseCode, optionsWithoutConditionalSeparators, true);
     checkGracePeriodStatus(newCourseCode);
   };
 
