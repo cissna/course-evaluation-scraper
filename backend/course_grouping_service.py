@@ -44,6 +44,54 @@ class CourseGroupingService:
                 ],
                 "description": "Intro Data Science ('Principles')",
                 "primary": None
+            },
+            {
+                "courses": [
+                    "EN.580.456",
+                    "EN.580.656"
+                ],
+                "description": "Interim explicit grouping",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.520.465",
+                    "EN.520.665"
+                ],
+                "description": "Interim explicit grouping",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.520.438",
+                    "EN.520.638"
+                ],
+                "description": "Interim explicit grouping",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.600.120",
+                    "EN.601.220"
+                ],
+                "description": "Interim explicit grouping",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.580.491",
+                    "EN.580.691"
+                ],
+                "description": "Interim explicit grouping",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.580.458",
+                    "EN.580.658"
+                ],
+                "description": "Interim explicit grouping",
+                "primary": None
             }
         ]
     }
