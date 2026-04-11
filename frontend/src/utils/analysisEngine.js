@@ -31,6 +31,9 @@ const STAT_MAPPINGS = {
   }
 };
 
+const SEMESTER_ORDER = { IN: 0, SP: 1, SU: 2, FA: 3 };
+const SEASON_ORDER = { Intersession: 0, Spring: 1, Summer: 2, Fall: 3 };
+
 function simplifyName(name) {
   if (typeof name !== 'string') return "";
   return name.replace(/[^a-zA-Z]/g, '').toLowerCase();
@@ -41,10 +44,62 @@ function parseSemesterYear(instanceKey) {
   if (match) {
     const [, semester, year] = match;
     const yearNum = parseInt('20' + year);
-    const semesterOrder = {'IN': 0, 'SP': 1, 'SU': 2, 'FA': 3};
-    return { year: yearNum, semesterNum: semesterOrder[semester] || 0, semester };
+    return { year: yearNum, semesterNum: SEMESTER_ORDER[semester] || 0, semester };
   }
   return { year: 0, semesterNum: 0, semester: null };
+}
+
+function parsePeriodCode(periodCode) {
+  const match = typeof periodCode === 'string' ? periodCode.match(/^((?:IN|SP|SU|FA))(\d{2})$/) : null;
+  if (!match) return null;
+  const [, semester, year] = match;
+  return { year: 2000 + parseInt(year, 10), semesterNum: SEMESTER_ORDER[semester] ?? 0 };
+}
+
+function comparePeriods(a, b) {
+  const parsedA = parsePeriodCode(a);
+  const parsedB = parsePeriodCode(b);
+  if (!parsedA && !parsedB) return String(a).localeCompare(String(b));
+  if (!parsedA) return 1;
+  if (!parsedB) return -1;
+  if (parsedA.year !== parsedB.year) return parsedA.year - parsedB.year;
+  return parsedA.semesterNum - parsedB.semesterNum;
+}
+
+function compareGroupNames(groupA, groupB, separationKeys = []) {
+  const partsA = String(groupA).split(', ');
+  const partsB = String(groupB).split(', ');
+
+  for (let i = 0; i < separationKeys.length; i++) {
+    const key = separationKeys[i];
+    const valueA = partsA[i] ?? "";
+    const valueB = partsB[i] ?? "";
+    let comparison = 0;
+
+    if (key === "exact_period") {
+      comparison = comparePeriods(valueA, valueB);
+    } else if (key === "year") {
+      const yearA = parseInt(valueA, 10);
+      const yearB = parseInt(valueB, 10);
+      if (Number.isNaN(yearA) && Number.isNaN(yearB)) comparison = 0;
+      else if (Number.isNaN(yearA)) comparison = 1;
+      else if (Number.isNaN(yearB)) comparison = -1;
+      else comparison = yearA - yearB;
+    } else if (key === "season") {
+      const seasonA = SEASON_ORDER[valueA];
+      const seasonB = SEASON_ORDER[valueB];
+      if (seasonA === undefined && seasonB === undefined) comparison = valueA.localeCompare(valueB);
+      else if (seasonA === undefined) comparison = 1;
+      else if (seasonB === undefined) comparison = -1;
+      else comparison = seasonA - seasonB;
+    } else {
+      comparison = valueA.localeCompare(valueB);
+    }
+
+    if (comparison !== 0) return comparison;
+  }
+
+  return String(groupA).localeCompare(String(groupB));
 }
 
 function getInstanceYear(instanceKey) {
@@ -203,7 +258,7 @@ function calculateGroupStatistics(groupInstances, statsToCalculate, instanceKeys
         const match = k.match(/\.([A-Z]{2}\d{2})$/);
         if (match) periods.add(match[1]);
       }
-      results[key] = periods.size > 0 ? Array.from(periods).sort().join(', ') : 'N/A';
+      results[key] = periods.size > 0 ? Array.from(periods).sort(comparePeriods).join(', ') : 'N/A';
       details[key] = { n: null, std: null };
     } else {
       const detailed = calculateDetailedStatistics(aggregatedFrequencies[key], statConfig.mapping);
@@ -219,7 +274,11 @@ export function processAnalysisRequest(rawData, params) {
   const filtered = filterInstances(rawData.instances, params.filters);
   
   // 2. Separate into groups
-  const separated = separateInstances(filtered, params.separation_keys || params.separationKeys);
+  const separationKeys = params.separation_keys || params.separationKeys || [];
+  const separated = separateInstances(filtered, separationKeys);
+  const sortedSeparatedEntries = Object.entries(separated).sort(([groupA], [groupB]) =>
+    compareGroupNames(groupA, groupB, separationKeys)
+  );
   
   // 3. Calculate statistics for each group
   const analysisResults = {};
@@ -228,7 +287,7 @@ export function processAnalysisRequest(rawData, params) {
   // Map frontend stat keys to backend keys
   const statsToSend = Object.keys(params.stats).filter(k => params.stats[k]);
 
-  for (const [groupName, instances] of Object.entries(separated)) {
+  for (const [groupName, instances] of sortedSeparatedEntries) {
     // Get instance keys for this group
     const groupInstanceKeys = Object.keys(filtered).filter(key => instances.includes(filtered[key]));
     
