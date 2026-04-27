@@ -4,6 +4,7 @@ import time
 import argparse
 import requests
 from datetime import datetime
+from tqdm import tqdm
 
 # Add the backend directory to the Python path to allow importing local db tools
 backend_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -19,6 +20,10 @@ except ImportError as e:
 
 # API endpoint URL for forcing a scrape
 BASE_URL = "https://course-evaluation-scraper.vercel.app/api/recheck/"
+
+def tprint(*args, **kwargs):
+    """Helper to print safely with tqdm"""
+    tqdm.write(" ".join(map(str, args)), **kwargs)
 
 class BatchScraper:
     def __init__(self, courses_file: str = "jhu_as_en_courses.txt", max_retries: int = 3, retry_failed: bool = False):
@@ -37,32 +42,32 @@ class BatchScraper:
         try:
             with open(self.courses_file, 'r') as f:
                 course_codes = [line.strip() for line in f if line.strip()]
-            print(f"Loaded {len(course_codes)} course codes from {self.courses_file}")
+            tprint(f"Loaded {len(course_codes)} course codes from {self.courses_file}")
             return course_codes
         except FileNotFoundError:
-            print(f"Error: Course file {self.courses_file} not found!")
+            tprint(f"Error: Course file {self.courses_file} not found!")
             sys.exit(1)
         except Exception as e:
-            print(f"Error reading course file: {e}")
+            tprint(f"Error reading course file: {e}")
             sys.exit(1)
 
     def fetch_all_metadata(self):
-        print("📦 Fetching metadata cache directly from Supabase...")
+        tprint("📦 Fetching metadata cache directly from Supabase...")
         try:
             with get_db_connection() as conn:
                 with conn.cursor() as cur:
                     cur.execute("SELECT * FROM course_metadata")
                     rows = cur.fetchall()
                     colnames = [desc[0] for desc in cur.description]
-                    print(f"✓ Cached {len(rows)} course metadata records locally.")
+                    tprint(f"✓ Cached {len(rows)} course metadata records locally.")
                     return {row[0]: dict(zip(colnames, row)) for row in rows}
         except Exception as e:
-            print(f"Failed to fetch metadata from database: {e}")
-            print("Falling back to making API requests for every course...")
+            tprint(f"Failed to fetch metadata from database: {e}")
+            tprint("Falling back to making API requests for every course...")
             return None
 
     def scrape_single_course(self, course_code: str, retry_count: int = 0) -> dict:
-        print(f"--- Scraping course via Vercel API: {course_code} (attempt {retry_count + 1}/{self.max_retries + 1}) ---")
+        tprint(f"\n--- Scraping course via Vercel API: {course_code} (attempt {retry_count + 1}/{self.max_retries + 1}) ---")
         try:
             url = f"{BASE_URL}{course_code}"
             # Because we already pre-filtered using the database, any request we make here
@@ -70,23 +75,23 @@ class BatchScraper:
             response = requests.post(url, timeout=60)
             
             if response.status_code == 200:
-                print(f"✓ Successfully scraped and updated {course_code}")
+                tprint(f"✓ Successfully scraped and updated {course_code}")
                 return {'course_code': course_code, 'success': True, 'error': None, 'status': 200}
             elif response.status_code == 404:
-                print(f"⏭️  Skipped {course_code}: No data found on JHU SIS")
+                tprint(f"⏭️  Skipped {course_code}: No data found on JHU SIS")
                 return {'course_code': course_code, 'success': False, 'error': 'No data found', 'status': 404}
             else:
                 error_msg = f"HTTP Error {response.status_code}: {response.text}"
-                print(f"✗ Failed to scrape {course_code}: {error_msg}")
+                tprint(f"✗ Failed to scrape {course_code}: {error_msg}")
                 return {'course_code': course_code, 'success': False, 'error': error_msg, 'status': response.status_code}
                 
         except requests.exceptions.RequestException as e:
             error_msg = f"Request exception: {str(e)}"
-            print(f"✗ Exception scraping {course_code}: {error_msg}")
+            tprint(f"✗ Exception scraping {course_code}: {error_msg}")
             return {'course_code': course_code, 'success': False, 'error': error_msg, 'status': None}
         except Exception as e:
             error_msg = f"Unexpected exception: {str(e)}"
-            print(f"✗ Unexpected exception scraping {course_code}: {error_msg}")
+            tprint(f"✗ Unexpected exception scraping {course_code}: {error_msg}")
             return {'course_code': course_code, 'success': False, 'error': error_msg, 'status': None}
 
     def process_course_with_retry(self, course_code: str) -> dict:
@@ -99,53 +104,51 @@ class BatchScraper:
                 
             if attempt < self.max_retries:
                 wait_time = (attempt + 1) * 2
-                print(f"  Waiting {wait_time} seconds before retry...")
+                tprint(f"  Waiting {wait_time} seconds before retry...")
                 time.sleep(wait_time)
         return result
 
     def run_batch_scraping(self, start_index: int = 0, max_courses: int = None, dry_run: bool = False):
-        print("🚀 Starting ultra-fast batch scraping process...")
+        tprint("🚀 Starting ultra-fast batch scraping process...")
         self.results['start_time'] = datetime.now()
         
         course_codes = self.load_course_codes()
         
         if start_index > 0:
             course_codes = course_codes[start_index:]
-            print(f"Starting from index {start_index}")
+            tprint(f"Starting from index {start_index}")
         
         if max_courses:
             course_codes = course_codes[:max_courses]
-            print(f"Processing only {max_courses} courses")
+            tprint(f"Processing only {max_courses} courses")
         
         total_courses = len(course_codes)
-        print(f"Total courses to process: {total_courses}")
+        tprint(f"Total courses to process: {total_courses}")
         
         if dry_run:
-            print("🔍 DRY RUN MODE - No actual API requests will be made")
-            for i, course_code in enumerate(course_codes):
-                print(f"  {i+1:4d}. {course_code}")
+            tprint("🔍 DRY RUN MODE - No actual API requests will be made")
+            for i, course_code in enumerate(tqdm(course_codes, desc="Dry Run", unit="course")):
+                pass
             return
             
         # 1. Fetch all metadata from Supabase in ONE query
         metadata_cache = self.fetch_all_metadata()
         current_period = get_current_period()
-        print(f"Current evaluation period is: {current_period}")
-        print("\n" + "="*60)
+        tprint(f"Current evaluation period is: {current_period}")
+        tprint("\n" + "="*60)
         
-        for i, course_code in enumerate(course_codes):
+        for i, course_code in enumerate(tqdm(course_codes, desc="Processing Courses", unit="course", dynamic_ncols=True)):
             # 2. Local Cache Check
             if metadata_cache is not None:
                 meta = metadata_cache.get(course_code)
                 if meta:
                     # Check if it's a known failure (like a bad course code or persistent 500 error)
                     if meta.get('last_period_failed') and not self.retry_failed:
-                        print(f"⏭️  Skipped {course_code}: Known to fail on JHU (use --retry-failed to force scrape)")
                         self.results['skipped'].append({'course_code': course_code, 'reason': 'known_failure'})
                         continue
                     
                     # Check if it's already completely up-to-date for the current semester
                     if is_course_up_to_date(meta.get('last_period_gathered'), meta):
-                        print(f"⏭️  Skipped {course_code}: Already up-to-date in database")
                         self.results['skipped'].append({'course_code': course_code, 'reason': 'up_to_date'})
                         continue
             
@@ -169,22 +172,22 @@ class BatchScraper:
         skipped = len(self.results['skipped'])
         failed = len(self.results['failed'])
         
-        print(f"\n{'='*60}")
-        print("📊 BATCH SCRAPING SUMMARY")
-        print(f"{'='*60}")
-        print(f"Total courses processed: {total}")
-        print(f"✅ Newly Scraped & Updated: {successful}")
-        print(f"⏭️  Skipped (Local Cache / No Data): {skipped}")
-        print(f"❌ Failed: {failed}")
+        tprint(f"\n{'='*60}")
+        tprint("📊 BATCH SCRAPING SUMMARY")
+        tprint(f"{'='*60}")
+        tprint(f"Total courses processed: {total}")
+        tprint(f"✅ Newly Scraped & Updated: {successful}")
+        tprint(f"⏭️  Skipped (Local Cache / No Data): {skipped}")
+        tprint(f"❌ Failed: {failed}")
         
         if self.results['start_time'] and self.results['end_time']:
             duration = (self.results['end_time'] - self.results['start_time']).total_seconds()
-            print(f"⏱️  Total time: {duration:.1f} seconds ({duration/60:.1f} minutes)")
+            tprint(f"⏱️  Total time: {duration:.1f} seconds ({duration/60:.1f} minutes)")
         
         if failed > 0:
-            print(f"\n❌ Failed courses:")
+            tprint(f"\n❌ Failed courses:")
             for result in self.results['failed']:
-                print(f"  - {result['course_code']}: {result['error']}")
+                tprint(f"  - {result['course_code']}: {result['error']}")
 
 def main():
     parser = argparse.ArgumentParser(description='Batch scrape course evaluation data via backend API')
