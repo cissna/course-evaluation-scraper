@@ -1,1 +1,0 @@
-The script is intended to be run directly from the command line, triggering the `migrate_data()` function.

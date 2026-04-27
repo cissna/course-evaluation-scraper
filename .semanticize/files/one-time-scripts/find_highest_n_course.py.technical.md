@@ -1,1 +1,0 @@
-Ensures the `main` function runs only when the script is executed directly.

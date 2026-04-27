@@ -1,1 +1,0 @@
-The component is exported as the default module, allowing it to be imported and used elsewhere in the application with a standard import statement (e.g., `import LoadingOverlay from './components/LoadingOverlay';`).

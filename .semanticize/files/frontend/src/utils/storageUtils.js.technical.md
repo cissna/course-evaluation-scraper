@@ -1,2 +1,0 @@
-**Parameters:** None.
-**Returns:** `void`.

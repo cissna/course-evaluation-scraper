@@ -1,1 +1,0 @@
-This standard Python construct ensures that the `export_data_and_metadata_to_json` function is called only when the script is executed directly (not when imported as a module).
