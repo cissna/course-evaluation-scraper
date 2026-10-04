@@ -1,6 +1,6 @@
 # Reviewing course and professor comparisons
 
-The `codex/overnight-comparisons` branch adds TODO #13–14 on top of `codex/overnight-improvements`. Both branches are left unmerged. [OVERNIGHT_REVIEW.md](../OVERNIGHT_REVIEW.md) records decisions and incomplete validation.
+The `codex/overnight-comparisons` branch adds TODO #13–14 on top of `codex/overnight-improvements`. Both branches are left unmerged. [OVERNIGHT_REVIEW.md](../OVERNIGHT_REVIEW.md) records implementation decisions and remaining manual review.
 
 ## Result selection and shared settings
 
@@ -33,11 +33,3 @@ The JavaScript implementation evaluates the Student-t tail through the regulariz
 Every sample also carries the IDs of source evaluation records that contributed valid responses to that metric after filtering. Shared IDs make the independent-samples test unavailable, including course/professor overlap and shared team-taught evaluations. Matching names/scores alone do not imply overlap. This cannot detect the same respondent appearing in two distinct reports because respondent identities are unavailable.
 
 Either sample with fewer than two valid responses, two zero sample variances, an invalid threshold, missing sample moments, or numerical nonconvergence produces a short unavailable reason and no significance claim. One zero variance is supported when the other is positive. The two-zero-variance rule follows the explicit TODO decision, including samples with different constant means.
-
-## Verification and browser review
-
-The numerical tests compare both argument orders against 105 independently generated [SciPy Welch reference results](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind_from_stats.html). The cases include unequal variances/sample sizes, two-response samples, equal means, one zero variance, random 1–5 histograms, and a pair whose displayed means round identically but are significantly different. `tools/generate_welch_reference.py` regenerates the checked-in reference file with an optional development SciPy installation; SciPy is not a runtime dependency.
-
-React integration tests exercise single-course and single-professor row pairs, course/course, professor/professor and mixed pairs, source overlap, stale selection removal, metric fallback, threshold changes, shared controls, ambiguous searches, history behavior, and the five-result cap.
-
-After building the frontend, run `python3 tools/fixture_server.py --port 8765`, then `node tools/browser_review.cjs` with a local Playwright installation (or `PLAYWRIGHT_MODULE=/absolute/path/to/playwright`). The fixture server uses in-memory records and disables database/upstream access. The browser runner covers 1440×900 and 390×844 viewports, captures screenshots and CSV downloads, and checks styles and interactions. The fixtures must be synthetic: do not use `--snapshot` for this runner. Browser execution was blocked in the implementation environment; the prepared script is not a completed visual review.
