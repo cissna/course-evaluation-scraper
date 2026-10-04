@@ -79,6 +79,20 @@
     text-overflow: ellipsis;
 }
 
+.search-history-open {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 5px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
 .search-history-item-remove {
   position: absolute;
   right: 8px;

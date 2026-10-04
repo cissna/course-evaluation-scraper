@@ -10,6 +10,14 @@
     position: relative;
     flex-grow: 1;
     max-width: 500px; /* Max width of the search input */
+    min-width: 0;
+}
+
+.search-controls {
+    display: flex;
+    align-items: stretch;
+    flex: 0 1 600px;
+    min-width: 0;
 }
 
 .course-search input {
@@ -30,7 +38,7 @@
     border-bottom: 1px solid white;
 }
 
-.course-search > button {
+.search-controls > button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -43,7 +51,7 @@
     align-self: stretch; /* Make button stretch to full height of flex container */
 }
 
-.course-search > button:disabled {
+.search-controls > button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }

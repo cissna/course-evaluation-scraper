@@ -1,128 +1,68 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './DataDisplay.css';
-import { STAT_MAPPINGS } from '../utils/statsMapping';
+import { STAT_MAPPINGS, RATING_STAT_KEYS } from '../utils/statsMapping';
+import { ordinal } from '../utils/percentiles';
+import { convertToCSV } from '../utils/csvExport';
 
-const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {} }) => {
-    const [downloadClicked, setDownloadClicked] = useState(false);
+export function formatYearRange(range) {
+  if (range.min_year && range.max_year) return `${range.min_year}–${range.max_year}`;
+  return range.min_year ? `${range.min_year} and later` : `${range.max_year} and earlier`;
+}
 
-    if (errorMessage) {
-        return <div className="data-display-error" dangerouslySetInnerHTML={{ __html: errorMessage }}></div>;
-    }
-    if (!data) {
-        return <div className="data-display-placeholder">Enter a course to see the results.</div>;
-    }
+const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {}, showPercentiles = false, yearRangeEmpty, filename = 'course_analysis.csv' }) => {
+  const [downloadClicked, setDownloadClicked] = useState(false);
+  const timer = useRef(null);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  if (errorMessage) return <div className="data-display-error" role="alert">{errorMessage}</div>;
+  if (!data) return <div className="data-display-placeholder">Enter a course or professor to see the results.</div>;
+  if (yearRangeEmpty) return <div className="year-range-empty" role="status">No results for range {formatYearRange(yearRangeEmpty)}, try including some of these years {yearRangeEmpty.available_years.join(', ')}</div>;
+  if (!selectedStats.length) return <div className="data-display-placeholder">Select at least one statistic to display results.</div>;
+  const stats = selectedStats.filter(key => STAT_MAPPINGS[key]);
 
-    const groups = Object.keys(data);
-    // Dynamic header generation based on selectedStats
-    const generateHeaders = () => {
-        const headers = ["Group"];
-        if (selectedStats && selectedStats.length > 0) {
-            selectedStats.forEach(statKey => {
-                if (STAT_MAPPINGS[statKey]) {
-                    headers.push(STAT_MAPPINGS[statKey]);
-                }
-            });
-        }
-        return headers;
-    };
+  const renderCell = (group, metric, value) => {
+    if (!RATING_STAT_KEYS.includes(metric)) return <td key={metric}>{value ?? 'N/A'}</td>;
+    const details = statisticsMetadata[group]?.[metric] || {};
+    const absolute = typeof value === 'number' ? value.toFixed(2) : 'N/A';
+    const percentile = Number.isFinite(details.percentile) ? `${ordinal(details.percentile)} percentile` : 'Percentile unavailable';
+    const tooltip = [
+      `${absolute}${absolute !== 'N/A' ? ' / 5' : ''}`, percentile,
+      details.percentile_reason, `n = ${details.n ?? 0}`,
+      `Sample standard deviation = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'} (original 1–5 ratings)`,
+      `Benchmark years: ${details.benchmark_years || 'unavailable'}`,
+      metric === 'workload' ? 'A higher percentile means heavier reported workload, not a better score.' : null,
+    ].filter(Boolean);
+    return <td key={metric}>
+      <span className="stat-value" tabIndex="0" aria-label={tooltip.join('. ')}>
+        {showPercentiles ? Number.isFinite(details.percentile) ? ordinal(details.percentile) : 'N/A' : absolute}
+        <span className="stat-tooltip" role="tooltip">{tooltip.map((line, index) => <span className="tooltip-line" key={index}>{line}</span>)}</span>
+      </span>
+    </td>;
+  };
 
-    const headers = generateHeaders();
+  const handleDownload = () => {
+    setDownloadClicked(true);
+    const csv = convertToCSV(data, stats, statisticsMetadata, showPercentiles);
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    timer.current = setTimeout(() => setDownloadClicked(false), 2000);
+  };
 
-    const renderCell = (groupName, statKey, value) => {
-        const details = statisticsMetadata[groupName]?.[statKey];
-
-        if (details && details.n !== undefined && details.n !== null) {
-            return (
-                <td key={statKey}>
-                    <span className="stat-value">
-                        {typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A'}
-                        <span className="stat-tooltip">
-                            n = {details.n}
-                            {details.std !== undefined && details.std !== null && `, σ = ${details.std.toFixed(2)}`}
-                        </span>
-                    </span>
-                </td>
-            );
-        }
-
-        // Regular cell without tooltip
-        return (
-            <td key={statKey}>
-                {typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A'}
-            </td>
-        );
-    };
-
-    const convertToCSV = () => {
-        const rows = [headers.join(',')];
-        groups.forEach(groupName => {
-            const row = [`"${groupName}"`];
-            if (selectedStats && selectedStats.length > 0) {
-                selectedStats.forEach(statKey => {
-                    const value = data[groupName][statKey];
-                    row.push(typeof value === 'number' ? value.toFixed(2) : value ?? '');
-                });
-            }
-            rows.push(row.join(','));
-        });
-        return rows.join('\n');
-    };
-
-    const handleDownload = () => {
-        setDownloadClicked(true);
-        const csv = convertToCSV();
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        const url = URL.createObjectURL(blob);
-        link.setAttribute('href', url);
-        link.setAttribute('download', 'course_analysis.csv');
-        link.style.visibility = 'hidden';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        setTimeout(() => {
-            setDownloadClicked(false);
-        }, 2000);
-    };
-
-    // Edge case: if selectedStats is undefined/null or empty, show fallback
-    if (!selectedStats || selectedStats.length === 0) {
-        return (
-            <div className="data-display">
-                <div className="data-display-placeholder">
-                    Select at least one statistic to display results.
-                </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="data-display">
-            <div className="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            {headers.map(h => <th key={h}>{h}</th>)}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {groups.map(groupName => (
-                            <tr key={groupName}>
-                                <td>{groupName}</td>
-                                {selectedStats.map(statKey =>
-                                    renderCell(groupName, statKey, data[groupName][statKey])
-                                )}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <button onClick={handleDownload} className="download-btn" disabled={downloadClicked}>
-                {downloadClicked ? '✅' : '📥'}
-            </button>
-        </div>
-    );
+  return <div className="data-display">
+    <div className="table-container">
+      <table>
+        <thead><tr><th scope="col">Group</th>{stats.map(metric => <th scope="col" key={metric}>{STAT_MAPPINGS[metric]}</th>)}</tr></thead>
+        <tbody>{Object.entries(data).map(([group, values]) => <tr key={group}>
+          <td>{group}</td>{stats.map(metric => renderCell(group, metric, values[metric]))}
+        </tr>)}</tbody>
+      </table>
+    </div>
+    <button onClick={handleDownload} className="download-btn" disabled={downloadClicked} aria-label="Download as CSV" title="Download as CSV">{downloadClicked ? '✅' : '📥'}</button>
+  </div>;
 };
-
 export default DataDisplay;
