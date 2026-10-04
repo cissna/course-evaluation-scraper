@@ -1,41 +1,25 @@
 # Overnight review
 
-Authoritative scope: `TODO.md`, starting at `32e7eec` on `dev`. The specification is unchanged. No deployment or live database migration is authorized or performed.
+`TODO.md` is unchanged and remains the authoritative specification. Both review branches are normal local branches in the original repository and remain unmerged:
 
-## Review branches
+- `codex/overnight-improvements`: professor search, #6, the explicit year-range empty state, grouping tooltip, #15, and #19–21.
+- `codex/overnight-comparisons`: based on the shared branch, adding #13–14.
 
-- Shared prerequisites and improvements: `codex/overnight-improvements`.
-- Comparisons (#13–14), based on that branch: `codex/overnight-comparisons` (created after the shared work is complete).
-- Both branches remain unmerged.
+## Follow-up decisions
 
-## Environment and unexpected findings
+- **Tests:** At the owner's request, the added tests and test-only fixtures, browser scripts, and reference data are removed. The old Create React App example test had been replaced by the new app tests; that replacement is removed too. Existing test dependencies/configuration are unchanged.
+- **Browser review:** Browser access was intended to check the requested desktop/phone layout and interactions. Those visual checks were not completed overnight because execution was denied. This is a remaining manual visual review, not a missing application dependency.
+- **Database review:** The migrations were prepared but not run against a database. The owner will review them manually before applying them. [Migration instructions](migrations/README.md) now include a prepared rollback and its limits; no database-test prerequisite is imposed.
+- **Deferred scope:** #10, the broader #12 investigation, #16, and professor-name grouping remain untouched. Existing course-grouping rules/configuration and date cutoffs are unchanged. The earlier date and grouping-precedence observations were irrelevant and have been removed.
 
-- **Git permissions:** The supplied workspace makes its `.git` read-only. Creating the requested branch there failed with `cannot lock ref`. Work continues in an independent local clone at `/private/tmp/course-evaluation-overnight-20261004`, where Git writes are allowed. A portable bundle will accompany the final review. Review/import the branches from that checkout or bundle; the original `dev` checkout is preserved.
-- **Specification tracking:** Although the request describes `TODO.md` as untracked, it is already committed in `32e7eec`. The local clone contains that exact file, and both review branches inherit it.
-- **Existing tests:** The only frontend test was the unmodified Create React App “learn react” test, which did not describe this application. It has been replaced with tests of the requested behavior.
-- **Browser blocker:** Local Flask serving fails with `Operation not permitted` when binding a socket. Shell-launched Chromium fails at macOS `bootstrap_check_in` with `Permission denied (1100)`. The supported computer-use tool reports no available Chrome browser; its approval check rejects Arc with **“Computer Use was not approved to use Arc.”** Approval policy is `never`, so browser access cannot be escalated. Browser checks and screenshots must therefore be completed after review in a permitted environment; none are claimed as passed. A database-free local fixture server is included to make that check reproducible.
-- **Database validation blocker:** PostgreSQL client tools exist, but no PostgreSQL server or disposable test database is available; local sockets are also blocked. Three real-database integration tests are provided and explicitly skipped without a local `TEST_DATABASE_URL`. Review migrations and run those tests before release. Unit tests exercise lease lifecycle/ownership loss and API scoping without a database; these do not establish real multi-instance SQL correctness.
-- **Test environment:** The supplied default Python changes with the checkout directory. Validation uses the existing Python environment with Flask/psycopg2 installed. Jest's Watchman daemon cannot write its LaunchAgent, so tests run successfully with `--watchman=false`; no machine settings are changed.
-- **Team teaching:** The local export contains 33,502 evaluation records and no instructor strings using explicit list delimiters. Support explicit instructor arrays and clear list separators (semicolon, newline, pipe, spaced `&`/`and`); preserve comma-form names as a single recorded name because commas can mean “surname, given name.” No fuzzy/initial/surname merging. Review this convention against future team-taught exports.
-- **Existing date rules:** The frontend's Last 3 Years shortcut and the backend's evaluation-release logic already use slightly different January/December cutoff dates. Those existing rules are preserved. Review their intended alignment separately; the new empty-range state uses the actual bounds selected by the shortcut.
+## Implementation decisions to review
 
-## Implementation decisions
+- **Multiple listed professors:** TODO.md asks for a shared evaluation to appear when searching either listed professor. For example, “Jane Smith & Alex Rivera” is read as two listed names for matching. Stored evaluations are unchanged, and initials/similar names/shared surnames are not merged. The earlier “Team teaching” paragraph was describing this matching behavior.
+- **Cached refresh (#20):** Saved evaluations remain visible while a separate browser request runs the existing scraper. A renewable per-course database lock prevents duplicate scrapes. The work runs during the request; no persistent job system or closed-tab notification was added.
+- **Refresh failures:** A report marked `scrape_failed` now marks the check failed instead of incorrectly reporting completion. Previously saved evaluations remain available. This corrects refresh status without investigating the deferred null-table issue.
+- **Recorded names:** Professor separation retains exact recorded names rather than stripping punctuation, keeping it consistent with exact-name search. No professor-name grouping is introduced.
+- **Percentile population (#21):** The benchmark covers all departments and all available years, with one response-weighted mean per existing logical course group and equal weight between groups. Ties use midranks. Review this population/time-window choice. Rebuild after bulk imports/scrapes, at least monthly; frontend filters do not rebuild it.
 
-- **Cached-first refresh (#20):** Return saved evaluations immediately. Keep a separate browser-initiated refresh request open while the existing server-side scraper runs; use only tab-local UI state and polling when another request owns the course lock. This works with request-scoped/serverless execution without adding persistent jobs or relying on a thread after a response ends.
-- **Refresh lifecycle and notifications:** React StrictMode's development effect replay can abort an initial request; its replacement must be allowed to start. Notification permission may also resolve after the refresh finishes, and the browser may reject notification construction. These cases now preserve the refresh outcome and have regression tests. Review actual notification delivery in a supported browser; only mocked permission/delivery paths are validated here.
-- **Percentile benchmark (#21):** Use one response-weighted mean per existing logical course group, across all departments and all available evaluation years in the snapshot; give each course group equal weight in the distribution. Use midrank ties. Refresh the precomputed snapshot after each regular bulk data import/scrape, at least monthly. Filters and row separations never change the benchmark. Review this time window/population choice before publishing.
-- **Deferred scope:** #10, the broader null-table investigation in #12, #16, and professor-name grouping remain untouched. Only the explicit year-range empty state is implemented from the active adjacent specification.
-- **Scrape failures:** A report flagged `scrape_failed` previously fell through to a successful completion marker. In the guarded refresh path, that now marks the check failed and stops publishing the remainder, while previously saved data remains available. Review this necessary refresh-status correction; it is not a broader investigation of null tables.
-- **Professor attribution:** The same team-taught evaluation may belong to multiple professors; its source evaluation ID is preserved for the later overlap guard. No evaluation is divided into invented per-teacher response samples.
-- **Recorded names:** Course-row professor separation now retains exact recorded strings rather than stripping punctuation for display grouping. This keeps the new exact-name search and the table consistent with the explicit instruction to keep recorded names separate; no new professor grouping is introduced.
-- **Benchmark evidence:** The offline build from the committed `data.json` covers 2015–2026 and yields 5,878 Overall Quality course-group averages (5,877 instructor effectiveness, 5,877 challenge, 5,830 workload, 5,872 feedback, 4,171 TA). No production benchmark has been written.
+## Status
 
-## Validation and remaining work
-
-Shared branch implementation is complete for professor search, #6, the explicit year-range state, grouping information tooltip, #15, and #19–21. #13–14 are reserved for the branch based on it.
-
-- Frontend: **21 tests passed**; production build passed with CI warnings treated as errors. Existing toolchain messages about old Browserslist/Baseline data and Node `fs.F_OK` deprecation remain; dependencies were not upgraded as unrelated scope.
-- Backend: **11 tests passed**, **3 real PostgreSQL tests skipped** for the concrete environment blocker above. Python compilation passed.
-- Offline full-export percentile build passed (coverage and counts above).
-- Browser verification: **not run / blocked**, for both desktop and phone. `tools/browser_review.cjs` contains the prepared checks and screenshot capture, and `tools/fixture_server.py` supplies safe fixtures. These scripts are not evidence that a browser pass occurred.
-- Live database migrations, production scraping, actual notification delivery, deployment, and merges: **not performed**.
+Production builds passed during implementation, and the offline percentile build from `data.json` covered 2015–2026. No migrations have been applied, no production scrape or deployment was performed, and neither review branch has been merged. Desktop/phone appearance and actual notification delivery remain unverified. `TODO.md` accompanies both branches unchanged.

@@ -79,15 +79,9 @@ Percentile distributions are precomputed across all departments, all available y
 
 `GET /api/search?q=...` returns paginated course/group and professor matches with independent total counts. Professor membership uses exact recorded names, including explicitly listed team teachers. Name variants are kept separate. `GET /api/percentiles` serves the precomputed snapshot once per page visit.
 
-## Validation without live data
+## Review
 
-Run `python3 -m unittest discover -s backend/tests -v` and, in `frontend`, `CI=true npm test -- --watchAll=false --watchman=false --runInBand` followed by `CI=true npm run build`.
-
-The optional PostgreSQL integration tests require `TEST_DATABASE_URL` pointing to a **local** database named `course_eval_test_*`. They create an isolated schema, check concurrent lock claims/stale writers and migrations, then remove only that schema. They never use `DATABASE_URL`.
-
-For browser review, build the frontend, then run `python3 tools/fixture_server.py --port 8765`. Open `http://127.0.0.1:8765`. This serves the real Flask/React application with disposable data; all database and upstream scraping access is disabled. Use `--snapshot data.json` to smoke-test a local export. Synthetic examples include `EN.553.431` (grouping and former titles), `Jane Smith` (professor scope), `Smith` (cross-type ambiguity), `AS.050.203` (delayed background update), `AS.999.001` (old years), and `AS.999.002` (intentional null statistics).
-
-With that synthetic server running (without `--snapshot`) and Playwright installed locally, run `node tools/browser_review.cjs`. Set `PLAYWRIGHT_MODULE` to the absolute module path if it is outside this checkout. The runner checks desktop (1440×900) and phone (390×844) sizes, saves screenshots/CSV/results under ignored `browser-artifacts/`, and refuses nonlocal URLs. It is a prepared review script; see [OVERNIGHT_REVIEW.md](OVERNIGHT_REVIEW.md) for which checks were actually executed in the implementation environment.
+Run `npm run build` in `frontend` to create a production build. The added test suites and test-only scripts have been removed at the owner's request. See [OVERNIGHT_REVIEW.md](OVERNIGHT_REVIEW.md) for implementation decisions and remaining manual review, and [migration instructions](migrations/README.md) for applying or rolling back the prepared SQL.
 
 ## Deployment
 

@@ -1,11 +1,25 @@
 # Database changes for the overnight branches
 
-Apply these only after review, to a disposable/local database first, then as a separately authorized release step. They have **not** been applied to a live database.
+These SQL files are prepared for manual review. They have **not** been applied to any database. No database test run is required by this handoff.
 
 1. `001_professor_search_and_scrape_locks.sql`: nullable lease on `course_metadata`, a timestamp trigger that excludes lock-only updates, exact instructor membership helper, and query indexes.
 2. `002_percentile_benchmarks.sql`: single current precomputed benchmark snapshot.
 
 Run each SQL file with `psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f <file>` when authorized. The migrations are transactional and can be reapplied. Existing evaluation records and course groupings are preserved. The GIN index build takes a normal table lock during migration; schedule this with the release for a large database.
+
+## Rollback
+
+[rollback/001_002.sql](rollback/001_002.sql) reverses both migrations against the original repository schema. It restores the metadata timestamp trigger to `trigger_set_timestamp()` and removes the new lock column, helper functions, indexes, and percentile table. It does not delete or rewrite existing `courses` or `course_metadata` records.
+
+Stop new refresh requests, let active scrapes finish, and stop the new application before running the rollback; resume the previous application afterward. The new application requires the added schema. Rollback discards the temporary lock values and the generated percentile snapshot, which can be rebuilt. It does not undo evaluations added by later scrapes or restore historical timestamps. Thus the schema changes are reversible, but rollback is not a rewind of all subsequent database activity.
+
+Review the rollback against the actual schema before running it. It assumes the named functions/indexes/table were introduced by these migrations and the original timestamp function is unchanged. If any already existed or were customized, preserve their previous definitions rather than dropping them. The rollback intentionally avoids `CASCADE`, so unexpected dependencies cause the transaction to fail instead of being removed.
+
+```sh
+psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f migrations/rollback/001_002.sql
+```
+
+## Percentile maintenance
 
 After migration, build the benchmark explicitly with `python3 -m backend.build_percentiles --database --write-store`. This reads all database courses and writes only the benchmark snapshot. For offline review use `python3 -m backend.build_percentiles --input data.json --output /tmp/course-benchmark.json`, which makes no database connection.
 

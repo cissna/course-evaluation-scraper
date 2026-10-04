@@ -12,4 +12,3 @@ output.log
 .env*.local
 
 .semanticize/config.json
-browser-artifacts/
