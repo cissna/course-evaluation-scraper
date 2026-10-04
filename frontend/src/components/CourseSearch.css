@@ -60,3 +60,18 @@
     color: red;
     margin-top: 10px;
 }
+
+@media (max-width: 600px) {
+    .course-search {
+        flex-wrap: wrap;
+    }
+
+    .search-controls {
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+
+    .course-search > .error-message {
+        flex-basis: 100%;
+    }
+}
