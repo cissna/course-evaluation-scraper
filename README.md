@@ -71,6 +71,8 @@ Overall Quality and Workload are the default statistics, listed first in that or
 
 **Advanced Options → Statistics → Weight percentiles by average class size** gives each course group weight equal to its valid response count for that metric divided by the number of distinct terms it has run, including summer and intersession. Sections within a term are combined. It starts unchecked and remembers your choice independently of **Show percentiles**. The setting updates percentile cells, score tooltips, and CSV exports immediately across course and professor results; absolute ratings and statistical comparisons keep using the original scores. CSV metadata identifies the selected weighting.
 
+On the comparison branch, use **Add to comparison** or a history item's **compare** button to display up to five courses/professors together. Click two rows to compare the selected rating metric; red/orange outlines show the selection, and gold marks a significant difference. The metric control works with one result too. [Comparison review notes](docs/COMPARISONS.md) explain the controls, Welch calculation, overlap guard, and browser checks.
+
 ## Database preparation and percentile maintenance
 
 The new cached-first and professor-search APIs require the reviewed SQL files in [migrations](migrations/README.md). Do not run migrations against a live database as part of frontend development. `db_schema.sql` also includes the new schema for a fresh database.
