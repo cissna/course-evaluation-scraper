@@ -51,3 +51,15 @@ main {
 .refresh-spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #d39e00; border-right-color: transparent; border-radius: 50%; margin-right: 8px; vertical-align: middle; animation: refresh-spin 1s linear infinite; }
 @keyframes refresh-spin { to { transform: rotate(360deg); } }
 .evaluation-source-link { font-size: 14px; }
+
+.comparison-heading h2 { margin: 20px 0 10px; font-size: 2rem; }
+.comparison-results { display: flex; align-items: flex-start; overflow-x: auto; gap: 12px; padding-bottom: 12px; }
+.comparison-results > .result-view { flex: 1 0 520px; min-width: 520px; }
+.comparison-results .result-heading { margin-left: 20px; margin-right: 20px; font-size: 1.5rem; }
+.comparison-results .grouping-banner { margin: 12px 20px; font-size: 1rem; }
+.comparison-results .grace-period-warning { margin: 12px 20px; }
+.comparison-results .warning-content { flex-direction: column; align-items: stretch; gap: 8px; }
+.comparison-results .recheck-button { align-self: flex-end; }
+.result-heading-title { position: relative; }
+.remove-result { margin-left: 8px; padding: 0 4px; background: transparent; border: none; color: #777; cursor: pointer; font-size: 20px; vertical-align: middle; }
+.remove-result:hover { color: #c62828; }

@@ -58,7 +58,8 @@ const save = (items) => {
 export const addToSearchHistory = (selection, courseName) => {
   const result = asResult(selection);
   const name = result.type === 'professor' ? result.name : courseName || result.name || 'No data';
-  save([{ ...result, name }, ...getSearchHistory().filter(item => item.id !== result.id)].slice(0, MAX_HISTORY_ITEMS));
+  const entry = { id: result.id, type: result.type, name, ...(result.type === 'course' ? { code: result.code } : {}) };
+  save([entry, ...getSearchHistory().filter(item => item.id !== result.id)].slice(0, MAX_HISTORY_ITEMS));
 };
 
 export const removeFromSearchHistory = (selection) => {

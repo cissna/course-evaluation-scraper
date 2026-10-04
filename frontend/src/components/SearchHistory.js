@@ -3,7 +3,7 @@ import './SearchHistory.css';
 import { getSearchHistory, clearSearchHistory, removeFromSearchHistory } from '../utils/storageUtils';
 import { filterSearchHistory } from '../utils/resultTypes';
 
-const SearchHistory = ({ isOpen, onClose, onItemClick, searchValue, currentResultId, anchorRef }) => {
+const SearchHistory = ({ isOpen, onClose, onItemClick, onCompare, atComparisonLimit, searchValue, currentResultId, anchorRef }) => {
   const [history, setHistory] = useState(getSearchHistory);
   const [displayCount, setDisplayCount] = useState(3);
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -57,12 +57,15 @@ const SearchHistory = ({ isOpen, onClose, onItemClick, searchValue, currentResul
       <div className="search-history-list">
         {visibleItems.map((item, index) => (
           <div key={item.id} className={`search-history-item ${index === selectedIndex ? 'selected' : ''}`}
-            onMouseEnter={() => setSelectedIndex(index)}>
-            <button className="search-history-open" onClick={() => onItemClick(item)}>
+            onClick={() => onItemClick(item)} onMouseEnter={() => setSelectedIndex(index)}>
+            <button className="search-history-open" onClick={event => { event.stopPropagation(); onItemClick(item); }}>
               <span className={`result-type result-type-${item.type}`}>{item.type === 'professor' ? 'Professor' : 'Course'}</span>
               {item.type === 'course' && <span className="search-history-item-code">{item.code}</span>}
               <span className="search-history-item-name">{item.name}</span>
             </button>
+            <button className="search-history-compare" disabled={atComparisonLimit}
+              title={atComparisonLimit ? 'Remove a course or professor to add another.' : `Add ${item.name} to comparison`}
+              onClick={event => { event.stopPropagation(); onCompare(item); }}>compare</button>
             <button className="search-history-item-remove" aria-label={`Remove ${item.name} from history`}
               onClick={event => { event.stopPropagation(); removeFromSearchHistory(item); }}>×</button>
           </div>

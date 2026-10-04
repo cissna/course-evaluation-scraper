@@ -12,7 +12,7 @@ async function jsonRequest(path, options) {
   return data;
 }
 
-function fetchSaved(selection, signal) {
+export function fetchSaved(selection, signal) {
   return selection.type === 'professor'
     ? jsonRequest(`/api/professor?name=${encodeURIComponent(selection.name)}`, { signal })
     : jsonRequest(`/api/analyze/${selection.code}`, {
@@ -29,18 +29,53 @@ function waitForPoll(signal) {
   });
 }
 
+export async function checkCourseForUpdates(course, force, signal) {
+  let outcome = course;
+  if (!course.in_progress) {
+    outcome = await jsonRequest(`/api/${force ? 'recheck' : 'refresh'}/${course.course_code}`, { method: 'POST', signal });
+  }
+  while (outcome.in_progress || outcome.state === 'in_progress') {
+    await waitForPoll(signal);
+    outcome = await jsonRequest(`/api/refresh-status/${course.course_code}`, { signal });
+    if (!outcome.in_progress && (outcome.last_period_failed || outcome.needs_refresh)) {
+      throw new Error(`The check for ${course.course_code} did not finish. Please recheck.`);
+    }
+  }
+  return outcome;
+}
+
+export async function loadResultWithData(selection, signal) {
+  let saved = await fetchSaved(selection, signal);
+  if (Object.keys(saved.raw_data.instances || {}).length) return saved;
+  const queue = (saved.refresh?.courses || []).filter(course => course.needs_refresh || course.in_progress);
+  const failures = [];
+  const worker = async () => {
+    while (queue.length && !signal.aborted) {
+      const course = queue.shift();
+      try { await checkCourseForUpdates(course, false, signal); }
+      catch (error) { if (error.name !== 'AbortError') failures.push(error.message); }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(3, queue.length) }, worker));
+  if (signal.aborted) throw new DOMException('Aborted', 'AbortError');
+  if (failures.length) throw new Error(failures.join(' '));
+  saved = await fetchSaved(selection, signal);
+  if (!Object.keys(saved.raw_data.instances || {}).length) throw new Error(`No evaluations found for ${selection.code || selection.name}.`);
+  return saved;
+}
+
 const fingerprint = raw => JSON.stringify(Object.entries(raw?.instances || {}).sort(([a], [b]) => a.localeCompare(b)));
 
 export default function useEvaluationResult(selection) {
-  const [rawData, setRawData] = useState(null);
-  const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [rawData, setRawData] = useState(selection.initialSaved?.raw_data || null);
+  const [courses, setCourses] = useState(selection.initialSaved?.refresh?.courses || []);
+  const [loading, setLoading] = useState(!selection.initialSaved);
   const [error, setError] = useState(null);
   const [refresh, setRefresh] = useState({ state: 'idle' });
   const [pendingData, setPendingData] = useState(null);
   const [notificationMessage, setNotificationMessage] = useState('');
   const controller = useRef(null);
-  const rawRef = useRef(null);
+  const rawRef = useRef(selection.initialSaved?.raw_data || null);
   const busy = useRef(null);
   const notify = useRef(false);
   const runNumber = useRef(0);
@@ -61,24 +96,11 @@ export default function useEvaluationResult(selection) {
     setRefresh({ state: 'checking', period });
     const failures = [];
     const queue = [...statuses];
-    const check = async course => {
-      let outcome = course;
-      if (!course.in_progress) {
-        outcome = await jsonRequest(`/api/${force ? 'recheck' : 'refresh'}/${course.course_code}`, { method: 'POST', signal });
-      }
-      while (outcome.in_progress || outcome.state === 'in_progress') {
-        await waitForPoll(signal);
-        outcome = await jsonRequest(`/api/refresh-status/${course.course_code}`, { signal });
-        if (!outcome.in_progress && (outcome.last_period_failed || outcome.needs_refresh)) {
-          throw new Error(`The check for ${course.course_code} did not finish. Please recheck.`);
-        }
-      }
-    };
     // Limit concurrent requests when a professor has many courses.
     const worker = async () => {
       while (queue.length && !signal.aborted) {
         const course = queue.shift();
-        try { await check(course); }
+        try { await checkCourseForUpdates(course, force, signal); }
         catch (failure) {
           if (failure.name !== 'AbortError') failures.push(`${course.course_code}: ${failure.message}`);
         }
@@ -122,7 +144,7 @@ export default function useEvaluationResult(selection) {
     let disposed = false;
     (async () => {
       try {
-        const saved = await fetchSaved(selection, signal);
+        const saved = selection.initialSaved || await fetchSaved(selection, signal);
         if (disposed) return;
         const statuses = saved.refresh?.courses || [];
         setCourses(statuses);

@@ -8,10 +8,12 @@ import { addToSearchHistory } from '../utils/storageUtils';
 
 export const GROUPING_EXPLANATION = 'For some courses, undergraduate reviews are included with the graduate section, so using this separation to understand the undergrad/grad breakdown isn’t useful.';
 
-export function ResultHeading({ selection, metadata }) {
+export function ResultHeading({ selection, metadata, onRemove }) {
   return (
     <div className="result-heading">
-      <span>{selection.type === 'professor' ? selection.name : metadata?.current_name || selection.code}</span>
+      <span className="result-heading-title">{selection.type === 'professor' ? selection.name : metadata?.current_name || selection.code}
+        {onRemove && <button className="remove-result" onClick={onRemove} aria-label={`Remove ${selection.code || selection.name} from comparison`}>×</button>}
+      </span>
       {selection.type === 'course' && <>
         {metadata?.former_names?.length > 0 && <span className="result-subtitle">(formerly known as {metadata.former_names.join(', ')})</span>}
         {metadata?.current_name && <span className="result-subtitle">{selection.code}</span>}
@@ -50,7 +52,7 @@ function RefreshNotice({ selection, state }) {
   );
 }
 
-const ResultView = ({ selection, options, benchmark, onMetadata, onToggleSeparation, children }) => {
+const ResultView = ({ selection, options, benchmark, onAnalysis, onToggleSeparation, onRemove, children }) => {
   const state = useEvaluationResult(selection);
   const { rawData } = state;
   const analysis = useMemo(() => {
@@ -59,7 +61,7 @@ const ResultView = ({ selection, options, benchmark, onMetadata, onToggleSeparat
     const separationKeys = options.separationKeys.filter(key => key !== 'course_name' || hasTitles);
     return processAnalysisRequest(rawData, { ...options, separationKeys, benchmark, scope: selection });
   }, [rawData, options, benchmark, selection]);
-  useEffect(() => { onMetadata(analysis?.metadata || null); }, [analysis, onMetadata]);
+  useEffect(() => { onAnalysis(selection.id, analysis); }, [selection.id, analysis, onAnalysis]);
   useEffect(() => {
     if (rawData) addToSearchHistory(selection, rawData.metadata?.current_name);
   }, [rawData, selection]);
@@ -67,7 +69,7 @@ const ResultView = ({ selection, options, benchmark, onMetadata, onToggleSeparat
 
   return (
     <section className="result-view" aria-label={selection.type === 'professor' ? selection.name : selection.code}>
-      <ResultHeading selection={selection} metadata={analysis?.metadata} />
+      <ResultHeading selection={selection} metadata={analysis?.metadata} onRemove={onRemove} />
       {selection.type === 'course' && grouping?.is_grouped && (
         <div className="grouping-banner">
           This course was automatically grouped with: {' '}

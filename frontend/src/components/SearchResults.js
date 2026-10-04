@@ -3,7 +3,12 @@ import './SearchResults.css';
 import { API_BASE_URL } from '../config';
 import { asResult } from '../utils/resultTypes';
 
-const SearchResults = ({ searchQuery, initialResults, onResultSelect, onBack }) => {
+export function comparisonSearchHeading(matches) {
+  const courses = matches.courses.total_count > 0, professors = matches.professors.total_count > 0;
+  return `Choose a ${courses && professors ? 'course or professor' : courses ? 'course' : 'professor'} to add to comparison`;
+}
+
+const SearchResults = ({ searchQuery, initialResults, onResultSelect, onBack, intent = 'replace', resolving }) => {
   const [matches, setMatches] = useState(initialResults);
   const [activeTab, setActiveTab] = useState(initialResults.courses.total_count ? 'courses' : 'professors');
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +35,7 @@ const SearchResults = ({ searchQuery, initialResults, onResultSelect, onBack }) 
     <div className="search-results">
       <div className="search-results-header">
         <button onClick={onBack} className="back-button">← Back to Search</button>
-        <h2>Search Results for "{searchQuery}"</h2>
+        <h2>{intent === 'add' ? comparisonSearchHeading(matches) : `Search Results for "${searchQuery}"`}</h2>
         <p className="search-note">This is only among courses that have already been searched, so if what you're expecting doesn't come up, you may have to directly search by course code first</p>
         <div className="search-tabs" role="tablist" aria-label="Result types">
           {['courses', 'professors'].map(type => (
@@ -46,7 +51,7 @@ const SearchResults = ({ searchQuery, initialResults, onResultSelect, onBack }) 
         {active.results.map(result => {
           const selection = asResult(activeTab === 'courses' ? result : { ...result, type: 'professor' });
           return (
-            <button key={selection.id} className="result-item" onClick={() => onResultSelect(selection)}>
+            <button key={selection.id} className="result-item" disabled={resolving} onClick={() => onResultSelect(selection, intent)}>
               <span className={`result-type result-type-${selection.type}`}>{selection.type === 'course' ? 'Course' : 'Professor'}</span>
               {selection.type === 'course' && <span className="course-code">{result.course_code}</span>}
               <span className="course-name">{selection.type === 'course' ? result.course_name : result.name}</span>
