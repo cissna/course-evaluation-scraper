@@ -1,5 +1,5 @@
 import { STAT_MAPPINGS, RATING_STAT_KEYS } from './statsMapping';
-import { ordinal } from './percentiles';
+import { formatPercentile } from './percentiles';
 
 function cell(value) {
   let text = value == null ? '' : String(value);
@@ -28,7 +28,7 @@ export function convertToCSV(data, selectedStats, statisticsMetadata = {}, showP
       const details = statisticsMetadata[group]?.[stat] || {};
       const value = values[stat];
       const rating = RATING_STAT_KEYS.includes(stat);
-      const percentile = Number.isFinite(details.percentile) ? ordinal(details.percentile) : null;
+      const percentile = Number.isFinite(details.percentile) ? formatPercentile(details.percentile) : null;
       row.push(rating && showPercentiles ? percentile ?? 'N/A' : typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A');
       if (rating) {
         row.push(details.mean ?? value, percentile !== null ? `${percentile} percentile` : '', details.n ?? '', details.std ?? '',

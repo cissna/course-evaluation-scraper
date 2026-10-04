@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './DataDisplay.css';
 import { STAT_MAPPINGS, RATING_STAT_KEYS } from '../utils/statsMapping';
-import { ordinal } from '../utils/percentiles';
+import { formatPercentile } from '../utils/percentiles';
 import { convertToCSV } from '../utils/csvExport';
 
 export function formatYearRange(range) {
@@ -24,7 +24,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
     const details = statisticsMetadata[group]?.[metric] || {};
     const absolute = typeof value === 'number' ? value.toFixed(2) : 'N/A';
     const hasPercentile = Number.isFinite(details.percentile);
-    const percentile = hasPercentile ? ordinal(details.percentile) : null;
+    const percentile = hasPercentile ? formatPercentile(details.percentile) : null;
     const displayed = showPercentiles ? percentile ?? 'N/A' : absolute;
     const tooltip = [
       showPercentiles ? absolute : hasPercentile ? `${percentile} percentile` : 'Percentile unavailable',

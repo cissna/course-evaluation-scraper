@@ -1,8 +1,14 @@
-export function ordinal(value) {
-  const number = Math.round(value);
+export function formatPercentile(value) {
+  const distanceToEnd = Math.min(value, 100 - value);
+  // Keep two decimal places within 1% of an endpoint, three within 0.1%,
+  // and so on. Positive tail ranks must not round to an apparent 0 or 100.
+  const decimals = distanceToEnd > 0 && distanceToEnd < 1
+    ? Math.min(100, 1 + Math.ceil(-Math.log10(distanceToEnd))) : 0;
+  const displayed = value.toFixed(decimals).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
+  const number = Number(displayed);
   const lastTwo = number % 100;
   const suffix = lastTwo >= 11 && lastTwo <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[number % 10] || 'th');
-  return `${number}${suffix}`;
+  return `${displayed}${suffix}`;
 }
 
 export function lookupPercentile(mean, metric, benchmark) {
