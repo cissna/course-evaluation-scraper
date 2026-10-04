@@ -1,13 +1,18 @@
 import React from 'react';
 import { STAT_MAPPINGS } from '../utils/statsMapping';
+import InfoTooltip from './InfoTooltip';
 
-export const COMPARISON_HELP = 'In this mode, you can select two rows to see if their averages for Overall Quality (or your selected metric) are statistically significantly different.\nWe use a two-sided Welch independent two-sample t-test, allowing unequal variances. It uses unrounded means, sample variances, and response counts; p below the selected threshold (0.05 by default) indicates a significant difference. Responses are assumed independent; rows sharing evaluations cannot be tested.';
+const COMPARISON_HELP = 'In this mode, you can select two rows to see if their averages for Overall Quality (or your selected metric) are statistically significantly different.';
+const STATISTICS_HELP = 'We use a two-sided Welch independent two-sample t-test, allowing unequal variances. It uses unrounded means, sample variances, and response counts; p below the selected threshold (0.05 by default) indicates a significant difference. Responses are assumed independent; rows sharing evaluations cannot be tested.';
 export const THRESHOLD_HELP = 'Uses a two-tailed Welch independent two-sample t-test to compare mean ratings in either direction, allowing unequal variances. A result is significant when p < threshold. This is approximate and assumes independent responses. Shared evaluation records cannot be tested as independent samples.';
 
 const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange, comparison, labels, threshold }) => <div className="metric-comparison">
   <div className="comparison-mode-control">
     <button onClick={onToggle} aria-pressed={enabled}>{enabled ? 'Exit comparison mode' : 'Enter comparison mode'}</button>
-    <span className="info-tip" tabIndex="0" aria-label={COMPARISON_HELP}>(i)<span role="tooltip" className="info-popup">{COMPARISON_HELP}</span></span>
+    <InfoTooltip label="About comparison mode">
+      <span>{COMPARISON_HELP}</span>
+      <span className="comparison-help-statistics">{STATISTICS_HELP}</span>
+    </InfoTooltip>
   </div>
   {enabled && <>
     <select aria-label="Comparison metric" value={metric || ''}
