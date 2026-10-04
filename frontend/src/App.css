@@ -54,7 +54,7 @@ main {
 
 .comparison-heading h2 { margin: 20px 0 10px; font-size: 2rem; }
 .comparison-results { display: flex; align-items: flex-start; overflow-x: auto; gap: 12px; padding-bottom: 12px; }
-.comparison-results > .result-view { flex: 1 0 520px; min-width: 520px; }
+.comparison-results > .result-view { flex: 1 0 520px; min-width: min-content; }
 .comparison-results .result-heading { margin-left: 20px; margin-right: 20px; font-size: 1.5rem; }
 .comparison-results .grouping-banner { margin: 12px 20px; font-size: 1rem; }
 .comparison-results .grace-period-warning { margin: 12px 20px; }
