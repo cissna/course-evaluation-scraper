@@ -1,11 +1,10 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import re
-import json
 from urllib.parse import unquote
 from .scraper_service import get_course_data_and_update_cache, find_courses_by_name, find_courses_by_name_with_details, force_recheck_course, get_course_grace_status
-from .db_utils import find_instructor_variants_db
-from .analysis import process_analysis_request, extract_course_metadata
+from .db_utils import find_instructor_variants_db, find_professors_by_name_db, get_percentile_benchmark
+from .result_service import cached_course_result, cached_professor_result, refresh_course, course_refresh_status
 from .course_grouping_service import CourseGroupingService
 
 app = Flask(__name__, static_folder='../static', static_url_path='/')
@@ -154,141 +153,90 @@ def get_grace_status(course_code):
         print(f"An error occurred checking grace status: {e}")
         return jsonify({"error": "An internal server error occurred."}), 500
 
-@app.route('/api/recheck/<string:course_code>', methods=['POST'])
-def recheck_course_data(course_code):
-    """
-    API endpoint to force recheck course data during grace periods.
-    """
-    # Validate course code format
-    if not validate_course_code(course_code):
-        return jsonify({"error": "Invalid course code format. Expected format: XX.###.###"}), 400
-
-    # Normalize course code to uppercase to match stored format
-    course_code = course_code.upper()
-    print(f"Received force recheck request for course: {course_code}")
+@app.route('/api/search')
+def search_all():
+    query = request.args.get('q', '').strip()
+    limit = request.args.get('limit', 20, type=int)
+    course_offset = request.args.get('course_offset', 0, type=int)
+    professor_offset = request.args.get('professor_offset', 0, type=int)
+    if not query or len(query) > 1000:
+        return jsonify({'error': 'Enter a search of 1 to 1000 characters.'}), 400
+    if limit is None or not 1 <= limit <= 100 or min(course_offset, professor_offset) < 0:
+        return jsonify({'error': 'Invalid pagination parameters.'}), 400
     try:
-        data = force_recheck_course(course_code)
-        if not data:
-            return jsonify({"error": "No data found for this course."}), 404
-        # Check if the response contains an error
-        if isinstance(data, dict) and "error" in data:
-            return jsonify(data), 500
-        return jsonify(data)
-    except Exception as e:
-        print(f"An error occurred during recheck: {e}")
-        return jsonify({"error": "An internal server error occurred during recheck."}), 500
+        return jsonify({
+            'courses': find_courses_by_name_with_details(query, limit, course_offset),
+            'professors': find_professors_by_name_db(query, limit, professor_offset),
+        })
+    except Exception:
+        app.logger.exception('Combined search failed')
+        return jsonify({'error': 'An internal server error occurred during search.'}), 500
+
+
+@app.route('/api/professor')
+def professor_result():
+    name = request.args.get('name', '')
+    if not name or len(name) > 1000:
+        return jsonify({'error': 'Invalid professor name.'}), 400
+    try:
+        result = cached_professor_result(name)
+        if not result['raw_data']['instances']:
+            return jsonify({'error': 'No evaluations found for this professor.'}), 404
+        return jsonify(result)
+    except Exception:
+        app.logger.exception('Professor lookup failed')
+        return jsonify({'error': 'An internal server error occurred during professor lookup.'}), 500
+
 
 @app.route('/api/analyze/<string:course_code>', methods=['POST'])
 def analyze_course_data(course_code):
-    """
-    API endpoint to perform filtering and separation analysis on course data.
-    Modified to support raw data mode for frontend processing.
-    """
-    # Validate course code format
+    # Cached reads never start a scraper. The tab explicitly requests a refresh.
     if not validate_course_code(course_code):
-        return jsonify({"error": "Invalid course code format. Expected format: XX.###.###"}), 400
-
-    # Normalize course code to uppercase to match stored format
-    course_code = course_code.upper()
-    print(f"Received analysis request for course: {course_code}")
+        return jsonify({'error': 'Invalid course code format. Expected format: XX.###.###'}), 400
     try:
-        # Get the analysis parameters from the request body
-        analysis_params = request.get_json()
-        if not analysis_params:
-            return jsonify({"error": "Missing analysis parameters in request body."}), 400
+        result = cached_course_result(course_code.upper())
+        if not result['raw_data']['instances'] and not any(
+            c['needs_refresh'] or c['in_progress'] for c in result['refresh']['courses']
+        ):
+            return jsonify({'error': 'No data found for this course.'}), 404
+        return jsonify(result)
+    except Exception:
+        app.logger.exception('Cached course lookup failed')
+        return jsonify({'error': 'An internal server error occurred during analysis.'}), 500
 
-        # This is now the only data path.
-        # Get all the data for the course
-        all_course_data = get_course_data_and_update_cache(course_code)
 
-        # If no data, check for groupings before returning an error
-        if not all_course_data:
-            group_info = grouping_service.get_group_info(course_code)
-            if not group_info or not group_info.get("courses"):
-                return jsonify({"error": "No data found for this course."}), 404
-        
-        # Get metadata
-        metadata_from_file = {}
-        try:
-            with open('metadata.json', 'r') as f:
-                metadata_from_file = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            pass
-        
-        # Get grouping info
-        group_info = grouping_service.get_group_info(course_code)
-        grouped_courses = []
-        all_instances = {}
-        
-        if group_info and group_info.get("courses"):
-            grouped_courses = group_info["courses"]
-            
-            # Add main course data
-            if all_course_data:
-                all_instances.update(all_course_data)
-            
-            # Fetch data for all grouped courses
-            for grouped_code in grouped_courses:
-                if grouped_code != course_code:
-                    try:
-                        grouped_data = get_course_data_and_update_cache(grouped_code)
-                        if grouped_data and isinstance(grouped_data, dict):
-                            # Add course_code field to each instance for separation
-                            for instance_key, instance_data in grouped_data.items():
-                                if isinstance(instance_data, dict):
-                                    instance_data_with_code = instance_data.copy()
-                                    instance_data_with_code['course_code'] = grouped_code
-                                    all_instances[f"{grouped_code}_{instance_key}"] = instance_data_with_code
-                    except Exception as e:
-                        print(f"Warning: Could not load grouped course {grouped_code}: {e}")
-        else:
-            # No grouping, just use the main course data
-            if all_course_data:
-                all_instances.update(all_course_data)
-        
-        # Extract course names for metadata
-        course_names = {}
-        for instance_key, instance_data in all_instances.items():
-            if 'course_name' in instance_data:
-                course_names[instance_key] = instance_data['course_name']
-        
-        # Get course metadata
-        course_metadata = extract_course_metadata(
-            course_names, 
-            course_code, 
-            metadata_from_file,
-            primary_course_code=course_code,
-            primary_course_has_no_data=not all_course_data
-        )
-        
-        # From the final set of instances, find which courses actually contributed data
-        actual_grouped_courses = set()
-        for key in all_instances.keys():
-            match = re.match(r'([A-Z]{2}\.\d{3}\.\d{3})', key)
-            if match:
-                actual_grouped_courses.add(match.group(1))
+@app.route('/api/recheck/<string:course_code>', methods=['POST'])
+@app.route('/api/refresh/<string:course_code>', methods=['POST'])
+def refresh_course_data(course_code):
+    if not validate_course_code(course_code):
+        return jsonify({'error': 'Invalid course code format. Expected format: XX.###.###'}), 400
+    try:
+        payload, status = refresh_course(course_code.upper(), force=request.path.startswith('/api/recheck/'))
+        return jsonify(payload), status
+    except Exception:
+        app.logger.exception('Refresh failed')
+        return jsonify({'error': 'Unable to check for new evaluations. Please try again.'}), 500
 
-        # Return raw data structure
-        return jsonify({
-            "raw_data": {
-                "instances": all_instances,
-                "metadata": {
-                    "current_name": course_metadata.get("current_name"),
-                    "former_names": course_metadata.get("former_names", []),
-                    **{k: v for k, v in course_metadata.items() 
-                       if k not in ["current_name", "former_names"]}
-                },
-                "grouping_metadata": {
-                    "grouped_courses": sorted(list(actual_grouped_courses)),
-                    "group_description": group_info.get("description", "") if group_info else "",
-                    "is_grouped": bool(len(actual_grouped_courses) > 1)
-                }
-            }
-        })
 
-    except Exception as e:
-        print(f"An error occurred during analysis: {e}")
-        return jsonify({"error": "An internal server error occurred during analysis."}), 500
+@app.route('/api/refresh-status/<string:course_code>')
+def refresh_status(course_code):
+    if not validate_course_code(course_code):
+        return jsonify({'error': 'Invalid course code format. Expected format: XX.###.###'}), 400
+    try:
+        return jsonify(course_refresh_status(course_code.upper()))
+    except Exception:
+        app.logger.exception('Refresh status failed')
+        return jsonify({'error': 'Unable to check refresh status.'}), 500
+
+
+@app.route('/api/percentiles')
+def percentile_benchmark():
+    try:
+        return jsonify({'benchmark': get_percentile_benchmark()})
+    except Exception:
+        app.logger.exception('Benchmark lookup failed')
+        return jsonify({'benchmark': None, 'reason': 'The percentile benchmark is not available.'}), 503
+
 
 if __name__ == '__main__':
     app.run(debug=True)
