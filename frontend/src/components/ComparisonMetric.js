@@ -13,20 +13,18 @@ const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange,
       <span>{COMPARISON_HELP}</span>
       <span className="comparison-help-statistics">{STATISTICS_HELP}</span>
     </InfoTooltip>
-  </div>
-  {enabled && <>
-    <select aria-label="Comparison metric" value={metric || ''}
+    {enabled && <select aria-label="Comparison metric" value={metric || ''}
       title="The newest selected row is red; the older row is orange. A third selection replaces the orange row. Click a selected row to deselect it."
       disabled={!visibleMetrics.length} onChange={event => onChange(event.target.value)}>
       {!visibleMetrics.length && <option value="">No rating metrics displayed</option>}
       {visibleMetrics.map(key => <option key={key} value={key}>{STAT_MAPPINGS[key]}</option>)}
-    </select>
-    {comparison && <div className="comparison-feedback" role="status">
+    </select>}
+  </div>
+  {enabled && comparison && <div className="comparison-feedback" role="status">
       {!comparison.available ? <>Significance unavailable: {comparison.reason}</> : <>
         <strong className="comparison-label-orange">{labels[0]}</strong> and <strong className="comparison-label-red">{labels[1]}</strong> are{' '}
         {comparison.significant ? <strong>significantly</strong> : <><strong>not</strong> significantly</>} different (P{comparison.significant ? '<' : '≥'}{Number(threshold)})
       </>}
-    </div>}
-  </>}
+  </div>}
 </div>;
 export default ComparisonMetric;

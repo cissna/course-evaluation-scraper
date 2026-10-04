@@ -136,6 +136,16 @@ function App() {
     if (activeRows.length !== selectedRows.length) setSelectedRows(activeRows);
   }, [activeRows, selectedRows.length]);
   const toggleComparisonMode = () => {
+    const displayedRowCount = Object.values(options.stats).some(Boolean) ? selections.reduce((count, result) => {
+      const analysis = analyses[result.id];
+      return count + (analysis?.year_range_empty ? 0 : Object.keys(analysis?.data || {}).length);
+    }, 0) : 0;
+    if (!comparisonMode && displayedRowCount < 2) {
+      window.alert(selections.length === 1 && selections[0].type === 'professor'
+        ? "You cannot enter comparison mode before you add a course or professor to compare or separate the entries of this professor (e.g. by course)."
+        : 'You cannot enter comparison mode before you add a course to compare or separate the entries of this course (e.g. by professor).');
+      return;
+    }
     setComparisonMode(previous => !previous);
     setSelectedRows([]);
   };

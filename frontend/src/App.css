@@ -65,10 +65,11 @@ main {
 .remove-result:hover { color: #c62828; }
 
 .metric-comparison { text-align: center; margin: 6px auto 14px; }
-.comparison-mode-control { display: flex; justify-content: center; align-items: center; gap: 5px; }
+.comparison-mode-control { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
+.comparison-mode-control > button { justify-self: end; }
 .comparison-mode-control .info-popup { top: calc(100% + 6px); bottom: auto; width: 360px; text-align: left; }
 .comparison-help-statistics { display: block; margin-top: 8px; font-size: calc(1em - 2px); }
-.metric-comparison select { max-width: 90%; margin-top: 6px; padding: 4px 7px; border: 1px solid #aaa; border-radius: 3px; background: white; font-size: 13px; color: #333; }
+.metric-comparison select { justify-self: start; max-width: 100%; padding: 4px 7px; border: 1px solid #aaa; border-radius: 3px; background: white; font-size: 13px; color: #333; }
 .metric-comparison select:disabled { color: #888; background: #eee; }
 .comparison-feedback { width: fit-content; max-width: calc(100% - 56px); margin: 6px auto 0; padding: 5px 8px; border: 1px solid #ed7d00; border-radius: 0; background: #ffd2a1; font-size: 13px; line-height: 1.4; }
 .comparison-label-orange { color: #994d00; }
