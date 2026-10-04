@@ -39,7 +39,8 @@ main {
 .grouping-banner { background: #ffe066; border-radius: 6px; color: #442; padding: 8px 16px; margin: 16px auto 20px; font-size: 1.1rem; text-align: center; max-width: 650px; border: 1px solid #ffcb66; }
 .grouping-action { margin-top: 12px; }
 .grouping-action button { background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
-.professor-banner { background: #f3e5f5; border-color: #ce93d8; color: #582268; }
+.professor-banner { background: #f3e5f5; border-color: #ce93d8; color: #582268; border-radius: 0; }
+.professor-banner .grouping-action button { background: #8e44ad; }
 .info-tip { position: relative; display: inline-block; font-size: .9em; font-weight: bold; cursor: help; }
 .info-popup { display: none; position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); width: 260px; max-width: 75vw; background: #333; color: white; padding: 8px; border-radius: 4px; font-size: 13px; line-height: 1.4; font-weight: normal; z-index: 1100; }
 .info-tip:hover .info-popup, .info-tip:focus .info-popup { display: block; }

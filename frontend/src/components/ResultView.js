@@ -78,7 +78,7 @@ const ResultView = ({ selection, options, benchmark, onMetadata, onToggleSeparat
         </div>
       )}
       {selection.type === 'professor' && <div className="grouping-banner professor-banner">
-        Searching by Professor Name
+        <strong>Searching by Professor Name</strong>
         <div className="grouping-action"><button onClick={() => onToggleSeparation('course_group')}>
           {options.separationKeys.includes('course_group') ? 'Click here to recombine courses' : 'Click here to separate by course'}
         </button></div>
@@ -88,7 +88,7 @@ const ResultView = ({ selection, options, benchmark, onMetadata, onToggleSeparat
       {state.loading && <p role="status">Loading saved evaluations…</p>}
       <DataDisplay data={analysis?.data || null} errorMessage={state.error}
         selectedStats={Object.keys(options.stats).filter(key => options.stats[key])}
-        statisticsMetadata={analysis?.statistics_metadata} showPercentiles={options.showPercentiles}
+        statisticsMetadata={analysis?.statistics_metadata} groupLabels={analysis?.group_labels} showPercentiles={options.showPercentiles}
         yearRangeEmpty={analysis?.year_range_empty} filename={`${selection.type === 'professor' ? selection.name : selection.code}_analysis.csv`} />
       {state.error?.startsWith('No ') && selection.type === 'course' && <p className="evaluation-source-link">No evaluations found at this search: {' '}
         <a href={`https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(selection.code)}`} target="_blank" rel="noopener noreferrer">{selection.code} on the evaluation site</a>

@@ -100,5 +100,8 @@
 }
 
 .tooltip-line { display: block; }
+.group-label { cursor: help; }
+.group-label .stat-tooltip { left: 0; transform: none; }
+.group-label .stat-tooltip::after { left: 12px; transform: none; }
 .data-display td:last-child .stat-tooltip { left: auto; right: 0; transform: none; }
 .year-range-empty { margin: 20px; padding: 14px; border: 1px solid #ffcb66; border-radius: 6px; background: #fff3cd; color: #664d03; }

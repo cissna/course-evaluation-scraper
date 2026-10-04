@@ -9,7 +9,7 @@ export function formatYearRange(range) {
   return range.min_year ? `${range.min_year} and later` : `${range.max_year} and earlier`;
 }
 
-const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {}, showPercentiles = false, yearRangeEmpty, filename = 'course_analysis.csv' }) => {
+const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {}, groupLabels = {}, showPercentiles = false, yearRangeEmpty, filename = 'course_analysis.csv' }) => {
   const [downloadClicked, setDownloadClicked] = useState(false);
   const timer = useRef(null);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -42,7 +42,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
 
   const handleDownload = () => {
     setDownloadClicked(true);
-    const csv = convertToCSV(data, stats, statisticsMetadata, showPercentiles);
+    const csv = convertToCSV(data, stats, statisticsMetadata, showPercentiles, groupLabels);
     const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
     const link = document.createElement('a');
     link.href = url;
@@ -59,7 +59,10 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
       <table>
         <thead><tr><th scope="col">Group</th>{stats.map(metric => <th scope="col" key={metric}>{STAT_MAPPINGS[metric]}</th>)}</tr></thead>
         <tbody>{Object.entries(data).map(([group, values]) => <tr key={group}>
-          <td>{group}</td>{stats.map(metric => renderCell(group, metric, values[metric]))}
+          <td>{groupLabels[group]?.tooltip ? <span className="stat-value group-label" tabIndex="0" aria-label={`${groupLabels[group].label}. ${groupLabels[group].tooltip}`}>
+            {groupLabels[group].label}
+            <span className="stat-tooltip" role="tooltip">{groupLabels[group].tooltip}</span>
+          </span> : groupLabels[group]?.label || group}</td>{stats.map(metric => renderCell(group, metric, values[metric]))}
         </tr>)}</tbody>
       </table>
     </div>

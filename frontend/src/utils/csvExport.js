@@ -7,9 +7,11 @@ function cell(value) {
   return `"${text.replace(/"/g, '""')}"`;
 }
 
-export function convertToCSV(data, selectedStats, statisticsMetadata = {}, showPercentiles = false) {
+export function convertToCSV(data, selectedStats, statisticsMetadata = {}, showPercentiles = false, groupLabels = {}) {
   const stats = selectedStats.filter(key => STAT_MAPPINGS[key]);
   const headers = ['Group'];
+  const includeCourseCodes = Object.keys(data).some(group => groupLabels[group]?.tooltip);
+  if (includeCourseCodes) headers.push('Course codes');
   for (const stat of stats) {
     const label = STAT_MAPPINGS[stat];
     headers.push(label);
@@ -20,7 +22,8 @@ export function convertToCSV(data, selectedStats, statisticsMetadata = {}, showP
   }
   const rows = [headers];
   for (const [group, values] of Object.entries(data)) {
-    const row = [group];
+    const row = [groupLabels[group]?.label || group];
+    if (includeCourseCodes) row.push(groupLabels[group]?.tooltip || '');
     for (const stat of stats) {
       const details = statisticsMetadata[group]?.[stat] || {};
       const value = values[stat];
