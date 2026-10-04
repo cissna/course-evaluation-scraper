@@ -9,7 +9,8 @@ export function formatYearRange(range) {
   return range.min_year ? `${range.min_year} and later` : `${range.max_year} and earlier`;
 }
 
-const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {}, groupLabels = {}, showPercentiles = false, yearRangeEmpty, filename = 'course_analysis.csv' }) => {
+const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {}, groupLabels = {}, showPercentiles = false, yearRangeEmpty,
+  filename = 'course_analysis.csv', comparisonMetric, rowTones = {}, significant = false, onRowSelect }) => {
   const [downloadClicked, setDownloadClicked] = useState(false);
   const timer = useRef(null);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -33,7 +34,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
       `n = ${details.n ?? 0}, σ = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'}`,
       metric === 'workload' ? 'Higher percentiles mean heavier workload.' : null,
     ].filter(Boolean);
-    return <td key={metric}>
+    return <td key={metric} className={comparisonMetric === metric ? 'metric-highlight' : undefined}>
       <span className="stat-value" tabIndex="0" aria-label={`${displayed}. ${tooltip.join('. ')}`}>
         {showPercentiles && hasPercentile
           ? <>{percentile.slice(0, -2)}<sup className="percentile-suffix">{percentile.slice(-2)}</sup></>
@@ -60,8 +61,12 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
   return <div className="data-display">
     <div className="table-container">
       <table>
-        <thead><tr><th scope="col">Group</th>{stats.map(metric => <th scope="col" key={metric}>{STAT_MAPPINGS[metric]}</th>)}</tr></thead>
-        <tbody>{Object.entries(data).map(([group, values]) => <tr key={group}>
+        <thead><tr><th scope="col">Group</th>{stats.map(metric => <th scope="col" key={metric} className={comparisonMetric === metric ? 'metric-highlight' : undefined}>{STAT_MAPPINGS[metric]}</th>)}</tr></thead>
+        <tbody>{Object.entries(data).map(([group, values]) => <tr key={group}
+          className={[onRowSelect ? 'comparison-row' : '', rowTones[group] ? `row-selected-${rowTones[group]}` : '', significant && rowTones[group] ? 'row-significant' : ''].filter(Boolean).join(' ')}
+          tabIndex={onRowSelect ? 0 : undefined} aria-selected={onRowSelect ? Boolean(rowTones[group]) : undefined}
+          onClick={onRowSelect ? () => onRowSelect(group) : undefined}
+          onKeyDown={event => { if (onRowSelect && event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); onRowSelect(group); } }}>
           <td>{groupLabels[group]?.tooltip ? <span className="stat-value group-label" tabIndex="0" aria-label={`${groupLabels[group].label}. ${groupLabels[group].tooltip}`}>
             {groupLabels[group].label}
             <span className="stat-tooltip" role="tooltip">{groupLabels[group].tooltip}</span>

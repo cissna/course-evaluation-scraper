@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo } from 'react';
 import DataDisplay from './DataDisplay';
 import InfoTooltip from './InfoTooltip';
 import './GracePeriodWarning.css';
@@ -52,7 +52,8 @@ function RefreshNotice({ selection, state }) {
   );
 }
 
-const ResultView = ({ selection, options, benchmark, onAnalysis, onToggleSeparation, onRemove, children }) => {
+const ResultView = ({ selection, options, benchmark, onAnalysis, onToggleSeparation, onRemove, headingExtra,
+  comparisonMetric, rowTones, significant, onRowSelect, children }) => {
   const state = useEvaluationResult(selection);
   const { rawData } = state;
   const analysis = useMemo(() => {
@@ -61,7 +62,9 @@ const ResultView = ({ selection, options, benchmark, onAnalysis, onToggleSeparat
     const separationKeys = options.separationKeys.filter(key => key !== 'course_name' || hasTitles);
     return processAnalysisRequest(rawData, { ...options, separationKeys, benchmark, scope: selection });
   }, [rawData, options, benchmark, selection]);
-  useEffect(() => { onAnalysis(selection.id, analysis); }, [selection.id, analysis, onAnalysis]);
+  // Publish new row identities/moments before paint so stale significance never
+  // flashes on rows that have just been filtered, separated, or refreshed.
+  useLayoutEffect(() => { onAnalysis(selection.id, analysis); }, [selection.id, analysis, onAnalysis]);
   useEffect(() => {
     if (rawData) addToSearchHistory(selection, rawData.metadata?.current_name);
   }, [rawData, selection]);
@@ -70,6 +73,7 @@ const ResultView = ({ selection, options, benchmark, onAnalysis, onToggleSeparat
   return (
     <section className="result-view" aria-label={selection.type === 'professor' ? selection.name : selection.code}>
       <ResultHeading selection={selection} metadata={analysis?.metadata} onRemove={onRemove} />
+      {headingExtra}
       {selection.type === 'course' && grouping?.is_grouped && (
         <div className="grouping-banner">
           This course was automatically grouped with: {' '}
@@ -92,6 +96,8 @@ const ResultView = ({ selection, options, benchmark, onAnalysis, onToggleSeparat
       <DataDisplay data={analysis?.data || null} errorMessage={state.error}
         selectedStats={Object.keys(options.stats).filter(key => options.stats[key])}
         statisticsMetadata={analysis?.statistics_metadata} groupLabels={analysis?.group_labels} showPercentiles={options.showPercentiles}
+        comparisonMetric={comparisonMetric} rowTones={rowTones} significant={significant}
+        onRowSelect={groupName => onRowSelect(selection.id, groupName)}
         yearRangeEmpty={analysis?.year_range_empty} filename={`${selection.type === 'professor' ? selection.name : selection.code}_analysis.csv`} />
       {state.error?.startsWith('No ') && selection.type === 'course' && <p className="evaluation-source-link">No evaluations found at this search: {' '}
         <a href={`https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(selection.code)}`} target="_blank" rel="noopener noreferrer">{selection.code} on the evaluation site</a>

@@ -2,6 +2,8 @@ import React from 'react';
 import './AdvancedOptions.css';
 import { STATISTICS_CONFIG, ALL_STAT_KEYS } from '../utils/statsMapping';
 import { toggleSeparation } from '../utils/separationOptions';
+import { THRESHOLD_HELP } from './ComparisonMetric';
+import { isValidThreshold } from '../utils/significance';
 
 const AdvancedOptions = ({ options, onApply, hasCourses = true, hasProfessors = false, hasFormerNames = false, showLast3YearsActive, onDeactivateLast3Years, expanded, onExpandedChange }) => {
   const changeFilter = (key, value) => onApply({ ...options, filters: { ...options.filters, [key]: value } });
@@ -26,6 +28,13 @@ const AdvancedOptions = ({ options, onApply, hasCourses = true, hasProfessors = 
             onChange={event => onApply({ ...options, weightPercentilesByClassSize: event.target.checked })} />
           Weight percentiles by average class size
         </label>
+        <label className="significance-threshold" title={THRESHOLD_HELP}>
+          Significance threshold for comparisons
+          <input type="number" step="any" min="0" max="1" value={options.significanceThreshold}
+            aria-invalid={!isValidThreshold(options.significanceThreshold)} title={THRESHOLD_HELP}
+            onChange={event => onApply({ ...options, significanceThreshold: event.target.value })} />
+        </label>
+        {!isValidThreshold(options.significanceThreshold) && <small role="alert">Enter a value greater than 0 and less than 1.</small>}
       </div>
       <div className="option-group">
         <h4>Year Range</h4>

@@ -12,7 +12,7 @@ function record(code, name, high, group = code) {
 const instances = {
   'EN.601.315.01.FA25': record('EN.601.315', 'Jane Smith', true, 'Databases'),
   'EN.601.315.02.FA24': record('EN.601.315', 'Dana Lee', false, 'Databases'),
-  'EN.553.431.01.SP20': record('EN.553.431', 'Jane Smith', true, 'Statistics'),
+  'EN.553.431.01.SP20': { ...record('EN.553.431', 'Jane Smith', true, 'Statistics'), overall_quality_frequency: { Good: 30, Excellent: 20 } },
   'EN.553.631.01.SP20': record('EN.553.631', 'Dana Lee', false, 'Statistics'),
   'EN.601.727.01.SP25': record('EN.601.727', 'Alex Rivera', false),
   'AS.180.101.01.SP25': record('AS.180.101', 'Alex Rivera', true),
@@ -131,7 +131,11 @@ test('five-item cap disables both entry points and removal restores a single-res
   expect(screen.getByText('Remove a course or professor to add another.')).toBeInTheDocument();
   fireEvent.change(screen.getByRole('textbox'), { target: { value: '' } });
   fireEvent.focus(screen.getByRole('textbox'));
-  for (const button of screen.getAllByRole('button', { name: 'compare', exact: true })) expect(button).toBeDisabled();
+  for (const button of screen.getAllByRole('button', { name: 'compare', exact: true })) {
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+  }
+  expect(screen.getAllByRole('table')).toHaveLength(5);
   fireEvent.click(screen.getByRole('button', { name: 'Close search history' }));
   for (const code of codes.slice(1)) fireEvent.click(screen.getByRole('button', { name: `Remove ${code} from comparison` }));
   expect(screen.getAllByRole('table')).toHaveLength(1);
@@ -149,4 +153,117 @@ test('code separation omits a redundant code in the single-code table; empty ran
   expect(within(region(codes[0])).getByRole('table')).toBeInTheDocument();
   expect(within(region(codes[1])).queryByRole('table')).not.toBeInTheDocument();
   expect(within(region(codes[1])).getByText('No results for range 2024 and later, try including some of these years 2020')).toBeInTheDocument();
+});
+
+const rowFor = (source, label) => within(region(source)).getByRole('cell', { name: label, exact: true }).closest('tr');
+const metricDropdown = () => screen.getByRole('combobox', { name: 'Choose a metric to compare' });
+
+test('single-course row clicks use red/orange outlines, default metric highlight, and gold only below the threshold', async () => {
+  render(<App />); await search(codes[0]);
+  expect(metricDropdown()).toHaveValue('');
+  expect(metricDropdown()).toHaveAttribute('title', expect.stringContaining('third selection replaces the orange row'));
+  expect(screen.getByRole('columnheader', { name: 'Overall Quality' })).toHaveClass('metric-highlight');
+  fireEvent.click(screen.getByRole('button', { name: 'Separate by Professor', exact: true }));
+  const jane = rowFor(codes[0], 'Jane Smith'), dana = rowFor(codes[0], 'Dana Lee');
+  fireEvent.click(within(jane).getByRole('cell', { name: 'Jane Smith' }));
+  expect(jane).toHaveClass('row-selected-red');
+  fireEvent.click(dana);
+  expect(jane).toHaveClass('row-selected-orange', 'row-significant');
+  expect(dana).toHaveClass('row-selected-red', 'row-significant');
+  expect(screen.getByRole('status')).toHaveTextContent('Jane Smith and Dana Lee are significantly different (P<0.05)');
+  expect(within(screen.getByRole('status')).getByText('Jane Smith').tagName).toBe('STRONG');
+  fireEvent.click(screen.getByRole('button', { name: 'Advanced Options', exact: true }));
+  fireEvent.change(screen.getByLabelText('Significance threshold for comparisons'), { target: { value: '1e-100' } });
+  expect(jane).not.toHaveClass('row-significant');
+  expect(dana).toHaveClass('row-selected-red');
+  expect(screen.queryByText(/are significantly different/)).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText('Significance threshold for comparisons'), { target: { value: '0.01' } });
+  expect(screen.getByRole('status')).toHaveTextContent('(P<0.01)');
+  fireEvent.click(dana);
+  expect(jane).toHaveClass('row-selected-red');
+  expect(jane).not.toHaveClass('row-significant');
+  expect(screen.queryByText(/are significantly different/)).not.toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /Clear selection/ })).not.toBeInTheDocument();
+});
+
+test('a third row replaces orange; removing its result leaves the remaining row red and clears significance', async () => {
+  render(<App />); await search(codes[0]);
+  fireEvent.click(screen.getByRole('button', { name: 'Separate by Professor', exact: true }));
+  await search(codes[2], 'add');
+  const jane = rowFor(codes[0], 'Jane Smith'), dana = rowFor(codes[0], 'Dana Lee'), alex = rowFor(codes[2], 'Alex Rivera');
+  fireEvent.click(jane); fireEvent.click(dana); fireEvent.click(alex);
+  expect(jane).not.toHaveClass('row-selected-orange');
+  expect(dana).toHaveClass('row-selected-orange');
+  expect(alex).toHaveClass('row-selected-red');
+  fireEvent.click(screen.getByRole('button', { name: `Remove ${codes[2]} from comparison` }));
+  expect(dana).toHaveClass('row-selected-red');
+  expect(dana).not.toHaveClass('row-significant');
+  expect(screen.queryByText(/are significantly different/)).not.toBeInTheDocument();
+});
+
+test('filtering or separating away selected rows clears them and does not resurrect their selection', async () => {
+  render(<App />); await search(codes[0]);
+  fireEvent.click(screen.getByRole('button', { name: 'Separate by Professor', exact: true }));
+  fireEvent.click(rowFor(codes[0], 'Jane Smith')); fireEvent.click(rowFor(codes[0], 'Dana Lee'));
+  fireEvent.click(screen.getByRole('button', { name: 'Advanced Options', exact: true }));
+  fireEvent.change(screen.getByLabelText('Min Year:'), { target: { value: '2025' } });
+  expect(rowFor(codes[0], 'Jane Smith')).toHaveClass('row-selected-red');
+  expect(screen.queryByText(/are significantly different/)).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText('Min Year:'), { target: { value: '' } });
+  expect(rowFor(codes[0], 'Dana Lee')).toHaveAttribute('aria-selected', 'false');
+  fireEvent.click(screen.getByRole('button', { name: 'Combine Professors', exact: true }));
+  expect(rowFor(codes[0], 'All Data')).toHaveAttribute('aria-selected', 'false');
+});
+
+test('metric hiding moves every highlight, disables comparison when none remain, and recovers when one returns', async () => {
+  render(<App />); await search(codes[0]); await search(codes[2], 'add');
+  fireEvent.click(rowFor(codes[0], 'All Data')); fireEvent.click(rowFor(codes[2], 'All Data'));
+  fireEvent.change(metricDropdown(), { target: { value: 'workload' } });
+  for (const header of screen.getAllByRole('columnheader', { name: 'Workload' })) expect(header).toHaveClass('metric-highlight');
+  fireEvent.click(screen.getByRole('button', { name: 'Advanced Options', exact: true }));
+  fireEvent.click(screen.getByLabelText('Workload', { exact: true }));
+  expect(metricDropdown()).toHaveValue('overall_quality');
+  for (const header of screen.getAllByRole('columnheader', { name: 'Overall Quality' })) expect(header).toHaveClass('metric-highlight');
+  fireEvent.click(screen.getByLabelText('Periods Course Has Been Run', { exact: true }));
+  for (const label of ['Overall Quality', 'Instructor Effectiveness', 'Intellectual Challenge']) fireEvent.click(screen.getByLabelText(label, { exact: true }));
+  expect(metricDropdown()).toBeDisabled();
+  expect(document.querySelectorAll('.metric-highlight, .row-significant')).toHaveLength(0);
+  expect(screen.queryByText(/Significance unavailable|are significantly different/)).not.toBeInTheDocument();
+  fireEvent.click(screen.getByLabelText('Overall Quality', { exact: true }));
+  expect(metricDropdown()).toBeEnabled();
+  expect(metricDropdown()).toHaveValue('overall_quality');
+  expect(document.querySelectorAll('.row-significant')).toHaveLength(2);
+});
+
+test('mixed source overlap is unavailable; independent cross-table rows use source-prefixed bold labels', async () => {
+  render(<App />); await search(codes[0]); await search('Jane Smith', 'add');
+  fireEvent.click(rowFor(codes[0], 'All Data')); fireEvent.click(rowFor('Jane Smith', 'All Data'));
+  expect(screen.getByRole('status')).toHaveTextContent('Significance unavailable: these groups share evaluations.');
+  expect(document.querySelectorAll('.row-significant')).toHaveLength(0);
+  expect(document.querySelectorAll('.row-selected-red, .row-selected-orange')).toHaveLength(2);
+  fireEvent.click(screen.getByRole('button', { name: 'Separate by Professor', exact: true }));
+  fireEvent.click(rowFor(codes[0], 'Dana Lee'));
+  expect(screen.getByRole('status')).toHaveTextContent('are significantly different (P<0.05)');
+  expect(within(screen.getByRole('status')).getByText('EN.601.315 — Dana Lee').tagName).toBe('STRONG');
+  expect(within(screen.getByRole('status')).getByText('Jane Smith — All Data').tagName).toBe('STRONG');
+  expect(screen.getAllByRole('combobox', { name: 'Choose a metric to compare' })).toHaveLength(1);
+});
+
+test('single-professor course rows and professor-versus-professor pairs can be compared', async () => {
+  render(<App />); await search('Jane Smith');
+  fireEvent.click(screen.getByRole('button', { name: 'Separate by Course', exact: true }));
+  fireEvent.click(rowFor('Jane Smith', 'Databases')); fireEvent.click(rowFor('Jane Smith', 'Statistics'));
+  expect(screen.getByRole('status')).toHaveTextContent('Databases and Statistics are significantly different');
+  fireEvent.click(screen.getByRole('button', { name: 'Combine Courses', exact: true }));
+  await search('Dana Lee', 'add');
+  fireEvent.click(rowFor('Jane Smith', 'All Data')); fireEvent.click(rowFor('Dana Lee', 'All Data'));
+  expect(screen.getByRole('status')).toHaveTextContent('Jane Smith — All Data and Dana Lee — All Data are significantly different');
+});
+
+test('a metric with too few responses gives compact unavailable feedback and no gold', async () => {
+  render(<App />); await search(codes[0]); await search(codes[2], 'add');
+  fireEvent.click(rowFor(codes[0], 'All Data')); fireEvent.click(rowFor(codes[2], 'All Data'));
+  fireEvent.change(metricDropdown(), { target: { value: 'intellectual_challenge' } });
+  expect(screen.getByRole('status')).toHaveTextContent('Significance unavailable: each group needs at least two valid responses.');
+  expect(document.querySelectorAll('.row-significant')).toHaveLength(0);
 });

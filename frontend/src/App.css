@@ -63,3 +63,9 @@ main {
 .result-heading-title { position: relative; }
 .remove-result { margin-left: 8px; padding: 0 4px; background: transparent; border: none; color: #777; cursor: pointer; font-size: 20px; vertical-align: middle; }
 .remove-result:hover { color: #c62828; }
+
+.metric-comparison { text-align: center; margin: 6px auto 14px; }
+.metric-comparison select { max-width: 90%; padding: 4px 7px; border: 1px solid #aaa; border-radius: 3px; background: white; font-size: 13px; color: #333; }
+.metric-comparison select:disabled { color: #888; background: #eee; }
+.comparison-feedback { width: fit-content; max-width: calc(100% - 56px); margin: 6px auto 0; padding: 5px 8px; border: 1px solid #dfbd54; border-radius: 4px; background: #fff4ce; font-size: 13px; line-height: 1.4; }
+.comparison-unavailable { background: #f5f5f5; border-color: #ccc; color: #555; }

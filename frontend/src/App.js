@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './App.css';
 import CourseSearch from './components/CourseSearch';
 import SearchResults from './components/SearchResults';
@@ -6,7 +6,9 @@ import ResultView from './components/ResultView';
 import AdvancedOptions from './components/AdvancedOptions';
 import DataDisplay from './components/DataDisplay';
 import Footer from './components/Footer';
-import { getInitialStatsState } from './utils/statsMapping';
+import ComparisonMetric from './components/ComparisonMetric';
+import { getInitialStatsState, RATING_STAT_KEYS } from './utils/statsMapping';
+import { compareSamples, toggleRowSelection } from './utils/significance';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 import { toggleSeparation } from './utils/separationOptions';
 import { getShowPercentilesPreference, saveShowPercentilesPreference, getPercentileWeightingPreference, savePercentileWeightingPreference } from './utils/storageUtils';
@@ -24,13 +26,16 @@ function App() {
   const [last3Years, setLast3Years] = useState(false);
   const [resolving, setResolving] = useState(false);
   const [searchError, setSearchError] = useState(null);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [metric, setMetric] = useState('overall_quality');
+  const [metricChosen, setMetricChosen] = useState(false);
   const selectionRequest = useRef(null);
   const selectionsRef = useRef(selections);
   selectionsRef.current = selections;
   const [options, setOptions] = useState(() => ({
     stats: getInitialStatsState(),
     filters: { min_year: '', max_year: '', seasons: [], exclude_summer: false, exclude_intersession: false },
-    separationKeys: [], showPercentiles: getShowPercentilesPreference(),
+    separationKeys: [], showPercentiles: getShowPercentilesPreference(), significanceThreshold: 0.05,
     weightPercentilesByClassSize: getPercentileWeightingPreference(),
   }));
   useEffect(() => {
@@ -61,6 +66,7 @@ function App() {
       if (intent === 'replace') {
         if (selectionsRef.current.length > 1) resetCourseSeparation();
         setSelections([existing]);
+        setSelectedRows([]);
       }
       setSearchView(null);
       setResolving(false);
@@ -80,6 +86,7 @@ function App() {
       const initialSaved = await loadResultWithData(result, controller.signal);
       if (controller.signal.aborted) return;
       const ready = { ...result, initialSaved };
+      if (intent === 'replace') setSelectedRows([]);
       setSelections(previous => intent === 'replace' ? [ready]
         : previous.length < MAX_RESULTS && !previous.some(item => item.id === ready.id) ? [...previous, ready] : previous);
       // A replacement starts a new course context; additions keep shared controls.
@@ -116,6 +123,32 @@ function App() {
   const hasCourses = !selections.length || selections.some(result => result.type === 'course');
   const hasProfessors = selections.some(result => result.type === 'professor');
   const hasFormerNames = selections.some(result => analyses[result.id]?.metadata?.former_names?.length || analyses[result.id]?.metadata?.has_former_names);
+  const visibleMetrics = RATING_STAT_KEYS.filter(key => options.stats[key]);
+  const effectiveMetric = visibleMetrics.includes(metric) ? metric : visibleMetrics[0] || null;
+  useEffect(() => {
+    if (metric !== effectiveMetric) { setMetric(effectiveMetric); setMetricChosen(true); }
+  }, [metric, effectiveMetric]);
+  const activeRows = useMemo(() => selectedRows.filter(row =>
+    selections.some(result => result.id === row.resultId) && Object.values(options.stats).some(Boolean) &&
+    !analyses[row.resultId]?.year_range_empty && Object.prototype.hasOwnProperty.call(analyses[row.resultId]?.data || {}, row.groupName)
+  ), [selectedRows, selections, analyses, options.stats]);
+  useEffect(() => {
+    if (activeRows.length !== selectedRows.length) setSelectedRows(activeRows);
+  }, [activeRows, selectedRows.length]);
+  const selectRow = (resultId, groupName) => setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }));
+  const comparison = effectiveMetric && activeRows.length === 2 ? compareSamples(
+    analyses[activeRows[0].resultId]?.statistics_metadata?.[activeRows[0].groupName]?.[effectiveMetric],
+    analyses[activeRows[1].resultId]?.statistics_metadata?.[activeRows[1].groupName]?.[effectiveMetric],
+    options.significanceThreshold
+  ) : null;
+  const crossTable = activeRows.length === 2 && activeRows[0].resultId !== activeRows[1].resultId;
+  const rowLabels = activeRows.map(row => {
+    const source = selections.find(result => result.id === row.resultId);
+    return crossTable ? `${source.type === 'course' ? source.code : source.name} — ${row.groupName}` : row.groupName;
+  });
+  const metricControl = <ComparisonMetric visibleMetrics={visibleMetrics} metric={effectiveMetric}
+    chosen={metricChosen || metric !== effectiveMetric} onChange={value => { setMetric(value); setMetricChosen(true); }}
+    comparison={comparison} labels={rowLabels} threshold={options.significanceThreshold} />;
   const controls = <>
     <div className="controls">
       <button onClick={toggleYears}>{last3Years ? 'Show All Time' : 'Show Last 3 Years'}</button>
@@ -139,9 +172,13 @@ function App() {
       {searchView && <SearchResults key={`${searchView.query}:${searchView.intent}`} searchQuery={searchView.query} initialResults={searchView.matches}
         intent={searchView.intent} resolving={resolving} onResultSelect={openResult} onBack={() => setSearchView(null)} />}
       <div hidden={Boolean(searchView && searchView.intent !== 'add')}>
-        {isComparison && <><div className="comparison-heading"><h2>Comparison</h2></div>{controls}</>}
+        {isComparison && <><div className="comparison-heading"><h2>Comparison</h2>{metricControl}</div>{controls}</>}
         <div className={isComparison ? 'comparison-results' : 'single-result'}>
           {selections.map(selection => <ResultView key={selection.id} selection={selection} options={options} benchmark={benchmark}
+            headingExtra={!isComparison && metricControl} comparisonMetric={effectiveMetric} significant={comparison?.significant}
+            rowTones={Object.fromEntries(activeRows.map((row, index) => [row, index]).filter(([row]) => row.resultId === selection.id)
+              .map(([row, index]) => [row.groupName, index === activeRows.length - 1 ? 'red' : 'orange']))}
+            onRowSelect={selectRow}
             onAnalysis={handleAnalysis} onToggleSeparation={separate} onRemove={isComparison ? () => removeResult(selection.id) : undefined}>
             {!isComparison && controls}
           </ResultView>)}

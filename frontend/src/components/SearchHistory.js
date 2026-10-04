@@ -57,7 +57,7 @@ const SearchHistory = ({ isOpen, onClose, onItemClick, onCompare, atComparisonLi
       <div className="search-history-list">
         {visibleItems.map((item, index) => (
           <div key={item.id} className={`search-history-item ${index === selectedIndex ? 'selected' : ''}`}
-            onClick={() => onItemClick(item)} onMouseEnter={() => setSelectedIndex(index)}>
+            onClick={event => { if (!event.target.closest('button')) onItemClick(item); }} onMouseEnter={() => setSelectedIndex(index)}>
             <button className="search-history-open" onClick={event => { event.stopPropagation(); onItemClick(item); }}>
               <span className={`result-type result-type-${item.type}`}>{item.type === 'professor' ? 'Professor' : 'Course'}</span>
               {item.type === 'course' && <span className="search-history-item-code">{item.code}</span>}

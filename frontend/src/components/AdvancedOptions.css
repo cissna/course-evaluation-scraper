@@ -53,3 +53,6 @@
     align-items: center;
     margin-bottom: 8px;
 }
+
+.advanced-options .significance-threshold { flex-wrap: wrap; gap: 5px; margin-top: 8px; font-size: 13px; }
+.advanced-options .significance-threshold input { margin-left: 0; }
