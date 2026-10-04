@@ -28,10 +28,10 @@ export function convertToCSV(data, selectedStats, statisticsMetadata = {}, showP
       const details = statisticsMetadata[group]?.[stat] || {};
       const value = values[stat];
       const rating = RATING_STAT_KEYS.includes(stat);
-      const percentile = Number.isFinite(details.percentile) ? Math.round(details.percentile) : null;
+      const percentile = Number.isFinite(details.percentile) ? ordinal(details.percentile) : null;
       row.push(rating && showPercentiles ? percentile ?? 'N/A' : typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A');
       if (rating) {
-        row.push(details.mean ?? value, percentile !== null ? `${ordinal(percentile)} percentile` : '', details.n ?? '', details.std ?? '',
+        row.push(details.mean ?? value, percentile !== null ? `${percentile} percentile` : '', details.n ?? '', details.std ?? '',
           details.benchmark_years ?? '', [details.percentile_reason, stat === 'workload' ? 'Higher percentile means heavier reported workload, not a better score.' : null].filter(Boolean).join(' '));
       }
     }

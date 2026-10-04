@@ -66,6 +66,12 @@
     display: inline-block;
 }
 
+.percentile-suffix {
+    font-size: 0.65em;
+    line-height: 0;
+    vertical-align: super;
+}
+
 .stat-tooltip {
     display: none;
     position: absolute;

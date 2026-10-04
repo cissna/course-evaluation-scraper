@@ -24,17 +24,19 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
     const details = statisticsMetadata[group]?.[metric] || {};
     const absolute = typeof value === 'number' ? value.toFixed(2) : 'N/A';
     const hasPercentile = Number.isFinite(details.percentile);
-    const percentile = hasPercentile ? `${ordinal(details.percentile)} percentile` : 'Percentile unavailable';
-    const displayed = showPercentiles ? hasPercentile ? Math.round(details.percentile) : 'N/A' : absolute;
+    const percentile = hasPercentile ? ordinal(details.percentile) : null;
+    const displayed = showPercentiles ? percentile ?? 'N/A' : absolute;
     const tooltip = [
-      showPercentiles ? absolute : percentile,
+      showPercentiles ? absolute : hasPercentile ? `${percentile} percentile` : 'Percentile unavailable',
       !hasPercentile && details.percentile_reason,
       `n = ${details.n ?? 0}, σ = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'}`,
       metric === 'workload' ? 'Higher percentiles mean heavier workload.' : null,
     ].filter(Boolean);
     return <td key={metric}>
       <span className="stat-value" tabIndex="0" aria-label={`${displayed}. ${tooltip.join('. ')}`}>
-        {displayed}
+        {showPercentiles && hasPercentile
+          ? <>{percentile.slice(0, -2)}<sup className="percentile-suffix">{percentile.slice(-2)}</sup></>
+          : displayed}
         <span className="stat-tooltip" role="tooltip">{tooltip.map((line, index) => <span className="tooltip-line" key={index}>{line}</span>)}</span>
       </span>
     </td>;
