@@ -7,7 +7,7 @@ const STATISTICS_HELP = 'We use a two-sided Welch independent two-sample t-test,
 export const THRESHOLD_HELP = 'Uses a two-tailed Welch independent two-sample t-test to compare mean ratings in either direction, allowing unequal variances. A result is significant when p < threshold. This is approximate and assumes independent responses. Shared evaluation records cannot be tested as independent samples.';
 
 const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange, comparison, labels, threshold }) => <div className="metric-comparison">
-  <div className="comparison-mode-control">
+  <div className={`comparison-mode-control${enabled ? ' comparison-mode-active' : ''}`}>
     <button onClick={onToggle} aria-pressed={enabled}>{enabled ? 'Exit comparison mode' : 'Enter comparison mode'}</button>
     <InfoTooltip label="About comparison mode">
       <span>{COMPARISON_HELP}</span>
@@ -21,10 +21,10 @@ const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange,
     </select>}
   </div>
   {enabled && comparison && <div className="comparison-feedback" role="status">
-      {!comparison.available ? <>Significance unavailable: {comparison.reason}</> : <>
-        <strong className="comparison-label-orange">{labels[0]}</strong> and <strong className="comparison-label-red">{labels[1]}</strong> are{' '}
-        {comparison.significant ? <strong>significantly</strong> : <><strong>not</strong> significantly</>} different (P{comparison.significant ? '<' : '≥'}{Number(threshold)})
-      </>}
+    {!comparison.available ? <>Significance unavailable: {comparison.reason}</> : <>
+      <strong className="comparison-label-orange">{labels[0]}</strong> and <strong className="comparison-label-red">{labels[1]}</strong> are{' '}
+      {comparison.significant ? <strong>significantly</strong> : <><strong>not</strong> significantly</>} different (P{comparison.significant ? '<' : '≥'}{Number(threshold)})
+    </>}
   </div>}
 </div>;
 export default ComparisonMetric;

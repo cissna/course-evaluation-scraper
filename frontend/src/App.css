@@ -65,8 +65,9 @@ main {
 .remove-result:hover { color: #c62828; }
 
 .metric-comparison { text-align: center; margin: 6px auto 14px; }
-.comparison-mode-control { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
-.comparison-mode-control > button { justify-self: end; }
+.comparison-mode-control { display: flex; justify-content: center; align-items: center; gap: 8px; }
+.comparison-mode-active { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.comparison-mode-active > button { justify-self: end; }
 .comparison-mode-control .info-popup { top: calc(100% + 6px); bottom: auto; width: 360px; text-align: left; }
 .comparison-help-statistics { display: block; margin-top: 8px; font-size: calc(1em - 2px); }
 .metric-comparison select { justify-self: start; max-width: 100%; padding: 4px 7px; border: 1px solid #aaa; border-radius: 3px; background: white; font-size: 13px; color: #333; }
