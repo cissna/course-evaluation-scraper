@@ -23,17 +23,18 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
     if (!RATING_STAT_KEYS.includes(metric)) return <td key={metric}>{value ?? 'N/A'}</td>;
     const details = statisticsMetadata[group]?.[metric] || {};
     const absolute = typeof value === 'number' ? value.toFixed(2) : 'N/A';
-    const percentile = Number.isFinite(details.percentile) ? `${ordinal(details.percentile)} percentile` : 'Percentile unavailable';
+    const hasPercentile = Number.isFinite(details.percentile);
+    const percentile = hasPercentile ? `${ordinal(details.percentile)} percentile` : 'Percentile unavailable';
+    const displayed = showPercentiles ? hasPercentile ? Math.round(details.percentile) : 'N/A' : absolute;
     const tooltip = [
-      `${absolute}${absolute !== 'N/A' ? ' / 5' : ''}`, percentile,
-      details.percentile_reason, `n = ${details.n ?? 0}`,
-      `Sample standard deviation = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'} (original 1–5 ratings)`,
-      `Benchmark years: ${details.benchmark_years || 'unavailable'}`,
-      metric === 'workload' ? 'A higher percentile means heavier reported workload, not a better score.' : null,
+      showPercentiles ? absolute : percentile,
+      !hasPercentile && details.percentile_reason,
+      `n = ${details.n ?? 0}, σ = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'}`,
+      metric === 'workload' ? 'Higher percentiles mean heavier workload.' : null,
     ].filter(Boolean);
     return <td key={metric}>
-      <span className="stat-value" tabIndex="0" aria-label={tooltip.join('. ')}>
-        {showPercentiles ? Number.isFinite(details.percentile) ? ordinal(details.percentile) : 'N/A' : absolute}
+      <span className="stat-value" tabIndex="0" aria-label={`${displayed}. ${tooltip.join('. ')}`}>
+        {displayed}
         <span className="stat-tooltip" role="tooltip">{tooltip.map((line, index) => <span className="tooltip-line" key={index}>{line}</span>)}</span>
       </span>
     </td>;
