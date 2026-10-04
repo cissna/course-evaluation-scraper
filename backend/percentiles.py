@@ -16,7 +16,8 @@ METRICS = {
 }
 PERIOD = re.compile(r'\.(?:IN|SP|SU|FA)\.?(\d{2})$')
 BENCHMARK_VERSION = 2
-REBUILD_AFTER_EVALUATIONS = 100
+# Count saved course/section/term reports, each aggregating student responses.
+REBUILD_AFTER_EVALUATIONS = 1_000
 
 
 def percentile_mapping(by_group):
@@ -70,7 +71,7 @@ def build_benchmark(records, generated_at=None):
         'version': BENCHMARK_VERSION,
         'generated_at': generated_at or datetime.now(timezone.utc).isoformat(),
         'population': 'All logical course groups in the database, all available years; one response-weighted mean per group.',
-        'refresh_schedule': 'After 100 newly inserted evaluation reports, at the end of a scrape or the next benchmark request.',
+        'refresh_schedule': f'After {REBUILD_AFTER_EVALUATIONS:,} newly inserted evaluation reports, at the end of a scrape or the next benchmark request.',
         'ranking': 'midrank of course averages rounded to the nearest hundredth',
         'score_min': 1,
         'score_max': 5,
