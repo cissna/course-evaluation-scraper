@@ -67,6 +67,8 @@ Then, the export_data.py script will convert the supabase database back into eas
 5.  Use the toggle buttons and advanced options to filter and separate the data as needed.
 6.  Click the download icon to save every displayed statistic and its tooltip information as CSV.
 
+Overall Quality and Workload are the default statistics, listed first in that order. Instructor Effectiveness, Intellectual Challenge, Helpful Feedback, and TA Quality can be enabled in Advanced Options. **Show percentiles** remembers your choice across visits in the same browser, using local storage like search history; it starts off if you have no saved preference.
+
 ## Database preparation and percentile maintenance
 
 The new cached-first and professor-search APIs require the reviewed SQL files in [migrations](migrations/README.md). Do not run migrations against a live database as part of frontend development. `db_schema.sql` also includes the new schema for a fresh database.

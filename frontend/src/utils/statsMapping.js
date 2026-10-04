@@ -5,17 +5,17 @@ export const STATISTICS_CONFIG = {
     displayName: 'Overall Quality',
     defaultEnabled: true
   },
-  'instructor_effectiveness': {
-    displayName: 'Instructor Effectiveness',
-    defaultEnabled: true
-  },
-  'intellectual_challenge': {
-    displayName: 'Intellectual Challenge',
-    defaultEnabled: true
-  },
   'workload': {
     displayName: 'Workload',
     defaultEnabled: true
+  },
+  'instructor_effectiveness': {
+    displayName: 'Instructor Effectiveness',
+    defaultEnabled: false
+  },
+  'intellectual_challenge': {
+    displayName: 'Intellectual Challenge',
+    defaultEnabled: false
   },
   'feedback_frequency': {
     displayName: 'Helpful Feedback',

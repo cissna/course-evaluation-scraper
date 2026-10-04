@@ -1,7 +1,24 @@
 import { asResult } from './resultTypes';
 
 const STORAGE_KEY = 'jhuCourseSearchHistory';
+const PERCENTILE_PREFERENCE_KEY = 'jhuCourseShowPercentiles';
 const MAX_HISTORY_ITEMS = 1000;
+
+export const getShowPercentilesPreference = () => {
+  try {
+    return localStorage.getItem(PERCENTILE_PREFERENCE_KEY) === 'true';
+  } catch {
+    return false;
+  }
+};
+
+export const saveShowPercentilesPreference = (enabled) => {
+  try {
+    localStorage.setItem(PERCENTILE_PREFERENCE_KEY, String(enabled));
+  } catch (error) {
+    console.warn('Failed to save percentile preference:', error);
+  }
+};
 
 export const getSearchHistory = () => {
   try {

@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import { getInitialStatsState } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 import { toggleSeparation } from './utils/separationOptions';
+import { getShowPercentilesPreference, saveShowPercentilesPreference } from './utils/storageUtils';
 import { API_BASE_URL } from './config';
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
   const [benchmark, setBenchmark] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const [last3Years, setLast3Years] = useState(false);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState(() => ({
     stats: getInitialStatsState(),
     filters: { min_year: '', max_year: '', seasons: [], exclude_summer: false, exclude_intersession: false },
-    separationKeys: [], showPercentiles: false,
-  });
+    separationKeys: [], showPercentiles: getShowPercentilesPreference(),
+  }));
   useEffect(() => {
     const controller = new AbortController();
     fetch(`${API_BASE_URL}/api/percentiles`, { signal: controller.signal })
@@ -38,6 +39,11 @@ function App() {
     if (selection?.id !== result.id) { setMetadata(null); setSelection(result); }
   };
   const separate = key => setOptions(previous => ({ ...previous, separationKeys: toggleSeparation(previous.separationKeys, key) }));
+  const changePercentiles = event => {
+    const showPercentiles = event.target.checked;
+    setOptions(previous => ({ ...previous, showPercentiles }));
+    saveShowPercentilesPreference(showPercentiles);
+  };
   const toggleYears = () => {
     const bounds = last3Years ? { min_year: '', max_year: '' } : calculateLast3YearsRange();
     setOptions(previous => ({ ...previous, filters: { ...previous.filters, ...bounds } }));
@@ -49,7 +55,7 @@ function App() {
       <button onClick={toggleYears}>{last3Years ? 'Show All Time' : 'Show Last 3 Years'}</button>
       {professor ? <button onClick={() => separate('course_group')}>{options.separationKeys.includes('course_group') ? 'Combine Courses' : 'Separate by Course'}</button>
         : <button onClick={() => separate('instructor')}>{options.separationKeys.includes('instructor') ? 'Combine Professors' : 'Separate by Professor'}</button>}
-      <label className="percentile-control"><input type="checkbox" checked={options.showPercentiles} onChange={event => setOptions(previous => ({ ...previous, showPercentiles: event.target.checked }))} />Show percentiles</label>
+      <label className="percentile-control"><input type="checkbox" checked={options.showPercentiles} onChange={changePercentiles} />Show percentiles</label>
     </div>
     <AdvancedOptions options={options} onApply={setOptions} hasCourses={!professor} hasProfessors={professor}
       hasFormerNames={Boolean(metadata?.former_names?.length || metadata?.has_former_names)}
