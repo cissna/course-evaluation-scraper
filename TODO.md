@@ -169,6 +169,12 @@ Keep the existing server-side scraping approach while allowing cached data to re
 
 Store the lock in a nullable `scrape_lock_expires_at` timestamp column on the existing `course_metadata` row. NULL means unlocked; a future timestamp means active; an expired timestamp can be reclaimed. Create the metadata row when needed and claim the lock atomically. Remember the exact expiry returned by the database; renew it during long scrapes and clear it to NULL on completion or failure only if it still matches this scrape's claim. A scraper that loses ownership must not publish further results. No separate lock table is needed.
 
+## Scrape failure handling (deferred)
+
+**Planning note:** Flesh this out together before changing failure behavior. For now, preserve the existing retries and warning/skip/continue behavior when a report returns `scrape_failed`.
+
+Distinguish transient failures (such as temporary network or server problems) from persistent failures (such as unavailable reports or unsupported report contents). Decide which failures should be retried, when to retry them, and how partial success should affect the course's up-to-date status. Avoid letting a persistently failing report block the remaining reports or force endless rechecks. Define the policy and user-facing failure messages before implementing it.
+
 ## [#21](https://github.com/cissna/course-evaluation-scraper/issues/21): Somehow represent scores as percentiles
 
 Add a small **"Show percentiles"** checkbox beside the shared quick controls (Show Last 3 Years / separation shortcuts), outside Advanced Options. Show it once for the whole view, in the same position for a single result or a comparison. Leave it unchecked by default, and match the other general settings: retain its value across searches while the app is open and reset on reload or a new visit.

@@ -201,9 +201,7 @@ def _scrape_course_data_owned(course_code, session, skip_grace_period_logic, lea
             # In a DB-driven world, we might log these failures to a separate table.
             # For now, we'll just print a warning and skip.
             print(f"Warning: Scraping failed for {instance_key}. See server logs for details.")
-            course_metadata['last_period_failed'] = True
-            batch_failed = True
-            break
+            continue
 
         if scraped_data:
             lease.publish(instance_key, scraped_data)
