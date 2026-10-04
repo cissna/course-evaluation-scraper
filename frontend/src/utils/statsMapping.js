@@ -33,6 +33,17 @@ export const STATISTICS_CONFIG = {
 
 // Derived utilities - no more separate arrays needed
 export const ALL_STAT_KEYS = Object.keys(STATISTICS_CONFIG);
+export const RATING_STAT_KEYS = ALL_STAT_KEYS.filter(key => key !== 'periods_course_has_been_run');
+
+const QUALITY = { Poor: 1, Weak: 2, Satisfactory: 3, Good: 4, Excellent: 5 };
+export const RATING_MAPPINGS = {
+  overall_quality: QUALITY,
+  instructor_effectiveness: QUALITY,
+  intellectual_challenge: QUALITY,
+  workload: { 'Much lighter': 1, 'Somewhat lighter': 2, Typical: 3, 'Somewhat heavier': 4, 'Much heavier': 5 },
+  feedback_frequency: { 'Disagree strongly': 1, 'Disagree somewhat': 2, 'Neither agree nor disagree': 3, 'Agree somewhat': 4, 'Agree strongly': 5 },
+  ta_frequency: QUALITY,
+};
 
 // Legacy mapping object for backward compatibility
 export const STAT_MAPPINGS = Object.fromEntries(
