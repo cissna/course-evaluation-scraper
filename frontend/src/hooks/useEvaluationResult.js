@@ -41,13 +41,21 @@ export default function useEvaluationResult(selection) {
   const [notificationMessage, setNotificationMessage] = useState('');
   const controller = useRef(null);
   const rawRef = useRef(null);
-  const busy = useRef(false);
+  const busy = useRef(null);
   const notify = useRef(false);
+  const runNumber = useRef(0);
+  const completion = useRef(null);
+  const deliverNotification = useCallback(body => {
+    try { new window.Notification('Evaluation check finished', { body }); }
+    catch { setNotificationMessage('The check finished, but this browser could not display a notification.'); }
+  }, []);
 
   const refreshCourses = useCallback(async (statuses, force, signal) => {
-    if (!statuses.length || busy.current || signal.aborted) return;
-    busy.current = true;
+    if (!statuses.length || (busy.current && !busy.current.signal.aborted) || signal.aborted) return;
+    const run = { signal, id: ++runNumber.current };
+    busy.current = run;
     notify.current = false;
+    completion.current = null;
     setNotificationMessage('');
     const period = [...new Set(statuses.map(status => status.current_period).filter(Boolean))].join(', ');
     setRefresh({ state: 'checking', period });
@@ -97,16 +105,15 @@ export default function useEvaluationResult(selection) {
         } else if (changed) setPendingData(saved.raw_data);
       }
       setRefresh({ state: failures.length ? 'error' : changed ? hadCachedData ? 'updated' : 'applied' : 'complete', period, error: failures.join(' ') });
-      if (notify.current && 'Notification' in window && window.Notification.permission === 'granted') {
-        new window.Notification('Evaluation check finished', { body: failures.length ? 'Some courses could not be checked. See this tab for details.' : changed ? 'Updated evaluations are available in this tab.' : `No new data found for ${period}.` });
-      }
+      const body = failures.length ? 'Some courses could not be checked. See this tab for details.' : changed ? 'Updated evaluations are available in this tab.' : `No new data found for ${period}.`;
+      completion.current = { id: run.id, body };
+      if (notify.current && 'Notification' in window && window.Notification.permission === 'granted') deliverNotification(body);
     } catch (failure) {
       if (!signal.aborted) setRefresh({ state: 'error', period, error: failure.message });
     } finally {
-      busy.current = false;
-      notify.current = false;
+      if (busy.current === run) { busy.current = null; notify.current = false; }
     }
-  }, [selection]);
+  }, [selection, deliverNotification]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -142,11 +149,17 @@ export default function useEvaluationResult(selection) {
     setRefresh(previous => ({ ...previous, state: previous.error ? 'error' : 'applied' }));
   };
   const enableNotifications = async () => {
+    const requestedRun = runNumber.current;
+    setNotificationMessage('Waiting for notification permission…');
     try {
       const permission = await window.Notification.requestPermission();
-      if (controller.current.signal.aborted) return;
+      if (controller.current.signal.aborted || requestedRun !== runNumber.current) return;
       notify.current = permission === 'granted';
       setNotificationMessage(permission === 'granted' ? 'Notifications enabled while this tab is open.' : 'Notifications were not enabled. You can keep checking this tab.');
+      if (notify.current && completion.current?.id === requestedRun) {
+        deliverNotification(completion.current.body);
+        notify.current = false;
+      }
     } catch { setNotificationMessage('Notifications are not available in this browser.'); }
   };
   return { rawData, courses, loading, error, refresh, pendingData, recheck, showUpdated, enableNotifications, notificationMessage };

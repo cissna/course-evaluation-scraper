@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { StrictMode } from 'react';
 import App from './App';
 import { getSearchHistory } from './utils/storageUtils';
 
@@ -175,4 +176,51 @@ test('new page sessions reset season and percentile options while preserving typ
   expect(screen.getByLabelText('Exclude intersession')).not.toBeChecked();
   expect(getSearchHistory()[0]).toMatchObject({ type: 'course', code: 'AS.180.101' });
   await waitFor(() => expect(global.fetch).toHaveBeenCalled());
+});
+
+
+test('development StrictMode can restart an aborted refresh without leaving a stuck progress banner', async () => {
+  const checks = [];
+  global.fetch = jest.fn((url, options = {}) => {
+    if (url.includes('/api/percentiles')) return json({ benchmark: null });
+    if (url.includes('/api/refresh/')) return new Promise((resolve, reject) => {
+      checks.push({ signal: options.signal, resolve });
+      options.signal.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')), { once: true });
+    });
+    return json({ raw_data: raw(), refresh: { courses: [{ course_code: 'AS.180.101', current_period: 'SU26', needs_refresh: true }] } });
+  });
+  render(<StrictMode><App /></StrictMode>); search('AS.180.101');
+  await screen.findByText(/Previously saved data is shown below/);
+  await waitFor(() => expect(checks.some(check => !check.signal.aborted)).toBe(true));
+  for (const check of checks.filter(check => !check.signal.aborted)) check.resolve({ ok: true, status: 200, json: async () => ({ state: 'complete' }) });
+  await screen.findByText('No new data found for SU26');
+});
+
+test('late notification permission and a delivery failure do not change the completed refresh result', async () => {
+  let finish, allow;
+  const pending = new Promise(resolve => { finish = () => resolve({ ok: true, status: 200, json: async () => ({ state: 'complete' }) }); });
+  const permission = new Promise(resolve => { allow = () => resolve('granted'); });
+  const notification = jest.fn(() => { throw new Error('Browser notification delivery unavailable'); });
+  notification.requestPermission = jest.fn(() => permission);
+  notification.permission = 'granted';
+  const original = window.Notification;
+  window.Notification = notification;
+  global.fetch = jest.fn(url => {
+    if (url.includes('/api/percentiles')) return json({ benchmark: null });
+    if (url.includes('/api/refresh/')) return pending;
+    return json({ raw_data: raw(), refresh: { courses: [{ course_code: 'AS.180.101', current_period: 'SU26', needs_refresh: true }] } });
+  });
+  try {
+    render(<App />); search('AS.180.101');
+    fireEvent.click(await screen.findByRole('button', { name: 'Notify me when finished' }));
+    finish();
+    await screen.findByText('No new data found for SU26');
+    allow();
+    await screen.findByText('The check finished, but this browser could not display a notification.');
+    expect(notification).toHaveBeenCalledTimes(1);
+    expect(screen.getByText('No new data found for SU26')).toBeInTheDocument();
+  } finally {
+    if (original === undefined) delete window.Notification;
+    else window.Notification = original;
+  }
 });

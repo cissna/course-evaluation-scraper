@@ -42,7 +42,7 @@ function RefreshNotice({ selection, state }) {
         </div>
         {pendingData && <button className="recheck-button" onClick={showUpdated}>Show updated data</button>}
         {!checking && !pendingData && <button className="recheck-button" onClick={recheck}>Recheck</button>}
-        {checking && 'Notification' in window && typeof window.Notification.requestPermission === 'function' && !notificationMessage &&
+        {checking && typeof window.Notification?.requestPermission === 'function' && !notificationMessage &&
           <button className="recheck-button" onClick={enableNotifications}>Notify me when finished</button>}
       </div>
     </div>
