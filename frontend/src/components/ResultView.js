@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import DataDisplay from './DataDisplay';
+import InfoTooltip from './InfoTooltip';
 import './GracePeriodWarning.css';
 import useEvaluationResult from '../hooks/useEvaluationResult';
 import { processAnalysisRequest } from '../utils/analysisEngine';
@@ -71,7 +72,7 @@ const ResultView = ({ selection, options, benchmark, onMetadata, onToggleSeparat
         <div className="grouping-banner">
           This course was automatically grouped with: {' '}
           {grouping.grouped_courses.filter(code => code !== selection.code).map((code, index) => <React.Fragment key={code}>{index > 0 && ', '}<b>{code}</b></React.Fragment>)}{' '}
-          <span className="info-tip" tabIndex="0" aria-label={GROUPING_EXPLANATION}>(i)<span role="tooltip" className="info-popup">{GROUPING_EXPLANATION}</span></span>
+          <InfoTooltip label="About grouped course reviews">{GROUPING_EXPLANATION}</InfoTooltip>
           <div className="grouping-action"><button onClick={() => onToggleSeparation('course_code')}>
             {options.separationKeys.includes('course_code') ? 'Recombine by Course Code' : 'Separate by Course Code'}
           </button></div>

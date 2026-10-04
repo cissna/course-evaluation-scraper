@@ -41,9 +41,11 @@ main {
 .grouping-action button { background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
 .professor-banner { background: #f3e5f5; border-color: #ce93d8; color: #582268; border-radius: 0; }
 .professor-banner .grouping-action button { background: #8e44ad; }
-.info-tip { position: relative; display: inline-block; font-size: .9em; font-weight: bold; cursor: help; }
+.info-tip { position: relative; display: inline-flex; vertical-align: middle; }
+.info-button { display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: none; color: inherit; cursor: help; }
+.info-button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 50%; }
 .info-popup { display: none; position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); width: 260px; max-width: 75vw; background: #333; color: white; padding: 8px; border-radius: 4px; font-size: 13px; line-height: 1.4; font-weight: normal; z-index: 1100; }
-.info-tip:hover .info-popup, .info-tip:focus .info-popup { display: block; }
+.info-tip:hover .info-popup, .info-tip:focus-within .info-popup { display: block; }
 .percentile-control { display: inline-flex; align-items: center; margin-left: 8px; font-size: 14px; }
 .ratings-caption { text-align: center; margin: 20px 0; font-weight: bold; }
 .refresh-spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #d39e00; border-right-color: transparent; border-radius: 50%; margin-right: 8px; vertical-align: middle; animation: refresh-spin 1s linear infinite; }
