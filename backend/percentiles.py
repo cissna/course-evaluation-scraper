@@ -15,6 +15,24 @@ METRICS = {
     'ta_frequency': QUALITY,
 }
 PERIOD = re.compile(r'\.(?:IN|SP|SU|FA)\.?(\d{2})$')
+BENCHMARK_VERSION = 2
+REBUILD_AFTER_EVALUATIONS = 100
+
+
+def percentile_mapping(by_group):
+    # Index 0 represents 1.00, index 400 represents 5.00. Only percentile
+    # lookup uses rounded means; response statistics keep their full precision.
+    counts = [0] * 401
+    for total, n in by_group.values():
+        if n > 0:
+            counts[math.floor((total / n) * 100 + 0.5) - 100] += 1
+    course_count = sum(counts)
+    below = 0
+    percentiles = []
+    for tied in counts:
+        percentiles.append(100 * (below + tied / 2) / course_count if course_count else None)
+        below += tied
+    return {'percentiles': percentiles, 'course_count': course_count}
 
 
 def build_benchmark(records, generated_at=None):
@@ -49,17 +67,19 @@ def build_benchmark(records, generated_at=None):
         if contributed:
             years.add(2000 + int(period[1]))
     return {
-        'version': 1,
+        'version': BENCHMARK_VERSION,
         'generated_at': generated_at or datetime.now(timezone.utc).isoformat(),
         'population': 'All logical course groups in the database, all available years; one response-weighted mean per group.',
-        'refresh_schedule': 'After every regular bulk scrape/import, at least monthly.',
-        'ranking': 'midrank',
+        'refresh_schedule': 'After 100 newly inserted evaluation reports, at the end of a scrape or the next benchmark request.',
+        'ranking': 'midrank of course averages rounded to the nearest hundredth',
+        'score_min': 1,
+        'score_max': 5,
+        'score_step': 0.01,
         'years': sorted(years),
         'year_coverage': f'{min(years)}–{max(years)}' if years else 'Unavailable',
         'skipped_records': skipped,
         'metrics': {
-            metric: {'scores': sorted(total / n for total, n in by_group.values() if n > 0),
-                     'course_count': sum(n > 0 for _, n in by_group.values())}
+            metric: percentile_mapping(by_group)
             for metric, by_group in totals.items()
         },
     }

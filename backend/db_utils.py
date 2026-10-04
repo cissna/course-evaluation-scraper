@@ -1,8 +1,10 @@
 import os
 import psycopg2
 import json
+import logging
 from contextlib import contextmanager
 from dotenv import load_dotenv
+from .percentiles import BENCHMARK_VERSION, REBUILD_AFTER_EVALUATIONS, build_benchmark
 
 load_dotenv()
 
@@ -382,15 +384,51 @@ def update_course_data_owned(instance_key, course_code, data, claimed_expiry):
 
 
 def get_percentile_benchmark():
+    """Serve the saved mapping, rebuilding only when missing or due."""
+    try:
+        return refresh_percentile_benchmark()
+    except Exception:
+        # A failed rebuild must not hide an otherwise usable saved snapshot.
+        with get_db_connection() as conn, conn.cursor() as cur:
+            cur.execute("SELECT payload FROM percentile_benchmarks WHERE benchmark_id = 'current'")
+            row = cur.fetchone()
+        if row and row[0].get('version') == BENCHMARK_VERSION:
+            logging.getLogger(__name__).exception('Percentile rebuild failed; serving the previous snapshot.')
+            return row[0]
+        raise
+
+
+def _percentile_rebuild_due(row):
+    return not row or row[0].get('version') != BENCHMARK_VERSION or row[1] >= REBUILD_AFTER_EVALUATIONS
+
+
+def refresh_percentile_benchmark(force=False):
+    """Atomically rebuild and reset the insertion counter across backend instances."""
     with get_db_connection() as conn, conn.cursor() as cur:
-        cur.execute("SELECT payload FROM percentile_benchmarks WHERE benchmark_id = 'current'")
+        cur.execute("SELECT payload, pending_evaluations FROM percentile_benchmarks WHERE benchmark_id = 'current'")
         row = cur.fetchone()
-        return row[0] if row else None
-
-
-def save_percentile_benchmark(payload):
-    with get_db_connection() as conn, conn.cursor() as cur:
+        if not force and not _percentile_rebuild_due(row):
+            return row[0]
+        if row is None:
+            cur.execute("""
+                INSERT INTO percentile_benchmarks(benchmark_id, payload) VALUES ('current', '{}'::JSONB)
+                ON CONFLICT(benchmark_id) DO NOTHING
+            """)
+        # The insertion trigger takes this same row lock. New inserts wait until
+        # the snapshot commits, then count toward the next rebuild. No increments
+        # can be lost between reading all evaluations and resetting the counter.
         cur.execute("""
-            INSERT INTO percentile_benchmarks(benchmark_id, payload) VALUES ('current', %s)
-            ON CONFLICT(benchmark_id) DO UPDATE SET payload = EXCLUDED.payload, generated_at = NOW()
-        """, (json.dumps(payload),))
+            SELECT payload, pending_evaluations FROM percentile_benchmarks
+            WHERE benchmark_id = 'current' FOR UPDATE
+        """)
+        row = cur.fetchone()
+        if not force and not _percentile_rebuild_due(row):
+            return row[0]
+        cur.execute('SELECT instance_key, course_code, data FROM courses')
+        payload = build_benchmark(cur.fetchall())
+        cur.execute("""
+            UPDATE percentile_benchmarks
+            SET payload = %s, generated_at = %s, pending_evaluations = 0
+            WHERE benchmark_id = 'current'
+        """, (json.dumps(payload), payload['generated_at']))
+        return payload

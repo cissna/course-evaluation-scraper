@@ -1,4 +1,4 @@
-"""Explicit offline/maintenance command. Never invoked by an HTTP request."""
+"""Build a local benchmark or explicitly rebuild the database's saved mapping."""
 import argparse
 import json
 from pathlib import Path
@@ -22,16 +22,18 @@ def main():
         data = json.loads(args.input.read_text())
         records = [(key, match[1], record) for key, record in data.items()
                    if (match := re.match(r'^([A-Z]{2}\.\d{3}\.\d{3})', key))]
+        benchmark = build_benchmark(records)
+    elif args.write_store:
+        # Read the population and reset its counter in the same transaction as
+        # automatic rebuilds, so concurrent inserts cannot lose their increments.
+        from .db_utils import refresh_percentile_benchmark
+        benchmark = refresh_percentile_benchmark(force=True)
     else:
         from .db_utils import get_all_evaluation_records
-        records = get_all_evaluation_records()
-    benchmark = build_benchmark(records)
+        benchmark = build_benchmark(get_all_evaluation_records())
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(benchmark, indent=2) + '\n')
-    if args.write_store:
-        from .db_utils import save_percentile_benchmark
-        save_percentile_benchmark(benchmark)
     print(json.dumps({'years': benchmark['years'], 'courses_by_metric': {
         key: metric['course_count'] for key, metric in benchmark['metrics'].items()
     }, 'skipped_records': benchmark['skipped_records']}))

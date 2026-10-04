@@ -71,11 +71,13 @@ Then, the export_data.py script will convert the supabase database back into eas
 
 The new cached-first and professor-search APIs require the reviewed SQL files in [migrations](migrations/README.md). Do not run migrations against a live database as part of frontend development. `db_schema.sql` also includes the new schema for a fresh database.
 
-Percentile distributions are precomputed across all departments, all available years, and existing logical course groups. Filters only recompute the displayed averages and look them up in that fixed benchmark. The tooltip shows the actual benchmark coverage. Rebuild the benchmark after regular bulk scraping/import, at least monthly; [migration and maintenance instructions](migrations/README.md) describe the explicit commands. A missing benchmark displays N/A in percentile mode, with a reason.
+Percentiles are precomputed across all departments, all available years, and existing logical course groups. Each metric stores 401 percentile values for scores 1.00–5.00, rounded to the nearest hundredth. Filters only recompute displayed averages and look them up in that fixed benchmark. A database counter tracks newly inserted evaluation reports; after 100, the mapping is rebuilt at the end of a scrape or on the next benchmark request. Metadata-only checks do not increment it. An absent or outdated mapping is built on first use; no monthly job is required. [Migration and maintenance instructions](migrations/README.md) cover imports and explicit rebuilds. The tooltip shows the benchmark's year coverage; unavailable percentiles show N/A with a reason.
 
 ## Cached data and professor results
 
 `POST /api/analyze/<code>` and `GET /api/professor?name=...` return saved data immediately, plus per-course freshness metadata. They do not scrape. The tab calls `POST /api/refresh/<code>` for automatic updates or `POST /api/recheck/<code>` for a manual check while keeping cached tables usable. Duplicate work returns 202 and is polled via `GET /api/refresh-status/<code>`. A renewable database lease covers automatic, manual, and batch scrapes. Closing a tab does not create a persistent client job or closed-tab notification.
+
+When new saved evaluations are available, **Show updated data** replaces the table data in place, preserving search, filters, and comparison settings. When there are no new evaluations, the same banner says **No new data found for [period]**. Notifications are optional; neither outcome requires notification permission or a page reload.
 
 `GET /api/search?q=...` returns paginated course/group and professor matches with independent total counts. Professor membership uses one literal recorded `instructor_name` string. Multiple-professor lists are not parsed, and name variants are kept separate. `GET /api/percentiles` serves the precomputed snapshot once per page visit.
 

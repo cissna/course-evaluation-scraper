@@ -17,6 +17,8 @@ DROP FUNCTION IF EXISTS evaluation_instructor_name(JSONB);
 DROP FUNCTION IF EXISTS set_course_metadata_timestamp();
 
 ALTER TABLE course_metadata DROP COLUMN IF EXISTS scrape_lock_expires_at;
+DROP TRIGGER IF EXISTS count_new_percentile_evaluation ON courses;
+DROP FUNCTION IF EXISTS count_new_percentile_evaluation();
 DROP TABLE IF EXISTS percentile_benchmarks;
 
 COMMIT;

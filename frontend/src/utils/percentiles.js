@@ -5,23 +5,13 @@ export function ordinal(value) {
   return `${number}${suffix}`;
 }
 
-function lowerBound(values, value) {
-  let low = 0, high = values.length;
-  while (low < high) {
-    const mid = Math.floor((low + high) / 2);
-    if (values[mid] < value) low = mid + 1;
-    else high = mid;
-  }
-  return low;
-}
-
 export function lookupPercentile(mean, metric, benchmark) {
-  if (!Number.isFinite(mean)) return { percentile: null, percentile_reason: 'No valid responses for this metric.' };
-  const scores = benchmark?.metrics?.[metric]?.scores;
-  if (!Array.isArray(scores) || scores.length === 0) {
+  if (!Number.isFinite(mean) || mean < 1 || mean > 5) return { percentile: null, percentile_reason: 'No valid responses for this metric.' };
+  const percentiles = benchmark?.metrics?.[metric]?.percentiles;
+  // The 401 entries represent 1.00–5.00. Rounding is only for this lookup.
+  const percentile = percentiles?.[Math.round(mean * 100) - 100];
+  if (benchmark?.version !== 2 || !Array.isArray(percentiles) || percentiles.length !== 401 || !Number.isFinite(percentile)) {
     return { percentile: null, percentile_reason: 'The percentile benchmark is not available for this metric.' };
   }
-  const below = lowerBound(scores, mean - 1e-12);
-  const above = lowerBound(scores, mean + 1e-12);
-  return { percentile: 100 * (below + (above - below) / 2) / scores.length, percentile_reason: null };
+  return { percentile, percentile_reason: null };
 }

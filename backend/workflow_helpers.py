@@ -1,4 +1,4 @@
-from .db_utils import get_course_metadata, get_course_data_by_keys
+from .db_utils import get_course_metadata, get_course_data_by_keys, refresh_percentile_benchmark
 from .scrape_lock import CourseScrapeLease, ScrapeOwnershipLost
 from .period_logic import (
     get_current_period,
@@ -12,6 +12,7 @@ from .scraping_logic import get_authenticated_session
 from .scrape_search import get_evaluation_report_links
 from .scrape_link import scrape_evaluation_data
 import requests
+import logging
 from datetime import date
 
 def get_all_links_by_section(session, course_code):
@@ -62,22 +63,34 @@ def get_all_links_by_section(session, course_code):
 # Helper function to sort links chronologically before scraping
 def scrape_course_data_core(course_code: str, session: requests.Session = None, skip_grace_period_logic: bool = True) -> dict:
     """Every entry point (automatic, manual, batch) shares the same DB lease."""
-    with CourseScrapeLease(course_code) as lease:
-        if not lease.acquired:
-            return {'success': False, 'in_progress': True, 'new_data_found': False, 'data': {}}
-        try:
-            return _scrape_course_data_owned(course_code, session, skip_grace_period_logic, lease)
-        except ScrapeOwnershipLost as error:
-            return {'success': False, 'error': str(error), 'ownership_lost': True, 'new_data_found': False, 'data': {}}
-        except Exception as error:
-            if lease.acquired:
-                metadata = get_course_metadata(course_code) or {}
-                metadata['last_period_failed'] = True
-                try:
-                    lease.update_metadata(metadata)
-                except ScrapeOwnershipLost:
-                    pass
-            return {'success': False, 'error': str(error), 'new_data_found': False, 'data': {}}
+    lease = CourseScrapeLease(course_code)
+    try:
+        with lease:
+            if not lease.acquired:
+                return {'success': False, 'in_progress': True, 'new_data_found': False, 'data': {}}
+            try:
+                return _scrape_course_data_owned(course_code, session, skip_grace_period_logic, lease)
+            except ScrapeOwnershipLost as error:
+                return {'success': False, 'error': str(error), 'ownership_lost': True, 'new_data_found': False, 'data': {}}
+            except Exception as error:
+                if lease.acquired:
+                    metadata = get_course_metadata(course_code) or {}
+                    metadata['last_period_failed'] = True
+                    try:
+                        lease.update_metadata(metadata)
+                    except ScrapeOwnershipLost:
+                        pass
+                return {'success': False, 'error': str(error), 'new_data_found': False, 'data': {}}
+    finally:
+        # Even a partially completed scrape may have saved reports. Release its
+        # course lease before checking the shared percentile counter.
+        if lease.published:
+            try:
+                refresh_percentile_benchmark()
+            except Exception:
+                # Keep the old snapshot and pending count for the next attempt;
+                # cache maintenance must not turn a successful scrape into a failure.
+                logging.getLogger(__name__).exception('Could not refresh the percentile benchmark.')
 
 
 def _scrape_course_data_owned(course_code, session, skip_grace_period_logic, lease):

@@ -13,6 +13,7 @@ class CourseScrapeLease:
         self.ttl_seconds = ttl_seconds
         self.heartbeat_seconds = heartbeat_seconds
         self.expires_at = None
+        self.published = False
         self._mutex = RLock()
         self._stop = Event()
         self._thread = None
@@ -65,6 +66,7 @@ class CourseScrapeLease:
             if not db_utils.update_course_data_owned(instance_key, self.course_code, data, self.expires_at):
                 self._lost = True
                 raise ScrapeOwnershipLost('Evaluation was not published because ownership was lost.')
+            self.published = True
 
     def __exit__(self, exc_type, exc, traceback):
         self._stop.set()
