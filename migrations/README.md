@@ -1,6 +1,6 @@
 # Database changes for the overnight branches
 
-These SQL files are prepared for manual review. They have **not** been applied to any database. No database test run is required by this handoff.
+These SQL files are prepared for manual review. They have **not** been applied to the live database. Both migrations and their rollback were rehearsed on a disposable local PostgreSQL 17 database loaded from the existing exports: apply, rollback, and reapply all succeeded, preserving all 33,502 evaluation reports. The initial percentile mapping also generated successfully. This does not establish production lock duration or concurrent-worker behavior. No additional database test run is required by this handoff.
 
 1. `001_professor_search_and_scrape_locks.sql`: nullable lease on `course_metadata`, a timestamp trigger that excludes lock-only updates, a literal instructor-name helper, and query indexes. Multiple-professor parsing has been removed at the owner's request.
 2. `002_percentile_benchmarks.sql`: one current percentile mapping, a pending-evaluation counter, and an `AFTER INSERT` trigger on `courses` to increment it.
