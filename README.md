@@ -77,7 +77,7 @@ Percentile distributions are precomputed across all departments, all available y
 
 `POST /api/analyze/<code>` and `GET /api/professor?name=...` return saved data immediately, plus per-course freshness metadata. They do not scrape. The tab calls `POST /api/refresh/<code>` for automatic updates or `POST /api/recheck/<code>` for a manual check while keeping cached tables usable. Duplicate work returns 202 and is polled via `GET /api/refresh-status/<code>`. A renewable database lease covers automatic, manual, and batch scrapes. Closing a tab does not create a persistent client job or closed-tab notification.
 
-`GET /api/search?q=...` returns paginated course/group and professor matches with independent total counts. Professor membership uses exact recorded names, including explicitly listed team teachers. Name variants are kept separate. `GET /api/percentiles` serves the precomputed snapshot once per page visit.
+`GET /api/search?q=...` returns paginated course/group and professor matches with independent total counts. Professor membership uses one literal recorded `instructor_name` string. Multiple-professor lists are not parsed, and name variants are kept separate. `GET /api/percentiles` serves the precomputed snapshot once per page visit.
 
 ## Review
 

@@ -10,8 +10,10 @@ BEFORE UPDATE ON course_metadata
 FOR EACH ROW EXECUTE FUNCTION trigger_set_timestamp();
 
 DROP INDEX IF EXISTS courses_instructor_names_idx;
+DROP INDEX IF EXISTS courses_instructor_name_idx;
 DROP INDEX IF EXISTS courses_course_code_idx;
 DROP FUNCTION IF EXISTS evaluation_instructor_names(JSONB);
+DROP FUNCTION IF EXISTS evaluation_instructor_name(JSONB);
 DROP FUNCTION IF EXISTS set_course_metadata_timestamp();
 
 ALTER TABLE course_metadata DROP COLUMN IF EXISTS scrape_lock_expires_at;

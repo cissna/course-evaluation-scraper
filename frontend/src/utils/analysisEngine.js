@@ -3,10 +3,8 @@ import { lookupPercentile } from './percentiles';
 
 const SEASONS = { FA: 'Fall', SP: 'Spring', SU: 'Summer', IN: 'Intersession' };
 
-export function getRecordedInstructors(instance) {
-  const value = instance.instructor_names ?? instance.instructor_name;
-  const names = Array.isArray(value) ? value : typeof value === 'string' ? value.split(/[;|\n\r]+|\s+(?:&|and)\s+/) : [];
-  return [...new Set(names.filter(name => typeof name === 'string').map(name => name.trim()).filter(Boolean))];
+function getRecordedInstructor(instance) {
+  return typeof instance.instructor_name === 'string' ? instance.instructor_name.trim() : '';
 }
 
 function periodOf(key) {
@@ -38,7 +36,7 @@ export function filterInstances(allInstances, filters = {}) {
     if (filters.exclude_summer && season === 'Summer') return false;
     if (filters.exclude_intersession && season === 'Intersession') return false;
     if (filters.seasons?.length && !filters.seasons.includes(season)) return false;
-    if (filters.instructors?.length && !getRecordedInstructors(instance).some(name => filters.instructors.includes(name))) return false;
+    if (filters.instructors?.length && !filters.instructors.includes(getRecordedInstructor(instance))) return false;
     return true;
   }));
 }
@@ -55,7 +53,7 @@ export function separateInstances(instances, separationKeys = [], scope = {}) {
   const groups = Object.create(null);
   for (const [key, instance] of Object.entries(instances)) {
     const parts = keys.map(separation => {
-      if (separation === 'instructor') return typeof instance.instructor_name === 'string' ? instance.instructor_name : getRecordedInstructors(instance).join(' & ') || 'Unknown';
+      if (separation === 'instructor') return getRecordedInstructor(instance) || 'Unknown';
       if (separation === 'year') return String(getInstanceYear(key) ?? 'Unknown');
       if (separation === 'season') return SEASONS[periodOf(key)?.[1]] || 'Unknown';
       if (separation === 'exact_period') return periodOf(key)?.slice(1).join('') || 'Unknown';
@@ -94,7 +92,7 @@ function hasResponses(instance) {
 export function processAnalysisRequest(rawData, params) {
   const scope = params.scope || { type: rawData.metadata?.result_type || 'course', name: rawData.metadata?.professor_name };
   const scoped = Object.fromEntries(Object.entries(rawData.instances || {}).filter(([, record]) =>
-    record && typeof record === 'object' && (scope.type !== 'professor' || getRecordedInstructors(record).includes(scope.name))
+    record && typeof record === 'object' && (scope.type !== 'professor' || getRecordedInstructor(record) === scope.name)
   ));
   const filters = params.filters || {};
   const filtered = filterInstances(scoped, filters);

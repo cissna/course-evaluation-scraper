@@ -1,6 +1,6 @@
 # Overnight review
 
-`TODO.md` is unchanged and remains the authoritative specification. Both review branches are normal local branches in the original repository and remain unmerged:
+`TODO.md` is unchanged; subsequent owner decisions recorded below override it where stated. Both review branches are normal local branches in the original repository and remain unmerged:
 
 - `codex/overnight-improvements`: professor search, #6, the explicit year-range empty state, grouping tooltip, #15, and #19–21.
 - `codex/overnight-comparisons`: based on the shared branch, adding #13–14.
@@ -14,7 +14,7 @@
 
 ## Implementation decisions to review
 
-- **Multiple listed professors:** TODO.md asks for a shared evaluation to appear when searching either listed professor. For example, “Jane Smith & Alex Rivera” is read as two listed names for matching. Stored evaluations are unchanged, and initials/similar names/shared surnames are not merged. The earlier “Team teaching” paragraph was describing this matching behavior.
+- **Multiple listed professors — removed:** The owner deferred this requirement after the overnight review. Professor search/filtering now treats `instructor_name` as one literal string. Array support and guessed delimiters have been removed from SQL, Python, and JavaScript. The earlier “Jane Smith & Alex Rivera” example was invented to explain the parser, not supplied by the owner or found in the local data. Review an actual example before adding support later.
 - **Cached refresh (#20):** Saved evaluations remain visible while a separate browser request runs the existing scraper. A renewable per-course database lock prevents duplicate scrapes. The work runs during the request; no persistent job system or closed-tab notification was added.
 - **Refresh failures:** A report marked `scrape_failed` now marks the check failed instead of incorrectly reporting completion. Previously saved evaluations remain available. This corrects refresh status without investigating the deferred null-table issue.
 - **Recorded names:** Professor separation retains exact recorded names rather than stripping punctuation, keeping it consistent with exact-name search. No professor-name grouping is introduced.

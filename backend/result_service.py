@@ -2,7 +2,7 @@
 from . import db_utils
 from .analysis import extract_course_metadata
 from .course_grouping_service import CourseGroupingService
-from .instructor_names import recorded_instructor_names
+from .instructor_names import recorded_instructor_name
 from .period_logic import get_current_period, is_course_up_to_date
 from .workflow_helpers import scrape_course_data_core
 
@@ -38,7 +38,7 @@ def enrich_records(records):
             **data,
             'course_code': code,
             'source_evaluation_id': key,
-            'instructor_names': recorded_instructor_names(data),
+            'instructor_name': recorded_instructor_name(data),
             'course_group_id': '|'.join(sorted(members)),
         }
     # Display only the codes that contribute to this result, but retain stable
@@ -77,7 +77,7 @@ def cached_course_result(code):
 def cached_professor_result(name):
     # Do not fetch grouped courses and accidentally include their other teachers.
     records = [r for r in db_utils.get_professor_records(name)
-               if isinstance(r[2], dict) and name in recorded_instructor_names(r[2])]
+               if isinstance(r[2], dict) and name == recorded_instructor_name(r[2])]
     instances = enrich_records(records)
     codes = sorted({record['course_code'] for record in instances.values()})
     # Historical title separation stays distinct from actual course separation.

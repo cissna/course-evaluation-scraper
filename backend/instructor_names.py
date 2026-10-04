@@ -1,11 +1,8 @@
-"""Exact recorded names. Keep in sync with evaluation_instructor_names in SQL."""
-import re
+"""One literal recorded name. Keep in sync with evaluation_instructor_name in SQL."""
 
 
-def recorded_instructor_names(record):
-    value = record.get('instructor_names', record.get('instructor_name'))
-    if isinstance(value, str):
-        value = re.split(r'[;|\n\r]+|\s+(?:&|and)\s+', value)
-    if not isinstance(value, list):
-        return []
-    return sorted({name.strip() for name in value if isinstance(name, str) and name.strip()})
+def recorded_instructor_name(record):
+    value = record.get('instructor_name')
+    if not isinstance(value, str):
+        return None
+    return value.strip() or None

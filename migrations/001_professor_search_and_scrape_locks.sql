@@ -20,23 +20,19 @@ CREATE TRIGGER set_timestamp_course_metadata
 BEFORE UPDATE ON course_metadata
 FOR EACH ROW EXECUTE FUNCTION set_course_metadata_timestamp();
 
--- Split only explicit lists, never surnames, initials, or comma-form names.
-CREATE OR REPLACE FUNCTION evaluation_instructor_names(record JSONB)
-RETURNS TEXT[] LANGUAGE sql IMMUTABLE PARALLEL SAFE AS $$
-    SELECT COALESCE(array_agg(DISTINCT btrim(name)) FILTER (WHERE btrim(name) <> ''), ARRAY[]::TEXT[])
-    FROM jsonb_array_elements_text(
-        CASE
-            WHEN jsonb_typeof(record->'instructor_names') = 'array' THEN record->'instructor_names'
-            WHEN jsonb_typeof(record->'instructor_name') = 'array' THEN record->'instructor_name'
-            WHEN jsonb_typeof(record->'instructor_name') = 'string' THEN
-                to_jsonb(regexp_split_to_array(record->>'instructor_name', E'[;|\\n\\r]+|[[:space:]]+(&|and)[[:space:]]+'))
-            ELSE '[]'::JSONB
-        END
-    ) AS names(name);
+-- Remove the superseded list parser if an earlier review version was applied.
+DROP INDEX IF EXISTS courses_instructor_names_idx;
+DROP FUNCTION IF EXISTS evaluation_instructor_names(JSONB);
+
+-- A professor is one literal recorded string. Do not interpret lists or delimiters.
+CREATE OR REPLACE FUNCTION evaluation_instructor_name(record JSONB)
+RETURNS TEXT LANGUAGE sql IMMUTABLE PARALLEL SAFE AS $$
+    SELECT CASE WHEN jsonb_typeof(record->'instructor_name') = 'string'
+        THEN NULLIF(btrim(record->>'instructor_name'), '') END;
 $$;
 
-CREATE INDEX IF NOT EXISTS courses_instructor_names_idx
-    ON courses USING GIN (evaluation_instructor_names(data));
+CREATE INDEX IF NOT EXISTS courses_instructor_name_idx
+    ON courses (evaluation_instructor_name(data));
 CREATE INDEX IF NOT EXISTS courses_course_code_idx ON courses(course_code);
 
 COMMIT;

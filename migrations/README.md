@@ -2,10 +2,10 @@
 
 These SQL files are prepared for manual review. They have **not** been applied to any database. No database test run is required by this handoff.
 
-1. `001_professor_search_and_scrape_locks.sql`: nullable lease on `course_metadata`, a timestamp trigger that excludes lock-only updates, exact instructor membership helper, and query indexes.
+1. `001_professor_search_and_scrape_locks.sql`: nullable lease on `course_metadata`, a timestamp trigger that excludes lock-only updates, a literal instructor-name helper, and query indexes. Multiple-professor parsing has been removed at the owner's request.
 2. `002_percentile_benchmarks.sql`: single current precomputed benchmark snapshot.
 
-Run each SQL file with `psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f <file>` when authorized. The migrations are transactional and can be reapplied. Existing evaluation records and course groupings are preserved. The GIN index build takes a normal table lock during migration; schedule this with the release for a large database.
+Run each SQL file with `psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f <file>` when authorized. The migrations are transactional and can be reapplied. Existing evaluation records and course groupings are preserved. Index creation takes a normal table lock during migration; schedule this with the release for a large database. Reapplying 001 removes the superseded list-parser function/index if an earlier review version was applied.
 
 ## Rollback
 

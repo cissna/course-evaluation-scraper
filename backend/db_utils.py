@@ -265,9 +265,9 @@ def find_professors_by_name_db(query, limit=20, offset=0):
     """Search recorded names without resolving them to surname/initial variants."""
     pattern = '%' + query.replace('\\', '\\\\').replace('%', '\\%').replace('_', '\\_') + '%'
     names_sql = """
-        SELECT DISTINCT name
-        FROM courses CROSS JOIN LATERAL unnest(evaluation_instructor_names(data)) AS names(name)
-        WHERE name ILIKE %s
+        SELECT DISTINCT evaluation_instructor_name(data) AS name
+        FROM courses
+        WHERE evaluation_instructor_name(data) ILIKE %s
     """
     with get_db_connection() as conn, conn.cursor() as cur:
         cur.execute('SELECT count(*) FROM (' + names_sql + ') AS matches', (pattern,))
@@ -281,7 +281,7 @@ def get_professor_records(name):
     with get_db_connection() as conn, conn.cursor() as cur:
         cur.execute("""
             SELECT instance_key, course_code, data FROM courses
-            WHERE evaluation_instructor_names(data) @> ARRAY[%s]::TEXT[]
+            WHERE evaluation_instructor_name(data) = %s
         """, (name,))
         return cur.fetchall()
 
