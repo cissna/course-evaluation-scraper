@@ -12,7 +12,7 @@ export function ResultHeading({ selection, metadata, onRemove }) {
   return (
     <div className="result-heading">
       <span className="result-heading-title">{selection.type === 'professor' ? selection.name : metadata?.current_name || selection.code}
-        {onRemove && <button className="remove-result" onClick={onRemove} aria-label={`Remove ${selection.code || selection.name} from comparison`}>×</button>}
+        {onRemove && <button className="remove-result" onClick={onRemove} aria-label={`Remove ${selection.code || selection.name} from side-by-side view`}>×</button>}
       </span>
       {selection.type === 'course' && <>
         {metadata?.former_names?.length > 0 && <span className="result-subtitle">(formerly known as {metadata.former_names.join(', ')})</span>}
@@ -97,7 +97,7 @@ const ResultView = ({ selection, options, benchmark, onAnalysis, onToggleSeparat
         selectedStats={Object.keys(options.stats).filter(key => options.stats[key])}
         statisticsMetadata={analysis?.statistics_metadata} groupLabels={analysis?.group_labels} showPercentiles={options.showPercentiles}
         comparisonMetric={comparisonMetric} rowTones={rowTones} significant={significant}
-        onRowSelect={groupName => onRowSelect(selection.id, groupName)}
+        onRowSelect={onRowSelect ? groupName => onRowSelect(selection.id, groupName) : undefined}
         yearRangeEmpty={analysis?.year_range_empty} filename={`${selection.type === 'professor' ? selection.name : selection.code}_analysis.csv`} />
       {state.error?.startsWith('No ') && selection.type === 'course' && <p className="evaluation-source-link">No evaluations found at this search: {' '}
         <a href={`https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(selection.code)}`} target="_blank" rel="noopener noreferrer">{selection.code} on the evaluation site</a>

@@ -65,7 +65,10 @@ main {
 .remove-result:hover { color: #c62828; }
 
 .metric-comparison { text-align: center; margin: 6px auto 14px; }
-.metric-comparison select { max-width: 90%; padding: 4px 7px; border: 1px solid #aaa; border-radius: 3px; background: white; font-size: 13px; color: #333; }
+.comparison-mode-control { display: flex; justify-content: center; align-items: center; gap: 5px; }
+.comparison-mode-control .info-popup { top: calc(100% + 6px); bottom: auto; width: 360px; text-align: left; white-space: pre-line; }
+.metric-comparison select { max-width: 90%; margin-top: 6px; padding: 4px 7px; border: 1px solid #aaa; border-radius: 3px; background: white; font-size: 13px; color: #333; }
 .metric-comparison select:disabled { color: #888; background: #eee; }
-.comparison-feedback { width: fit-content; max-width: calc(100% - 56px); margin: 6px auto 0; padding: 5px 8px; border: 1px solid #dfbd54; border-radius: 4px; background: #fff4ce; font-size: 13px; line-height: 1.4; }
-.comparison-unavailable { background: #f5f5f5; border-color: #ccc; color: #555; }
+.comparison-feedback { width: fit-content; max-width: calc(100% - 56px); margin: 6px auto 0; padding: 5px 8px; border: 1px solid #ed7d00; border-radius: 0; background: #ffd2a1; font-size: 13px; line-height: 1.4; }
+.comparison-label-orange { color: #994d00; }
+.comparison-label-red { color: #b71c1c; }

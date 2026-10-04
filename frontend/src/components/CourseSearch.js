@@ -74,9 +74,9 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, currentResultId, hasR
             searchValue={query} currentResultId={currentResultId} anchorRef={searchInputRef} />
         </div>
         <button onClick={() => handleSearch('replace')} disabled={isLoading || resolving}>{isLoading || resolving ? 'Searching...' : 'Search'}</button>
-        </div>
         {hasResults && <button className="add-comparison-button" onClick={() => handleSearch('add')} disabled={isLoading || resolving || atComparisonLimit}
-          title={atComparisonLimit ? 'Remove a course or professor to add another.' : undefined}>Add to comparison</button>}
+          title={atComparisonLimit ? 'Remove a course or professor to add another.' : undefined}>Add side-by-side</button>}
+        </div>
       </div>
       {(error || searchError) && <p className="error-message" role="alert">{error || searchError}</p>}
       {atComparisonLimit && <p className="comparison-limit" role="status">Remove a course or professor to add another.</p>}

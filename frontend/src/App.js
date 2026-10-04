@@ -27,8 +27,8 @@ function App() {
   const [resolving, setResolving] = useState(false);
   const [searchError, setSearchError] = useState(null);
   const [selectedRows, setSelectedRows] = useState([]);
+  const [comparisonMode, setComparisonMode] = useState(false);
   const [metric, setMetric] = useState('overall_quality');
-  const [metricChosen, setMetricChosen] = useState(false);
   const selectionRequest = useRef(null);
   const selectionsRef = useRef(selections);
   selectionsRef.current = selections;
@@ -119,35 +119,42 @@ function App() {
     setOptions(previous => ({ ...previous, filters: { ...previous.filters, ...bounds } }));
     setLast3Years(!last3Years);
   };
-  const isComparison = selections.length > 1;
+  const isSideBySide = selections.length > 1;
   const hasCourses = !selections.length || selections.some(result => result.type === 'course');
   const hasProfessors = selections.some(result => result.type === 'professor');
   const hasFormerNames = selections.some(result => analyses[result.id]?.metadata?.former_names?.length || analyses[result.id]?.metadata?.has_former_names);
   const visibleMetrics = RATING_STAT_KEYS.filter(key => options.stats[key]);
   const effectiveMetric = visibleMetrics.includes(metric) ? metric : visibleMetrics[0] || null;
   useEffect(() => {
-    if (metric !== effectiveMetric) { setMetric(effectiveMetric); setMetricChosen(true); }
+    if (metric !== effectiveMetric) setMetric(effectiveMetric);
   }, [metric, effectiveMetric]);
-  const activeRows = useMemo(() => selectedRows.filter(row =>
+  const activeRows = useMemo(() => comparisonMode ? selectedRows.filter(row =>
     selections.some(result => result.id === row.resultId) && Object.values(options.stats).some(Boolean) &&
     !analyses[row.resultId]?.year_range_empty && Object.prototype.hasOwnProperty.call(analyses[row.resultId]?.data || {}, row.groupName)
-  ), [selectedRows, selections, analyses, options.stats]);
+  ) : [], [comparisonMode, selectedRows, selections, analyses, options.stats]);
   useEffect(() => {
     if (activeRows.length !== selectedRows.length) setSelectedRows(activeRows);
   }, [activeRows, selectedRows.length]);
+  const toggleComparisonMode = () => {
+    setComparisonMode(previous => !previous);
+    setSelectedRows([]);
+  };
   const selectRow = (resultId, groupName) => setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }));
-  const comparison = effectiveMetric && activeRows.length === 2 ? compareSamples(
+  const comparison = activeRows.length === 2 ? effectiveMetric ? compareSamples(
     analyses[activeRows[0].resultId]?.statistics_metadata?.[activeRows[0].groupName]?.[effectiveMetric],
     analyses[activeRows[1].resultId]?.statistics_metadata?.[activeRows[1].groupName]?.[effectiveMetric],
     options.significanceThreshold
-  ) : null;
+  ) : { available: false, significant: false, reason: 'show a rating metric to compare these rows.' } : null;
   const crossTable = activeRows.length === 2 && activeRows[0].resultId !== activeRows[1].resultId;
   const rowLabels = activeRows.map(row => {
     const source = selections.find(result => result.id === row.resultId);
-    return crossTable ? `${source.type === 'course' ? source.code : source.name} — ${row.groupName}` : row.groupName;
+    const sourceLabel = source.type === 'course' ? source.code : source.name;
+    const groupLabel = analyses[row.resultId]?.group_labels?.[row.groupName]?.label || row.groupName;
+    if (row.groupName.toLowerCase() === 'all data') return sourceLabel;
+    return crossTable ? `${sourceLabel} — ${groupLabel}` : groupLabel;
   });
-  const metricControl = <ComparisonMetric visibleMetrics={visibleMetrics} metric={effectiveMetric}
-    chosen={metricChosen || metric !== effectiveMetric} onChange={value => { setMetric(value); setMetricChosen(true); }}
+  const metricControl = <ComparisonMetric enabled={comparisonMode} onToggle={toggleComparisonMode}
+    visibleMetrics={visibleMetrics} metric={effectiveMetric} onChange={setMetric}
     comparison={comparison} labels={rowLabels} threshold={options.significanceThreshold} />;
   const controls = <>
     <div className="controls">
@@ -157,7 +164,7 @@ function App() {
       <label className="percentile-control"><input type="checkbox" checked={options.showPercentiles} onChange={changePercentiles} />Show percentiles</label>
     </div>
     <AdvancedOptions options={options} onApply={applyAdvancedOptions} hasCourses={hasCourses} hasProfessors={hasProfessors}
-      hasFormerNames={hasFormerNames} showLast3YearsActive={last3Years} onDeactivateLast3Years={() => setLast3Years(false)} expanded={expanded} onExpandedChange={setExpanded} />
+      hasFormerNames={hasFormerNames} comparisonMode={comparisonMode} showLast3YearsActive={last3Years} onDeactivateLast3Years={() => setLast3Years(false)} expanded={expanded} onExpandedChange={setExpanded} />
     {selections.length > 0 && <p className="ratings-caption">{options.showPercentiles
       ? options.weightPercentilesByClassSize ? 'Ratings shown as percentiles of course averages, weighted by average class size.' : 'Ratings shown as percentiles of course averages.'
       : 'Ratings are on a 1–5 scale.'}</p>}
@@ -172,15 +179,15 @@ function App() {
       {searchView && <SearchResults key={`${searchView.query}:${searchView.intent}`} searchQuery={searchView.query} initialResults={searchView.matches}
         intent={searchView.intent} resolving={resolving} onResultSelect={openResult} onBack={() => setSearchView(null)} />}
       <div hidden={Boolean(searchView && searchView.intent !== 'add')}>
-        {isComparison && <><div className="comparison-heading"><h2>Comparison</h2>{metricControl}</div>{controls}</>}
-        <div className={isComparison ? 'comparison-results' : 'single-result'}>
+        {isSideBySide && <><div className="comparison-heading"><h2>{comparisonMode ? 'Comparison View' : 'Side-by-side View'}</h2>{metricControl}</div>{controls}</>}
+        <div className={isSideBySide ? 'comparison-results' : 'single-result'}>
           {selections.map(selection => <ResultView key={selection.id} selection={selection} options={options} benchmark={benchmark}
-            headingExtra={!isComparison && metricControl} comparisonMetric={effectiveMetric} significant={comparison?.significant}
+            headingExtra={!isSideBySide && metricControl} comparisonMetric={comparisonMode ? effectiveMetric : null} significant={comparison?.significant}
             rowTones={Object.fromEntries(activeRows.map((row, index) => [row, index]).filter(([row]) => row.resultId === selection.id)
               .map(([row, index]) => [row.groupName, index === activeRows.length - 1 ? 'red' : 'orange']))}
-            onRowSelect={selectRow}
-            onAnalysis={handleAnalysis} onToggleSeparation={separate} onRemove={isComparison ? () => removeResult(selection.id) : undefined}>
-            {!isComparison && controls}
+            onRowSelect={comparisonMode ? selectRow : undefined}
+            onAnalysis={handleAnalysis} onToggleSeparation={separate} onRemove={isSideBySide ? () => removeResult(selection.id) : undefined}>
+            {!isSideBySide && controls}
           </ResultView>)}
         </div>
         {!selections.length && <>{controls}<DataDisplay data={null} /></>}

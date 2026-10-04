@@ -34,7 +34,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
       `n = ${details.n ?? 0}, σ = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'}`,
       metric === 'workload' ? 'Higher percentiles mean heavier workload.' : null,
     ].filter(Boolean);
-    return <td key={metric} className={comparisonMetric === metric ? 'metric-highlight' : undefined}>
+    return <td key={metric}>
       <span className="stat-value" tabIndex="0" aria-label={`${displayed}. ${tooltip.join('. ')}`}>
         {showPercentiles && hasPercentile
           ? <>{percentile.slice(0, -2)}<sup className="percentile-suffix">{percentile.slice(-2)}</sup></>

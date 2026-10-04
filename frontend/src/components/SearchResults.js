@@ -5,7 +5,7 @@ import { asResult } from '../utils/resultTypes';
 
 export function comparisonSearchHeading(matches) {
   const courses = matches.courses.total_count > 0, professors = matches.professors.total_count > 0;
-  return `Choose a ${courses && professors ? 'course or professor' : courses ? 'course' : 'professor'} to add to comparison`;
+  return `Choose a ${courses && professors ? 'course or professor' : courses ? 'course' : 'professor'} to add side-by-side`;
 }
 
 const SearchResults = ({ searchQuery, initialResults, onResultSelect, onBack, intent = 'replace', resolving }) => {

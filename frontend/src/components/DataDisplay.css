@@ -113,9 +113,8 @@
 .year-range-empty { margin: 20px; padding: 14px; border: 1px solid #ffcb66; border-radius: 6px; background: #fff3cd; color: #664d03; }
 
 .data-display th.metric-highlight { background-color: #ffe066; color: #282c34; }
-.data-display td.metric-highlight { background-color: #fff4ad; }
 .data-display .comparison-row { cursor: pointer; }
 .data-display .comparison-row:not(.row-selected-red):not(.row-selected-orange):focus-visible { outline: 2px solid #007bff; outline-offset: -2px; }
-.data-display tr.row-selected-red { outline: 8px solid #d32f2f; outline-offset: -8px; }
-.data-display tr.row-selected-orange { outline: 8px solid #ed7d00; outline-offset: -8px; }
+.data-display tr.row-selected-red { outline: 4.8px solid #d32f2f; outline-offset: -4.8px; }
+.data-display tr.row-selected-orange { outline: 4.8px solid #ed7d00; outline-offset: -4.8px; }
 .data-display tr.row-significant > td { background-color: #ffd700; }

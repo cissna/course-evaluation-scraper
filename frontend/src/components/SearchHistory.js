@@ -64,8 +64,8 @@ const SearchHistory = ({ isOpen, onClose, onItemClick, onCompare, atComparisonLi
               <span className="search-history-item-name">{item.name}</span>
             </button>
             <button className="search-history-compare" disabled={atComparisonLimit}
-              title={atComparisonLimit ? 'Remove a course or professor to add another.' : `Add ${item.name} to comparison`}
-              onClick={event => { event.stopPropagation(); onCompare(item); }}>compare</button>
+              title={atComparisonLimit ? 'Remove a course or professor to add another.' : `Add ${item.name} side-by-side`}
+              onClick={event => { event.stopPropagation(); onCompare(item); }}>side-by-side</button>
             <button className="search-history-item-remove" aria-label={`Remove ${item.name} from history`}
               onClick={event => { event.stopPropagation(); removeFromSearchHistory(item); }}>×</button>
           </div>
