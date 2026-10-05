@@ -1,425 +1,209 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './App.css';
 import CourseSearch from './components/CourseSearch';
 import SearchResults from './components/SearchResults';
-import DataDisplay from './components/DataDisplay';
+import ResultView from './components/ResultView';
 import AdvancedOptions from './components/AdvancedOptions';
-import LoadingOverlay from './components/LoadingOverlay';
-import GracePeriodWarning from './components/GracePeriodWarning';
-import { STATISTICS_CONFIG, ALL_STAT_KEYS } from './utils/statsMapping';
-import { calculateLast3YearsRange } from './utils/yearUtils';
-import { API_BASE_URL } from './config';
+import DataDisplay from './components/DataDisplay';
 import Footer from './components/Footer';
-import { addToSearchHistory } from './utils/storageUtils';
-import { processAnalysisRequest } from './utils/analysisEngine.js';
+import ComparisonMetric from './components/ComparisonMetric';
+import { getInitialStatsState, RATING_STAT_KEYS } from './utils/statsMapping';
+import { compareSamples, toggleRowSelection } from './utils/significance';
+import { calculateLast3YearsRange } from './utils/yearUtils';
+import { toggleSeparation } from './utils/separationOptions';
+import { getShowPercentilesPreference, saveShowPercentilesPreference, getPercentileWeightingPreference, savePercentileWeightingPreference } from './utils/storageUtils';
+import { loadResultWithData } from './hooks/useEvaluationResult';
+import { API_BASE_URL } from './config';
+
+const MAX_RESULTS = 5;
 
 function App() {
-  const [analysisResult, setAnalysisResult] = useState(null);
-  const [rawCourseData, setRawCourseData] = useState(null);
-  const [courseCode, setCourseCode] = useState(null);
-  const [currentView, setCurrentView] = useState('analysis'); // 'search', 'results', 'analysis'
-  const [searchResultsQuery, setSearchResultsQuery] = useState('');
-  const [advancedOptions, setAdvancedOptions] = useState({
-    stats: Object.fromEntries(
-      ALL_STAT_KEYS.map(key => [key, STATISTICS_CONFIG[key].defaultEnabled])
-    ),
-    filters: { min_year: '', max_year: '', seasons: [] },
-    separationKeys: []
-  });
-  const [showLast3YearsActive, setShowLast3YearsActive] = useState(false);
-  const [analysisError, setAnalysisError] = useState(null);
-  const [loadingCount, setLoadingCount] = useState(0);
-  const [gracePeriodInfo, setGracePeriodInfo] = useState(null);
-  const [dismissedGraceWarnings, setDismissedGraceWarnings] = useState(new Set());
-  const isLoading = loadingCount > 0;
-  const startLoading = () => setLoadingCount(c => c + 1);
-  const stopLoading = () => setLoadingCount(c => Math.max(0, c - 1));
+  const [selections, setSelections] = useState([]);
+  const [searchView, setSearchView] = useState(null);
+  const [analyses, setAnalyses] = useState({});
+  const [benchmark, setBenchmark] = useState(null);
+  const [expanded, setExpanded] = useState(false);
+  const [last3Years, setLast3Years] = useState(false);
+  const [resolving, setResolving] = useState(false);
+  const [searchError, setSearchError] = useState(null);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [comparisonMode, setComparisonMode] = useState(false);
+  const [metric, setMetric] = useState('overall_quality');
+  const selectionRequest = useRef(null);
+  const selectionsRef = useRef(selections);
+  selectionsRef.current = selections;
+  const [options, setOptions] = useState(() => ({
+    stats: getInitialStatsState(),
+    filters: { min_year: '', max_year: '', seasons: [], exclude_summer: false, exclude_intersession: false },
+    separationKeys: [], showPercentiles: getShowPercentilesPreference(), significanceThreshold: 0.05,
+    weightPercentilesByClassSize: getPercentileWeightingPreference(),
+  }));
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`${API_BASE_URL}/api/percentiles`, { signal: controller.signal })
+      .then(response => response.ok ? response.json() : null)
+      .then(payload => { if (payload && !controller.signal.aborted) setBenchmark(payload.benchmark); })
+      .catch(() => {});
+    return () => { controller.abort(); selectionRequest.current?.abort(); };
+  }, []);
+  useEffect(() => {
+    const ids = new Set(selections.map(result => result.id));
+    setAnalyses(previous => Object.fromEntries(Object.entries(previous).filter(([id]) => ids.has(id))));
+  }, [selections]);
+  const handleAnalysis = useCallback((id, analysis) => {
+    setAnalyses(previous => previous[id] === analysis ? previous : { ...previous, [id]: analysis });
+  }, []);
 
-  const checkGracePeriodStatus = async (code) => {
-    if (!code) return;
-    
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/grace-status/${code}`);
-      const graceStatus = await response.json();
-      setGracePeriodInfo(graceStatus);
-    } catch (error) {
-      console.error('Failed to check grace period status:', error);
-      setGracePeriodInfo(null);
-    }
-  };
-
-  const handleRecheck = async () => {
-    if (!courseCode) return;
-    startLoading();
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/recheck/${courseCode}`, { method: 'POST' });
-        if (response.ok) {
-            setDismissedGraceWarnings(prev => new Set(prev).add(courseCode));
-            setRawCourseData(null); // Invalidate raw data to force refetch
-            fetchAnalysisData(courseCode, advancedOptions, true);
-        } else {
-            const errorData = await response.json().catch(() => ({}));
-            setAnalysisError(`Recheck failed: ${errorData.error || 'Unknown error'}`);
-        }
-    } catch (error) {
-        setAnalysisError(`Recheck failed: ${String(error)}`);
-    } finally {
-        stopLoading();
-    }
-  };
-
-  const fetchAnalysisData = (code, options, forceBackend = false) => {
-    if (!code) return;
-
-    if (rawCourseData && rawCourseData.courseCode === code && !forceBackend) {
-        try {
-            const result = processAnalysisRequest(rawCourseData.data, {
-                stats: options.stats,
-                filters: options.filters,
-                separationKeys: options.separationKeys
-            });
-            setAnalysisResult(result);
-        } catch (error) {
-            console.error('Frontend processing error:', error);
-            fetchAnalysisData(code, options, true); // Fallback to backend
-        }
-        return;
-    }
-
-    setAnalysisError(null);
-    setAnalysisResult(null);
-    startLoading();
-
-    const params = {
-      stats: options.stats,
-      filters: options.filters,
-      separation_keys: options.separationKeys,
-      raw_data_mode: true // NEW FLAG
-    };
-
-    fetch(`${API_BASE_URL}/api/analyze/${code}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(params),
-    })
-    .then(async response => {
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        if (response.status === 404 || data?.error === 'No data found for this course.') {
-          addToSearchHistory(code, 'No data');
-          const searchUrl = `https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(code)}`;
-          setAnalysisError(`No course evaluations found for ${code}.<br/><br/>No evaluations found at this search: <a href="${searchUrl}" target="_blank" rel="noopener noreferrer">${searchUrl}</a>`);
-          setAnalysisResult(null);
-          return;
-        }
-        const detail = typeof data?.error === 'string' ? data.error : 'Unknown error';
-        setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${detail}`);
-        setAnalysisResult(null);
-        setRawCourseData(null);
-        return;
+  const resetCourseSeparation = () => setOptions(previous => ({ ...previous,
+    separationKeys: previous.separationKeys.filter(key => key !== 'course_name' && key !== 'course_code'),
+  }));
+  const openResult = async (result, intent = 'replace') => {
+    if (!result) return;
+    selectionRequest.current?.abort();
+    setSearchError(null);
+    const existing = selectionsRef.current.find(item => item.id === result.id);
+    if (existing) {
+      if (intent === 'replace') {
+        if (selectionsRef.current.length > 1) resetCourseSeparation();
+        setSelections([existing]);
+        setSelectedRows([]);
       }
-      
-      setRawCourseData({ courseCode: code, data: data.raw_data });
-      const result = processAnalysisRequest(data.raw_data, {
-          stats: options.stats,
-          filters: options.filters,
-          separationKeys: options.separationKeys
-      });
-      setAnalysisResult(result);
-      setAnalysisError(null);
-
-      const courseName = result.metadata?.current_name || 'No data';
-      addToSearchHistory(code, courseName);
-    })
-    .catch(error => {
-      setAnalysisError(`An error occurred, email icissna1@jh.edu with the following information to prevent it from happening again:<br/><br/>${String(error)}`);
-      setAnalysisResult(null);
-      setRawCourseData(null);
-    })
-    .finally(() => { stopLoading(); });
-  };
-
-  const handleDataReceived = (newCourseCode) => {
-    setCourseCode(newCourseCode);
-    setRawCourseData(null);
-    setDismissedGraceWarnings(new Set());
-    setCurrentView('analysis');
-
-    // Immediately clear conditional separation options when navigating to a new course.
-    // This prevents "stuck" states where hidden options still affect processing.
-    const optionsWithoutConditionalSeparators = {
-      ...advancedOptions,
-      separationKeys: advancedOptions.separationKeys.filter(
-        key => key !== 'course_name' && key !== 'course_code'
-      )
-    };
-    setAdvancedOptions(optionsWithoutConditionalSeparators);
-
-    fetchAnalysisData(newCourseCode, optionsWithoutConditionalSeparators, true);
-    checkGracePeriodStatus(newCourseCode);
-  };
-
-  const handleMultipleResults = (searchQuery) => {
-    setSearchResultsQuery(searchQuery);
-    setCurrentView('results');
-  };
-
-  const handleSearchResultSelect = (courseCode) => {
-    handleDataReceived(courseCode);
-  };
-
-  const handleBackToSearch = () => {
-    setCurrentView('search');
-    setSearchResultsQuery('');
-    setCourseCode(null);
-    setAnalysisResult(null);
-    setAnalysisError(null);
-    setRawCourseData(null);
-  };
-
-  const handleTimeFilterToggle = () => {
-    setAdvancedOptions(prev => {
-      let newMinYear, newMaxYear;
-      let newShowLast3YearsActive;
-
-      if (showLast3YearsActive) {
-        newMinYear = '';
-        newMaxYear = '';
-        newShowLast3YearsActive = false;
-      } else {
-        const yearRange = calculateLast3YearsRange();
-        newMinYear = yearRange.min_year;
-        newMaxYear = yearRange.max_year;
-        newShowLast3YearsActive = true;
-      }
-      
-      const updated = {
-        ...prev,
-        filters: {
-          ...prev.filters,
-          min_year: newMinYear,
-          max_year: newMaxYear
-        }
-      };
-      if (courseCode) {
-        handleApplyAdvancedOptions(updated);
-      }
-      setShowLast3YearsActive(newShowLast3YearsActive);
-      return updated;
-    });
-  };
-
-  const handleSeparateByTeacherToggle = () => {
-    setAdvancedOptions(prev => {
-      const hasInstr = prev.separationKeys.includes('instructor');
-      const newKeys = hasInstr
-        ? prev.separationKeys.filter(key => key !== 'instructor')
-        : [...prev.separationKeys, 'instructor'];
-      const updated = { ...prev, separationKeys: newKeys };
-      if (courseCode) {
-        handleApplyAdvancedOptions(updated);
-      }
-      return updated;
-    });
-  };
-
-  const handleSeparateByCourseCode = () => {
-    setAdvancedOptions(prev => {
-      const hasCourseCode = prev.separationKeys.includes('course_code');
-      const newKeys = hasCourseCode
-        ? prev.separationKeys.filter(key => key !== 'course_code')
-        : [...prev.separationKeys, 'course_code'];
-      const updated = { ...prev, separationKeys: newKeys };
-      if (courseCode) {
-        handleApplyAdvancedOptions(updated);
-      }
-      return updated;
-    });
-  };
-
-  const handleApplyAdvancedOptions = (options) => {
-    setAdvancedOptions(options);
-    if (!courseCode) return;
-
-    const validateYear = (year) => {
-      if (year === '') return true;
-      const parsedYear = parseInt(year, 10);
-      return !isNaN(parsedYear) && parsedYear >= 2000;
-    };
-
-    const minYearValid = validateYear(options.filters.min_year);
-    const maxYearValid = validateYear(options.filters.max_year);
-
-    if (!minYearValid || !maxYearValid) {
+      setSearchView(null);
+      setResolving(false);
       return;
     }
-
-    if (rawCourseData && rawCourseData.courseCode === courseCode) {
-        try {
-            const result = processAnalysisRequest(rawCourseData.data, {
-                stats: options.stats,
-                filters: options.filters,
-                separationKeys: options.separationKeys
-            });
-            setAnalysisResult(result);
-        } catch (error) {
-            console.error('Frontend processing error:', error);
-            fetchAnalysisData(courseCode, options, true);
-        }
-    } else {
-        fetchAnalysisData(courseCode, options, true);
+    if (intent === 'add' && selectionsRef.current.length >= MAX_RESULTS) {
+      setSearchError('Remove a course or professor to add another.');
+      setResolving(false);
+      return;
+    }
+    const controller = new AbortController();
+    selectionRequest.current = controller;
+    setResolving(true);
+    try {
+      // Commit a new destination only once there are actual saved evaluations.
+      // Until then, normal and add searches both leave current tables usable.
+      const initialSaved = await loadResultWithData(result, controller.signal);
+      if (controller.signal.aborted) return;
+      const ready = { ...result, initialSaved };
+      if (intent === 'replace') setSelectedRows([]);
+      setSelections(previous => intent === 'replace' ? [ready]
+        : previous.length < MAX_RESULTS && !previous.some(item => item.id === ready.id) ? [...previous, ready] : previous);
+      // A replacement starts a new course context; additions keep shared controls.
+      if (intent === 'replace') resetCourseSeparation();
+      setSearchView(null);
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        setSearchError(error.message);
+        setSearchView(null);
+      }
+    } finally {
+      if (selectionRequest.current === controller) setResolving(false);
     }
   };
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>JHU Course Evaluation Analyzer</h1>
-      </header>
-      <main>
-        {currentView === 'search' && (
-          <CourseSearch
-            onDataReceived={handleDataReceived}
-            onMultipleResults={handleMultipleResults}
-            onLoadingChange={(is) => is ? startLoading() : stopLoading()}
-            currentCourseCode={courseCode}
-          />
-        )}
-
-        {currentView === 'results' && (
-          <SearchResults
-            searchQuery={searchResultsQuery}
-            onCourseSelect={handleSearchResultSelect}
-            onBack={handleBackToSearch}
-          />
-        )}
-
-        {currentView === 'analysis' && (
-          <CourseSearch
-            onDataReceived={handleDataReceived}
-            onMultipleResults={handleMultipleResults}
-            onLoadingChange={(is) => is ? startLoading() : stopLoading()}
-            currentCourseCode={courseCode}
-          />
-        )}
-
-        {currentView === 'analysis' && analysisResult && courseCode && (
-          <div
-            style={{
-              marginTop: '20px',
-              marginBottom: '10px',
-              textAlign: 'center',
-              fontWeight: 'bold',
-              fontSize: '2rem',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}
-          >
-            {analysisResult.metadata?.current_name ? (
-              <>
-                <span>{analysisResult.metadata.current_name}</span>
-                {Array.isArray(analysisResult.metadata.former_names) && analysisResult.metadata.former_names.length > 0 && (
-                  <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
-                    (formerly known as {analysisResult.metadata.former_names.join(', ')})
-                  </span>
-                )}
-                <span style={{ fontSize: '1rem', color: 'gray', fontWeight: 'normal', marginTop: '0.2em' }}>
-                  {courseCode}
-                </span>
-              </>
-            ) : (
-              <span>{courseCode}</span>
-            )}
-          </div>
-        )}
-
-        {currentView === 'analysis' && analysisResult && analysisResult.metadata?.grouping_metadata?.is_grouped && (
-          <div
-            style={{
-              background: "#ffe066",
-              borderRadius: "6px",
-              color: "#442",
-              padding: "8px 16px",
-              margin: "16px auto 20px auto",
-              fontSize: "1.1rem",
-              textAlign: "center",
-              maxWidth: 650,
-              border: "1px solid #ffcb66",
-            }}
-          >
-            This course was automatically grouped with:&nbsp;
-            {Array.isArray(analysisResult?.metadata?.grouping_metadata?.grouped_courses)
-              ? analysisResult.metadata.grouping_metadata.grouped_courses
-                  .filter(code => code !== courseCode)
-                  .map((code, idx, arr) =>
-                    <span key={code}>
-                      <b>{code}</b>{idx < arr.length - 1 ? ', ' : ''}
-                    </span>
-                  )
-              : ''}
-            <div style={{ marginTop: '12px' }}>
-              <button
-                onClick={() => handleSeparateByCourseCode()}
-                style={{
-                  background: '#4CAF50',
-                  color: 'white',
-                  border: 'none',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
-              >
-                {advancedOptions.separationKeys.includes('course_code') ? 'Recombine by Course Code' : 'Separate by Course Code'}
-              </button>
-            </div>
-          </div>
-        )}
-
-        {currentView === 'analysis' && (
-          <>
-            <GracePeriodWarning
-              courseCode={courseCode}
-              gracePeriodInfo={gracePeriodInfo}
-              isDismissed={dismissedGraceWarnings.has(courseCode)}
-              onRecheck={handleRecheck}
-            />
-            <div className="controls">
-              <button onClick={handleTimeFilterToggle}>
-                {showLast3YearsActive ? 'Show All Time' : 'Show Last 3 Years'}
-              </button>
-              <button onClick={handleSeparateByTeacherToggle}>
-                {advancedOptions.separationKeys.includes('instructor') ? 'Combine Professors' : 'Separate by Professor'}
-              </button>
-            </div>
-            <AdvancedOptions
-              options={advancedOptions}
-              onApply={handleApplyAdvancedOptions}
-              courseMetadata={analysisResult?.metadata ? {
-                current_name: analysisResult.metadata.current_name,
-                former_names: analysisResult.metadata.former_names
-              } : null}
-              showLast3YearsActive={showLast3YearsActive}
-              onDeactivateLast3Years={() => setShowLast3YearsActive(false)}
-            />
-            {analysisResult && (
-              <p style={{ textAlign: 'center', margin: '20px 0', fontWeight: 'bold' }}>
-                All numeric results are between 1 and 5
-              </p>
-            )}
-            <DataDisplay
-              data={analysisResult?.data || null}
-              selectedStats={Object.keys(advancedOptions.stats).filter(k => advancedOptions.stats[k])}
-              errorMessage={analysisError}
-              statisticsMetadata={analysisResult?.statistics_metadata || {}}
-            />
-          </>
-        )}
-      </main>
-      <Footer />
-      {isLoading && <LoadingOverlay message="Analyzing course evaluations…" />}
+  const removeResult = id => setSelections(previous => previous.filter(result => result.id !== id));
+  const separate = key => setOptions(previous => ({ ...previous, separationKeys: toggleSeparation(previous.separationKeys, key) }));
+  const changePercentiles = event => {
+    const showPercentiles = event.target.checked;
+    setOptions(previous => ({ ...previous, showPercentiles }));
+    saveShowPercentilesPreference(showPercentiles);
+  };
+  const applyAdvancedOptions = next => {
+    setOptions(next);
+    if (next.weightPercentilesByClassSize !== options.weightPercentilesByClassSize) {
+      savePercentileWeightingPreference(next.weightPercentilesByClassSize);
+    }
+  };
+  const toggleYears = () => {
+    const bounds = last3Years ? { min_year: '', max_year: '' } : calculateLast3YearsRange();
+    setOptions(previous => ({ ...previous, filters: { ...previous.filters, ...bounds } }));
+    setLast3Years(!last3Years);
+  };
+  const isSideBySide = selections.length > 1;
+  const hasCourses = !selections.length || selections.some(result => result.type === 'course');
+  const hasProfessors = selections.some(result => result.type === 'professor');
+  const hasFormerNames = selections.some(result => analyses[result.id]?.metadata?.former_names?.length || analyses[result.id]?.metadata?.has_former_names);
+  const visibleMetrics = RATING_STAT_KEYS.filter(key => options.stats[key]);
+  const effectiveMetric = visibleMetrics.includes(metric) ? metric : visibleMetrics[0] || null;
+  useEffect(() => {
+    if (metric !== effectiveMetric) setMetric(effectiveMetric);
+  }, [metric, effectiveMetric]);
+  const activeRows = useMemo(() => comparisonMode ? selectedRows.filter(row =>
+    selections.some(result => result.id === row.resultId) && Object.values(options.stats).some(Boolean) &&
+    !analyses[row.resultId]?.year_range_empty && Object.prototype.hasOwnProperty.call(analyses[row.resultId]?.data || {}, row.groupName)
+  ) : [], [comparisonMode, selectedRows, selections, analyses, options.stats]);
+  useEffect(() => {
+    if (activeRows.length !== selectedRows.length) setSelectedRows(activeRows);
+  }, [activeRows, selectedRows.length]);
+  const toggleComparisonMode = () => {
+    const displayedRowCount = Object.values(options.stats).some(Boolean) ? selections.reduce((count, result) => {
+      const analysis = analyses[result.id];
+      return count + (analysis?.year_range_empty ? 0 : Object.keys(analysis?.data || {}).length);
+    }, 0) : 0;
+    if (!comparisonMode && displayedRowCount < 2) {
+      window.alert(selections.length === 1 && selections[0].type === 'professor'
+        ? "You cannot enter comparison mode before you add a course or professor to compare or separate the entries of this professor (e.g. by course)."
+        : 'You cannot enter comparison mode before you add a course to compare or separate the entries of this course (e.g. by professor).');
+      return;
+    }
+    setComparisonMode(previous => !previous);
+    setSelectedRows([]);
+  };
+  const selectRow = (resultId, groupName) => setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }));
+  const comparison = activeRows.length === 2 ? effectiveMetric ? compareSamples(
+    analyses[activeRows[0].resultId]?.statistics_metadata?.[activeRows[0].groupName]?.[effectiveMetric],
+    analyses[activeRows[1].resultId]?.statistics_metadata?.[activeRows[1].groupName]?.[effectiveMetric],
+    options.significanceThreshold
+  ) : { available: false, significant: false, reason: 'show a rating metric to compare these rows.' } : null;
+  const crossTable = activeRows.length === 2 && activeRows[0].resultId !== activeRows[1].resultId;
+  const rowLabels = activeRows.map(row => {
+    const source = selections.find(result => result.id === row.resultId);
+    const sourceLabel = source.type === 'course' ? source.code : source.name;
+    const groupLabel = analyses[row.resultId]?.group_labels?.[row.groupName]?.label || row.groupName;
+    if (row.groupName.toLowerCase() === 'all data') return sourceLabel;
+    return crossTable ? `${sourceLabel} — ${groupLabel}` : groupLabel;
+  });
+  const metricControl = <ComparisonMetric enabled={comparisonMode} onToggle={toggleComparisonMode}
+    visibleMetrics={visibleMetrics} metric={effectiveMetric} onChange={setMetric}
+    comparison={comparison} labels={rowLabels} threshold={options.significanceThreshold} />;
+  const controls = <>
+    <div className="controls">
+      <button onClick={toggleYears}>{last3Years ? 'Show All Time' : 'Show Last 3 Years'}</button>
+      {hasCourses && <button onClick={() => separate('instructor')}>{options.separationKeys.includes('instructor') ? 'Combine Professors' : 'Separate by Professor'}</button>}
+      {hasProfessors && <button onClick={() => separate('course_group')}>{options.separationKeys.includes('course_group') ? 'Combine Courses' : 'Separate by Course'}</button>}
+      <label className="percentile-control"><input type="checkbox" checked={options.showPercentiles} onChange={changePercentiles} />Show percentiles</label>
     </div>
-  );
+    <AdvancedOptions options={options} onApply={applyAdvancedOptions} hasCourses={hasCourses} hasProfessors={hasProfessors}
+      hasFormerNames={hasFormerNames} comparisonMode={comparisonMode} showLast3YearsActive={last3Years} onDeactivateLast3Years={() => setLast3Years(false)} expanded={expanded} onExpandedChange={setExpanded} />
+    {selections.length > 0 && <p className="ratings-caption">{options.showPercentiles
+      ? options.weightPercentilesByClassSize ? 'Ratings shown as percentiles of course averages, weighted by average class size.' : 'Ratings shown as percentiles of course averages.'
+      : 'Ratings are on a 1–5 scale.'}</p>}
+  </>;
+  return <div className="App">
+    <header className="App-header"><h1>JHU Course Evaluation Analyzer</h1></header>
+    <main>
+      <div hidden={Boolean(searchView)}><CourseSearch onDataReceived={openResult}
+        currentResultId={selections.length === 1 ? selections[0].id : undefined} hasResults={selections.length > 0}
+        atComparisonLimit={selections.length >= MAX_RESULTS} resolving={resolving} searchError={searchError} onSearchStart={() => setSearchError(null)}
+        onMultipleResults={(query, matches, intent) => setSearchView({ query, matches, intent })} /></div>
+      {searchView && <SearchResults key={`${searchView.query}:${searchView.intent}`} searchQuery={searchView.query} initialResults={searchView.matches}
+        intent={searchView.intent} resolving={resolving} onResultSelect={openResult} onBack={() => setSearchView(null)} />}
+      <div hidden={Boolean(searchView && searchView.intent !== 'add')}>
+        {isSideBySide && <><div className="comparison-heading"><h2>{comparisonMode ? 'Comparison View' : 'Side-by-side View'}</h2>{metricControl}</div>{controls}</>}
+        <div className={isSideBySide ? 'comparison-results' : 'single-result'}>
+          {selections.map(selection => <ResultView key={selection.id} selection={selection} options={options} benchmark={benchmark}
+            headingExtra={!isSideBySide && metricControl} comparisonMetric={comparisonMode ? effectiveMetric : null} significant={comparison?.significant}
+            rowTones={Object.fromEntries(activeRows.map((row, index) => [row, index]).filter(([row]) => row.resultId === selection.id)
+              .map(([row, index]) => [row.groupName, index === activeRows.length - 1 ? 'red' : 'orange']))}
+            onRowSelect={comparisonMode ? selectRow : undefined}
+            onAnalysis={handleAnalysis} onToggleSeparation={separate} onRemove={isSideBySide ? () => removeResult(selection.id) : undefined}>
+            {!isSideBySide && controls}
+          </ResultView>)}
+        </div>
+        {!selections.length && <>{controls}<DataDisplay data={null} /></>}
+      </div>
+    </main>
+    <Footer />
+  </div>;
 }
-
 export default App;

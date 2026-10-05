@@ -1,4 +1,5 @@
-from .db_utils import get_course_metadata, update_course_metadata, update_course_data, get_course_data_by_keys
+from .db_utils import get_course_metadata, get_course_data_by_keys, refresh_percentile_benchmark
+from .scrape_lock import CourseScrapeLease, ScrapeOwnershipLost
 from .period_logic import (
     get_current_period,
     is_grace_period_over,
@@ -11,6 +12,7 @@ from .scraping_logic import get_authenticated_session
 from .scrape_search import get_evaluation_report_links
 from .scrape_link import scrape_evaluation_data
 import requests
+import logging
 from datetime import date
 
 def get_all_links_by_section(session, course_code):
@@ -60,6 +62,38 @@ def get_all_links_by_section(session, course_code):
 
 # Helper function to sort links chronologically before scraping
 def scrape_course_data_core(course_code: str, session: requests.Session = None, skip_grace_period_logic: bool = True) -> dict:
+    """Every entry point (automatic, manual, batch) shares the same DB lease."""
+    lease = CourseScrapeLease(course_code)
+    try:
+        with lease:
+            if not lease.acquired:
+                return {'success': False, 'in_progress': True, 'new_data_found': False, 'data': {}}
+            try:
+                return _scrape_course_data_owned(course_code, session, skip_grace_period_logic, lease)
+            except ScrapeOwnershipLost as error:
+                return {'success': False, 'error': str(error), 'ownership_lost': True, 'new_data_found': False, 'data': {}}
+            except Exception as error:
+                if lease.acquired:
+                    metadata = get_course_metadata(course_code) or {}
+                    metadata['last_period_failed'] = True
+                    try:
+                        lease.update_metadata(metadata)
+                    except ScrapeOwnershipLost:
+                        pass
+                return {'success': False, 'error': str(error), 'new_data_found': False, 'data': {}}
+    finally:
+        # Even a partially completed scrape may have saved reports. Release its
+        # course lease before checking the shared percentile counter.
+        if lease.published:
+            try:
+                refresh_percentile_benchmark()
+            except Exception:
+                # Keep the old snapshot and pending count for the next attempt;
+                # cache maintenance must not turn a successful scrape into a failure.
+                logging.getLogger(__name__).exception('Could not refresh the percentile benchmark.')
+
+
+def _scrape_course_data_owned(course_code, session, skip_grace_period_logic, lease):
     """
     Core scraping function that handles the actual data collection logic.
     """
@@ -71,14 +105,17 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
             "relevant_periods": [], "last_scrape_during_grace_period": None
         }
         # Immediately create the metadata record to prevent foreign key violations
-        update_course_metadata(course_code, course_metadata)
+        lease.update_metadata(course_metadata)
+
+    course_metadata['relevant_periods'] = course_metadata.get('relevant_periods') or []
+    course_metadata['last_period_failed'] = False
 
     if session is None:
         try:
             session = get_authenticated_session()
         except requests.exceptions.RequestException as e:
             course_metadata['last_period_failed'] = True
-            update_course_metadata(course_code, course_metadata)
+            lease.update_metadata(course_metadata)
             return {'success': False, 'error': f"Could not get authenticated session: {e}", 'metadata': course_metadata, 'data': {}, 'new_data_found': False}
 
     # --- PHASE 1: LINK COLLECTION ---
@@ -89,7 +126,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         initial_links, has_more_initial = get_evaluation_report_links(session=session, course_code=course_code)
     except Exception as e:
         course_metadata['last_period_failed'] = True
-        update_course_metadata(course_code, course_metadata)
+        lease.update_metadata(course_metadata)
         return {'success': False, 'error': f"Failed to get initial report links: {e}", 'metadata': course_metadata, 'data': {}, 'new_data_found': False}
 
     if not initial_links:
@@ -125,7 +162,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
                 yearly_links, has_more_yearly = get_evaluation_report_links(session=session, course_code=course_code, year=year)
             except Exception as e:
                 course_metadata['last_period_failed'] = True
-                update_course_metadata(course_code, course_metadata)
+                lease.update_metadata(course_metadata)
                 return {'success': False, 'error': f"Failed during year-by-year scan at year {year}: {e}", 'metadata': course_metadata, 'data': {}, 'new_data_found': False}
 
             if has_more_yearly:
@@ -154,6 +191,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
     sorted_links = links_to_process.items()
 
     for instance_key, link_url in sorted_links:
+        lease.ensure_owned()
         if instance_key in existing_course_keys:
             continue
 
@@ -166,7 +204,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
             continue
 
         if scraped_data:
-            update_course_data(instance_key, course_code, scraped_data)
+            lease.publish(instance_key, scraped_data)
             if instance_key not in course_metadata['relevant_periods']:
                 course_metadata['relevant_periods'].append(instance_key)
             new_data_found = True
@@ -198,7 +236,7 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
             print("No current period data found and still in grace period. Marking for re-check.")
             course_metadata['last_scrape_during_grace_period'] = date.today().isoformat()
     
-    update_course_metadata(course_code, course_metadata)
+    lease.update_metadata(course_metadata)
 
     relevant_keys = course_metadata.get('relevant_periods', [])
     course_data = get_course_data_by_keys(relevant_keys)
@@ -210,4 +248,3 @@ def scrape_course_data_core(course_code: str, session: requests.Session = None, 
         'metadata': course_metadata,
         'error': f"Scraping halted for {course_code} due to a failed report." if batch_failed else None
     }
-

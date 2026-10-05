@@ -1,0 +1,42 @@
+# Database changes for the overnight branches
+
+Both migrations were **applied to the live Supabase database with the owner's approval** on October 4, 2026 (02:01 UTC on October 5), after a fresh backup. They preserved all 34,574 evaluation reports and 19,175 metadata rows, took about 0.21 and 0.06 seconds, and were followed by a successful version-3 benchmark build with both weighting modes. RLS and revoked client grants were verified. A real Vercel recheck with no new reports left the counter at zero and released its lease.
+
+Before release, both migrations and their rollback were rehearsed on a disposable local PostgreSQL 17 database loaded from the existing exports: apply, rollback, and reapply all succeeded, preserving all 33,502 local evaluation reports. This does not establish concurrent-worker recovery under failure. No additional database test suite is required by this handoff.
+
+1. `001_professor_search_and_scrape_locks.sql`: nullable lease on `course_metadata`, a timestamp trigger that excludes lock-only updates, a literal instructor-name helper, and query indexes. Multiple-professor parsing has been removed at the owner's request.
+2. `002_percentile_benchmarks.sql`: one current percentile mapping, a pending-evaluation counter, and an `AFTER INSERT` trigger on `courses` to increment it. The cache has row-level security enabled and no client policies; grants to `PUBLIC` and, when present, Supabase's `anon`/`authenticated` roles are revoked. The backend accesses it through its server-side database connection.
+
+Run each SQL file with `psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f <file>` when authorized. The migrations are transactional and can be reapplied. Existing evaluation records and course groupings are preserved. Index creation takes a normal table lock during migration; schedule this with the release for a large database. Reapplying 001 removes the superseded list-parser function/index if an earlier review version was applied.
+
+The production preflight confirmed that the configured database connection is the `postgres` table owner, so enabling RLS does not block the backend or its insert trigger. This project grants new public tables broad client privileges by default; explicit RLS and grant removal prevent exposing the new cache through Supabase's Data API. The existing `courses` and `course_metadata` access policies are unchanged. See [Supabase's RLS and grants guidance](https://supabase.com/docs/guides/database/postgres/row-level-security#enable-rls-and-set-the-grants).
+
+[Production release steps](../docs/PRODUCTION_RELEASE.md) cover the backup, migration order, initial benchmark build, deployment, and rollback.
+
+## Rollback
+
+[rollback/001_002.sql](rollback/001_002.sql) reverses both migrations against the original repository schema. It restores the metadata timestamp trigger to `trigger_set_timestamp()` and removes the new lock column, helper functions, indexes, counter trigger, and percentile table. It does not delete or rewrite existing `courses` or `course_metadata` records.
+
+Stop new refresh requests, let active scrapes finish, and stop the new application before running the rollback; resume the previous application afterward. The new application requires the added schema. Rollback discards the temporary lock values, generated percentile mapping, and pending counter; the mapping can be rebuilt from the preserved evaluations. It does not undo evaluations added by later scrapes or restore historical timestamps. Thus the schema changes are reversible, but rollback is not a rewind of all subsequent database activity.
+
+Review the rollback against the actual schema before running it. It assumes the named functions/indexes/table were introduced by these migrations and the original timestamp function is unchanged. If any already existed or were customized, preserve their previous definitions rather than dropping them. The rollback intentionally avoids `CASCADE`, so unexpected dependencies cause the transaction to fail instead of being removed.
+
+```sh
+psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f migrations/rollback/001_002.sql
+```
+
+## Percentile maintenance
+
+After migration, the first benchmark request builds the mapping if missing or from the earlier format. To build it ahead of time or force a rebuild after correcting/deleting existing evaluations, run `python3 -m backend.build_percentiles --database --write-store`. This reads all database courses and writes only the mapping and its counter in one transaction. For offline review use `python3 -m backend.build_percentiles --input data.json --output /tmp/course-benchmark.json`, which makes no database connection.
+
+The benchmark includes all available evaluation years, all departments, and all seasons. Each existing logical course group contributes one mean per metric, weighted by its valid 1–5 response counts. Groups have equal weight by default. The optional class-size weighting gives each group weight `valid responses for the metric / distinct observed terms`, including summer and intersession. All sections and grouped codes in the same term share a denominator entry; observed terms without answers to that metric still count. Filtering the displayed results does not change either benchmark.
+
+Format version 3 stores two arrays of 401 percentile values per metric: `percentiles` for equal course weights and `size_weighted_percentiles` for average class size. Index 0 is 1.00 and index 400 is 5.00. N/A and invalid response counts are excluded. Course means and lookup scores are rounded to the nearest hundredth, with halfway values rounded up; both modes use midranks, counting half the tied weight. The snapshot includes its actual year coverage, generation time, and course counts. Full-precision means and variances remain available for statistical comparisons.
+
+Class-size weighting needs no additional SQL migration: both arrays fit in the existing JSONB payload. After the application update, a version-2 snapshot automatically rebuilds on the first benchmark request. The explicit rebuild command above can prepare version 3 ahead of time. Both mappings are rebuilt together under the same 1,000-report counter and transaction.
+
+The database counter increments once per newly inserted `courses` evaluation row, across all scrapers and imports. Each row is a report aggregating student responses for a course section and term. An update to an existing evaluation, a metadata-only update, or a check with no new reports adds zero. A scrape that adds 20 reports adds 20, regardless of how many courses are involved. At 1,000 pending reports, rebuild at the end of a scrape that published data, or on the next `GET /api/percentiles` request. Long scrapes can exceed the threshold before their final rebuild. Bulk imports are counted automatically; their next benchmark request triggers a due rebuild, or the command above can run immediately afterward. There is no monthly schedule.
+
+Rebuilds lock the current benchmark row, recheck the counter, read the evaluations, write the mapping, and reset the counter in one transaction. Concurrent inserts wait on that row and count toward the next rebuild after it commits. A failed rebuild leaves the previous mapping and counter intact for retry; it does not turn a successful scrape into a failure. Normal benchmark requests below the threshold read only the cached mapping. Each open page keeps one shared snapshot across its filters and comparisons; a later page visit fetches the latest snapshot.
+
+The scraper lease expires after 120 seconds and renews every 30 seconds while its HTTP request is active. All entry points use the same lease. Writes take an ownership-checked row lock; renewal and release compare the exact expiry returned by PostgreSQL. If the process dies, another request can reclaim the expired lease. A lost owner cannot publish. No separate lock table or job queue is used.

@@ -10,7 +10,18 @@
     position: relative;
     flex-grow: 1;
     max-width: 500px; /* Max width of the search input */
+    min-width: 0;
 }
+
+.search-controls {
+    display: flex;
+    align-items: flex-start;
+    flex: 0 1 600px;
+    min-width: 0;
+}
+
+.search-controls.with-comparison { flex-basis: 750px; }
+.search-primary-controls { display: flex; align-items: stretch; flex: 1; min-width: 0; }
 
 .course-search input {
     padding: 10px;
@@ -30,7 +41,7 @@
     border-bottom: 1px solid white;
 }
 
-.course-search > button {
+.search-primary-controls > button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -43,12 +54,31 @@
     align-self: stretch; /* Make button stretch to full height of flex container */
 }
 
-.course-search > button:disabled {
+.search-primary-controls > button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
+.search-primary-controls > .add-comparison-button { background: #4CAF50; padding: 10px 12px; white-space: nowrap; }
+.search-primary-controls > .add-comparison-button:disabled { background: #ccc; }
+.comparison-limit { color: #666; margin: 10px; font-size: 13px; }
+
 .error-message {
     color: red;
     margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .course-search {
+        flex-wrap: wrap;
+    }
+
+    .search-controls {
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+
+    .course-search > .error-message {
+        flex-basis: 100%;
+    }
 }

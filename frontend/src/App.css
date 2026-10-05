@@ -29,3 +29,49 @@
 main {
   flex: 1;
 }
+
+.result-type { display: inline-block; width: fit-content; font-size: 11px; padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+.result-type-course { color: #1976d2; background: #e3f2fd; }
+.result-type-professor { color: #7b1fa2; background: #f3e5f5; }
+
+.result-heading { margin: 20px 0 10px; text-align: center; font-weight: bold; font-size: 2rem; display: flex; flex-direction: column; align-items: center; }
+.result-subtitle { font-size: 1rem; color: gray; font-weight: normal; margin-top: .2em; }
+.grouping-banner { background: #ffe066; border-radius: 6px; color: #442; padding: 8px 16px; margin: 16px auto 20px; font-size: 1.1rem; text-align: center; max-width: 650px; border: 1px solid #ffcb66; }
+.grouping-action { margin-top: 12px; }
+.grouping-action button { background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+.professor-banner { background: #f3e5f5; border-color: #ce93d8; color: #582268; border-radius: 0; }
+.professor-banner .grouping-action button { background: #8e44ad; }
+.info-tip { position: relative; display: inline-flex; vertical-align: middle; }
+.info-button { display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: none; color: inherit; cursor: help; }
+.info-button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 50%; }
+.info-popup { display: none; position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); width: 260px; max-width: 75vw; background: #333; color: white; padding: 8px; border-radius: 4px; font-size: 13px; line-height: 1.4; font-weight: normal; z-index: 1100; }
+.info-tip:hover .info-popup, .info-tip:focus-within .info-popup { display: block; }
+.percentile-control { display: inline-flex; align-items: center; margin-left: 8px; font-size: 14px; }
+.ratings-caption { text-align: center; margin: 20px 0; font-weight: bold; }
+.refresh-spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #d39e00; border-right-color: transparent; border-radius: 50%; margin-right: 8px; vertical-align: middle; animation: refresh-spin 1s linear infinite; }
+@keyframes refresh-spin { to { transform: rotate(360deg); } }
+.evaluation-source-link { font-size: 14px; }
+
+.comparison-heading h2 { margin: 20px 0 10px; font-size: 2rem; }
+.comparison-results { display: flex; align-items: flex-start; overflow-x: auto; gap: 12px; padding-bottom: 12px; }
+.comparison-results > .result-view { flex: 1 0 520px; min-width: min-content; }
+.comparison-results .result-heading { margin-left: 20px; margin-right: 20px; font-size: 1.5rem; }
+.comparison-results .grouping-banner { margin: 12px 20px; font-size: 1rem; }
+.comparison-results .grace-period-warning { margin: 12px 20px; }
+.comparison-results .warning-content { flex-direction: column; align-items: stretch; gap: 8px; }
+.comparison-results .recheck-button { align-self: flex-end; }
+.result-heading-title { position: relative; }
+.remove-result { margin-left: 8px; padding: 0 4px; background: transparent; border: none; color: #777; cursor: pointer; font-size: 20px; vertical-align: middle; }
+.remove-result:hover { color: #c62828; }
+
+.metric-comparison { text-align: center; margin: 6px auto 14px; }
+.comparison-mode-control { display: flex; justify-content: center; align-items: center; gap: 8px; }
+.comparison-mode-active { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.comparison-mode-active > button { justify-self: end; }
+.comparison-mode-control .info-popup { top: calc(100% + 6px); bottom: auto; width: 360px; text-align: left; }
+.comparison-help-statistics { display: block; margin-top: 8px; font-size: calc(1em - 2px); }
+.metric-comparison select { justify-self: start; max-width: 100%; padding: 4px 7px; border: 1px solid #aaa; border-radius: 3px; background: white; font-size: 13px; color: #333; }
+.metric-comparison select:disabled { color: #888; background: #eee; }
+.comparison-feedback { width: fit-content; max-width: calc(100% - 56px); margin: 6px auto 0; padding: 5px 8px; border: 1px solid #ed7d00; border-radius: 0; background: #ffd2a1; font-size: 13px; line-height: 1.4; }
+.comparison-label-orange { color: #994d00; }
+.comparison-label-red { color: #b71c1c; }

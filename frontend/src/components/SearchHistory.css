@@ -79,6 +79,20 @@
     text-overflow: ellipsis;
 }
 
+.search-history-open {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 5px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
 .search-history-item-remove {
   position: absolute;
   right: 8px;
@@ -101,6 +115,9 @@
   background: #f0f0f0;
   color: #333;
 }
+
+.search-history-compare { margin-left: 6px; padding: 3px 6px; border: 0; border-radius: 3px; background: #4CAF50; color: white; font-size: 11px; cursor: pointer; }
+.search-history-compare:disabled { opacity: .45; cursor: not-allowed; }
 
 .search-history-footer {
     display: flex;

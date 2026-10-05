@@ -158,6 +158,12 @@ class CourseGroupingService:
         return None
 
     def get_grouped_courses(self, course_code: str) -> List[str]:
+        # Search combines explicit groups with department-pattern candidate codes.
+        # Candidates need not have evaluation data: for example, AS.050.375 also
+        # generates AS.050.475 here, beyond its explicit cross-listed group.
+        # Different candidate lists do not by themselves imply overlapping data
+        # or double-counting; compare the members that actually have records.
+        # Use get_group_info() for the membership used by the analysis page.
         dept, number = self._parse_course_code(course_code)
         explicit_group = self._find_explicit_group(course_code)
         grouped_courses = set()
@@ -185,6 +191,8 @@ class CourseGroupingService:
         return False
 
     def get_group_info(self, course_code: str) -> Dict:
+        # Analysis gives explicit groups precedence over department patterns,
+        # unlike the broader search candidates returned by get_grouped_courses().
         dept, number = self._parse_course_code(course_code)
         info = {}
         explicit_group = self._find_explicit_group(course_code)

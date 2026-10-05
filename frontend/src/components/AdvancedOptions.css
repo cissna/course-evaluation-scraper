@@ -29,6 +29,10 @@
     opacity: 0.8;
 }
 
+.advanced-options .percentile-weighting {
+    margin-top: 8px;
+}
+
 /* Year input fields styling */
 .advanced-options input[type="number"] {
     width: 80px;
@@ -49,3 +53,6 @@
     align-items: center;
     margin-bottom: 8px;
 }
+
+.advanced-options .significance-threshold { flex-wrap: wrap; gap: 5px; margin-top: 8px; font-size: 13px; }
+.advanced-options .significance-threshold input { margin-left: 0; }

@@ -66,6 +66,12 @@
     display: inline-block;
 }
 
+.percentile-suffix {
+    font-size: 0.65em;
+    line-height: 0;
+    vertical-align: super;
+}
+
 .stat-tooltip {
     display: none;
     position: absolute;
@@ -76,7 +82,11 @@
     color: white;
     padding: 4px 8px;
     font-size: 0.85em;
-    white-space: nowrap;
+    white-space: normal;
+    width: 245px;
+    max-width: 75vw;
+    text-align: left;
+    line-height: 1.4;
     z-index: 1000;
     margin-bottom: 5px;
 }
@@ -91,6 +101,20 @@
     border-top-color: #333;
 }
 
-.stat-value:hover .stat-tooltip {
+.stat-value:hover .stat-tooltip, .stat-value:focus .stat-tooltip {
     display: block;
 }
+
+.tooltip-line { display: block; }
+.group-label { cursor: help; }
+.group-label .stat-tooltip { left: 0; transform: none; }
+.group-label .stat-tooltip::after { left: 12px; transform: none; }
+.data-display td:last-child .stat-tooltip { left: auto; right: 0; transform: none; }
+.year-range-empty { margin: 20px; padding: 14px; border: 1px solid #ffcb66; border-radius: 6px; background: #fff3cd; color: #664d03; }
+
+.data-display th.metric-highlight { background-color: #ffe066; color: #282c34; }
+.data-display .comparison-row { cursor: pointer; }
+.data-display .comparison-row:not(.row-selected-red):not(.row-selected-orange):focus-visible { outline: 2px solid #007bff; outline-offset: -2px; }
+.data-display tr.row-selected-red { outline: 4.8px solid #d32f2f; outline-offset: -4.8px; }
+.data-display tr.row-selected-orange { outline: 4.8px solid #ed7d00; outline-offset: -4.8px; }
+.data-display tr.row-significant > td { background-color: #ffd700; }

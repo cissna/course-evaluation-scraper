@@ -1,16 +1,25 @@
 import os
 import psycopg2
 import json
+import logging
+from contextlib import contextmanager
 from dotenv import load_dotenv
+from .percentiles import BENCHMARK_VERSION, REBUILD_AFTER_EVALUATIONS, build_benchmark
 
 load_dotenv()
 
+@contextmanager
 def get_db_connection():
     """Establishes a connection to the database."""
     conn_string = os.getenv("DATABASE_URL")
     if not conn_string:
         raise Exception("DATABASE_URL environment variable not set.")
-    return psycopg2.connect(conn_string)
+    conn = psycopg2.connect(conn_string, connect_timeout=10)
+    try:
+        with conn:
+            yield conn
+    finally:
+        conn.close()
 
 def get_course_metadata(course_code):
     """Fetches metadata for a specific course."""
@@ -252,3 +261,174 @@ def find_instructor_variants_db(instructor_name):
             variants = {row[0] for row in rows}
             variants.add(instructor_name) # Ensure the original name is included
             return sorted(list(variants))
+
+
+def find_professors_by_name_db(query, limit=20, offset=0):
+    """Search recorded names without resolving them to surname/initial variants."""
+    pattern = '%' + query.replace('\\', '\\\\').replace('%', '\\%').replace('_', '\\_') + '%'
+    names_sql = """
+        SELECT DISTINCT evaluation_instructor_name(data) AS name
+        FROM courses
+        WHERE evaluation_instructor_name(data) ILIKE %s
+    """
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute('SELECT count(*) FROM (' + names_sql + ') AS matches', (pattern,))
+        total = cur.fetchone()[0]
+        cur.execute(names_sql + ' ORDER BY name LIMIT %s OFFSET %s', (pattern, limit, offset))
+        results = [{'type': 'professor', 'name': row[0]} for row in cur.fetchall()]
+    return {'results': results, 'total_count': total}
+
+
+def get_professor_records(name):
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute("""
+            SELECT instance_key, course_code, data FROM courses
+            WHERE evaluation_instructor_name(data) = %s
+        """, (name,))
+        return cur.fetchall()
+
+
+def get_records_for_courses(codes):
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute('SELECT instance_key, course_code, data FROM courses WHERE course_code = ANY(%s)', (list(codes),))
+        return cur.fetchall()
+
+
+def get_all_evaluation_records():
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute('SELECT instance_key, course_code, data FROM courses')
+        return cur.fetchall()
+
+
+def get_refresh_metadata(course_code):
+    """Use the DB clock for active leases and the evaluations for data revisions."""
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute("""
+            SELECT m.*, COALESCE(m.scrape_lock_expires_at > clock_timestamp(), FALSE) AS in_progress,
+                   (SELECT max(updated_at) FROM courses WHERE course_code = m.course_code) AS data_updated_at
+            FROM course_metadata m WHERE m.course_code = %s
+        """, (course_code,))
+        row = cur.fetchone()
+        return dict(zip([d[0] for d in cur.description], row)) if row else None
+
+
+def claim_scrape_lock(course_code, ttl_seconds):
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute("""
+            INSERT INTO course_metadata(course_code, relevant_periods) VALUES (%s, '[]'::JSONB)
+            ON CONFLICT(course_code) DO NOTHING
+        """, (course_code,))
+        cur.execute("""
+            UPDATE course_metadata
+            SET scrape_lock_expires_at = clock_timestamp() + %s * interval '1 second'
+            WHERE course_code = %s AND
+                  (scrape_lock_expires_at IS NULL OR scrape_lock_expires_at <= clock_timestamp())
+            RETURNING scrape_lock_expires_at
+        """, (ttl_seconds, course_code))
+        row = cur.fetchone()
+        return row[0] if row else None
+
+
+def renew_scrape_lock(course_code, claimed_expiry, ttl_seconds):
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute("""
+            UPDATE course_metadata
+            SET scrape_lock_expires_at = clock_timestamp() + %s * interval '1 second'
+            WHERE course_code = %s AND scrape_lock_expires_at = %s
+                  AND scrape_lock_expires_at > clock_timestamp()
+            RETURNING scrape_lock_expires_at
+        """, (ttl_seconds, course_code, claimed_expiry))
+        row = cur.fetchone()
+        return row[0] if row else None
+
+
+def release_scrape_lock(course_code, claimed_expiry):
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute("""
+            UPDATE course_metadata SET scrape_lock_expires_at = NULL
+            WHERE course_code = %s AND scrape_lock_expires_at = %s
+        """, (course_code, claimed_expiry))
+        return cur.rowcount == 1
+
+
+def update_course_metadata_owned(course_code, metadata, claimed_expiry):
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute("""
+            UPDATE course_metadata SET last_period_gathered = %s, last_period_failed = %s,
+                relevant_periods = %s, last_scrape_during_grace_period = %s, updated_at = NOW()
+            WHERE course_code = %s AND scrape_lock_expires_at = %s
+                  AND scrape_lock_expires_at > clock_timestamp()
+        """, (metadata.get('last_period_gathered'), metadata.get('last_period_failed', False),
+              json.dumps(metadata.get('relevant_periods') or []), metadata.get('last_scrape_during_grace_period'),
+              course_code, claimed_expiry))
+        return cur.rowcount == 1
+
+
+def update_course_data_owned(instance_key, course_code, data, claimed_expiry):
+    with get_db_connection() as conn, conn.cursor() as cur:
+        # Hold the metadata row lock until the evaluation write commits. A new
+        # owner cannot claim the lease between the ownership check and publish.
+        cur.execute("""
+            SELECT course_code FROM course_metadata
+            WHERE course_code = %s AND scrape_lock_expires_at = %s
+                  AND scrape_lock_expires_at > clock_timestamp()
+            FOR UPDATE
+        """, (course_code, claimed_expiry))
+        if cur.fetchone() is None:
+            return False
+        cur.execute("""
+            INSERT INTO courses(instance_key, course_code, data) VALUES (%s, %s, %s)
+            ON CONFLICT(instance_key) DO UPDATE SET data = EXCLUDED.data, updated_at = NOW()
+        """, (instance_key, course_code, json.dumps(data)))
+        return True
+
+
+def get_percentile_benchmark():
+    """Serve the saved mapping, rebuilding only when missing or due."""
+    try:
+        return refresh_percentile_benchmark()
+    except Exception:
+        # A failed rebuild must not hide an otherwise usable saved snapshot.
+        with get_db_connection() as conn, conn.cursor() as cur:
+            cur.execute("SELECT payload FROM percentile_benchmarks WHERE benchmark_id = 'current'")
+            row = cur.fetchone()
+        if row and row[0].get('version') == BENCHMARK_VERSION:
+            logging.getLogger(__name__).exception('Percentile rebuild failed; serving the previous snapshot.')
+            return row[0]
+        raise
+
+
+def _percentile_rebuild_due(row):
+    return not row or row[0].get('version') != BENCHMARK_VERSION or row[1] >= REBUILD_AFTER_EVALUATIONS
+
+
+def refresh_percentile_benchmark(force=False):
+    """Atomically rebuild and reset the insertion counter across backend instances."""
+    with get_db_connection() as conn, conn.cursor() as cur:
+        cur.execute("SELECT payload, pending_evaluations FROM percentile_benchmarks WHERE benchmark_id = 'current'")
+        row = cur.fetchone()
+        if not force and not _percentile_rebuild_due(row):
+            return row[0]
+        if row is None:
+            cur.execute("""
+                INSERT INTO percentile_benchmarks(benchmark_id, payload) VALUES ('current', '{}'::JSONB)
+                ON CONFLICT(benchmark_id) DO NOTHING
+            """)
+        # The insertion trigger takes this same row lock. New inserts wait until
+        # the snapshot commits, then count toward the next rebuild. No increments
+        # can be lost between reading all evaluations and resetting the counter.
+        cur.execute("""
+            SELECT payload, pending_evaluations FROM percentile_benchmarks
+            WHERE benchmark_id = 'current' FOR UPDATE
+        """)
+        row = cur.fetchone()
+        if not force and not _percentile_rebuild_due(row):
+            return row[0]
+        cur.execute('SELECT instance_key, course_code, data FROM courses')
+        payload = build_benchmark(cur.fetchall())
+        cur.execute("""
+            UPDATE percentile_benchmarks
+            SET payload = %s, generated_at = %s, pending_evaluations = 0
+            WHERE benchmark_id = 'current'
+        """, (json.dumps(payload), payload['generated_at']))
+        return payload

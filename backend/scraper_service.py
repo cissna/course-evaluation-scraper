@@ -56,23 +56,11 @@ def get_course_data_and_update_cache(course_code: str) -> dict:
         relevant_keys = metadata.get('relevant_periods', [])
         return get_course_data_by_keys(relevant_keys)
 
-    # If not up-to-date, use the shared core scraping function
-    print(f"--- Starting scraper for course: {course_code} ---")
-    
-    try:
-        session = get_authenticated_session()
-    except requests.exceptions.RequestException as e:
-        print(f"Could not get authenticated session: {e}. Aborting.")
-        # Update metadata to mark failure
-        if not metadata:
-            metadata = {"last_period_gathered": None, "last_period_failed": False, "relevant_periods": [], "last_scrape_during_grace_period": None}
-        metadata['last_period_failed'] = True
-        update_course_metadata(course_code, metadata)
-        return {"error": "Failed to authenticate with scraping service."}
+    result = scrape_course_data_core(course_code, skip_grace_period_logic=False)
+    if result.get('in_progress'):
+        cached = get_course_data_by_keys((metadata or {}).get('relevant_periods') or [])
+        return cached or {'in_progress': True}
 
-    # Use the shared core scraping function (skip grace period logic for web interface)
-    result = scrape_course_data_core(course_code, session, skip_grace_period_logic=False)
-    
     if not result['success']:
         print(f"--- Scraping failed for {course_code}: {result['error']} ---")
         return {"error": result['error']}
@@ -87,15 +75,10 @@ def force_recheck_course(course_code: str) -> dict:
     """
     print(f"--- Force rechecking course: {course_code} ---")
     
-    try:
-        session = get_authenticated_session()
-    except requests.exceptions.RequestException as e:
-        print(f"Could not get authenticated session: {e}. Aborting.")
-        return {"error": "Failed to authenticate with scraping service."}
+    result = scrape_course_data_core(course_code, skip_grace_period_logic=True)
+    if result.get('in_progress'):
+        return {'in_progress': True}
 
-    # Use the shared core scraping function with grace period logic enabled
-    result = scrape_course_data_core(course_code, session, skip_grace_period_logic=True)
-    
     if not result['success']:
         print(f"--- Force recheck failed for {course_code}: {result['error']} ---")
         return {"error": result['error']}
