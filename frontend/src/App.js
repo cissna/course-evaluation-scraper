@@ -7,12 +7,15 @@ import AdvancedOptions from './components/AdvancedOptions';
 import DataDisplay from './components/DataDisplay';
 import Footer from './components/Footer';
 import ComparisonMetric from './components/ComparisonMetric';
-import { getInitialStatsState, RATING_STAT_KEYS } from './utils/statsMapping';
+import RefreshNotice from './components/RefreshNotice';
+import { RATING_STAT_KEYS } from './utils/statsMapping';
 import { compareSamples, toggleRowSelection } from './utils/significance';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 import { toggleSeparation } from './utils/separationOptions';
-import { getShowPercentilesPreference, saveShowPercentilesPreference, getPercentileWeightingPreference, savePercentileWeightingPreference } from './utils/storageUtils';
+import { getShowPercentilesPreference, saveShowPercentilesPreference, getPercentileWeightingPreference, savePercentileWeightingPreference,
+  getStatisticsPreferences, saveStatisticsPreferences } from './utils/storageUtils';
 import { loadResultWithData } from './hooks/useEvaluationResult';
+import useRefreshNotifications from './hooks/useRefreshNotifications';
 import { API_BASE_URL } from './config';
 
 const MAX_RESULTS = 5;
@@ -21,6 +24,8 @@ function App() {
   const [selections, setSelections] = useState([]);
   const [searchView, setSearchView] = useState(null);
   const [analyses, setAnalyses] = useState({});
+  const [refreshStates, setRefreshStates] = useState({});
+  const notifications = useRefreshNotifications();
   const [benchmark, setBenchmark] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const [last3Years, setLast3Years] = useState(false);
@@ -33,9 +38,9 @@ function App() {
   const selectionsRef = useRef(selections);
   selectionsRef.current = selections;
   const [options, setOptions] = useState(() => ({
-    stats: getInitialStatsState(),
+    ...getStatisticsPreferences(),
     filters: { min_year: '', max_year: '', seasons: [], exclude_summer: false, exclude_intersession: false },
-    separationKeys: [], showPercentiles: getShowPercentilesPreference(), significanceThreshold: 0.05,
+    separationKeys: [], showPercentiles: getShowPercentilesPreference(),
     weightPercentilesByClassSize: getPercentileWeightingPreference(),
   }));
   useEffect(() => {
@@ -49,9 +54,13 @@ function App() {
   useEffect(() => {
     const ids = new Set(selections.map(result => result.id));
     setAnalyses(previous => Object.fromEntries(Object.entries(previous).filter(([id]) => ids.has(id))));
+    setRefreshStates(previous => Object.fromEntries(Object.entries(previous).filter(([id]) => ids.has(id))));
   }, [selections]);
   const handleAnalysis = useCallback((id, analysis) => {
     setAnalyses(previous => previous[id] === analysis ? previous : { ...previous, [id]: analysis });
+  }, []);
+  const handleRefreshState = useCallback((id, state) => {
+    setRefreshStates(previous => previous[id] === state ? previous : { ...previous, [id]: state });
   }, []);
 
   const resetCourseSeparation = () => setOptions(previous => ({ ...previous,
@@ -110,6 +119,7 @@ function App() {
   };
   const applyAdvancedOptions = next => {
     setOptions(next);
+    if (next.stats !== options.stats || next.significanceThreshold !== options.significanceThreshold) saveStatisticsPreferences(next);
     if (next.weightPercentilesByClassSize !== options.weightPercentilesByClassSize) {
       savePercentileWeightingPreference(next.weightPercentilesByClassSize);
     }
@@ -128,18 +138,19 @@ function App() {
   useEffect(() => {
     if (metric !== effectiveMetric) setMetric(effectiveMetric);
   }, [metric, effectiveMetric]);
-  const activeRows = useMemo(() => comparisonMode ? selectedRows.filter(row =>
+  const displayedRowCount = Object.values(options.stats).some(Boolean) ? selections.reduce((count, result) => {
+    const analysis = analyses[result.id];
+    return count + (analysis?.year_range_empty ? 0 : Object.keys(analysis?.data || {}).length);
+  }, 0) : 0;
+  const canSelectRows = comparisonMode && displayedRowCount >= 2;
+  const activeRows = useMemo(() => canSelectRows ? selectedRows.filter(row =>
     selections.some(result => result.id === row.resultId) && Object.values(options.stats).some(Boolean) &&
     !analyses[row.resultId]?.year_range_empty && Object.prototype.hasOwnProperty.call(analyses[row.resultId]?.data || {}, row.groupName)
-  ) : [], [comparisonMode, selectedRows, selections, analyses, options.stats]);
+  ) : [], [canSelectRows, selectedRows, selections, analyses, options.stats]);
   useEffect(() => {
     if (activeRows.length !== selectedRows.length) setSelectedRows(activeRows);
   }, [activeRows, selectedRows.length]);
   const toggleComparisonMode = () => {
-    const displayedRowCount = Object.values(options.stats).some(Boolean) ? selections.reduce((count, result) => {
-      const analysis = analyses[result.id];
-      return count + (analysis?.year_range_empty ? 0 : Object.keys(analysis?.data || {}).length);
-    }, 0) : 0;
     if (!comparisonMode && displayedRowCount < 2) {
       window.alert(selections.length === 1 && selections[0].type === 'professor'
         ? "You cannot enter comparison mode before you add a course or professor to compare or separate the entries of this professor (e.g. by course)."
@@ -149,7 +160,9 @@ function App() {
     setComparisonMode(previous => !previous);
     setSelectedRows([]);
   };
-  const selectRow = (resultId, groupName) => setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }));
+  const selectRow = (resultId, groupName) => {
+    if (canSelectRows) setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }));
+  };
   const comparison = activeRows.length === 2 ? effectiveMetric ? compareSamples(
     analyses[activeRows[0].resultId]?.statistics_metadata?.[activeRows[0].groupName]?.[effectiveMetric],
     analyses[activeRows[1].resultId]?.statistics_metadata?.[activeRows[1].groupName]?.[effectiveMetric],
@@ -189,14 +202,17 @@ function App() {
       {searchView && <SearchResults key={`${searchView.query}:${searchView.intent}`} searchQuery={searchView.query} initialResults={searchView.matches}
         intent={searchView.intent} resolving={resolving} onResultSelect={openResult} onBack={() => setSearchView(null)} />}
       <div hidden={Boolean(searchView && searchView.intent !== 'add')}>
-        {isSideBySide && <><div className="comparison-heading"><h2>{comparisonMode ? 'Comparison View' : 'Side-by-side View'}</h2>{metricControl}</div>{controls}</>}
+        {isSideBySide && <><div className="comparison-heading"><h2>{comparisonMode ? 'Comparison View' : 'Side-by-Side View'}</h2>{metricControl}</div>{controls}
+          <RefreshNotice results={selections.map(selection => ({ selection, state: refreshStates[selection.id] }))} notifications={notifications} shared />
+        </>}
         <div className={isSideBySide ? 'comparison-results' : 'single-result'}>
           {selections.map(selection => <ResultView key={selection.id} selection={selection} options={options} benchmark={benchmark}
             headingExtra={!isSideBySide && metricControl} comparisonMetric={comparisonMode ? effectiveMetric : null} significant={comparison?.significant}
             rowTones={Object.fromEntries(activeRows.map((row, index) => [row, index]).filter(([row]) => row.resultId === selection.id)
               .map(([row, index]) => [row.groupName, index === activeRows.length - 1 ? 'red' : 'orange']))}
-            onRowSelect={comparisonMode ? selectRow : undefined}
-            onAnalysis={handleAnalysis} onToggleSeparation={separate} onRemove={isSideBySide ? () => removeResult(selection.id) : undefined}>
+            onRowSelect={canSelectRows ? selectRow : undefined}
+            onAnalysis={handleAnalysis} onRefreshState={handleRefreshState} notifications={notifications} sharedRefresh={isSideBySide}
+            onToggleSeparation={separate} onRemove={isSideBySide ? () => removeResult(selection.id) : undefined}>
             {!isSideBySide && controls}
           </ResultView>)}
         </div>
