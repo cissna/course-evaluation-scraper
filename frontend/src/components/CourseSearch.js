@@ -69,7 +69,7 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, currentResultId, hasR
             onFocus={() => setShowHistory(true)} onClick={() => setShowHistory(true)}
             placeholder="Enter course code, course name, or professor name"
           />
-          <SearchHistory isOpen={showHistory} onClose={() => setShowHistory(false)} onItemClick={handleHistoryItemClick}
+          <SearchHistory isOpen={showHistory} hasResults={hasResults} onClose={() => setShowHistory(false)} onItemClick={handleHistoryItemClick}
             onCompare={result => handleHistoryItemClick(result, 'add')} atComparisonLimit={atComparisonLimit}
             searchValue={query} currentResultId={currentResultId} anchorRef={searchInputRef} />
         </div>
