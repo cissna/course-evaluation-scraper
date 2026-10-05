@@ -3,7 +3,7 @@ import './SearchHistory.css';
 import { getSearchHistory, clearSearchHistory, removeFromSearchHistory } from '../utils/storageUtils';
 import { filterSearchHistory } from '../utils/resultTypes';
 
-const SearchHistory = ({ isOpen, onClose, onItemClick, onCompare, atComparisonLimit, searchValue, currentResultId, anchorRef }) => {
+const SearchHistory = ({ isOpen, onClose, onItemClick, onCompare, hasResults, atComparisonLimit, searchValue, currentResultId, anchorRef }) => {
   const [history, setHistory] = useState(getSearchHistory);
   const [displayCount, setDisplayCount] = useState(3);
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -63,9 +63,9 @@ const SearchHistory = ({ isOpen, onClose, onItemClick, onCompare, atComparisonLi
               {item.type === 'course' && <span className="search-history-item-code">{item.code}</span>}
               <span className="search-history-item-name">{item.name}</span>
             </button>
-            <button className="search-history-compare" disabled={atComparisonLimit}
+            {hasResults && <button className="search-history-compare" disabled={atComparisonLimit}
               title={atComparisonLimit ? 'Remove a course or professor to add another.' : `Add ${item.name} side-by-side`}
-              onClick={event => { event.stopPropagation(); onCompare(item); }}>side-by-side</button>
+              onClick={event => { event.stopPropagation(); onCompare(item); }}>side-by-side</button>}
             <button className="search-history-item-remove" aria-label={`Remove ${item.name} from history`}
               onClick={event => { event.stopPropagation(); removeFromSearchHistory(item); }}>×</button>
           </div>
