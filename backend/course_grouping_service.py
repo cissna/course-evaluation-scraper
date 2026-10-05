@@ -14,7 +14,7 @@ class CourseGroupingService:
                 "equivalent_levels": [400, 600]
             },
             "AS.050": {
-                "equivalent_levels": [200, 300, 400, 600]
+                "equivalent_levels": [300, 400, 600]
             }
         },
         "explicit_groupings": [
@@ -43,6 +43,54 @@ class CourseGroupingService:
                     "EN.500.115"
                 ],
                 "description": "Intro Data Science ('Principles')",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.580.456",
+                    "EN.580.656"
+                ],
+                "description": "Explicit grouping: EN.580.456 and EN.580.656",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.520.465",
+                    "EN.520.665"
+                ],
+                "description": "Explicit grouping: EN.520.465 and EN.520.665",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.520.438",
+                    "EN.520.638"
+                ],
+                "description": "Explicit grouping: EN.520.438 and EN.520.638",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.600.120",
+                    "EN.601.220"
+                ],
+                "description": "Explicit grouping: EN.600.120 and EN.601.220",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.580.491",
+                    "EN.580.691"
+                ],
+                "description": "Explicit grouping: EN.580.491 and EN.580.691",
+                "primary": None
+            },
+            {
+                "courses": [
+                    "EN.580.458",
+                    "EN.580.658"
+                ],
+                "description": "Explicit grouping: EN.580.458 and EN.580.658",
                 "primary": None
             }
         ]
@@ -112,7 +160,7 @@ class CourseGroupingService:
     def get_grouped_courses(self, course_code: str) -> List[str]:
         # Search combines explicit groups with department-pattern candidate codes.
         # Candidates need not have evaluation data: for example, AS.050.375 also
-        # generates AS.050.275/.475 here, beyond its explicit cross-listed group.
+        # generates AS.050.475 here, beyond its explicit cross-listed group.
         # Different candidate lists do not by themselves imply overlapping data
         # or double-counting; compare the members that actually have records.
         # Use get_group_info() for the membership used by the analysis page.

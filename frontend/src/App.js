@@ -37,7 +37,14 @@ function App() {
   const openResult = result => {
     if (!result) return;
     setSearchView(null);
-    if (selection?.id !== result.id) { setMetadata(null); setSelection(result); }
+    if (selection?.id !== result.id) {
+      setMetadata(null);
+      setSelection(result);
+      // These controls depend on the selected course's names and codes.
+      setOptions(previous => ({ ...previous,
+        separationKeys: previous.separationKeys.filter(key => key !== 'course_name' && key !== 'course_code'),
+      }));
+    }
   };
   const separate = key => setOptions(previous => ({ ...previous, separationKeys: toggleSeparation(previous.separationKeys, key) }));
   const changePercentiles = event => {

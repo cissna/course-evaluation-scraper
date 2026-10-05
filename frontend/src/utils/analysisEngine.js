@@ -2,6 +2,36 @@ import { RATING_MAPPINGS } from './statsMapping';
 import { lookupPercentile } from './percentiles';
 
 const SEASONS = { FA: 'Fall', SP: 'Spring', SU: 'Summer', IN: 'Intersession' };
+const SEMESTER_ORDER = { IN: 0, SP: 1, SU: 2, FA: 3 };
+const SEASON_ORDER = { Intersession: 0, Spring: 1, Summer: 2, Fall: 3 };
+
+function periodRank(period) {
+  const match = period.match(/^(IN|SP|SU|FA)(\d{2})$/);
+  return match ? Number(match[2]) * 4 + SEMESTER_ORDER[match[1]] : null;
+}
+
+function comparePeriods(a, b) {
+  const rankA = periodRank(a), rankB = periodRank(b);
+  if (rankA === null && rankB === null) return a.localeCompare(b);
+  if (rankA === null) return 1;
+  if (rankB === null) return -1;
+  return rankA - rankB;
+}
+
+function compareGroupParts(partsA, partsB, keys) {
+  for (let index = 0; index < keys.length; index++) {
+    const a = partsA[index], b = partsB[index];
+    let comparison;
+    if (keys[index] === 'exact_period') comparison = comparePeriods(a, b);
+    else if (keys[index] === 'season') {
+      comparison = (SEASON_ORDER[a] ?? Infinity) - (SEASON_ORDER[b] ?? Infinity);
+    } else if (keys[index] === 'year') {
+      comparison = (Number(a) || Infinity) - (Number(b) || Infinity);
+    } else comparison = a.localeCompare(b);
+    if (comparison) return comparison;
+  }
+  return partsA.join(', ').localeCompare(partsB.join(', '));
+}
 
 function getRecordedInstructor(instance) {
   return typeof instance.instructor_name === 'string' ? instance.instructor_name.trim() : '';
@@ -69,7 +99,7 @@ function latestCourseNames(instances) {
     if (typeof instance.course_name !== 'string' || !instance.course_name.trim()) continue;
     const id = instance.course_group_id || courseCode(key, instance);
     const period = periodOf(key);
-    const rank = (getInstanceYear(key) || 0) * 4 + ({ IN: 0, SP: 1, SU: 2, FA: 3 }[period?.[1]] || 0);
+    const rank = (getInstanceYear(key) || 0) * 4 + (SEMESTER_ORDER[period?.[1]] || 0);
     const previous = names.get(id);
     if (!previous || rank > previous.rank || (rank === previous.rank && key < previous.key)) {
       names.set(id, { name: instance.course_name.trim(), rank, key });
@@ -82,12 +112,20 @@ export function separateInstances(instances, separationKeys = [], scope = {}) {
   const keys = activeSeparationKeys(instances, separationKeys, scope);
   if (!keys.length) return { 'All Data': Object.values(instances) };
   const groups = Object.create(null);
+  const sortParts = Object.create(null);
   for (const [key, instance] of Object.entries(instances)) {
-    const name = groupParts(key, instance, keys).join(', ');
-    if (!groups[name]) groups[name] = [];
+    const parts = groupParts(key, instance, keys);
+    const name = parts.join(', ');
+    if (!groups[name]) {
+      groups[name] = [];
+      // Keep parts separate so a comma in a professor/course name is harmless.
+      sortParts[name] = parts;
+    }
     groups[name].push(instance);
   }
-  return groups;
+  return Object.fromEntries(Object.entries(groups).sort(([a], [b]) =>
+    compareGroupParts(sortParts[a], sortParts[b], keys)
+  ));
 }
 
 export function calculateDetailedStatistics(frequencies, mapping) {
@@ -142,7 +180,7 @@ export function processAnalysisRequest(rawData, params) {
     }
     for (const metric of stats) {
       if (metric === 'periods_course_has_been_run') {
-        const periods = [...new Set(entries.map(([key]) => periodOf(key)?.slice(1).join('')).filter(Boolean))].sort();
+        const periods = [...new Set(entries.map(([key]) => periodOf(key)?.slice(1).join('')).filter(Boolean))].sort(comparePeriods);
         data[groupName][metric] = periods.join(', ') || 'N/A';
         continue;
       }
