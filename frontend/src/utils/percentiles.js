@@ -1,10 +1,15 @@
 export function formatPercentile(value) {
-  const distanceToEnd = Math.min(value, 100 - value);
-  // Keep two decimal places within 1% of an endpoint, three within 0.1%,
-  // and so on. Positive tail ranks must not round to an apparent 0 or 100.
-  const decimals = distanceToEnd > 0 && distanceToEnd < 1
-    ? Math.min(100, 1 + Math.ceil(-Math.log10(distanceToEnd))) : 0;
-  const displayed = value.toFixed(decimals).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
+  let decimals = 0;
+  let displayed = value.toFixed(decimals);
+  // Add a digit only while rounding looks like an endpoint, all nines
+  // (99, 99.9, ...), or the smallest positive decimal (0.1, 0.01, ...).
+  // True endpoints stay whole; keep zeros that resolve the ambiguity (99.90).
+  const looksLikeExtreme = /^(?:0(?:\.0+)?|100(?:\.0+)?|99(?:\.9+)?|0\.0*1)$/;
+  if (value > 0 && value < 100) {
+    while (looksLikeExtreme.test(displayed) && decimals < 100) {
+      displayed = value.toFixed(++decimals);
+    }
+  }
   const number = Number(displayed);
   const lastTwo = number % 100;
   const suffix = lastTwo >= 11 && lastTwo <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[number % 10] || 'th');
