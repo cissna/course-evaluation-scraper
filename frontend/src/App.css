@@ -53,13 +53,13 @@ main {
 .evaluation-source-link { font-size: 14px; }
 
 .comparison-heading h2 { margin: 20px 0 10px; font-size: 2rem; }
-.comparison-results { display: flex; align-items: flex-start; overflow-x: auto; gap: 12px; padding-bottom: 12px; }
-.comparison-results > .result-view { flex: 1 0 520px; min-width: min-content; }
+.comparison-results { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(min-content, 1fr); grid-template-rows: auto auto; align-items: start; overflow-x: auto; column-gap: 12px; padding-bottom: 12px; }
+/* Only the heading/grouping row is shared. Table bodies keep their own height. */
+.comparison-results > .result-view { display: grid; grid-template-rows: subgrid; grid-row: span 2; align-self: stretch; min-width: 520px; }
+.comparison-results .result-topbar { display: flow-root; }
 .comparison-results .result-heading { margin-left: 20px; margin-right: 20px; font-size: 1.5rem; }
 .comparison-results .grouping-banner { margin: 12px 20px; font-size: 1rem; }
-.comparison-results .grace-period-warning { margin: 12px 20px; }
-.comparison-results .warning-content { flex-direction: column; align-items: stretch; gap: 8px; }
-.comparison-results .recheck-button { align-self: flex-end; }
+.shared-refresh-notice { margin: 16px 20px; }
 .result-heading-title { position: relative; }
 .remove-result { margin-left: 8px; padding: 0 4px; background: transparent; border: none; color: #777; cursor: pointer; font-size: 20px; vertical-align: middle; }
 .remove-result:hover { color: #c62828; }

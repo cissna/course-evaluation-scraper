@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { API_BASE_URL } from '../config';
 
 async function jsonRequest(path, options) {
@@ -65,44 +65,42 @@ export async function loadResultWithData(selection, signal) {
 }
 
 const fingerprint = raw => JSON.stringify(Object.entries(raw?.instances || {}).sort(([a], [b]) => a.localeCompare(b)));
+export const needsCourseCheck = course => course.needs_warning || course.needs_refresh || course.in_progress;
+export const coursesToRecheck = (courses, refresh) => refresh.state === 'error'
+  ? courses.filter(course => refresh.failedCourseCodes?.includes(course.course_code))
+  : courses.filter(needsCourseCheck);
 
-export default function useEvaluationResult(selection) {
+export default function useEvaluationResult(selection, onRefreshComplete) {
   const [rawData, setRawData] = useState(selection.initialSaved?.raw_data || null);
   const [courses, setCourses] = useState(selection.initialSaved?.refresh?.courses || []);
   const [loading, setLoading] = useState(!selection.initialSaved);
   const [error, setError] = useState(null);
   const [refresh, setRefresh] = useState({ state: 'idle' });
   const [pendingData, setPendingData] = useState(null);
-  const [notificationMessage, setNotificationMessage] = useState('');
   const controller = useRef(null);
   const rawRef = useRef(selection.initialSaved?.raw_data || null);
   const busy = useRef(null);
-  const notify = useRef(false);
-  const runNumber = useRef(0);
-  const completion = useRef(null);
-  const deliverNotification = useCallback(body => {
-    try { new window.Notification('Evaluation check finished', { body }); }
-    catch { setNotificationMessage('The check finished, but this browser could not display a notification.'); }
-  }, []);
 
-  const refreshCourses = useCallback(async (statuses, force, signal) => {
-    if (!statuses.length || (busy.current && !busy.current.signal.aborted) || signal.aborted) return;
-    const run = { signal, id: ++runNumber.current };
+  const refreshCourses = useCallback(async (statuses, force, signal, checkCourse) => {
+    if (!signal || !statuses.length || (busy.current && !busy.current.signal.aborted) || signal.aborted) return;
+    const run = { signal };
     busy.current = run;
-    notify.current = false;
-    completion.current = null;
-    setNotificationMessage('');
     const period = [...new Set(statuses.map(status => status.current_period).filter(Boolean))].join(', ');
-    setRefresh({ state: 'checking', period });
+    const courseCodes = statuses.map(course => course.course_code);
+    setRefresh({ state: 'checking', period, courseCodes });
     const failures = [];
+    const failedCourseCodes = [];
     const queue = [...statuses];
     // Limit concurrent requests when a professor has many courses.
     const worker = async () => {
       while (queue.length && !signal.aborted) {
         const course = queue.shift();
-        try { await checkCourseForUpdates(course, force, signal); }
+        try { await (checkCourse ? checkCourse(course) : checkCourseForUpdates(course, force, signal)); }
         catch (failure) {
-          if (failure.name !== 'AbortError') failures.push(`${course.course_code}: ${failure.message}`);
+          if (failure.name !== 'AbortError') {
+            failures.push(`${course.course_code}: ${failure.message}`);
+            failedCourseCodes.push(course.course_code);
+          }
         }
       }
     };
@@ -126,16 +124,15 @@ export default function useEvaluationResult(selection) {
           setError(null);
         } else if (changed) setPendingData(saved.raw_data);
       }
-      setRefresh({ state: failures.length ? 'error' : changed ? hadCachedData ? 'updated' : 'applied' : 'complete', period, error: failures.join(' ') });
+      setRefresh({ state: failures.length ? 'error' : changed ? hadCachedData ? 'updated' : 'applied' : 'complete', period, courseCodes, failedCourseCodes, error: failures.join(' ') });
       const body = failures.length ? 'Some courses could not be checked. See this tab for details.' : changed ? 'Updated evaluations are available in this tab.' : `No new data found for ${period}.`;
-      completion.current = { id: run.id, body };
-      if (notify.current && 'Notification' in window && window.Notification.permission === 'granted') deliverNotification(body);
+      onRefreshComplete(`${selection.code || selection.name}: ${body}`);
     } catch (failure) {
-      if (!signal.aborted) setRefresh({ state: 'error', period, error: failure.message });
+      if (!signal.aborted) setRefresh({ state: 'error', period, courseCodes, failedCourseCodes: courseCodes, error: failure.message });
     } finally {
-      if (busy.current === run) { busy.current = null; notify.current = false; }
+      if (busy.current === run) busy.current = null;
     }
-  }, [selection, deliverNotification]);
+  }, [selection, onRefreshComplete]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -159,30 +156,26 @@ export default function useEvaluationResult(selection) {
         if (!disposed) { setError(failure.message); setLoading(false); }
       }
     })();
-    return () => { disposed = true; notify.current = false; abortController.abort(); };
+    return () => { disposed = true; abortController.abort(); };
   }, [selection, refreshCourses]);
 
-  const recheck = () => refreshCourses(courses, true, controller.current.signal);
-  const showUpdated = () => {
+  useEffect(() => {
+    if (!['complete', 'applied'].includes(refresh.state) || pendingData) return;
+    const timer = setTimeout(() => setRefresh(previous => previous === refresh ? { ...previous, state: 'dismissed' } : previous), 10_000);
+    return () => clearTimeout(timer);
+  }, [refresh, pendingData]);
+
+  const recheck = useCallback((checkCourse, targetCodes) => {
+    const statuses = targetCodes ? courses.filter(course => targetCodes.has(course.course_code)) : coursesToRecheck(courses, refresh);
+    return refreshCourses(statuses, true, controller.current?.signal, checkCourse);
+  }, [courses, refresh, refreshCourses]);
+  const showUpdated = useCallback(() => {
     if (!pendingData) return;
     rawRef.current = pendingData;
     setRawData(pendingData);
     setPendingData(null);
     setRefresh(previous => ({ ...previous, state: previous.error ? 'error' : 'applied' }));
-  };
-  const enableNotifications = async () => {
-    const requestedRun = runNumber.current;
-    setNotificationMessage('Waiting for notification permission…');
-    try {
-      const permission = await window.Notification.requestPermission();
-      if (controller.current.signal.aborted || requestedRun !== runNumber.current) return;
-      notify.current = permission === 'granted';
-      setNotificationMessage(permission === 'granted' ? 'Notifications enabled while this tab is open.' : 'Notifications were not enabled. You can keep checking this tab.');
-      if (notify.current && completion.current?.id === requestedRun) {
-        deliverNotification(completion.current.body);
-        notify.current = false;
-      }
-    } catch { setNotificationMessage('Notifications are not available in this browser.'); }
-  };
-  return { rawData, courses, loading, error, refresh, pendingData, recheck, showUpdated, enableNotifications, notificationMessage };
+  }, [pendingData]);
+  return useMemo(() => ({ rawData, courses, loading, error, refresh, pendingData, recheck, showUpdated }),
+    [rawData, courses, loading, error, refresh, pendingData, recheck, showUpdated]);
 }

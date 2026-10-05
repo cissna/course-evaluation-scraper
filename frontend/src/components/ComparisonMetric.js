@@ -22,8 +22,8 @@ const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange,
   </div>
   {enabled && comparison && <div className="comparison-feedback" role="status">
     {!comparison.available ? <>Significance unavailable: {comparison.reason}</> : <>
-      <strong className="comparison-label-orange">{labels[0]}</strong> and <strong className="comparison-label-red">{labels[1]}</strong> are{' '}
-      {comparison.significant ? <strong>significantly</strong> : <><strong>not</strong> significantly</>} different (P{comparison.significant ? '<' : '≥'}{Number(threshold)})
+      <strong className="comparison-label-orange">{labels[0]}</strong> and <strong className="comparison-label-red">{labels[1]}</strong>{comparison.significant ? ' have ' : ' do '}
+      {comparison.significant ? <strong>significantly</strong> : <><strong>not</strong> have significantly</>} different {metric === 'ta_frequency' ? 'TA quality' : STAT_MAPPINGS[metric]?.toLowerCase()} (P{comparison.significant ? '<' : '≥'}{Number(threshold)})
     </>}
   </div>}
 </div>;

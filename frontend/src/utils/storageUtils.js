@@ -1,9 +1,55 @@
 import { asResult } from './resultTypes';
+import { getInitialStatsState } from './statsMapping';
+import { isValidThreshold } from './significance';
 
 const STORAGE_KEY = 'jhuCourseSearchHistory';
 const PERCENTILE_PREFERENCE_KEY = 'jhuCourseShowPercentiles';
 const PERCENTILE_WEIGHTING_KEY = 'jhuCourseWeightPercentilesByClassSize';
+const STATISTICS_PREFERENCE_KEY = 'jhuCourseStatistics';
+const NOTIFICATIONS_PREFERENCE_KEY = 'jhuCourseRefreshNotifications';
 const MAX_HISTORY_ITEMS = 1000;
+
+export const getStatisticsPreferences = () => {
+  const defaults = { stats: getInitialStatsState(), significanceThreshold: 0.05 };
+  try {
+    const stored = JSON.parse(localStorage.getItem(STATISTICS_PREFERENCE_KEY) || '{}');
+    return {
+      stats: Object.fromEntries(Object.entries(defaults.stats).map(([key, enabled]) =>
+        [key, typeof stored?.stats?.[key] === 'boolean' ? stored.stats[key] : enabled])),
+      significanceThreshold: isValidThreshold(stored?.significanceThreshold) ? Number(stored.significanceThreshold) : defaults.significanceThreshold,
+    };
+  } catch {
+    return defaults;
+  }
+};
+
+export const saveStatisticsPreferences = ({ stats, significanceThreshold }) => {
+  try {
+    // Keep the last valid threshold when the number field is temporarily empty
+    // or invalid while editing; an unfinished edit should not persist.
+    const threshold = isValidThreshold(significanceThreshold) ? Number(significanceThreshold) : getStatisticsPreferences().significanceThreshold;
+    localStorage.setItem(STATISTICS_PREFERENCE_KEY, JSON.stringify({ stats, significanceThreshold: threshold }));
+  } catch (error) {
+    console.warn('Failed to save statistics preferences:', error);
+  }
+};
+
+export const getRefreshNotificationsPreference = () => {
+  try {
+    const saved = localStorage.getItem(NOTIFICATIONS_PREFERENCE_KEY);
+    return saved === null ? null : saved === 'true';
+  } catch {
+    return null;
+  }
+};
+
+export const saveRefreshNotificationsPreference = enabled => {
+  try {
+    localStorage.setItem(NOTIFICATIONS_PREFERENCE_KEY, String(enabled));
+  } catch (error) {
+    console.warn('Failed to save notification preference:', error);
+  }
+};
 
 export const getShowPercentilesPreference = () => {
   try {
