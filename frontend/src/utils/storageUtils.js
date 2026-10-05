@@ -2,6 +2,7 @@ import { asResult } from './resultTypes';
 
 const STORAGE_KEY = 'jhuCourseSearchHistory';
 const PERCENTILE_PREFERENCE_KEY = 'jhuCourseShowPercentiles';
+const PERCENTILE_WEIGHTING_KEY = 'jhuCourseWeightPercentilesByClassSize';
 const MAX_HISTORY_ITEMS = 1000;
 
 export const getShowPercentilesPreference = () => {
@@ -17,6 +18,22 @@ export const saveShowPercentilesPreference = (enabled) => {
     localStorage.setItem(PERCENTILE_PREFERENCE_KEY, String(enabled));
   } catch (error) {
     console.warn('Failed to save percentile preference:', error);
+  }
+};
+
+export const getPercentileWeightingPreference = () => {
+  try {
+    return localStorage.getItem(PERCENTILE_WEIGHTING_KEY) === 'true';
+  } catch {
+    return false;
+  }
+};
+
+export const savePercentileWeightingPreference = (enabled) => {
+  try {
+    localStorage.setItem(PERCENTILE_WEIGHTING_KEY, String(enabled));
+  } catch (error) {
+    console.warn('Failed to save percentile weighting preference:', error);
   }
 };
 

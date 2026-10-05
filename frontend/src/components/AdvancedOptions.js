@@ -21,6 +21,11 @@ const AdvancedOptions = ({ options, onApply, hasCourses = true, hasProfessors = 
           <input type="checkbox" checked={options.stats[key]} onChange={() => onApply({ ...options, stats: { ...options.stats, [key]: !options.stats[key] } })} />
           {STATISTICS_CONFIG[key].displayName}
         </label>)}
+        <label className="percentile-weighting" title="Each course is weighted by its responses divided by the number of terms it has run, including summer and intersession. Sections in the same term are combined. Applies to percentiles in the table, tooltips, and CSV exports.">
+          <input type="checkbox" checked={options.weightPercentilesByClassSize}
+            onChange={event => onApply({ ...options, weightPercentilesByClassSize: event.target.checked })} />
+          Weight percentiles by average class size
+        </label>
       </div>
       <div className="option-group">
         <h4>Year Range</h4>

@@ -17,7 +17,7 @@ export function convertToCSV(data, selectedStats, statisticsMetadata = {}, showP
     headers.push(label);
     if (RATING_STAT_KEYS.includes(stat)) {
       headers.push(`${label} — absolute score (1–5)`, `${label} — percentile`, `${label} — response count`,
-        `${label} — sample standard deviation (1–5 ratings)`, `${label} — benchmark years`, `${label} — percentile note`);
+        `${label} — sample standard deviation (1–5 ratings)`, `${label} — benchmark years`, `${label} — percentile weighting`, `${label} — percentile note`);
     }
   }
   const rows = [headers];
@@ -32,7 +32,8 @@ export function convertToCSV(data, selectedStats, statisticsMetadata = {}, showP
       row.push(rating && showPercentiles ? percentile ?? 'N/A' : typeof value === 'number' ? value.toFixed(2) : value ?? 'N/A');
       if (rating) {
         row.push(details.mean ?? value, percentile !== null ? `${percentile} percentile` : '', details.n ?? '', details.std ?? '',
-          details.benchmark_years ?? '', [details.percentile_reason, stat === 'workload' ? 'Higher percentile means heavier reported workload, not a better score.' : null].filter(Boolean).join(' '));
+          details.benchmark_years ?? '', details.percentile_weighted_by_class_size ? 'Average class size' : 'Equal course weights',
+          [details.percentile_reason, stat === 'workload' ? 'Higher percentile means heavier reported workload, not a better score.' : null].filter(Boolean).join(' '));
       }
     }
     rows.push(row);

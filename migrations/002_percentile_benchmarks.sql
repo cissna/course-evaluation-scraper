@@ -1,6 +1,6 @@
 BEGIN;
 
--- One compact snapshot: 401 percentile values per metric, for scores 1.00–5.00.
+-- One compact snapshot: 401 values per metric and weighting mode, for 1.00–5.00.
 CREATE TABLE IF NOT EXISTS percentile_benchmarks (
     benchmark_id TEXT PRIMARY KEY CHECK (benchmark_id = 'current'),
     generated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),

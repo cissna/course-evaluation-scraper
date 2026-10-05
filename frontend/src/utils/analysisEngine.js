@@ -164,7 +164,8 @@ export function processAnalysisRequest(rawData, params) {
       metadata[groupName][metric] = {
         ...details,
         source_ids: [...new Set(sourceIds)],
-        ...lookupPercentile(details.mean, metric, params.benchmark),
+        ...lookupPercentile(details.mean, metric, params.benchmark, params.weightPercentilesByClassSize),
+        percentile_weighted_by_class_size: Boolean(params.weightPercentilesByClassSize),
         benchmark_years: params.benchmark?.year_coverage || null,
       };
     }

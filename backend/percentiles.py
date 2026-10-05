@@ -15,25 +15,37 @@ METRICS = {
     'ta_frequency': QUALITY,
 }
 PERIOD = re.compile(r'\.(?:IN|SP|SU|FA)\.?(\d{2})$')
-BENCHMARK_VERSION = 2
+BENCHMARK_VERSION = 3
 # Count saved course/section/term reports, each aggregating student responses.
 REBUILD_AFTER_EVALUATIONS = 1_000
 
 
-def percentile_mapping(by_group):
+def midranks(mass):
+    total = sum(mass)
+    below = 0
+    percentiles = []
+    for tied in mass:
+        # Fractional class-size weights can accumulate tiny floating-point error.
+        percentiles.append(min(100, max(0, 100 * (below + tied / 2) / total)) if total else None)
+        below += tied
+    return percentiles
+
+
+def percentile_mapping(by_group, periods_by_group):
     # Index 0 represents 1.00, index 400 represents 5.00. Only percentile
     # lookup uses rounded means; response statistics keep their full precision.
     counts = [0] * 401
-    for total, n in by_group.values():
+    size_weights = [0] * 401
+    for group, (total, n) in by_group.items():
         if n > 0:
-            counts[math.floor((total / n) * 100 + 0.5) - 100] += 1
-    course_count = sum(counts)
-    below = 0
-    percentiles = []
-    for tied in counts:
-        percentiles.append(100 * (below + tied / 2) / course_count if course_count else None)
-        below += tied
-    return {'percentiles': percentiles, 'course_count': course_count}
+            index = math.floor((total / n) * 100 + 0.5) - 100
+            counts[index] += 1
+            size_weights[index] += n / len(periods_by_group[group])
+    return {
+        'percentiles': midranks(counts),
+        'size_weighted_percentiles': midranks(size_weights),
+        'course_count': sum(counts),
+    }
 
 
 def build_benchmark(records, generated_at=None):
@@ -47,6 +59,7 @@ def build_benchmark(records, generated_at=None):
                 raise ValueError(f'Overlapping existing course groups for {code}; review before building a benchmark.')
             memberships[code] = members
     totals = {metric: defaultdict(lambda: [0, 0]) for metric in METRICS}
+    periods_by_group = defaultdict(set)
     years = set()
     skipped = 0
     for key, code, record in records:
@@ -54,6 +67,9 @@ def build_benchmark(records, generated_at=None):
         if not isinstance(record, dict) or not period:
             skipped += 1
             continue
+        # Count every observed term, including summer/intersession and terms
+        # without answers to this metric. Sections/cross-listings share a term.
+        periods_by_group[groups[code]].add(period[0].replace('.', ''))
         contributed = False
         for metric, mapping in METRICS.items():
             field = metric if metric.endswith('_frequency') else metric + '_frequency'
@@ -73,6 +89,7 @@ def build_benchmark(records, generated_at=None):
         'population': 'All logical course groups in the database, all available years; one response-weighted mean per group.',
         'refresh_schedule': f'After {REBUILD_AFTER_EVALUATIONS:,} newly inserted evaluation reports, at the end of a scrape or the next benchmark request.',
         'ranking': 'midrank of course averages rounded to the nearest hundredth',
+        'size_weighting': 'Valid responses per metric divided by distinct observed terms per course group, including summer and intersession.',
         'score_min': 1,
         'score_max': 5,
         'score_step': 0.01,
@@ -80,7 +97,7 @@ def build_benchmark(records, generated_at=None):
         'year_coverage': f'{min(years)}–{max(years)}' if years else 'Unavailable',
         'skipped_records': skipped,
         'metrics': {
-            metric: percentile_mapping(by_group)
+            metric: percentile_mapping(by_group, periods_by_group)
             for metric, by_group in totals.items()
         },
     }

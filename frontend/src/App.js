@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import { getInitialStatsState } from './utils/statsMapping';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 import { toggleSeparation } from './utils/separationOptions';
-import { getShowPercentilesPreference, saveShowPercentilesPreference } from './utils/storageUtils';
+import { getShowPercentilesPreference, saveShowPercentilesPreference, getPercentileWeightingPreference, savePercentileWeightingPreference } from './utils/storageUtils';
 import { API_BASE_URL } from './config';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
     stats: getInitialStatsState(),
     filters: { min_year: '', max_year: '', seasons: [], exclude_summer: false, exclude_intersession: false },
     separationKeys: [], showPercentiles: getShowPercentilesPreference(),
+    weightPercentilesByClassSize: getPercentileWeightingPreference(),
   }));
   useEffect(() => {
     const controller = new AbortController();
@@ -44,6 +45,12 @@ function App() {
     setOptions(previous => ({ ...previous, showPercentiles }));
     saveShowPercentilesPreference(showPercentiles);
   };
+  const applyAdvancedOptions = next => {
+    setOptions(next);
+    if (next.weightPercentilesByClassSize !== options.weightPercentilesByClassSize) {
+      savePercentileWeightingPreference(next.weightPercentilesByClassSize);
+    }
+  };
   const toggleYears = () => {
     const bounds = last3Years ? { min_year: '', max_year: '' } : calculateLast3YearsRange();
     setOptions(previous => ({ ...previous, filters: { ...previous.filters, ...bounds } }));
@@ -57,10 +64,12 @@ function App() {
         : <button onClick={() => separate('instructor')}>{options.separationKeys.includes('instructor') ? 'Combine Professors' : 'Separate by Professor'}</button>}
       <label className="percentile-control"><input type="checkbox" checked={options.showPercentiles} onChange={changePercentiles} />Show percentiles</label>
     </div>
-    <AdvancedOptions options={options} onApply={setOptions} hasCourses={!professor} hasProfessors={professor}
+    <AdvancedOptions options={options} onApply={applyAdvancedOptions} hasCourses={!professor} hasProfessors={professor}
       hasFormerNames={Boolean(metadata?.former_names?.length || metadata?.has_former_names)}
       showLast3YearsActive={last3Years} onDeactivateLast3Years={() => setLast3Years(false)} expanded={expanded} onExpandedChange={setExpanded} />
-    {selection && <p className="ratings-caption">{options.showPercentiles ? 'Ratings shown as percentiles of course averages.' : 'Ratings are on a 1–5 scale.'}</p>}
+    {selection && <p className="ratings-caption">{options.showPercentiles
+      ? options.weightPercentilesByClassSize ? 'Ratings shown as percentiles of course averages, weighted by average class size.' : 'Ratings shown as percentiles of course averages.'
+      : 'Ratings are on a 1–5 scale.'}</p>}
   </>;
   return <div className="App">
     <header className="App-header"><h1>JHU Course Evaluation Analyzer</h1></header>
