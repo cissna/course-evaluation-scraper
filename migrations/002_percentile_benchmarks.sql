@@ -8,6 +8,20 @@ CREATE TABLE IF NOT EXISTS percentile_benchmarks (
     pending_evaluations BIGINT NOT NULL DEFAULT 0 CHECK (pending_evaluations >= 0)
 );
 
+-- Only the server's database connection reads/writes this cache. Supabase may
+-- otherwise grant client roles all privileges on newly created public tables.
+ALTER TABLE percentile_benchmarks ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE percentile_benchmarks FROM PUBLIC;
+DO $$
+DECLARE client_role TEXT;
+BEGIN
+    -- These Supabase roles need not exist in a plain local PostgreSQL database.
+    FOR client_role IN SELECT rolname FROM pg_roles WHERE rolname IN ('anon', 'authenticated') LOOP
+        EXECUTE format('REVOKE ALL ON TABLE percentile_benchmarks FROM %I', client_role);
+    END LOOP;
+END;
+$$;
+
 -- Also support reapplying this migration to the earlier review version.
 ALTER TABLE percentile_benchmarks
     ADD COLUMN IF NOT EXISTS pending_evaluations BIGINT NOT NULL DEFAULT 0 CHECK (pending_evaluations >= 0);
