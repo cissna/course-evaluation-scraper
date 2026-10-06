@@ -10,7 +10,7 @@ export function formatYearRange(range) {
 }
 
 const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {}, groupLabels = {}, showPercentiles = false, yearRangeEmpty,
-  filename = 'course_analysis.csv', comparisonMetric, rowTones = {}, significant = false, onRowSelect }) => {
+  filename = 'course_analysis.csv', comparisonMetric, rowTones = {}, significant = false, onRowSelect, onMetricSelect }) => {
   const [downloadClicked, setDownloadClicked] = useState(false);
   const timer = useRef(null);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -61,7 +61,15 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
   return <div className="data-display">
     <div className="table-container">
       <table>
-        <thead><tr><th scope="col">Group</th>{stats.map(metric => <th scope="col" key={metric} className={comparisonMetric === metric ? 'metric-highlight' : undefined}>{STAT_MAPPINGS[metric]}</th>)}</tr></thead>
+        <thead><tr><th scope="col">Group</th>{stats.map(metric => {
+          const selectable = onMetricSelect && RATING_STAT_KEYS.includes(metric);
+          return <th scope="col" key={metric}
+            className={[comparisonMetric === metric ? 'metric-highlight' : '', selectable ? 'comparison-metric' : ''].filter(Boolean).join(' ')}
+            title={selectable ? `Double-click to compare ${STAT_MAPPINGS[metric].toLowerCase()}` : undefined}
+            onDoubleClick={selectable ? () => onMetricSelect(metric) : undefined}>
+            {STAT_MAPPINGS[metric]}
+          </th>;
+        })}</tr></thead>
         <tbody>{Object.entries(data).map(([group, values]) => <tr key={group}
           className={[onRowSelect ? 'comparison-row' : '', rowTones[group] ? `row-selected-${rowTones[group]}` : '', significant && rowTones[group] ? 'row-significant' : ''].filter(Boolean).join(' ')}
           tabIndex={onRowSelect ? 0 : undefined} aria-selected={onRowSelect ? Boolean(rowTones[group]) : undefined}
