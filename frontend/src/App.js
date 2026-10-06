@@ -171,14 +171,15 @@ function App() {
   const labelParts = activeRows.map(row => {
     const source = selections.find(result => result.id === row.resultId);
     const sourceLabel = source.type === 'course' ? source.code : source.name;
-    const groupLabel = analyses[row.resultId]?.group_labels?.[row.groupName]?.label || row.groupName;
+    // All Data means there is no subgroup to name in the comparison feedback.
+    const groupLabel = row.groupName === 'All Data' ? '' : analyses[row.resultId]?.group_labels?.[row.groupName]?.label || row.groupName;
     return { ...row, sourceLabel, groupLabel };
   });
   const sharedSource = labelParts.length === 2 && labelParts[0].resultId === labelParts[1].resultId;
   const sharedGroup = labelParts.length === 2 && labelParts[0].groupLabel === labelParts[1].groupLabel;
   const sharedLabel = sharedSource ? labelParts[0].sourceLabel : sharedGroup ? labelParts[0].groupLabel : null;
   const rowLabels = labelParts.map(({ sourceLabel, groupLabel }) =>
-    sharedSource ? groupLabel : sharedGroup ? sourceLabel : `${sourceLabel} — ${groupLabel}`);
+    sharedSource ? groupLabel : sharedGroup ? sourceLabel : [sourceLabel, groupLabel].filter(Boolean).join(' — '));
   const metricControl = <ComparisonMetric enabled={comparisonMode} onToggle={toggleComparisonMode}
     visibleMetrics={visibleMetrics} metric={effectiveMetric} onChange={setMetric}
     comparison={comparison} labels={rowLabels} sharedLabel={sharedLabel} threshold={options.significanceThreshold} />;
