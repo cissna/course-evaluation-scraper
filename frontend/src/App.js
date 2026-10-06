@@ -175,8 +175,7 @@ function App() {
     return { ...row, sourceLabel, groupLabel };
   });
   const sharedSource = labelParts.length === 2 && labelParts[0].resultId === labelParts[1].resultId;
-  const sharedGroup = labelParts.length === 2 && labelParts[0].groupName === labelParts[1].groupName &&
-    labelParts[0].groupLabel === labelParts[1].groupLabel;
+  const sharedGroup = labelParts.length === 2 && labelParts[0].groupLabel === labelParts[1].groupLabel;
   const sharedLabel = sharedSource ? labelParts[0].sourceLabel : sharedGroup ? labelParts[0].groupLabel : null;
   const rowLabels = labelParts.map(({ sourceLabel, groupLabel }) =>
     sharedSource ? groupLabel : sharedGroup ? sourceLabel : `${sourceLabel} — ${groupLabel}`);
