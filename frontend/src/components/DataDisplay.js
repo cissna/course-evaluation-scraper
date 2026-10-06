@@ -34,7 +34,8 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
       `n = ${details.n ?? 0}, σ = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'}`,
       metric === 'workload' ? 'Higher percentiles mean heavier workload.' : null,
     ].filter(Boolean);
-    return <td key={metric}>
+    const tone = comparisonMetric === metric ? rowTones[group] : null;
+    return <td key={metric} className={tone ? `cell-selected-${tone}${significant ? ' cell-significant' : ''}` : undefined}>
       <span className="stat-value" tabIndex="0" aria-label={`${displayed}. ${tooltip.join('. ')}`}>
         {showPercentiles && hasPercentile
           ? <>{percentile.slice(0, -2)}<sup className="percentile-suffix">{percentile.slice(-2)}</sup></>
@@ -71,7 +72,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
           </th>;
         })}</tr></thead>
         <tbody>{Object.entries(data).map(([group, values]) => <tr key={group}
-          className={[onRowSelect ? 'comparison-row' : '', rowTones[group] ? `row-selected-${rowTones[group]}` : '', significant && rowTones[group] ? 'row-significant' : ''].filter(Boolean).join(' ')}
+          className={[onRowSelect ? 'comparison-row' : '', rowTones[group] ? 'row-selected' : ''].filter(Boolean).join(' ')}
           tabIndex={onRowSelect ? 0 : undefined} aria-selected={onRowSelect ? Boolean(rowTones[group]) : undefined}
           onClick={onRowSelect ? () => onRowSelect(group) : undefined}
           onKeyDown={event => { if (onRowSelect && event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); onRowSelect(group); } }}>
