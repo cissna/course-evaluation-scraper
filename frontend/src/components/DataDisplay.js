@@ -4,7 +4,7 @@ import { STAT_MAPPINGS, RATING_STAT_KEYS } from '../utils/statsMapping';
 import { formatPercentile } from '../utils/percentiles';
 import { convertToCSV } from '../utils/csvExport';
 
-const ROW_CLICK_DELAY_MS = 125;
+const ROW_CLICK_DELAY_MS = 200;
 
 export function formatYearRange(range) {
   if (range.min_year && range.max_year) return `${range.min_year}–${range.max_year}`;
