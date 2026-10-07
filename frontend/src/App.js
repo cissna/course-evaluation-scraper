@@ -160,8 +160,8 @@ function App() {
     setComparisonMode(previous => !previous);
     setSelectedRows([]);
   };
-  const selectRow = (resultId, groupName, ensureSelected = false) => {
-    if (canSelectRows) setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }, ensureSelected));
+  const selectRow = (resultId, groupName) => {
+    if (canSelectRows) setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }));
   };
   const comparison = activeRows.length === 2 ? effectiveMetric ? compareSamples(
     analyses[activeRows[0].resultId]?.statistics_metadata?.[activeRows[0].groupName]?.[effectiveMetric],

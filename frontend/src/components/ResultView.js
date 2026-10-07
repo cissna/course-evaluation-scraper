@@ -71,7 +71,7 @@ const ResultView = ({ selection, options, benchmark, onAnalysis, onRefreshState,
           selectedStats={Object.keys(options.stats).filter(key => options.stats[key])}
           statisticsMetadata={analysis?.statistics_metadata} groupLabels={analysis?.group_labels} showPercentiles={options.showPercentiles}
           comparisonMetric={comparisonMetric} rowTones={rowTones} significant={significant} onMetricSelect={onMetricSelect}
-          onRowSelect={onRowSelect ? (groupName, ensureSelected) => onRowSelect(selection.id, groupName, ensureSelected) : undefined}
+          onRowSelect={onRowSelect ? groupName => onRowSelect(selection.id, groupName) : undefined}
           yearRangeEmpty={analysis?.year_range_empty} filename={`${selection.type === 'professor' ? selection.name : selection.code}_analysis.csv`} />
         {state.error?.startsWith('No ') && selection.type === 'course' && <p className="evaluation-source-link">No evaluations found at this search: {' '}
           <a href={`https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(selection.code)}`} target="_blank" rel="noopener noreferrer">{selection.code} on the evaluation site</a>
