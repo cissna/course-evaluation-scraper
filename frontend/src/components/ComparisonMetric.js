@@ -2,7 +2,7 @@ import React from 'react';
 import { STAT_MAPPINGS } from '../utils/statsMapping';
 import InfoTooltip from './InfoTooltip';
 
-const COMPARISON_HELP = 'In this mode, you can select two rows to see if their averages for Overall Quality (or your selected metric) are statistically significantly different. Choose a metric from the dropdown or double-click its column header.';
+const COMPARISON_HELP = 'In this mode, you can select two rows to see if their averages for Overall Quality (or your selected metric) are statistically significantly different. Choose a metric from the dropdown or double-click anywhere in its column. Double-clicking keeps your selected rows; a single click selects or deselects a row after a brief delay.';
 const STATISTICS_HELP = 'We use a two-sided Welch independent two-sample t-test, allowing unequal variances. It uses unrounded means, sample variances, and response counts; p below the selected threshold (0.05 by default) indicates a significant difference. Responses are assumed independent; rows sharing evaluations cannot be tested.';
 export const THRESHOLD_HELP = 'Uses a two-tailed Welch independent two-sample t-test to compare mean ratings in either direction, allowing unequal variances. A result is significant when p < threshold. This is approximate and assumes independent responses. Shared evaluation records cannot be tested as independent samples.';
 

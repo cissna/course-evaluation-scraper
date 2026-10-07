@@ -113,17 +113,18 @@
 .year-range-empty { margin: 20px; padding: 14px; border: 1px solid #ffcb66; border-radius: 6px; background: #fff3cd; color: #664d03; }
 
 .data-display th.metric-highlight { background-color: #ffe066; color: #282c34; }
-.data-display th.comparison-metric { cursor: pointer; }
+.data-display th.comparison-metric, .data-display td[data-comparison-metric] { cursor: pointer; }
 .data-display .comparison-row { cursor: pointer; }
 .data-display .comparison-row:not(.row-selected):focus-visible { outline: 2px solid #007bff; outline-offset: -2px; }
-.data-display tr.row-selected { outline: 2px solid #000; outline-offset: -2px; }
-.data-display td.cell-selected-red { position: relative; --comparison-cell-color: #d32f2f; }
-.data-display td.cell-selected-orange { position: relative; --comparison-cell-color: #ed7d00; }
+.data-display tr.row-selected { outline: 2px solid var(--comparison-color); outline-offset: -2px; }
+.data-display tr.row-selected-red { --comparison-color: #d32f2f; }
+.data-display tr.row-selected-orange { --comparison-color: #ed7d00; }
+.data-display td.cell-selected-red, .data-display td.cell-selected-orange { position: relative; }
 .data-display td.cell-selected-red::after, .data-display td.cell-selected-orange::after {
     content: '';
     position: absolute;
     inset: 0;
-    border: 4.8px solid var(--comparison-cell-color);
+    border: 4.8px solid var(--comparison-color);
     pointer-events: none;
     z-index: 1;
 }
