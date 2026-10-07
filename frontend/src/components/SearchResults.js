@@ -36,18 +36,18 @@ const SearchResults = ({ searchQuery, initialResults, onResultSelect, onBack, in
       <div className="search-results-header">
         <button onClick={onBack} className="back-button">← Back to Search</button>
         <h2>{intent === 'add' ? comparisonSearchHeading(matches) : `Search Results for "${searchQuery}"`}</h2>
-        <p className="search-note">This is only among courses that have already been searched, so if what you're expecting doesn't come up, you may have to directly search by course code first</p>
+        <p className="search-note">Search includes courses with saved evaluations. If a course is missing, enter its full code (e.g., AS.180.101) to look it up.</p>
         <div className="search-tabs" role="tablist" aria-label="Result types">
           {['courses', 'professors'].map(type => (
             <button key={type} role="tab" aria-selected={activeTab === type} disabled={!matches[type].total_count || isLoading}
               className={`search-tab result-type-${type === 'courses' ? 'course' : 'professor'}`}
-              onClick={() => setActiveTab(type)}>{type === 'courses' ? 'Course names' : 'Professors'} ({matches[type].total_count})</button>
+              onClick={() => setActiveTab(type)}>{type === 'courses' ? 'Courses' : 'Professors'} ({matches[type].total_count})</button>
           ))}
         </div>
         <p className="results-count">Showing {active.results.length} of {active.total_count} results</p>
       </div>
       {error && <div className="error-message" role="alert">{error}</div>}
-      <div className="results-list" role="tabpanel" aria-label={activeTab === 'courses' ? 'Course names' : 'Professors'}>
+      <div className="results-list" role="tabpanel" aria-label={activeTab === 'courses' ? 'Courses' : 'Professors'}>
         {active.results.map(result => {
           const selection = asResult(activeTab === 'courses' ? result : { ...result, type: 'professor' });
           return (

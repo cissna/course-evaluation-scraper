@@ -4,16 +4,65 @@ import { STAT_MAPPINGS, RATING_STAT_KEYS } from '../utils/statsMapping';
 import { formatPercentile } from '../utils/percentiles';
 import { convertToCSV } from '../utils/csvExport';
 
+const ROW_CLICK_DELAY_MS = 200;
+
 export function formatYearRange(range) {
   if (range.min_year && range.max_year) return `${range.min_year}–${range.max_year}`;
   return range.min_year ? `${range.min_year} and later` : `${range.max_year} and earlier`;
 }
 
 const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadata = {}, groupLabels = {}, showPercentiles = false, yearRangeEmpty,
-  filename = 'course_analysis.csv', comparisonMetric, rowTones = {}, significant = false, onRowSelect }) => {
+  filename = 'course_analysis.csv', comparisonMetric, rowTones = {}, significant = false, onRowSelect, onMetricSelect }) => {
   const [downloadClicked, setDownloadClicked] = useState(false);
   const timer = useRef(null);
+  const pendingRowClicks = useRef(new Map());
+  const rowSelectRef = useRef(onRowSelect);
+  rowSelectRef.current = onRowSelect;
+  const canSelectRows = Boolean(onRowSelect), canSelectMetric = Boolean(onMetricSelect);
   useEffect(() => () => clearTimeout(timer.current), []);
+  useEffect(() => {
+    const pending = pendingRowClicks.current;
+    return () => {
+      pending.forEach(click => clearTimeout(click.timer));
+      pending.clear();
+    };
+  }, [data, errorMessage, yearRangeEmpty, canSelectRows, canSelectMetric]);
+
+  const cancelRowClick = key => {
+    clearTimeout(pendingRowClicks.current.get(key)?.timer);
+    pendingRowClicks.current.delete(key);
+  };
+  const flushRowClicks = () => {
+    const clicks = [...pendingRowClicks.current.values()];
+    pendingRowClicks.current.clear();
+    clicks.forEach(click => { clearTimeout(click.timer); rowSelectRef.current?.(click.group); });
+  };
+  const selectRowNow = group => {
+    flushRowClicks();
+    onRowSelect(group);
+  };
+  const handleCellClick = (event, group, metric) => {
+    event.stopPropagation();
+    // Only another metric needs time to distinguish selection from switching.
+    if (event.detail === 0 || metric === comparisonMetric) { selectRowNow(group); return; }
+    const key = JSON.stringify([group, metric]);
+    if (event.detail > 1 && pendingRowClicks.current.has(key)) {
+      cancelRowClick(key);
+      selectMetric(metric);
+      onRowSelect(group, true);
+      return;
+    }
+    cancelRowClick(key);
+    const click = { group, timer: setTimeout(() => {
+      pendingRowClicks.current.delete(key);
+      rowSelectRef.current?.(group);
+    }, ROW_CLICK_DELAY_MS) };
+    pendingRowClicks.current.set(key, click);
+  };
+  const selectMetric = metric => {
+    flushRowClicks();
+    onMetricSelect(metric);
+  };
   if (errorMessage) return <div className="data-display-error" role="alert">{errorMessage}</div>;
   if (!data) return <div className="data-display-placeholder">Enter a course or professor to see the results.</div>;
   if (yearRangeEmpty) return <div className="year-range-empty" role="status">No results for range {formatYearRange(yearRangeEmpty)}, try including some of these years {yearRangeEmpty.available_years.join(', ')}</div>;
@@ -34,7 +83,11 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
       `n = ${details.n ?? 0}, σ = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'}`,
       metric === 'workload' ? 'Higher percentiles mean heavier workload.' : null,
     ].filter(Boolean);
-    return <td key={metric}>
+    const tone = comparisonMetric === metric ? rowTones[group] : null;
+    return <td key={metric} className={tone ? `cell-selected-${tone}${significant ? ' cell-significant' : ''}` : undefined}
+      data-comparison-metric={onMetricSelect ? metric : undefined}
+      onClick={onRowSelect && onMetricSelect ? event => handleCellClick(event, group, metric) : undefined}
+      onDoubleClick={onMetricSelect && !onRowSelect ? () => selectMetric(metric) : undefined}>
       <span className="stat-value" tabIndex="0" aria-label={`${displayed}. ${tooltip.join('. ')}`}>
         {showPercentiles && hasPercentile
           ? <>{percentile.slice(0, -2)}<sup className="percentile-suffix">{percentile.slice(-2)}</sup></>
@@ -61,12 +114,20 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
   return <div className="data-display">
     <div className="table-container">
       <table>
-        <thead><tr><th scope="col">Group</th>{stats.map(metric => <th scope="col" key={metric} className={comparisonMetric === metric ? 'metric-highlight' : undefined}>{STAT_MAPPINGS[metric]}</th>)}</tr></thead>
+        <thead><tr><th scope="col">Group</th>{stats.map(metric => {
+          const selectable = onMetricSelect && RATING_STAT_KEYS.includes(metric);
+          return <th scope="col" key={metric}
+            className={[comparisonMetric === metric ? 'metric-highlight' : '', selectable ? 'comparison-metric' : ''].filter(Boolean).join(' ')}
+            title={selectable ? `Double-click to compare ${STAT_MAPPINGS[metric].toLowerCase()}` : undefined}
+            onDoubleClick={selectable ? () => selectMetric(metric) : undefined}>
+            {STAT_MAPPINGS[metric]}
+          </th>;
+        })}</tr></thead>
         <tbody>{Object.entries(data).map(([group, values]) => <tr key={group}
-          className={[onRowSelect ? 'comparison-row' : '', rowTones[group] ? `row-selected-${rowTones[group]}` : '', significant && rowTones[group] ? 'row-significant' : ''].filter(Boolean).join(' ')}
+          className={[onRowSelect ? 'comparison-row' : '', rowTones[group] ? `row-selected row-selected-${rowTones[group]}` : ''].filter(Boolean).join(' ')}
           tabIndex={onRowSelect ? 0 : undefined} aria-selected={onRowSelect ? Boolean(rowTones[group]) : undefined}
-          onClick={onRowSelect ? () => onRowSelect(group) : undefined}
-          onKeyDown={event => { if (onRowSelect && event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); onRowSelect(group); } }}>
+          onClick={onRowSelect ? () => selectRowNow(group) : undefined}
+          onKeyDown={event => { if (onRowSelect && event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); selectRowNow(group); } }}>
           <td>{groupLabels[group]?.tooltip ? <span className="stat-value group-label" tabIndex="0" aria-label={`${groupLabels[group].label}. ${groupLabels[group].tooltip}`}>
             {groupLabels[group].label}
             <span className="stat-tooltip" role="tooltip">{groupLabels[group].tooltip}</span>

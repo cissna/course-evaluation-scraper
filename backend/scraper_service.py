@@ -111,13 +111,13 @@ def get_course_grace_status(course_code: str) -> dict:
 
 def find_courses_by_name(search_query: str) -> list:
     """
-    Finds course codes by searching for a query in the course names in the database.
+    Finds course codes by searching titles and course-code fragments in the database.
     """
     return find_courses_by_name_db(search_query)
 
 def find_courses_by_name_with_details(search_query: str, limit: int = None, offset: int = None) -> dict:
     """
-    Finds courses by name with detailed results including course names.
+    Finds courses by title or course-code fragment, including course names.
     Returns a dictionary with results and metadata.
     """
     total_count = count_courses_by_name_db(search_query)

@@ -160,25 +160,29 @@ function App() {
     setComparisonMode(previous => !previous);
     setSelectedRows([]);
   };
-  const selectRow = (resultId, groupName) => {
-    if (canSelectRows) setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }));
+  const selectRow = (resultId, groupName, ensureSelected = false) => {
+    if (canSelectRows) setSelectedRows(previous => toggleRowSelection(previous, { resultId, groupName }, ensureSelected));
   };
   const comparison = activeRows.length === 2 ? effectiveMetric ? compareSamples(
     analyses[activeRows[0].resultId]?.statistics_metadata?.[activeRows[0].groupName]?.[effectiveMetric],
     analyses[activeRows[1].resultId]?.statistics_metadata?.[activeRows[1].groupName]?.[effectiveMetric],
     options.significanceThreshold
   ) : { available: false, significant: false, reason: 'show a rating metric to compare these rows.' } : null;
-  const crossTable = activeRows.length === 2 && activeRows[0].resultId !== activeRows[1].resultId;
-  const rowLabels = activeRows.map(row => {
+  const labelParts = activeRows.map(row => {
     const source = selections.find(result => result.id === row.resultId);
     const sourceLabel = source.type === 'course' ? source.code : source.name;
-    const groupLabel = analyses[row.resultId]?.group_labels?.[row.groupName]?.label || row.groupName;
-    if (row.groupName.toLowerCase() === 'all data') return sourceLabel;
-    return crossTable ? `${sourceLabel} — ${groupLabel}` : groupLabel;
+    // All Data means there is no subgroup to name in the comparison feedback.
+    const groupLabel = row.groupName === 'All Data' ? '' : analyses[row.resultId]?.group_labels?.[row.groupName]?.label || row.groupName;
+    return { ...row, sourceLabel, groupLabel };
   });
+  const sharedSource = labelParts.length === 2 && labelParts[0].resultId === labelParts[1].resultId;
+  const sharedGroup = labelParts.length === 2 && labelParts[0].groupLabel === labelParts[1].groupLabel;
+  const sharedLabel = sharedSource ? labelParts[0].sourceLabel : sharedGroup ? labelParts[0].groupLabel : null;
+  const rowLabels = labelParts.map(({ sourceLabel, groupLabel }) =>
+    sharedSource ? groupLabel : sharedGroup ? sourceLabel : [sourceLabel, groupLabel].filter(Boolean).join(' — '));
   const metricControl = <ComparisonMetric enabled={comparisonMode} onToggle={toggleComparisonMode}
     visibleMetrics={visibleMetrics} metric={effectiveMetric} onChange={setMetric}
-    comparison={comparison} labels={rowLabels} threshold={options.significanceThreshold} />;
+    comparison={comparison} labels={rowLabels} sharedLabel={sharedLabel} threshold={options.significanceThreshold} />;
   const controls = <>
     <div className="controls">
       <button onClick={toggleYears}>{last3Years ? 'Show All Time' : 'Show Last 3 Years'}</button>
@@ -211,6 +215,7 @@ function App() {
             rowTones={Object.fromEntries(activeRows.map((row, index) => [row, index]).filter(([row]) => row.resultId === selection.id)
               .map(([row, index]) => [row.groupName, index === activeRows.length - 1 ? 'red' : 'orange']))}
             onRowSelect={canSelectRows ? selectRow : undefined}
+            onMetricSelect={comparisonMode ? setMetric : undefined}
             onAnalysis={handleAnalysis} onRefreshState={handleRefreshState} notifications={notifications} sharedRefresh={isSideBySide}
             onToggleSeparation={separate} onRemove={isSideBySide ? () => removeResult(selection.id) : undefined}>
             {!isSideBySide && controls}

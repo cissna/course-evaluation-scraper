@@ -2,11 +2,11 @@ import React from 'react';
 import { STAT_MAPPINGS } from '../utils/statsMapping';
 import InfoTooltip from './InfoTooltip';
 
-const COMPARISON_HELP = 'In this mode, you can select two rows to see if their averages for Overall Quality (or your selected metric) are statistically significantly different.';
+const COMPARISON_HELP = 'In this mode, you can select two rows to see if their averages for Overall Quality (or your selected metric) are statistically significantly different. Choose a metric from the dropdown or double-click anywhere in its column. A quick double-click in another column switches metrics and selects the clicked row if it is not already selected, replacing the older selection when needed. Clicks in the current column select or deselect rows immediately; single clicks in other columns have a brief delay.';
 const STATISTICS_HELP = 'We use a two-sided Welch independent two-sample t-test, allowing unequal variances. It uses unrounded means, sample variances, and response counts; p below the selected threshold (0.05 by default) indicates a significant difference. Responses are assumed independent; rows sharing evaluations cannot be tested.';
 export const THRESHOLD_HELP = 'Uses a two-tailed Welch independent two-sample t-test to compare mean ratings in either direction, allowing unequal variances. A result is significant when p < threshold. This is approximate and assumes independent responses. Shared evaluation records cannot be tested as independent samples.';
 
-const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange, comparison, labels, threshold }) => <div className="metric-comparison">
+const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange, comparison, labels, sharedLabel, threshold }) => <div className="metric-comparison">
   <div className={`comparison-mode-control${enabled ? ' comparison-mode-active' : ''}`}>
     <button onClick={onToggle} aria-pressed={enabled}>{enabled ? 'Exit comparison mode' : 'Enter comparison mode'}</button>
     <InfoTooltip label="About comparison mode">
@@ -22,8 +22,9 @@ const ComparisonMetric = ({ enabled, onToggle, visibleMetrics, metric, onChange,
   </div>
   {enabled && comparison && <div className="comparison-feedback" role="status">
     {!comparison.available ? <>Significance unavailable: {comparison.reason}</> : <>
-      <strong className="comparison-label-orange">{labels[0]}</strong> and <strong className="comparison-label-red">{labels[1]}</strong>{comparison.significant ? ' have ' : ' do '}
-      {comparison.significant ? <strong>significantly</strong> : <><strong>not</strong> have significantly</>} different {metric === 'ta_frequency' ? 'TA quality' : STAT_MAPPINGS[metric]?.toLowerCase()} (P{comparison.significant ? '<' : '≥'}{Number(threshold)})
+      <strong>{comparison.significant ? 'Statistically' : 'Not statistically'} significantly</strong> different {metric === 'ta_frequency' ? 'TA quality' : STAT_MAPPINGS[metric]?.toLowerCase()} (P{comparison.significant ? '<' : '≥'}{Number(threshold)})
+      <br />
+      between <strong className="comparison-label-orange">{labels[0]}</strong> and <strong className="comparison-label-red">{labels[1]}</strong>{sharedLabel && <> for {sharedLabel}</>}
     </>}
   </div>}
 </div>;

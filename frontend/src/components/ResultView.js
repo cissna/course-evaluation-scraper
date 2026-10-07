@@ -23,7 +23,7 @@ export function ResultHeading({ selection, metadata, onRemove }) {
 }
 
 const ResultView = ({ selection, options, benchmark, onAnalysis, onRefreshState, notifications, sharedRefresh, onToggleSeparation, onRemove, headingExtra,
-  comparisonMetric, rowTones, significant, onRowSelect, children }) => {
+  comparisonMetric, rowTones, significant, onRowSelect, onMetricSelect, children }) => {
   const state = useEvaluationResult(selection, notifications.notify);
   const { rawData } = state;
   const analysis = useMemo(() => {
@@ -70,8 +70,8 @@ const ResultView = ({ selection, options, benchmark, onAnalysis, onRefreshState,
         <DataDisplay data={analysis?.data || null} errorMessage={state.error}
           selectedStats={Object.keys(options.stats).filter(key => options.stats[key])}
           statisticsMetadata={analysis?.statistics_metadata} groupLabels={analysis?.group_labels} showPercentiles={options.showPercentiles}
-          comparisonMetric={comparisonMetric} rowTones={rowTones} significant={significant}
-          onRowSelect={onRowSelect ? groupName => onRowSelect(selection.id, groupName) : undefined}
+          comparisonMetric={comparisonMetric} rowTones={rowTones} significant={significant} onMetricSelect={onMetricSelect}
+          onRowSelect={onRowSelect ? (groupName, ensureSelected) => onRowSelect(selection.id, groupName, ensureSelected) : undefined}
           yearRangeEmpty={analysis?.year_range_empty} filename={`${selection.type === 'professor' ? selection.name : selection.code}_analysis.csv`} />
         {state.error?.startsWith('No ') && selection.type === 'course' && <p className="evaluation-source-link">No evaluations found at this search: {' '}
           <a href={`https://asen-jhu.evaluationkit.com/Report/Public/Results?Course=${encodeURIComponent(selection.code)}`} target="_blank" rel="noopener noreferrer">{selection.code} on the evaluation site</a>

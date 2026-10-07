@@ -1,4 +1,6 @@
-export const NO_RESULTS_MESSAGE = 'No matching courses found in existing database. Use a course code if this is a new course.';
+export const NO_RESULTS_MESSAGE = 'No matching courses found in existing database. Use a full course code if this is a new course.';
+
+export const compactCourseCode = value => value.trim().replace(/\./g, '').toLowerCase();
 
 export function asResult(value) {
   if (typeof value === 'string') return { type: 'course', code: value, id: `course:${value}` };
@@ -9,5 +11,9 @@ export function asResult(value) {
 
 export function filterSearchHistory(history, query, currentId) {
   const needle = query.trim().toLowerCase();
-  return history.filter(item => item.id !== currentId && `${item.code || ''} ${item.name}`.toLowerCase().includes(needle));
+  const codeNeedle = compactCourseCode(query);
+  return history.filter(item => item.id !== currentId && (
+    `${item.code || ''} ${item.name}`.toLowerCase().includes(needle) ||
+    (codeNeedle && item.code && compactCourseCode(item.code).includes(codeNeedle))
+  ));
 }

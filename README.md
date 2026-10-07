@@ -61,7 +61,7 @@ Then, the export_data.py script will convert the supabase database back into eas
 ## How to Use
 
 1.  Open your browser to `http://localhost:3000` (or the Vercel deployment URL).
-2.  Enter a course code (e.g., `AS.180.101`), course title, or a recorded professor name into the search bar. Ambiguous matches appear in Course names and Professors tabs.
+2.  Enter a full or partial course code, course title, or a recorded professor name into the search bar. Course code matching ignores periods and capitalization: `AS100`, `AS.100`, and `AS.100.` all find saved courses in `AS.100`; `601.465` and `601465` find matching codes under any school prefix. A single match opens automatically; ambiguous matches appear in Courses and Professors tabs. A full code such as `AS.180.101` or `AS180101` opens directly, including when the course has no saved evaluations yet. Recent-search filtering also accepts partial codes without periods.
 3.  Your recent searches will appear in a dropdown for easy access.
 4.  Click the "Search" button to fetch and display the data.
 5.  Use the toggle buttons and advanced options to filter and separate the data as needed.
@@ -89,7 +89,7 @@ When new saved evaluations are available, **Show updated data** replaces the tab
 
 Side-by-side results share one refresh banner above their headings. It lists courses that may be missing recent evaluations and offers **Recheck all**. A shared course is checked once per manual batch, and every displayed result containing it reloads saved data; **Show updated data** applies all available updates together. Grouping notices remain course-specific. Notifications are optional and remember the first enabled choice for later checks and visits; an existing granted browser permission is honored too. Neither outcome requires notification permission or a page reload.
 
-`GET /api/search?q=...` returns paginated course/group and professor matches with independent total counts. Professor membership uses one literal recorded `instructor_name` string. Multiple-professor lists are not parsed, and name variants are kept separate. `GET /api/percentiles` serves the precomputed snapshot once per page visit.
+`GET /api/search?q=...` returns paginated course/group and professor matches with independent total counts. Courses match title substrings or code substrings with periods removed; code matching is case-insensitive and does not assume a school prefix. Existing cross-listed course grouping applies to results and counts. Professor membership uses one literal recorded `instructor_name` string. Multiple-professor lists are not parsed, and name variants are kept separate. `GET /api/percentiles` serves the precomputed snapshot once per page visit.
 
 ## Review
 

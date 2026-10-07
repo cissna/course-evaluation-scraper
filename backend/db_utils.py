@@ -80,39 +80,54 @@ def update_course_data(instance_key, course_code, data):
                 (instance_key, course_code, json.dumps(data))
             )
 
+def _course_search_filter(search_query):
+    """Match literal title text or a course-code fragment with optional periods."""
+    def contains_pattern(value):
+        escaped = value.replace("!", "!!").replace("%", "!%").replace("_", "!_")
+        return "%" + escaped + "%"
+
+    code_query = search_query.replace(".", "").strip()
+    # NULL keeps a query consisting only of periods from matching every code.
+    code_pattern = contains_pattern(code_query) if code_query else None
+    return """(
+        data->>'course_name' ILIKE %s ESCAPE '!'
+        OR REPLACE(course_code, '.', '') ILIKE %s ESCAPE '!'
+    )""", (contains_pattern(search_query), code_pattern)
+
+
 def find_courses_by_name_db(search_query):
-    """Finds course codes by searching for a query in the course names within the JSONB data."""
+    """Finds course codes by a case-insensitive title or course-code fragment."""
+    search_filter, params = _course_search_filter(search_query)
     with get_db_connection() as conn:
         with conn.cursor() as cur:
-            # The query is case-insensitive and searches within the 'course_name' field of the JSONB data.
-            # The `->>` operator extracts the JSON field as text.
-            query = """
+            query = f"""
                 SELECT DISTINCT course_code
                 FROM courses
-                WHERE data->>'course_name' ILIKE %s;
+                WHERE {search_filter};
             """
-            cur.execute(query, ('%' + search_query + '%',))
+            cur.execute(query, params)
             rows = cur.fetchall()
             return sorted([row[0] for row in rows])
 
 def find_courses_by_name_with_details_db(search_query, limit=None, offset=None):
-    """Finds course codes and names by searching for a query in the course names within the JSONB data.
+    """Finds course codes and names by a title or course-code fragment.
     Deduplicates by course code, applies course groupings, and returns the most recent course name for each group."""
     from .course_grouping_service import CourseGroupingService
 
+    search_filter, params = _course_search_filter(search_query)
     with get_db_connection() as conn:
         with conn.cursor() as cur:
             # Get all matching courses with their names and timestamps, ordering by updated_at DESC to get most recent first
-            query = """
+            query = f"""
                 SELECT DISTINCT ON (course_code)
                        course_code,
                        data->>'course_name' as course_name,
                        updated_at
                 FROM courses
-                WHERE data->>'course_name' ILIKE %s
+                WHERE {search_filter}
                 ORDER BY
                     course_code,
-                    SUBSTRING(instance_key FROM '..(\\d{2})$') DESC,
+                    SUBSTRING(instance_key FROM '..(\\d{{2}})$') DESC,
                     CASE SUBSTRING(instance_key FROM '..(FA|SP|SU|IN)..$')
                         WHEN 'FA' THEN 3
                         WHEN 'SU' THEN 2
@@ -120,7 +135,7 @@ def find_courses_by_name_with_details_db(search_query, limit=None, offset=None):
                         ELSE 0
                     END DESC;
             """
-            cur.execute(query, ('%' + search_query + '%',))
+            cur.execute(query, params)
             rows = cur.fetchall()
 
             # Create course grouping service
@@ -178,17 +193,21 @@ def find_courses_by_name_with_details_db(search_query, limit=None, offset=None):
                     "primary_course": course_code  # The course that matched the search
                 })
 
-            # Sort results to prioritize exact matches
+            # Preserve title relevance while also prioritizing code matches.
+            search_lower = search_query.lower().strip()
+            code_query = search_lower.replace(".", "")
+
             def sort_key(result):
                 course_name_lower = result["course_name"].lower().strip() if result["course_name"] else ""
-                search_lower = search_query.lower().strip()
-
-                if course_name_lower == search_lower:
-                    return (1, result["course_code"])  # Exact match
-                elif course_name_lower.startswith(search_lower):
-                    return (2, result["course_code"])  # Starts with
-                else:
-                    return (3, result["course_code"])  # Contains
+                title_rank = 1 if course_name_lower == search_lower else 2 if course_name_lower.startswith(search_lower) else 3
+                code_rank = 3
+                if code_query:
+                    codes = [code.replace(".", "").lower() for code in result["course_code"].split("/")]
+                    if code_query in codes:
+                        code_rank = 1
+                    elif any(code.startswith(code_query) for code in codes):
+                        code_rank = 2
+                return (min(title_rank, code_rank), result["course_code"])
 
             sorted_results = sorted(grouped_results, key=sort_key)
 
@@ -204,15 +223,16 @@ def count_courses_by_name_db(search_query):
     """Counts the total number of unique course groups matching a search query."""
     from .course_grouping_service import CourseGroupingService
 
+    search_filter, params = _course_search_filter(search_query)
     with get_db_connection() as conn:
         with conn.cursor() as cur:
             # Get all matching course codes
-            query = """
+            query = f"""
                 SELECT DISTINCT course_code
                 FROM courses
-                WHERE data->>'course_name' ILIKE %s;
+                WHERE {search_filter};
             """
-            cur.execute(query, ('%' + search_query + '%',))
+            cur.execute(query, params)
             rows = cur.fetchall()
             course_codes = [row[0] for row in rows]
 

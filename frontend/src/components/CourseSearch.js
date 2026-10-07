@@ -3,7 +3,7 @@ import './CourseSearch.css';
 import { API_BASE_URL } from '../config';
 import SearchHistory from './SearchHistory';
 import { getSearchHistory } from '../utils/storageUtils';
-import { asResult, filterSearchHistory, NO_RESULTS_MESSAGE } from '../utils/resultTypes';
+import { asResult, compactCourseCode, filterSearchHistory, NO_RESULTS_MESSAGE } from '../utils/resultTypes';
 
 const CourseSearch = ({ onDataReceived, onMultipleResults, currentResultId, hasResults, atComparisonLimit, resolving, searchError, onSearchStart }) => {
   const [query, setQuery] = useState('');
@@ -23,12 +23,13 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, currentResultId, hasR
     onSearchStart();
     setShowHistory(false);
     try {
-      if (/^[A-Za-z]{2}\.\d{3}\.\d{3}$/.test(trimmedQuery)) {
-        await onDataReceived(asResult(trimmedQuery.toUpperCase()), intent);
+      const fullCode = compactCourseCode(trimmedQuery).match(/^([a-z]{2})(\d{3})(\d{3})$/);
+      if (fullCode) {
+        await onDataReceived(asResult(fullCode.slice(1).join('.').toUpperCase()), intent);
         return;
       }
       const response = await fetch(`${API_BASE_URL}/api/search?q=${encodeURIComponent(trimmedQuery)}&limit=20`);
-      if (!response.ok) throw new Error('Error searching for course or professor name.');
+      if (!response.ok) throw new Error('Error searching for courses or professors.');
       const matches = await response.json();
       if (request !== requestRef.current) return;
       const count = matches.courses.total_count + matches.professors.total_count;
@@ -63,6 +64,7 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, currentResultId, hasR
           <input
             ref={searchInputRef} type="text" value={query} maxLength="1000"
             aria-label="Course code, course name, or professor name"
+            title="Search a full or partial course code, with or without periods, or a course or professor name."
             className={showHistory && filteredHistory.length ? 'dropdown-visible' : undefined}
             onChange={event => setQuery(event.target.value)}
             onKeyDown={event => { if (event.key === 'Enter' && !event.defaultPrevented) handleSearch('replace'); }}
