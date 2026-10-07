@@ -49,7 +49,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
     if (event.detail > 1 && pendingRowClicks.current.has(key)) {
       cancelRowClick(key);
       selectMetric(metric);
-      if (!rowTones[group]) onRowSelect(group);
+      onRowSelect(group, true);
       return;
     }
     cancelRowClick(key);
