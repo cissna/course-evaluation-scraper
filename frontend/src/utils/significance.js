@@ -69,8 +69,7 @@ export function compareSamples(left, right, threshold = 0.05) {
   return { available: true, t, degreesOfFreedom, pValue, significant: pValue < Number(threshold) };
 }
 
-export function toggleRowSelection(rows, row, ensureSelected = false) {
+export function toggleRowSelection(rows, row) {
   const existing = rows.some(item => item.resultId === row.resultId && item.groupName === row.groupName);
-  if (existing && ensureSelected) return rows;
   return existing ? rows.filter(item => item.resultId !== row.resultId || item.groupName !== row.groupName) : [...rows, row].slice(-2);
 }
