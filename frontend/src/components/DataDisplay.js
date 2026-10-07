@@ -4,7 +4,7 @@ import { STAT_MAPPINGS, RATING_STAT_KEYS } from '../utils/statsMapping';
 import { formatPercentile } from '../utils/percentiles';
 import { convertToCSV } from '../utils/csvExport';
 
-const ROW_CLICK_DELAY_MS = 500;
+const ROW_CLICK_DELAY_MS = 125;
 
 export function formatYearRange(range) {
   if (range.min_year && range.max_year) return `${range.min_year}–${range.max_year}`;
@@ -43,20 +43,22 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
   };
   const handleCellClick = (event, group, metric) => {
     event.stopPropagation();
-    // Wait out a pointer double-click before a selection can move the table.
-    // Keyboard/assistive clicks and row-label clicks do not need this delay.
-    if (event.detail === 0) { selectRowNow(group); return; }
+    // Only another metric needs time to distinguish selection from switching.
+    if (event.detail === 0 || metric === comparisonMetric) { selectRowNow(group); return; }
     const key = JSON.stringify([group, metric]);
+    if (event.detail > 1 && pendingRowClicks.current.has(key)) {
+      cancelRowClick(key);
+      selectMetric(metric);
+      return;
+    }
     cancelRowClick(key);
-    if (event.detail > 1) return;
     const click = { group, timer: setTimeout(() => {
       pendingRowClicks.current.delete(key);
       rowSelectRef.current?.(group);
     }, ROW_CLICK_DELAY_MS) };
     pendingRowClicks.current.set(key, click);
   };
-  const selectMetric = (metric, group) => {
-    if (group !== undefined) cancelRowClick(JSON.stringify([group, metric]));
+  const selectMetric = metric => {
     flushRowClicks();
     onMetricSelect(metric);
   };
@@ -84,7 +86,7 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
     return <td key={metric} className={tone ? `cell-selected-${tone}${significant ? ' cell-significant' : ''}` : undefined}
       data-comparison-metric={onMetricSelect ? metric : undefined}
       onClick={onRowSelect && onMetricSelect ? event => handleCellClick(event, group, metric) : undefined}
-      onDoubleClick={onMetricSelect ? () => selectMetric(metric, group) : undefined}>
+      onDoubleClick={onMetricSelect && !onRowSelect ? () => selectMetric(metric) : undefined}>
       <span className="stat-value" tabIndex="0" aria-label={`${displayed}. ${tooltip.join('. ')}`}>
         {showPercentiles && hasPercentile
           ? <>{percentile.slice(0, -2)}<sup className="percentile-suffix">{percentile.slice(-2)}</sup></>
