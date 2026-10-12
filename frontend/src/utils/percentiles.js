@@ -16,12 +16,24 @@ export function formatPercentile(value) {
   return `${displayed}${suffix}`;
 }
 
-export function lookupPercentile(mean, metric, benchmark, weightByClassSize = false) {
+export function getPercentileViewLabels(hasCourses, hasProfessors) {
+  if (hasCourses && hasProfessors) {
+    return { population: 'course / professor averages', weighting: 'average class size / students per semester' };
+  }
+  return hasProfessors
+    ? { population: 'professor averages', weighting: 'average students per semester' }
+    : { population: 'course averages', weighting: 'average class size' };
+}
+
+export function lookupPercentile(mean, metric, benchmark, weightByClassSize = false, scopeType = 'course') {
   if (!Number.isFinite(mean) || mean < 1 || mean > 5) return { percentile: null, percentile_reason: 'No valid responses for this metric.' };
-  const percentiles = benchmark?.metrics?.[metric]?.[weightByClassSize ? 'size_weighted_percentiles' : 'percentiles'];
+  const professor = scopeType === 'professor';
+  const metrics = professor ? benchmark?.professor_metrics : benchmark?.metrics;
+  const percentiles = metrics?.[metric]?.[weightByClassSize ? 'size_weighted_percentiles' : 'percentiles'];
   // The 401 entries represent 1.00–5.00. Rounding is only for this lookup.
   const percentile = percentiles?.[Math.round(mean * 100) - 100];
-  if (benchmark?.version !== 3 || !Array.isArray(percentiles) || percentiles.length !== 401 || !Number.isFinite(percentile)) {
+  const supportedVersion = professor ? benchmark?.version === 4 : [3, 4].includes(benchmark?.version);
+  if (!supportedVersion || !Array.isArray(percentiles) || percentiles.length !== 401 || !Number.isFinite(percentile)) {
     return { percentile: null, percentile_reason: 'The percentile benchmark is not available for this metric.' };
   }
   return { percentile, percentile_reason: null };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './DataDisplay.css';
 import { STAT_MAPPINGS, RATING_STAT_KEYS } from '../utils/statsMapping';
-import { formatPercentile } from '../utils/percentiles';
+import { formatPercentile, getPercentileViewLabels } from '../utils/percentiles';
 import { convertToCSV } from '../utils/csvExport';
 
 export function formatYearRange(range) {
@@ -27,9 +27,13 @@ const DataDisplay = ({ data, errorMessage, selectedStats = [], statisticsMetadat
     const hasPercentile = Number.isFinite(details.percentile);
     const percentile = hasPercentile ? formatPercentile(details.percentile) : null;
     const displayed = showPercentiles ? percentile ?? 'N/A' : absolute;
+    const professor = details.percentile_population === 'professor';
+    const { population, weighting } = getPercentileViewLabels(!professor, professor);
+    const weightLabel = details.percentile_weighted_by_class_size ? `weighted by ${weighting}` : `equal ${professor ? 'professor' : 'course'} weights`;
     const tooltip = [
       showPercentiles ? absolute : hasPercentile
-        ? `${percentile} percentile${details.percentile_weighted_by_class_size ? ' (weighted by class size)' : ''}` : 'Percentile unavailable',
+        ? `${percentile} percentile` : 'Percentile unavailable',
+      hasPercentile && `Compared with ${population}; ${weightLabel}.`,
       !hasPercentile && details.percentile_reason,
       `n = ${details.n ?? 0}, σ = ${Number.isFinite(details.std) ? details.std.toFixed(2) : 'N/A'}`,
       metric === 'workload' ? 'Higher percentiles mean heavier workload.' : null,

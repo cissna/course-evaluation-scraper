@@ -151,6 +151,7 @@ function hasResponses(instance) {
 
 export function processAnalysisRequest(rawData, params) {
   const scope = params.scope || { type: rawData.metadata?.result_type || 'course', name: rawData.metadata?.professor_name };
+  const percentilePopulation = scope.type === 'professor' ? 'professor' : 'course';
   const scoped = Object.fromEntries(Object.entries(rawData.instances || {}).filter(([, record]) =>
     record && typeof record === 'object' && (scope.type !== 'professor' || getRecordedInstructor(record) === scope.name)
   ));
@@ -202,7 +203,8 @@ export function processAnalysisRequest(rawData, params) {
       metadata[groupName][metric] = {
         ...details,
         source_ids: [...new Set(sourceIds)],
-        ...lookupPercentile(details.mean, metric, params.benchmark, params.weightPercentilesByClassSize),
+        ...lookupPercentile(details.mean, metric, params.benchmark, params.weightPercentilesByClassSize, percentilePopulation),
+        percentile_population: percentilePopulation,
         percentile_weighted_by_class_size: Boolean(params.weightPercentilesByClassSize),
         benchmark_years: params.benchmark?.year_coverage || null,
       };
