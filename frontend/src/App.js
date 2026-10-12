@@ -12,6 +12,7 @@ import { RATING_STAT_KEYS } from './utils/statsMapping';
 import { compareSamples, toggleRowSelection } from './utils/significance';
 import { calculateLast3YearsRange } from './utils/yearUtils';
 import { toggleSeparation } from './utils/separationOptions';
+import { getPercentileViewLabels } from './utils/percentiles';
 import { getShowPercentilesPreference, saveShowPercentilesPreference, getPercentileWeightingPreference, savePercentileWeightingPreference,
   getStatisticsPreferences, saveStatisticsPreferences } from './utils/storageUtils';
 import { loadResultWithData } from './hooks/useEvaluationResult';
@@ -132,6 +133,7 @@ function App() {
   const isSideBySide = selections.length > 1;
   const hasCourses = !selections.length || selections.some(result => result.type === 'course');
   const hasProfessors = selections.some(result => result.type === 'professor');
+  const percentileLabels = getPercentileViewLabels(hasCourses, hasProfessors);
   const hasFormerNames = selections.some(result => analyses[result.id]?.metadata?.former_names?.length || analyses[result.id]?.metadata?.has_former_names);
   const visibleMetrics = RATING_STAT_KEYS.filter(key => options.stats[key]);
   const effectiveMetric = visibleMetrics.includes(metric) ? metric : visibleMetrics[0] || null;
@@ -193,7 +195,7 @@ function App() {
     <AdvancedOptions options={options} onApply={applyAdvancedOptions} hasCourses={hasCourses} hasProfessors={hasProfessors}
       hasFormerNames={hasFormerNames} comparisonMode={comparisonMode} showLast3YearsActive={last3Years} onDeactivateLast3Years={() => setLast3Years(false)} expanded={expanded} onExpandedChange={setExpanded} />
     {selections.length > 0 && <p className="ratings-caption">{options.showPercentiles
-      ? options.weightPercentilesByClassSize ? 'Ratings shown as percentiles of course averages, weighted by average class size.' : 'Ratings shown as percentiles of course averages.'
+      ? `Ratings shown as percentiles of ${percentileLabels.population}${options.weightPercentilesByClassSize ? `, weighted by ${percentileLabels.weighting}` : ''}.`
       : 'Ratings are on a 1–5 scale.'}</p>}
   </>;
   return <div className="App">

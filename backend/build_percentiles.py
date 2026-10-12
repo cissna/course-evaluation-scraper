@@ -36,6 +36,8 @@ def main():
         args.output.write_text(json.dumps(benchmark, indent=2) + '\n')
     print(json.dumps({'years': benchmark['years'], 'courses_by_metric': {
         key: metric['course_count'] for key, metric in benchmark['metrics'].items()
+    }, 'professors_by_metric': {
+        key: metric['professor_count'] for key, metric in benchmark['professor_metrics'].items()
     }, 'skipped_records': benchmark['skipped_records']}))
 
 

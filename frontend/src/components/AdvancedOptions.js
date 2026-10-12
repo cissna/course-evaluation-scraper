@@ -4,6 +4,7 @@ import { STATISTICS_CONFIG, ALL_STAT_KEYS } from '../utils/statsMapping';
 import { toggleSeparation } from '../utils/separationOptions';
 import { THRESHOLD_HELP } from './ComparisonMetric';
 import { isValidThreshold } from '../utils/significance';
+import { getPercentileViewLabels } from '../utils/percentiles';
 
 const AdvancedOptions = ({ options, onApply, hasCourses = true, hasProfessors = false, hasFormerNames = false, comparisonMode = false, showLast3YearsActive, onDeactivateLast3Years, expanded, onExpandedChange }) => {
   const changeFilter = (key, value) => onApply({ ...options, filters: { ...options.filters, [key]: value } });
@@ -14,6 +15,7 @@ const AdvancedOptions = ({ options, onApply, hasCourses = true, hasProfessors = 
   if (!expanded) return <button onClick={() => onExpandedChange(true)}>Advanced Options</button>;
   const exact = options.separationKeys.includes('exact_period');
   const yearOrSeason = options.separationKeys.includes('year') || options.separationKeys.includes('season');
+  const percentileLabels = getPercentileViewLabels(hasCourses, hasProfessors);
   return <div className="advanced-options">
     <h3>Advanced Options</h3>
     <div className="options-grid">
@@ -23,10 +25,13 @@ const AdvancedOptions = ({ options, onApply, hasCourses = true, hasProfessors = 
           <input type="checkbox" checked={options.stats[key]} onChange={() => onApply({ ...options, stats: { ...options.stats, [key]: !options.stats[key] } })} />
           {STATISTICS_CONFIG[key].displayName}
         </label>)}
-        <label className="percentile-weighting" title="Depending on your perspective, this is a more truthful way to interpret the percentiles, since you are more likely to take classes with more people.">
+        <label className="percentile-weighting" title={[
+          hasCourses && 'Course percentiles give more weight to courses with more evaluation responses per term.',
+          hasProfessors && 'Professor percentiles give more weight to professors with more evaluation responses per semester, across all their courses.',
+        ].filter(Boolean).join(' ')}>
           <input type="checkbox" checked={options.weightPercentilesByClassSize}
             onChange={event => onApply({ ...options, weightPercentilesByClassSize: event.target.checked })} />
-          Weight percentiles by average class size
+          Weight percentiles by {percentileLabels.weighting}
         </label>
         {comparisonMode && <><label className="significance-threshold" title={THRESHOLD_HELP}>
           Significance threshold for comparisons
