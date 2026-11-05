@@ -57,7 +57,7 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, currentResultId, hasR
   };
 
   return (
-    <div className="course-search">
+    <div className={`course-search${hasResults ? ' with-comparison' : ''}`}>
       <div className={`search-controls${hasResults ? ' with-comparison' : ''}`}>
         <div className="search-primary-controls">
         <div className="search-input-container">
@@ -80,8 +80,10 @@ const CourseSearch = ({ onDataReceived, onMultipleResults, currentResultId, hasR
           title={atComparisonLimit ? 'Remove a course or professor to add another.' : undefined}>Add side-by-side</button>}
         </div>
       </div>
-      {(error || searchError) && <p className="error-message" role="alert">{error || searchError}</p>}
-      {atComparisonLimit && <p className="comparison-limit" role="status">Remove a course or professor to add another.</p>}
+      <div className="search-status">
+        {(error || searchError) && <p className="error-message" role="alert">{error || searchError}</p>}
+        {atComparisonLimit && <p className="comparison-limit" role="status">Remove a course or professor to add another.</p>}
+      </div>
     </div>
   );
 };

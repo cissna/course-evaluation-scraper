@@ -1,8 +1,8 @@
 .course-search {
     margin: 20px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items to the top */
+    flex-direction: column;
+    align-items: center;
     gap: 0;
 }
 
@@ -16,12 +16,14 @@
 .search-controls {
     display: flex;
     align-items: flex-start;
-    flex: 0 1 600px;
+    width: min(100%, 600px);
     min-width: 0;
 }
 
-.search-controls.with-comparison { flex-basis: 750px; }
+.search-controls.with-comparison { width: min(100%, 750px); }
 .search-primary-controls { display: flex; align-items: stretch; flex: 1; min-width: 0; }
+.search-status { width: min(100%, 600px); }
+.course-search.with-comparison .search-status { width: min(100%, 750px); }
 
 .course-search input {
     padding: 10px;
@@ -69,16 +71,7 @@
 }
 
 @media (max-width: 600px) {
-    .course-search {
-        flex-wrap: wrap;
-    }
-
     .search-controls {
-        flex: 1 0 100%;
         max-width: 100%;
-    }
-
-    .course-search > .error-message {
-        flex-basis: 100%;
     }
 }
